@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+
+% For document layout and formatting
+\usepackage[a4paper, vmargin=2.54cm,
+hmargin=2.54cm]{geometry}
+\usepackage{lineno}
+\linespread{1.1} % 1.6 for double spacing and 1.3 for one-and-a-half spacing
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{subfiles}
+\usepackage[toc,page]{appendix}
+
+% For fonts and symbols
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+
+% For references
+\usepackage[backend=biber, style=ieee]{biblatex}
+\addbibresource{references/refs-daniel.bib}
+\addbibresource{references/refs-abdulrahman.bib}
+\addbibresource{references/refs-bahri.bib}
+\usepackage{cleveref} % [capitalise,noabbrev] options
+\usepackage{csquotes}
+
+% For equations
+\usepackage{extramarks}
+\usepackage{float}
+\usepackage{cancel} % to use diagonal strikethrough to zero
+\usepackage{physics} % to use absolute and norm (for vectors) symbols
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{calc}
+\usepackage{microtype}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+
+% For plotting
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+% \pgfplotstabletypeset{search path={tables}}
+\pgfplotsset{
+    compat=newest,
+    % ignore zero/.style={%
+    %     #1ticklabel={\ifdim\tick pt=0pt 0 \else\pgfmathprintnumber{\tick}\fi}
+    %     },
+    yticklabel={\ifdim\tick pt=0pt 0 \else\pgfmathprintnumber{\tick}\fi},
+    table/search path={tables,graphs},
+} % Allows to place the legend below plot
+\usepgfplotslibrary{units} % Allows to enter the units nicely
+
+% For figures
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning,calc,fit,matrix}
+
+% For tables
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{diagbox}
+\usepackage{makecell}
+\usepackage{caption}
+\captionsetup[table]{skip=5pt}
+
+% For better lists
+\usepackage{enumerate}
+
+% For dummy text
+\usepackage{blindtext}
+\usepackage{lipsum}
+
+\addto\captionsenglish{%
+  \renewcommand{\contentsname}%
+    {Table of Contents}%
+}
+
+\renewcommand{\appendixtocname}{Appendix}
+\renewcommand{\appendixpagename}{Appendix}
+
+\linenumbers
+
+\begin{document}
+
+\subfile{sections/title}
+
+\pagenumbering{roman}
+
+\addcontentsline{toc}{section}{Declaration}
+\section*{Declaration}
+\subfile{sections/declaration}
+\newpage
+
+\addcontentsline{toc}{section}{Abstract}
+\section*{Abstract}
+\subfile{sections/abstract}
+\newpage
+
+\addcontentsline{toc}{section}{Acknowledgment}
+\section*{Acknowledgment}
+\subfile{sections/acknowledgment}
+\newpage
+
+\tableofcontents
+\newpage
+
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Short Guide}
+\subfile{sections/guide}
+
+\section{Introduction and Motivation}
+\subfile{sections/introduction}
+
+\section{Background and Related Work}
+\subfile{sections/background}
+
+\section{Requirements Analysis}
+\subfile{sections/requirements}
+
+\section{Proposed Solution}
+\subfile{sections/solution}
+
+\section{Proof of Concept}
+\subfile{sections/poc}
+
+\section{Market Research and Business Viability}
+\subfile{sections/market}
+
+\section{Project Plan}
+\subfile{sections/plan}
+
+\newpage
+
+\printbibliography
+
+\newpage
+
+\begin{appendices}
+    \subfile{sections/appendix}
+\end{appendices}
+
+\end{document}

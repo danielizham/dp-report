@@ -1,0 +1,54 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        width=\dimexpr\linewidth-6pt, % Scale the plot to \linewidth
+        grid=major, % Display a grid
+        grid style={dashed,gray!30}, % Set the style
+        title={Potential Versus Kinetic Energies},
+        xlabel=Kinetic Energy{,} $E_k$, % Set the labels
+        ylabel=Potential Energy{,} $E_p$,
+        x unit=\si{\joule}, % Set the respective units
+        y unit=\si{\joule},
+        xmin=0.0001, % xmax=3,
+        ymin=0, % ymax=3,
+        % ignore zero=x,
+        xtick distance=0.1,
+        % ytick distance=0.05,
+        legend pos=north west,
+        % legend style={at={(0.5,-0.2)},anchor=north}, % Put the legend below the plot
+        x tick label style={rotate=90,  % Display labels sideways
+            anchor=east,
+            /pgf/number format/precision=1,
+            /pgf/number format/fixed zerofill,
+            /pgf/number format/fixed,
+        },
+        y tick label style={/pgf/number format/precision=1,
+            /pgf/number format/fixed zerofill,
+            /pgf/number format/fixed,
+        },
+        ]
+        \addplot [
+            blue,
+            mark=*,
+            mark size=1.20,
+            only marks,
+            error bars/.cd,
+            x dir=both,
+            y dir=both,
+            x explicit,
+            y explicit,
+            error bar style={black,semithick}
+            ]
+            % add a plot from table; you select the columns by using the actual name in
+            % the .csv file (on top)
+            table[x=kinetic,x error=kinetic error,y=potential,y error=potential error,col sep=comma] {potential_v_kinetic.csv};
+        \addlegendentry{$E_p \text{ vs.\@ } E_k$};
+
+        \addplot [no markers, red]
+            table[x=kinetic,y={create col/linear regression={y=potential}},col sep=comma] {potential_v_kinetic.csv};
+
+        \addlegendentry[/pgf/number format/precision=6]{
+                $ \quad y = \pgfmathprintnumber[precision=4, fixed zerofill]{\pgfplotstableregressiona} \, x
+                \pgfmathprintnumber[precision=4, print sign]{\pgfplotstableregressionb}, R^2 = 0.9977 $
+            };
+    \end{axis}
+\end{tikzpicture}
