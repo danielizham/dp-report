@@ -6,9 +6,16 @@
 >Workflow : [Simple Git workflow is simple](https://www.atlassian.com/git/articles/simple-git-workflow-is-simple)
 
 **Phase 1 (Interim) - Due by the XX of November 2021**
-- [ ] Task 1: 
-- [ ] Task 2: 
-- [ ] Task 3: 
+- [ ] Abstract
+- [ ] Acknowledgment
+- [ ] Introduction and Motivation
+- [ ] Background and Related Work
+- [ ] Requirements Analysis
+- [ ] Proposed Solution
+- [ ] Proof of Concept
+- [ ] Market Research and Business Viability
+- [ ] Project Plan
+- [ ] Appendix
 
 **Phase 2 (Final) - Due by the XX of XXXX 2022**
 - [ ] Task 1: 
