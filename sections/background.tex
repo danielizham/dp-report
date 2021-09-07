@@ -49,7 +49,7 @@ which means that the actual effectiveness is missing.
 The use of simulation makes rapid experiments in realistic settings 
 and iterative UAV designs possible which is important in AI training. 
 % Explanation
-\citeauthor{Zho20} demonstrates that by 
+\citeauthor{Zho20} demonstrates that by % or \textcite{Zho20}
 using a combination of the open-source 3D dynamic simulator Gazebo
 and the autopilot system PX4
 thus ridding them from having to carry out physical experiments
@@ -73,16 +73,37 @@ Nevertheless, the explanation and the flowchart illustrating the
 Q-learning in the context of the drone control are instructive 
 for our work going forward.
 
-Hi there \textcite{Zho20}
 % }}}}
 
 % {{{{ Walker2019
 % Topic sentence
-The time-saving benefit of computer simulation is emphasized 
+The time-saving benefit and the ease of experimentation 
+afforded by the use of computer simulation is furthur emphasized 
 when studying uncertain environments.
-
 % Explanation
-Hi there \cite{Wal19}
+Dealing with an unknown environment for search and navigation applications,
+\citeauthor{Wal19} used simulation to train a UAV 
+to solve a local planning problem
+by framing the problem as a 
+partial oberservable markov decision process (POMDP)
+using continuous action spaces.
+Similar to the previous paper, the ROS-PX4 stack and the Gazebo 
+simulation software was used compared to Olympe and Sphinx 
+in this project.
+In addition, both these paper and project study path planning 
+with DRL but our work uses it for target visitation 
+in an obstacle-free environment 
+while the authors used it for searching and navigation
+in obstacle-free and non-obstacle-free environments.
+However, the use of a UAV indoor by the authors as an application 
+does not leverage the unique features of UAVs 
+but it is a good starting point 
+and easier to implement in the real world 
+when outdoor flight is restricted.
+A useful lesson that this paper provides for our project
+is the use of open AI gym in creating the UAV environment
+resulting in clearer abstraction in the codebase
+for the training process.
 % }}}}
 
 % {{{{ Garcia2020
