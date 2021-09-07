@@ -46,16 +46,42 @@ which means that the actual effectiveness is missing.
 % {{{{ Zhou2020
 
 % Topic sentence
-Author 1 says this
+The use of simulation makes rapid experiments in realistic settings 
+and iterative UAV designs possible which is important in AI training. 
 % Explanation
+\citeauthor{Zho20} demonstrates that by 
+using a combination of the open-source 3D dynamic simulator Gazebo
+and the autopilot system PX4
+thus ridding them from having to carry out physical experiments
+and adjusting parameters according to the environmental settings,
+both of which are time-consuming \cite{Zho20}.
+Thanks to the simulation, 
+the authors also were able to propose a generic
+framework to integrate the DQN algorithm into 
+the UAV environment \cite{Zho20}.
+Compared to the current work, the same Gazebo physics engine
+simulation software is used and DRL is similarly trained
+for the high level control of the UAV. 
+However, the authors used the ROS-PX4 as the controller 
+while in our work, the Olympe is used for the Anafi drone.
+A main criticism against this paper is that the operating system,
+which was Ubuntu 16.04, and 
+the ROS version, which was ROS Kinetic Kame, 
+were old and no longer supported 
+even though the paper was written in 2020.
+Nevertheless, the explanation and the flowchart illustrating the 
+Q-learning in the context of the drone control are instructive 
+for our work going forward.
 
-Hi there \cite{Zho20}
 Hi there \textcite{Zho20}
-Hi there \parencite{Zho20}
-Hi there \citeauthor{Zho20}
 % }}}}
 
 % {{{{ Walker2019
+% Topic sentence
+The time-saving benefit of computer simulation is emphasized 
+when studying uncertain environments.
+
+% Explanation
 Hi there \cite{Wal19}
 % }}}}
 
