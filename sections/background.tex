@@ -24,6 +24,7 @@ This is because Deep Reinforcement Learning involves
 making gradual improvement to a model based on 
 repeated cycles of experience, and computer simulation 
 allows these iterations to be carried out cheaply.
+% TODO: add the problem the simulation is trying to solve
 
 According to the literature reviewed, 
 Gazebo and ROS-PX4 are the most widely used software stack 
@@ -44,7 +45,6 @@ which means that the actual effectiveness is missing.
 
 % Related work
 % {{{{ Zhou2020
-
 % Topic sentence
 The use of simulation makes rapid experiments in realistic settings 
 and iterative UAV designs possible which is important in AI training. 
@@ -107,7 +107,34 @@ for the training process.
 % }}}}
 
 % {{{{ Garcia2020
-Hi there \cite{Gar20}
+% Topic sentence
+Yet another UAV research-related applications 
+that profits from the use of computer simulation 
+is the testing of new sensors on the UAV.
+% Evidence 1
+\citeauthor{Gar20} argues that the future of UAVs
+relies on the use of advanced sensors and 
+the ease of analysing their functions
+in real operational conditions~\cite{Gar20}.
+% Response
+To demonstrate such viability, they connected a LIDAR sensor
+to a PixHawk flight controller and tested the improvement
+that the new sensor provided
+in the application of navigation and obstacle avoidance.
+Importantly, prior to that, they used QGroundControl and the PX4
+platforms to analyse the addition of a LIDAR sensor
+on a simulated 3DR Iris UAV.
+Unlike our work, the authors' focus in using the simulation
+was on sensor integration and not DRL, 
+which did not feature in the paper at all. 
+A main criticism of this work is that 
+the sensor is simulated without noise
+when in the real world, the data captured
+by the sensor is invariably noisy.
+Although the objectives between the authors' and our work
+are different, it is still very helpful to learn from
+the extensive software stack and architecture guide 
+presented by the authors.
 % }}}}
 
 % }}}
