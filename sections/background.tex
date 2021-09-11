@@ -17,16 +17,15 @@
 % {{{{
 The second important concept of the project is the computer simulation.
 Simulation is a cheap and safe way to experiment with the drone
-at the expense of reduction in accuracy compared to the real world.
+at the expense of a reduction in accuracy compared to the real world.
 The research realm shows that the use of simulation is highly attractive
 in deep reinforcement learning studies with drones.
 This is because Deep Reinforcement Learning involves
-making gradual improvement to a model based on 
+making gradual improvements to a model based on 
 repeated cycles of experience, and computer simulation 
 allows these iterations to be carried out cheaply.
-% TODO: add the problem the simulation is trying to solve
 
-According to the literature reviewed, 
+According to the literature review, 
 Gazebo and ROS-PX4 are the most widely used software stack 
 for the software-in-the-loop (\textsc{SITL}) development
 because the pieces of software are open-source. 
@@ -61,31 +60,30 @@ framework to integrate the DQN algorithm into
 the UAV environment~\cite{Zho20}.
 Compared to the current work, the same Gazebo physics engine
 simulation software is used and DRL is similarly trained
-for the high level control of the UAV. 
+for the high-level control of the UAV. 
 However, the authors used the ROS-PX4 as the controller 
 while in our work, the Olympe is used for the Anafi drone.
-A main criticism against this paper is that the operating system,
+The main criticism against this paper is that the operating system,
 which was Ubuntu 16.04, and 
 the ROS version, which was ROS Kinetic Kame, 
 were old and no longer supported 
 even though the paper was written in 2020.
 Nevertheless, the explanation and the flowchart illustrating the 
-Q-learning in the context of the drone control are instructive 
+Q-learning in the context of drone control are instructive 
 for our work going forward.
-
 % }}}}
 
 % {{{{ Walker2019
 % Topic sentence
 The time-saving benefit and the ease of experimentation 
-afforded by the use of computer simulation is furthur emphasized 
+afforded by the use of computer simulation are further emphasized 
 when studying uncertain environments.
 % Explanation
 Dealing with an unknown environment for search and navigation applications,
 \citeauthor{Wal19} used simulation to train a UAV 
 to solve a local planning problem
 by framing the problem as a 
-partial oberservable markov decision process (POMDP)
+partial observable Markov decision process (POMDP)
 using continuous action spaces~\cite{Wal19}.
 Similar to the previous paper, the ROS-PX4 stack and the Gazebo 
 simulation software was used compared to Olympe and Sphinx 
@@ -99,9 +97,9 @@ However, the use of a UAV indoor by the authors as an application
 does not leverage the unique features of UAVs 
 but it is a good starting point 
 and easier to implement in the real world 
-when outdoor flight is restricted.
+when the outdoor flight is restricted.
 A useful lesson that this paper provides for our project
-is the use of open AI gym in creating the UAV environment
+is the use of the open AI gym in creating the UAV environment
 resulting in clearer abstraction in the codebase
 for the training process.
 % }}}}
@@ -124,10 +122,10 @@ in the application of navigation and obstacle avoidance.
 Importantly, prior to that, they used QGroundControl and the PX4
 platforms to analyse the addition of a LIDAR sensor
 on a simulated 3DR Iris UAV.
-Unlike our work, the authors' focus in using the simulation
+Unlike our work, the authors' focus for using the simulation
 was on sensor integration and not DRL, 
 which did not feature in the paper at all. 
-A main criticism of this work is that 
+The main criticism of this work is that 
 the sensor is simulated without noise
 when in the real world, the data captured
 by the sensor is invariably noisy.
