@@ -5,14 +5,75 @@
 \subsection{Functional requirements}
 
 \blindtext
-
+\newpage
 \subsection{Design constraints}
 
-\blindtext
+\begin{table}[hbt!]
+	\begin{tabular}{ | P{2.8cm} | P{12.2cm} |}
+		\hline
+		\textit{Name} & \textit{Description}\\ \hline
+		Power supply  & The Anafi and the Raspberry Pi must be battery powered because they are mobile (with ?? voltages DC/mAh)  \\ \hline
+		
+		Flying range/altitude & The flying range of the Anafi is limited by the signal strength of the communication between the computer and the Raspberry Pi. Also, the altitude is dictated by the Anafi’s maximum height it can reach and the performance of the drone at a certain height. \\ \hline
+		
+		Flying time  & The maximum flying time must be lower than the Anafi’s 25 minutes max flight lower than the Raspberry Pi’s ?? minutes \\ \hline
+		
+		Transmission delay  & The delay in the communication between the Raspberry Pi and the Anafi must be acceptable \\ \hline
+		
+		Payload/weights  & The Raspberry Pi with its peripherals should not exceed the maximum load the Anafi can carry. \\ \hline
+		
+	\end{tabular}
+	\caption{Technical design constraints}
+\end{table} \label{tab: technical-design-constraints}
 
+\begin{table}[hbt!]
+	\begin{tabular}{| P{2.4cm} | P{2cm} | P{10.5cm} |}
+		\hline 
+		\textit{Type} & \textit{Name } & \textit{Description} \\ \hline
+		
+		Economic & Cost & The cost of the entire system must not exceed x \$ \\ \hline 
+		
+		Environmental & Light source & The Anafi requires good lighting to take pictures of the targets \\ \hline
+		
+		Safety/Security & Secure communication & The communication between Anafi-Raspberry Pi and Raspberry Pi-computer should be uninterrupted and secured against interference \\ \hline
+		
+		Safety/Security & Safety & The Anafi must know how to return to base should there be a discommunication with the computer \\ \hline
+		
+		Ethical & Privacy & The drone must not invade the privacy of the entities other than the targets \\ \hline
+		
+		Ethical & Privacy & The monitored targets must be acceptable by law to be tracked \\ \hline
+		
+		Environmental & Eco-friendly & The system only uses electricity and emissions \\ \hline
+		
+		Sustainability & Modularity & The system must be such that the DRL algorithm can be swapped with an improved one easily \\ \hline 
+		
+		Reliability & Efficiency & The DRL should perform as expected all the time \\ \hline
+		
+	\end{tabular}
+	\caption{Practical design constraints.}
+\end{table}\label{tab: practical-design-constraints}
+
+\newpage
 \subsection{Design standards}
 
-\blindtext
+\begin{table}[hbt!]
+	\begin{tabular}{| P{2.2cm} | P{12.3cm} |}
+		\hline 
+		\textit{Standard} & \textit{Usage}\\ \hline
+		IEEE 802.11 & To be used in the communication between the Raspberry Pi and the Anafi and the Raspberry Pi and the computer \\ \hline 
+		
+		WPA2 & To be used in securing the communications above \\ \hline
+		
+		GPS & To be used by the Anafi to convey its position to the Raspberry Pi \\ \hline 
+		
+		SSH & To be used between the Raspberry Pi and the computer \\ \hline
+		
+		JSON-RPC version 2.0 & Communication protocol used to control the components of the simulated Anafi \\ \hline 
+		
+		Google Protocol Buffers & To be used by Gazebo for the message passing between its server and client \\ \hline 
+	\end{tabular}
+	\caption{Design standards table.}
+\end{table}\label{tab: design-standards}
 
 \subsection{Professional code of ethics}
 
