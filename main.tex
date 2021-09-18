@@ -9,6 +9,7 @@ hmargin=2.54cm]{geometry}
 \usepackage[english]{babel}
 \usepackage{subfiles}
 \usepackage[toc,page]{appendix}
+\usepackage[acronym]{glossaries}
 
 % For fonts and symbols
 \usepackage{times}
@@ -81,6 +82,24 @@ hmargin=2.54cm]{geometry}
 
 \renewcommand{\appendixtocname}{Appendix}
 \renewcommand{\appendixpagename}{Appendix}
+
+% List of abbreviations
+% note: do not capitalize unless it is a proper noun
+%       and use the \textsc command as a best practice
+\newacronym{ml}{\textsc{ml}}{machine learning}
+\newacronym{ai}{\textsc{ai}}{artificial intelligence}
+\newacronym{dl}{\textsc{dl}}{deep learning}
+\newacronym{drl}{\textsc{drl}}{deep reinforcement learning}
+\newacronym{uav}{\textsc{uav}}{unmanned aerial vehicle}
+\newacronym{ieee}{\textsc{ieee}}{The Institute of Electrical and Electronics Engineers}
+\newacronym{acm}{\textsc{acm}}{The Association for Computing Machinery}
+\newacronym{ros}{\textsc{ros}}{The Robot Operating System}
+\newacronym{gps}{\textsc{gps}}{The Global Positioning System}
+
+% never expand the these acronyms
+\glsunset{ieee}
+\glsunset{acm}
+\glsunset{gps}
 
 \linenumbers
 
