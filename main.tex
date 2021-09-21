@@ -24,6 +24,7 @@ hmargin=2.54cm]{geometry}
 \addbibresource{references/refs-daniel.bib}
 \addbibresource{references/refs-abdulrahman.bib}
 \addbibresource{references/refs-bahri.bib}
+
 \usepackage{cleveref} % [capitalise,noabbrev] options
 \usepackage{csquotes}
 
@@ -83,31 +84,47 @@ hmargin=2.54cm]{geometry}
 \renewcommand{\appendixtocname}{Appendix}
 \renewcommand{\appendixpagename}{Appendix}
 
-% List of abbreviations
-% note: do not capitalize unless it is a proper noun
-%       and use the \textsc command as a best practice
+%%% List of abbreviations
+%%% note: do not capitalize unless it is a proper noun
+%%%       and use the \textsc command as a best practice
+
+% Machine learning
 \newacronym{ml}{\textsc{ml}}{machine learning}
 \newacronym{ai}{\textsc{ai}}{artificial intelligence}
 \newacronym{dl}{\textsc{dl}}{deep learning}
 \newacronym{drl}{\textsc{drl}}{deep reinforcement learning}
+\newacronym{dqn}{\textsc{dqn}}{Deep Q-Network}
+\newacronym{cnn}{\textsc{cnn}}{convolutional neural network}
+\newacronym{mdp}{\textsc{mdp}}{Markov decision process}
+\newacronym{pomdp}{\textsc{pomdp}}{partially observable Markov decision process}
+
+
+% Simulation
+\newacronym{sitl}{\textsc{sitl}}{software-in-the-loop}
 \newacronym{uav}{\textsc{uav}}{unmanned aerial vehicle}
-\newacronym{ieee}{\textsc{ieee}}{The Institute of Electrical and Electronics Engineers}
-\newacronym{acm}{\textsc{acm}}{The Association for Computing Machinery}
-\newacronym{ros}{\textsc{ros}}{The Robot Operating System}
-\newacronym{gps}{\textsc{gps}}{The Global Positioning System}
+\newacronym{ros}{\textsc{ros}}{the Robot Operating System}
+
+% Institutions
+\newacronym{ieee}{\textsc{ieee}}{the Institute of Electrical and Electronics Engineers}
+\newacronym{acm}{\textsc{acm}}{the Association for Computing Machinery}
+
+% Technologies
+\newacronym{gps}{\textsc{gps}}{the Global Positioning System}
+\newacronym{lidar}{\textsc{lidar}}{Light Detection and Ranging}
 
 % never expand the these acronyms
 \glsunset{ieee}
 \glsunset{acm}
 \glsunset{gps}
+\glsunset{lidar}
 
 \linenumbers
 
 \begin{document}
 
 \subfile{sections/title}
-\pagenumbering{roman}
 
+\pagenumbering{roman}
 
 \addcontentsline{toc}{section}{Declaration}
 \section*{Declaration}
