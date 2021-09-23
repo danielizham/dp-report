@@ -20,19 +20,20 @@ Figure 1 shows a high-level architecture of a complete working system, in which 
 \subsection{Hardware/software to be used}
 
 \subsubsection{Software}
-ubuntu os
-parrot olympe
-parrot sphinx
-Gazebo simulator
-roboflow
-google colab notebook /jupyter notebook
+%parrot olympe
+%parrot sphinx
+%Gazebo simulator
+%roboflow
+%google colab notebook /jupyter notebook
+The software section contains three primary parts simulation, training, and application. The first part will focus on simulating the environment, testing the models, and flight control. Before discussing the software to be used, we will use the operating system, the base for our software applications. We selected Ubuntu 18.04 operating system for several reasons. One key reason is the compatibility because parrot Olympe and shpinx are only supported on limited distributions and operating systems. Another reason its a lite os and can be installed on the onboard computer that will be attached to the drone.For the simulation part, using shpinx and gazebo software is very helpful in visualizing the environment and how drone flight and apply the model.[more talk about simulation].In the training part, we used the simulation tools to generate some training datasets. We use a website called roboflow which helped us label the objects and generate new datasets from the existing dataset with modified constraints. For the object detection model, google colab notebook was a suffient tool to start training using \gls{cnn} Yolov5.[more talk about roboflow/training].Application software used in this project was parrot Olympe to send commands to the drone and control the flight trip and how the drone moves.[more talk about application software].
 
 
 \subsubsection{Hardware}
-Parrot ANAFI Drone
-Raspberry Pi 4
-lithium Battery
-Wi-Fi adapter dongle
-laptop control station
+%Parrot ANAFI Drone
+%Raspberry Pi 4
+%lithium Battery
+%Wi-Fi adapter dongle
+%laptop control station
+The main core of the hardware part is the drone which in our work will be Parrot ANAFI drone. This one got couple of features that made us choosing it.[] 
 
 \end{document}
