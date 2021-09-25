@@ -3,7 +3,7 @@
 
 >Semester : Fall 2021
 
->Workflow : [Simple Git workflow is simple](https://www.atlassian.com/git/articles/simple-git-workflow-is-simple)
+>Guides : [Simple Git workflow is simple](https://www.atlassian.com/git/articles/simple-git-workflow-is-simple), [Latex best practices](https://github.com/dspinellis/latex-advice#advice-for-writing-latex-documents)
 
 **Phase 1 (Interim) - Due by the XX of November 2021**
 - [ ] Abstract
