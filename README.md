@@ -11,7 +11,7 @@
 - [ ] Introduction and Motivation
 - [ ] Background and Related Work
    - [ ] Part 1 (Bahri)
-   - [ ] Part 2 (Daniel)
+   - [x] Part 2 (Daniel)
    - [ ] Part 3 (Abdulrahman)
 - [ ] Requirements Analysis
 - [ ] Proposed Solution
