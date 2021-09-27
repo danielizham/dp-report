@@ -11,9 +11,36 @@ Below are examples of different constructs in a report. You
 can copy-paste and change the content. For more information,
 refer to the relevant package manual in \textsc{ctan}.
 
+\subsection{Abbreviations}
+
+To add an abbreviation (e.g. \textsc{uav}), 
+append the following line 
+in the list of abbreviations portion in main.tex:
+\begin{center}
+    \verb|\newacronym{uav}{\textsc{uav}}{unmanned aerial vehicle}|
+\end{center}
+
+\noindent
+To use the abbreviation, there are 3 ways to do so:
+\begin{enumerate}
+    \item In a normal case: \verb|\gls{uav}|
+    \item\label{item:plural} For its plural form: \verb|\glspl{uav}|
+    \item\label{item:beginning} In the beginning of a sentence: \verb|\Gls{uav}|
+    \item A combination of cases \ref{item:plural} 
+        and \ref{item:beginning}: \verb|\Glspl{uav}|
+\end{enumerate}
+
+\noindent
+For example:
+\begin{quotation}
+    \noindent
+    An \gls{uav} has many unique features. 
+    \Glspl{uav} have been used in many different applications.
+\end{quotation}
+
 \subsection{Figure}
 
-\begin{figure}[h] 
+\begin{figure}[htb] 
     \centering
     \includegraphics[width=0.8\textwidth]{arch.png} 
     \caption{The arch linux logo} \label{fig:arch-linux} 

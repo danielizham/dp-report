@@ -11,6 +11,139 @@
 % Part 1
 
 % Part 2
+% {{{
+
+% Background 
+% {{{{
+The second important concept of the project is the computer simulation.
+Simulation is a cost-effective, time-saving, flexible 
+and safe way to experiment with a drone
+at the expense of a reduction in accuracy compared to the real world.
+The research realm has shown that the use of simulation 
+is highly attractive in \gls{drl} studies with drones.
+This is because \gls{drl} involves
+making gradual improvements to a model based on 
+repeated cycles of experience, and computer simulation 
+allows these iterations to be carried out cheaply.
+
+According to the literature review, 
+the combination of Gazebo, \gls{ros}
+and \textsc{px4} are the most widely used software stack 
+for the \gls{sitl} development
+because they are open-source. 
+In contrast, Sphinx and Olympe, which are used in this project, 
+are closed-source.
+Although open-source software 
+allows for full control and the flexibility to tinker
+since the source code is freely available,
+it is less stable and time-consuming to debug
+when there is an error in the source code.
+Another conclusion from the literature is that 
+the transfer from simulation to the real world,
+which this project also aims to accomplish,
+is lacking in the studies reviewed.
+As a result, it is not possible to comment on 
+how the simulation findings effectively translate
+to the physical environment.
+% }}}}
+
+% Related work
+% {{{{ Zhou2020
+% Topic sentence
+The use of simulation makes rapid experiments in realistic settings 
+and iterative \gls{uav} designs possible, 
+both of which are important in \gls{ai} training. 
+% Explanation
+\citeauthor{Zho20} demonstrates this by % or \textcite{Zho20}
+using a combination of the open-source 3D dynamic simulator Gazebo
+and the autopilot system \textsc{px4}.
+Through this, they avoided the time-consuming steps of 
+carrying out physical experiments
+and adjusting parameters according 
+to the environmental settings~\cite{Zho20}.
+Thanks to the simulation, 
+the authors were also able to propose a generic
+framework to integrate the \gls{dqn} algorithm into 
+the simulated \gls{uav} environment~\cite{Zho20}.
+In our work, the same Gazebo physics engine
+simulation software is used, and \gls{drl} is similarly trained
+for the high-level control of the \gls{uav}. 
+However, the authors used the \gls{ros}-\textsc{px4} as the controller 
+while in our work, the Olympe program is used.
+The main criticism against this paper is that the operating system,
+which was Ubuntu 16.04, and 
+the \gls{ros} version, which was Kinetic Kame, 
+were old and no longer supported 
+even though the paper was written in 2020.
+Nevertheless, the explanation and the flowchart illustrating the 
+Q-learning in the context of drone control are instructive 
+for our work going forward.
+% }}}}
+
+% {{{{ Walker2019
+% Topic sentence
+The time-saving benefit and the ease of experimentation 
+afforded by the use of computer simulation are further emphasized 
+when studying uncertain environments.
+% Explanation
+Dealing with an unknown environment for search and navigation applications,
+\citeauthor{Wal19} used simulation to train a \gls{uav}
+to solve a local planning problem
+by framing the problem as 
+a \gls{pomdp}
+using continuous action spaces~\cite{Wal19}.
+Similar to the previous paper, the \gls{ros}-\textsc{px4} stack 
+and the Gazebo 
+simulation software were used compared to Olympe and Sphinx 
+in this project~\cite{Wal19}.
+In addition, both the paper and this project study path planning 
+with \gls{drl} but our work uses it for target visitation 
+in an obstacle-free environment 
+while the authors used it for searching and navigation
+in both obstacle-free and non-obstacle-free environments.
+However, the use of a \gls{uav} indoor by the authors as an application 
+does not leverage the unique features of \glspl{uav}, 
+but it is a good starting point 
+and easier to implement in the real world 
+when the outdoor flight is restricted.
+A useful lesson that this paper provides for our project
+is the use of the open \gls{ai} gym in creating the \gls{uav} environment
+resulting in clearer abstraction in the codebase
+for the training process.
+% }}}}
+
+% {{{{ Garcia2020
+% Topic sentence
+Yet another \gls{uav} research-related applications 
+that profits from the use of computer simulation 
+is the testing of new sensors on the \gls{uav}.
+% Evidence 1
+\citeauthor{Gar20} argues that the future of \glspl{uav}
+relies on the use of advanced sensors and 
+the ease of analyzing their functions
+in real operational conditions~\cite{Gar20}.
+% Response
+To demonstrate such viability, they connected a \gls{lidar} sensor
+to a PixHawk flight controller and tested the improvement
+that the new sensor provided
+in the application of navigation and obstacle avoidance.
+Importantly, prior to that, they used QGroundControl and the \textsc{px4}
+platforms to analyze the addition of a \gls{lidar} sensor
+on a simulated 3DR Iris \gls{uav}.
+Unlike our work, the authors' focus for using the simulation
+was on sensor integration and not \gls{drl} 
+which did not feature in the paper. 
+The main criticism of this work is that 
+the sensor is simulated without noise
+when in the real world, the data captured
+by the sensor is invariably noisy.
+Although the objectives between the authors' and our work
+are different, it is still very helpful to learn from
+the extensive software stack and architecture guide 
+presented by the authors.
+% }}}}
+
+% }}}
 
 % Part 3
 
