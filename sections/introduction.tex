@@ -4,39 +4,169 @@
 
 \subsection{Problem statement}
 
-% Describe the problem we are trying to solve
+% # Describe the problem we are trying to solve
+% ## visiting one destination - no problem at all since there is one way
+% ## visiting multiple destinations in the fastest time possible - TSP
+% ## why do we want to visit multiple destinations?
+% ## what if the destinations/targets are moving in a straight line? 
+% ## How do we visit those targets in the shortest time?
+% ## what methods have been used? 
+% ## Imagine if the way the targets are moving and the way the 
+% ## the environment is affecting the uav is unknown or uncertain,
+% ## now, what do we do.
+% ## This is where rl and specifically drl excel. It will make the 
+% ## uav figure it out by itself by trial and error.
+% ## This project will implement a drl algorithm developed by 
+% ## ?? et al. in a physics simulator to demonstrate the power/success 
+% ## of drl in the mobile target visitation.
 
-% Differentiate between technical and non-technical challenges
+% # Differentiate between technical and non-technical challenges
+% ## technical challenges
+% ### arise from the physical limitations of the Anafi drone system
+% ### and the computer used to train the dl models.
+% ### The Anafi drone model used is ??. The model has a storage
+% ### and memory and there is no OS? There is a new Anafi AI
+% ### which fully has what is required for our needs
+% ### but due to its cost and logistical reasons as well as
+% ### the likely issues with working with a new product made
+% ### decide not to choose this route as a solution.
+% ### The drl model that the ?? etc. came up with is fixed
+% ### but the object detection is up to us.
+% ### So the depth and width of the model cannot be too big that
+% ### a normal data center can run although that will improve
+% ### the model accuracy. In other words, we need to trade off
+% ### the size and accuracy of the model 
+% ### for the maximum computational resources that we can handle. 
+% ### We estimate that the computer used to develop the drl model
+% ### should have at least an intel i5 10th generation or
+% ### Ryzen 4000 series, a GPU of at least the Nvidia 2000 series
+% ### with a VRAM of 12GB and a RAM of 8GB.
 
-% Include graphical content if possible
+% ### Power supply - The Anafi and the Raspberry Pi must be 
+% ###                battery powered because they are mobile
+% ### Flying range/altitude - The flying range of the Anafi is limited 
+% ###           by the signal strength of the communication between the computer and the Raspberry Pi. Also, the altitude is dictated by the Anafi’s maximum height it can reach and the performance of the drone at a certain height.
+% ### Flying time - The maximum flying time must be lower than the Anafi’s 25 minutes max flight lower than the Raspberry Pi’s ?? minutes
+% ### Transmission delay - The delay in the communication between the Raspberry Pi and the Anafi must be acceptable
+% ### Payload/weights - The Raspberry Pi with its peripherals should not exceed the maximum load the Anafi can carry.
+
+% ## non-technical challenges
+% ### Economic - Cost needs be below budget. The stakeholders or clients
+% ###    will not accept 
+% ### Environmental	Light source - The Anafi requires good lighting to take pictures of the targets
+% ### Security - The communication between Anafi-Raspberry Pi and Raspberry Pi-computer should be uninterrupted and secured against interference 
+% ### Safety - The Anafi must know how to return to base should there be a discommunication with the computer
+% ### Ethical - Privacy	The drone must not invade the privacy of the entities other than the targets
+% ### Privacy - The monitored targets must be acceptable by law to be tracked
+% ### Modularity - The system must be such that the DRL algorithm can be swapped with an improved one easily
+% ### For a more in depth analysis of these challenges, please refer to \cref{tab:constraints}
+
+% # Include graphical content if possible
 
 \blindtext
 
 \subsection{Project significance}
 
-% Project importance and uses
+% # Project importance and uses
 
-% Impacts if the design problem was not solved
+% ## Importance of  
+% ## using a uav for mobile target visitation
+% ## and using physics simulation to train it through drl:
+% ### using uavs enjoys the high resolution images
+% ### afforded by CCTV cameras 
+% ### without its restriction in movement
+% ### and the large-scale monitoring of satelites
+% ### without its low accuracy.
+% ### Target visitation done by a uav
+% ### will eliminate the need 
+% ### faster movements than other types of robots
+% ### fewer obstacles
+% ### Using drl will allow the uav to generalise better
+% ### and perform bettern in unknown environment
+% ### unknown targets' mobility pattern
+% ### Using physics simulation will make the product 
+% ### more accurate since it simulates environment noise
+% ### so the drl model will take that into account when learning
+% ### compared to a mathematical simulation
 
-% Describe how can stakeholders use the project
+% ## Describe how can stakeholders use the project
+% ### The stakeholders of this project will be 
+% ### those companies, institutions and organizations who
+% ### have certain subjects of interest, 
+% ### which can either be fixed or mobile,
+% ### that they want to monitor, capture or track.
+% ### By using the product of this project,
+% ### they be able to make these tasks faster or,
+% ### better yet, possible.
 
-% Benefits of the project in Qatar and the region
+% ## Uses/Applications:
+% ### criminals tracking 
+% ### wildlife monitoring 
+% ### security surveillance
+% ### last-mile delivery
+% ### and many more...
 
-% Possibly cite relevant references that discuss the importance of our project
+% # Impacts if the design problem was not solved
+% ## the tasks mentioned above will remain slow
+% ## time consuming, tedious and expensive
+% ## while some will remain infeasible
 
-% Why are we interested in this project specifically? 
+% # Benefits of the project in Qatar and the region
+% ## as the population increases in Qatar
+% ## be it because of the anticipation of the FIFA 2022
+% ## or because Qatar's policies are chaning,
+% ## the use of drone can help manage the increase in population
+% ## in addition, the covid 19 has made online shopping
+% ## the #1 choice for people to buy goods in Qatar
+% ## The success of this project can help in delivering
+% ## the goods with minimum delay
 
-% Discuss career possibilities that could arise from this project
+% # Possibly cite relevant references that discuss the importance of our project
+
+% # Why do you want to do this project? 
+% # What got you interested in it? 
+% # And how this project will help you further your career goals?
+% ## More and more giant companies like Google and Amazon
+% ## are experimenting with drones to improve their operations.
+% ## Target visitation is one of the main subtasks in such
+% ## circumstances. Therefore, we believe there is a huge value
+% ## in this project and upon the successful completion of it,
+% ## there will be many doors open up for us interms of
+% ## career opportunities because people with this knowledge 
+% ## and skills are scarce.
+% ## Besides the jobs that are directly related to the project,
+% ## there are other fields that will appreciate the skills
+% ## that we will gain from the processes of designing the simulation,
+% ## training the drl models and testing it in the real world.
+% ## These other fields include robotics, machine learning, and 
+% ## network/technology security
 
 \blindtext
 
 \subsection{Project objectives}
 
-% Express Clear specific objectives
+% # Express Clear specific objectives
+% ## 1. To demonstrate the effectiveness of a physics simulator
+% ##    in training a uav in mobile target visitation task
+% ## 2. To provide a framework for this task for drl so that
+% ##    future research can make use of it to test new drl
+% ##    algorithms
+% ## 3. To demonstrate the effectiveness of this project
+% ##    in a physical environment and targets
 
-% Desired results
-
-% The project success will be judged based on this section
+% # Deliverables and Desired results
+% ## Deliverables include the trained drl model
+% ## and the Anafi drone system with the model installed.
+% ## These are the criteria for success
+% ## After the training is complete,
+% ## given the same mobility pattern for the moving targets,
+% ## the uav should be able to fly to locations it has learned
+% ## will allow it to capture the most targets. In other words,
+% ## it anticipates that these locations are those it can reach
+% ## the quickest and also where most targets will gather.
+% ## In doing so, it will prove that it can acomplish 
+% ## the mobile target visitation task for an unknown mobility pattern
+% ## and in an uncertain environment.
 
 \blindtext
 
