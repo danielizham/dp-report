@@ -5,12 +5,51 @@
 \subsection{Problem statement}
 
 % # Describe the problem we are trying to solve
+More often than not, individuals and organizations face the problem
+of visiting a set of destinations in the fastest time possible
+in order to carry out an observation.
+For example, an operational engineer needs to monitor
+a number of reactors and plants during his or her shift.
+The need to do so in the fastest time can be due to restrictions in
+cost, energy or other limited resources of concern.
+This problem is commonly known as the Travelling Salesman problem
+where historically, a salesman had to make a decision in which order
+to visit a set of cities in the most time-saving manner to do his trade.
+To achieve that goal, the destinations have to be visited in the order
+that is the most efficient in terms of the metric of interest
+and algorithms such as Dijkstra's have been successfully used 
+to find the shortest path between the cities.
 % ## visiting one destination - no problem at all since there is one way
 % ## visiting multiple destinations in the fastest time possible - TSP
 % ## why do we want to visit multiple destinations?
 % ## what if the destinations/targets are moving in a straight line? 
 % ## How do we visit those targets in the shortest time?
 % ## what methods have been used? 
+
+To accomplish that observation, ??? and this ???
+found that using \glspl{uav}, or commonly known as drones,
+can bring many benefits 
+compared to the traditional methods.
+Instead of going to the locations in person, installing a \textsc{cctv},
+or using the satellite technology, a \gls{uav} can provide
+the high resolution images or videos without 
+having to be installed and maintained at that site
+or being restricted to that specific location.
+Moreover, the mobility of the \glspl{uav} is important
+in cases where the destinations are actually mobile targets.
+For instance, a marine biologist needs to investigate 
+migrating pods of whales.
+If such targets move in a straight line only,
+then the problem can be formulated as an optimization problem
+and may be solved using mixed integer programming.
+However, if the mobility pattern of the targets is unknown,
+then such solution will not work.
+The problem that this project aims to solve is 
+how to make a drone able to visit mobile targets 
+given their historical locations in the fastest time
+and in turn the most energy saving way. 
+Particularly, this project aims to demonstrate the 
+use of physics simulation in solving it. 
 % ## Imagine if the way the targets are moving and the way the 
 % ## the environment is affecting the uav is unknown or uncertain,
 % ## now, what do we do.
