@@ -60,6 +60,62 @@ use of physics simulation in solving it.
 % ## of drl in the mobile target visitation.
 
 % # Differentiate between technical and non-technical challenges
+To solve the aforementioned problem, 
+there are many technical and non-technical challenges
+that need to be dealt with.
+Like many other engineering projects,
+these challenges have forced us to make trade-offs.
+The former category of challenges arises 
+from the physical limitations of the drone used to
+carry out the observation
+and of the computer used to train the \gls{dl} models.
+The main technical challenge when working with a drone
+is its power supply which is battery powered due to its mobility. 
+Other types of power supply such as the wireless power transfer
+is also possible but infeasable since firstly, it is not the
+focus of this project, and secondly, the technology requires 
+advanced knowledge which cannot be gained within the duration 
+of the design project.
+This challenge is similarly faced with the Raspberry Pi attached
+to the drone although its power usage is much lower compared to the drone.
+The problem with the type of the power supply, in addition to its size, 
+directly leads to a host of other technical challenges
+such as short flying range and altitude, restricted flying time,
+and low allowable payload.
+Many of the challenges can be alleviated if the drone model is changed
+from the Anafi 4K to a another one such as 
+the Anafi Ai or the DJI Matrice 300 RTK,
+but the cost and shipping logistics as well as
+the likely issues with working with a new product
+render this solution prohibitive.
+% ### Flying range/altitude - The flying range of the Anafi is limited 
+% ###           by the signal strength of the communication between the computer and the Raspberry Pi. Also, the altitude is dictated by the Anafi’s maximum height it can reach and the performance of the drone at a certain height.
+% ### Flying time - The maximum flying time must be lower than the Anafi’s 25 minutes max flight lower than the Raspberry Pi’s ?? minutes
+% ### Transmission delay - The delay in the communication between the Raspberry Pi and the Anafi must be acceptable
+% ### Payload/weights - The Raspberry Pi with its peripherals should not exceed the maximum load the Anafi can carry.
+
+In terms of the computer running the \gls{dl} training,
+the technical challenge presents itself as 
+the accuracy and cost tradeoff.
+The drl model that the ?? etc. came up with 
+is fixed and not big
+but the object detection one is up to us.
+For the object detection task, 
+the depth and width of the model cannot be too big that
+a normal data center cannot run although 
+being big will improve
+the model accuracy. In other words, we need to trade off
+the accuracy for the size of the model 
+for the maximum computational resources that we can handle. 
+As a result of this, we will have to accept some misses
+when the \gls{uav} is detecting the targets during the 
+\gls{drl} training knowing that improving the accuracy will 
+will not be possible given our limitations.
+We estimate that the computer used to develop the \gls{drl} model
+should have at least an Intel i5 10th generation or
+Ryzen 4000 series \textsc{cpu}, and a \textsc{ram} of 8GB, 
+and a \textsc{gpu} of at least an Nvidia 2000 series
+with a \textsc{vram} of 12GB.
 % ## technical challenges
 % ### arise from the physical limitations of the Anafi drone system
 % ### and the computer used to train the dl models.
