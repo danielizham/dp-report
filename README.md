@@ -12,7 +12,7 @@
 - [ ] Background and Related Work
    - [ ] Part 1 (Bahri)
    - [x] Part 2 (Daniel)
-   - [ ] Part 3 (Abdulrahman)
+   - [x] Part 3 (Abdulrahman)
 - [ ] Requirements Analysis
 - [ ] Proposed Solution
 - [ ] Proof of Concept
