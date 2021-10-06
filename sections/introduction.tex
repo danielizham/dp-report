@@ -145,6 +145,31 @@ with a \textsc{vram} of 12GB.
 % ### Transmission delay - The delay in the communication between the Raspberry Pi and the Anafi must be acceptable
 % ### Payload/weights - The Raspberry Pi with its peripherals should not exceed the maximum load the Anafi can carry.
 
+As for the non-technical challenges, they are caused
+by the practical considerations that comes 
+from attempting to solve the problem.
+One of the most important of them is cost. 
+We have deliberated that
+the resulting price for the stakeholders or clients
+should not exceed \textsc{qar} 6000. 
+This means that the fixed and variable costs of this project
+coming from procuring the Anafi drone, the Raspberry Pi and other
+components in the system, 
+and wages for designing and training the model
+should be around \textsc{qar} 4000 to make a 30\% profit 
+which is our target.
+A second non-technical challenge that we are required to consider
+is the security in using an autonomous drone.
+Specifically, the communication between Anafi-Raspberry Pi 
+and Raspberry Pi-computer should be uninterrupted 
+and secured against hacking and interference.
+In addition, the drone must not invade the privacy 
+of entities other than the targets
+and the monitored targets 
+must be acceptable by law to be tracked.
+For a more in depth analysis of these challenges, 
+please refer to \cref{sec:constraints}.
+
 % ## non-technical challenges
 % ### Economic - Cost needs be below budget. The stakeholders or clients
 % ###    will not accept 
@@ -154,7 +179,6 @@ with a \textsc{vram} of 12GB.
 % ### Ethical - Privacy	The drone must not invade the privacy of the entities other than the targets
 % ### Privacy - The monitored targets must be acceptable by law to be tracked
 % ### Modularity - The system must be such that the DRL algorithm can be swapped with an improved one easily
-% ### For a more in depth analysis of these challenges, please refer to \cref{tab:constraints}
 
 % # Include graphical content if possible
 
