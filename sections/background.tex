@@ -146,8 +146,72 @@ presented by the authors.
 % }}}
 
 % Part 3
+% {{{
+% Background 
+% {{{{
+		The third and final concept of the project is hardware realization for drone visits.
+		The hardware part is essential in the implementation in the real world, where the simulation sometimes strays from the truth.
+		There is a lack of hardware implementations in the field of research regarding drones with \gls{drl}, and most of the research papers focus on the simulations.
+		According to the literature review, the \gls{cnn} models were used in the majority of the papers for object detection. 
+		Also, the controller boards and custom drone kits were used instead of commercial drones.
+		Those kits give the researcher and user more flexibility since the drone is customizable 
+		in hardware and software.But in our design, we will use a commercial drone so that we focus
+		 on the \gls{drl}, not the actual drone build process. 
 
-\blindtext
+% }}}}
+
+% Related work
+% {{{{ Khan2021
+% Topic sentence
+	The use of a microcomputer with Quadcopter \glspl{uav} and autopilot software will help in the hardware implementation part.
+	% Explanation
+	\citeauthor{Khan21} used the drone in the agriculture field to spray 
+	pesticides and monitor the crops. Unlike our work, the drone was limited to specific
+	boundaries and fixed targets such as crops.
+	They used a Raspberry Pi microcomputer board attached to the drone, which will handle two different operations. Firstly, it will control the drone using an open-source
+	 software called Arducopter autopilot which will handle the trip of the drone and autonomous 
+	 flight option. The second operation is to deal with the Intel neural computer stick 2, which will deploy the \gls{cnn} model and deal with the computation part~\cite{Khan21}.
+	Although this work is close to ours, there are some differences, 
+	one of them is using a custom drone which is not considered since we are limited in time.
+	Since we will use the Anafi drone, the Olympe program will take control of the drone, which will
+	 be installed on the Raspberry Pi. Finally, using \gls{cnn} only is not enough without \gls{drl} 
+	 which makes the drone more intelligent and accurate.
+
+
+% }}}}
+
+% {{{{ Wang2018
+% Topic sentence
+	Commercial drone with onboard computer uses SDK with image processing techniques.
+	% Explanation
+	The hardware architecture in \citeauthor{Wang18} work for this paper includes a DJI 
+	commercial drone and an onboard computer called manifold, which is from the same manufacturer.
+	 Also, onboard sensors like camera,\gls{gps} and inertial sensor are included. Finally,
+	 external battery for the manifold computer and Wi-Fi adapter that is used for connection 
+	 between the drone and the onboard computer. This hardware architecture is inspirational, and our design is somehow close to it with minor changes in the onboard computer and 
+	 without the existence of the sensors.Image and video processing techniques were used, such as 
+	 segmentation to keep detecting moving targets was presented in ~\cite{Wang18}.
+	For the navigation part, they used predetermined waypoints related to historical path cost. 
+	However, in our work, probability and mobility patterns will be used to guess the target's location.
+% }}}}
+
+% {{{{ Zhao2018
+% Topic sentence
+    The use of embedded system attached to the \gls{uav} which implements mobility pattern recognition, to decrease response time and save transmission bandwidth. 
+	% Explanation 
+	\citeauthor{Zhao18} work used a quadrotor \gls{uav} supported with \gls{gps} module and a Pix 
+	Hawk flight controller. The power sources in the architecture were two lithium batteries, 
+	one for the drone and one for the embedded system. The system uses NVIDIA Jetson development
+	 kits which give enough computing power for the processing and communication between the flight 
+	 controller and the system. The Jetson board is connected to the flight controller using serial 
+	 communication while connected to the ground controller using Wi-Fi. Communication tools and protocols used in \citeauthor{Zhao18} work will help us to determine the best way to communicate between the development board and the drone without any delay or interference ~\cite{Zhao18}. 
+
+
+% }}}}
+
+% }}}
+
+
 
 \end{document}
 
