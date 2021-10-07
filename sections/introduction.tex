@@ -384,6 +384,34 @@ network security.
 \subsection{Project objectives}
 
 % # Express Clear specific objectives
+The \gls{uav} enjoys the benefits of \textsc{cctv}s and satellites
+in surveillance and monitoring without their drawbacks.
+Therefore, it has the potential to replace these
+traditional technologies in many applications 
+most of which involves the mobile target visitation. 
+Although few studies have investigated the use of \gls{drl}
+to make a \gls{uav} intelligent to carry out such task,
+none of them thus far have attempted to
+integrate a physics simulator in the training
+and demonstrate the product in the real world.
+The aim of this project is hence to create a process 
+by which a physics simulator is used to train 
+a \gls{drl} model that will later be used
+to make a \gls{uav} accurately accomplish a
+mobile target visitation task.
+The project's detailed objectives are as follows:
+\begin{enumerate}
+    \item Develop a \gls{rl} training framework,
+        which utilizes a physics simulator, 
+        that implements the \gls{drl} model 
+        published in Hendawy et al. ??? paper.
+    \item Construct a \gls{uav} system using the Anafi and 
+        Raspberry Pi that together is able to execute
+        a target visitation mission autonomously.
+    \item Evaluate the trained model using real Anafi drone
+        and targets in a physical environment.
+\end{enumerate}
+
 % ## 1. To demonstrate the effectiveness of a physics simulator
 % ##    in training a uav in mobile target visitation task
 % ## 2. To provide a framework for this task for drl so that
@@ -393,6 +421,29 @@ network security.
 % ##    in a physical environment and targets
 
 % # Deliverables and Desired results
+To demonstrate the objectives, there will be a number 
+of deliverables that we will produce.
+Firstly, we will present a detailed report that will detail
+our aim, objectives, literature review, methodology,
+solution and the market value of the project.
+Secondly, we will output a trained \gls{drl} model for 
+the target visitation task of a specific
+mobility pattern.
+Finally, we will build a \gls{uav} system
+consisting of the Anafi drone as well as a Raspberry Pi
+that will contain the model and instruct
+the Anafi throughout the mission.
+Based on the deliverables, the desired result is that
+given the same mobility pattern for 
+the moving targets during the \gls{drl} training,
+the \gls{uav} should be able to fly to locations it has learned
+will allow it to capture the most targets. In other words,
+it should anticipate that these locations are those it can reach
+the quickest and also where most targets will gather.
+In doing so, it will prove that it can acomplish 
+the mobile target visitation task in an uncertain environment
+for an unknown target mobility pattern
+as long as the target movements can be simulated.
 % ## Deliverables include the trained drl model
 % ## and the Anafi drone system with the model installed.
 % ## These are the criteria for success
