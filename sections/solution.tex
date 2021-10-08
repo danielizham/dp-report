@@ -2,13 +2,57 @@
 
 \begin{document}
 \subsection{Alternative solutions and tradeoffs}
-
+\begin{table}[hbt!]
+	\begin{tabular}{ | p{4cm}| p{6cm} | p{6cm} |}
+		\hline
+		\textit{} & \textit{Design A} & \textit{Design B}\\ \hline
+		Type  & custom made drone with onboard computer & commercial drone with high performance and many features    \\ \hline
+		Flexibility & very flexible and and customization is easy & hard to customize or modify it since it fly under limited conditions and standards. \\ \hline
+		
+		Price \& Availability & can be cheaper than commercial but need to consider
+		shipping and the build process & expensive but in our case its available in our hands and ready to fly.   \\ \hline
+		
+		Onboard computer & must have & must have \\ \hline
+		
+%	  &  &   \\ \hline
+		
+%		  &  &   \\ \hline
+		
+	\end{tabular}
+	\caption{Alternative solutions comparison}
+\end{table} \label{tab: Alternative solutions and tradeoffs comparison }
+From the above table, we can see some tradeoffs between design A and design B., but both designs agree that they must have an onboard computer for flying control and autopilot feature. There are three options for onboard microcomputers, which will be listed in the following table.
+\begin{table}[hbt!]
+	\begin{tabular}{ | p{3cm} | p{4cm}| p{4cm} | p{4cm} |}
+		\hline
+		\textit{} & \textit{Raspberry Pi 4} & \textit{NVIDIA Jetson Nano} & \textit{dji Manifold}\\ \hline
+		Specifications  & Ram :4GB or 8GB LPDDR4-3200 SDRAM , GPU : Broadcom VideoCore VI & Ram: 4 GB 64-bit LPDDR4, GPU:128-core Maxwell & 2 GB DDR3L system RAM  \\ \hline
+		Connection interfaces & 2.4 GHz and 5.0 GHz IEEE 802.11ac wireless, Bluetooth 5.0 & Gigabit Ethernet \& M.2 Key E (for Wifi support). &10/100/1000 BASE-T Ethernet \\ \hline
+		
+		Price \& Availability & 300 QAR available and can be used on any drone & 400 QAR available but need to be ordered and shipped & very expensive and restricted to dji drones and dji company stopped selling it    \\ \hline
+		Picture & \begin{minipage}{.2\textwidth}.
+			\includegraphics[width=40mm, height=30mm]{raspberry.jpg}
+		\end{minipage}  & \begin{minipage}{.2\textwidth}.
+		\includegraphics[width=40mm, height=30mm]{jetson.jpg}
+	\end{minipage} & \begin{minipage}{.2\textwidth}.
+	\includegraphics[width=40mm, height=30mm]{manifold.jpg}
+\end{minipage} \\ \hline
+		
+		%	  &  &   \\ \hline
+		
+		%		  &  &   \\ \hline
+		
+	\end{tabular}
+	\caption{onboard computers comparison}
+\end{table} \label{tab: onboard computers }  
+\newpage
 \subsection{Selected solution overview}
+
 The proposed solution consists of two main sections: a commercial drone and a controlling section. The user will import or choose the mobility pattern and set the constraints to the monitor device, which is a laptop. Then the laptop will send high-level commands to the drone agent, which will apply certain operations such as start/stop etc. Once the user finishes importing the mobility pattern and starting the drone mission, the drone will begin to take off and begin to visit the area to scan for getting the most number of mobile targets using \gls{drl} model. Users will keep receiving live updates and the status of service on the control section using Wi-Fi. Most of the connections in the system are wireless, which will have benefits and drawbacks which will be discussed in hardware/software to be used section.
 
 
 \subsection{High level architecture}
-Figure 1 shows a high-level architecture of a complete working system, in which a group of connected adapters and devices are combined into a single functional system. The architecture is composed of three sections, interfacing, controlling, and targets. The interfacing section contains the drone that will handle the onboard computer and its power source and connection adapters. In the controlling part, a personal computer will be responsible for contacting the onboard computer to adjust the setting, executing the scripts, and getting live updates and results. Finally, there will be multiple moving targets in the target section. For example, R/C cars are controlled manually and moving in a specific mobility pattern with different directions and destinations. In the next section, hardware and software components will be presented in a more detailed way.
+Figure ~\ref{fig1:arch-fig} shows a high-level architecture of a complete working system, in which a group of connected adapters and devices are combined into a single functional system. The architecture is composed of three sections, interfacing, controlling, and targets. The interfacing section contains the drone that will handle the onboard computer and its power source and connection adapters. In the controlling part, a personal computer will be responsible for contacting the onboard computer to adjust the setting, executing the scripts, and getting live updates and results. Finally, there will be multiple moving targets in the target section. For example, R/C cars are controlled manually and moving in a specific mobility pattern with different directions and destinations. In the next section, hardware and software components will be presented in a more detailed way.
 
 \begin{figure}[H]
 	\centering
@@ -25,7 +69,7 @@ Figure 1 shows a high-level architecture of a complete working system, in which 
 %Gazebo simulator
 %roboflow
 %google colab notebook /jupyter notebook
-There are three primary categories of software depending on the usage: simulation, training, and application. The first part will focus on simulating the environment, testing the models, and flight control. Before discussing the software to be used, we have selected Ubuntu 18.04 as an operating system for several reasons. One key reason is the compatibility because parrot Olympe and Sphinx are only supported on limited distributions and operating systems. Another reason its a lite os and can be installed on the onboard computer that will be attached to the drone.For the simulation part, using Sphinx and Gazebo software is very helpful in visualizing the environment and drone flight control and apply the \gls{drl} model.Sphinx is a simulation tool to run the Parrot drone firmware on personal computers.which comes with helpful features for simulation like Visualize flight data at runtime,Can be run remotely, and can be scripted using command line.Gazebo is a robot GUI simulation which simulates the visual and physical surrounding of drones and custom 3D objects. Figure 2 shows how the Gazebo and Sphinx look like.  \begin{figure}[H]
+There are three primary categories of software depending on the usage: simulation, training, and application. The first part will focus on simulating the environment, testing the models, and flight control. Before discussing the software to be used, we have selected Ubuntu 18.04 as an operating system for several reasons. One key reason is the compatibility because parrot Olympe and Sphinx are only supported on limited distributions and operating systems. Another reason its a lite os and can be installed on the onboard computer that will be attached to the drone.For the simulation part, using Sphinx and Gazebo software is very helpful in visualizing the environment and drone flight control and apply the \gls{drl} model.Sphinx is a simulation tool to run the Parrot drone firmware on personal computers.which comes with helpful features for simulation like Visualize flight data at runtime,Can be run remotely, and can be scripted using command line.Gazebo is a robot GUI simulation which simulates the visual and physical surrounding of drones and custom 3D objects. Figure ~\ref{fig2:gazebo} shows how the Gazebo and Sphinx look like. \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{gazebo.png}
 	\caption{Sphinx and Gazebo }\label{fig2:gazebo}
@@ -39,11 +83,11 @@ In the training part, we used the simulation tools to generate some training dat
 %lithium Battery
 %Wi-Fi adapter dongle
 %laptop control station
-The main core of the hardware part is the drone, which will be the Parrot ANAFI drone. This one has got a couple of features that made us choose it. Firstly, the support of SDK and control the drone with a simple python script. Secondly, Good flight time support ANAFI drone has a 2700mAh battery which can fly up to 25 min which is good enough for our application. Finally, the support of Wi-Fi 802.11 and \gls{gps} features is essential in our project for executing scripts and navigation. The second important device is the Raspberry Pi which will be used as an onboard computer and will handle several tasks such as connecting to the drone using a Wi-Fi interface. Controlling the drone by executing the python scripts to send/receive fly control instructions to the drone. Apply the machine learning and \gls{drl} models, which will be synchronized with the control part.Send/receive high-level commands and results to the laptop/pc ground station. It is connected using another 2.4GHz Wi-Fi interface with the help of a Wi-Fi adapter dongle connected to the Raspberry Pi through USB. The power source for the Raspberry Pi will be a lithium battery with a power board called UPSPack Standard Power Supply attached to the main Raspberry Pi board. It includes a 4000mAh lithium battery, which provides enough power and time for our application.the connection between the Raspberry Pi and the power board is shown in figure 3.
+The main core of the hardware part is the drone, which will be the Parrot ANAFI drone. This one has got a couple of features that made us choose it. Firstly, the support of SDK and control the drone with a simple python script. Secondly, Good flight time support ANAFI drone has a 2700mAh battery which can fly up to 25 min which is good enough for our application. Finally, the support of Wi-Fi 802.11 and \gls{gps} features is essential in our project for executing scripts and navigation. The second important device is the Raspberry Pi which will be used as an onboard computer and will handle several tasks such as connecting to the drone using a Wi-Fi interface. Controlling the drone by executing the python scripts to send/receive fly control instructions to the drone. Apply the machine learning and \gls{drl} models, which will be synchronized with the control part.Send/receive high-level commands and results to the laptop/pc ground station. It is connected using another 2.4GHz Wi-Fi interface with the help of a 300Mbps Wi-Fi adapter dongle connected to the Raspberry Pi through USB. The power source for the Raspberry Pi will be a lithium battery with a power board called UPSPack Standard Power Supply attached to the main Raspberry Pi board. It includes a 4000mAh lithium battery, which provides enough power and time for our application.the connection between the Raspberry Pi and the power board is shown in figure ~\ref{Fig3:connection}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{connection.png}
-	\caption{Raspberry Pi and Power board connection}\label{fig3:connection}
+	\caption{Raspberry Pi and Power board connection}\label{Fig3:connection}
 \end{figure}     
 
 \end{document}
