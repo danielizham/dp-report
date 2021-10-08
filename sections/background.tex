@@ -6,21 +6,32 @@
 
 % {{{{ background idea #2 
 The second important concept of the project is the computer simulation.
+Simulation is an imitation of the physical world
+created to answer some specific questions about it.
+It contains one or more models 
+which are representations of the systems of interest.
+Models encapsulate the key charateristics and behaviour 
+which allow them to be manipulated logically by a computer.
+Through this crucial property, simulation can show 
+the models' evolutions with time.
 Simulation is a cost-effective, time-saving, flexible 
-and safe way to experiment with a drone
+and safe way to experiment with a \gls{uav}
 at the expense of a reduction in accuracy compared to the real world.
 The research realm has shown that the use of simulation 
-is highly attractive in \gls{drl} studies with drones.
+is highly attractive in \gls{drl} studies with \glspl{uav}.
 This is because \gls{drl} involves
 making gradual improvements to a model based on 
-repeated cycles of experience, and computer simulation 
+repeated cycles of experiences, and computer simulation 
 allows these iterations to be carried out cheaply.
 
 According to the literature review, 
 the combination of Gazebo, \gls{ros}
 and \textsc{px4} are the most widely used software stack 
-for the \gls{sitl} development
-because they are open-source. 
+for the \gls{sitl} development,
+which is a process that involves running the compiled code
+meant for the physical device in computer simulation.
+The reason for their popularity is most likely 
+due to their open-source nature. 
 In contrast, Sphinx and Olympe, which are used in this project, 
 are closed-source.
 Although open-source software 
