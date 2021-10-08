@@ -77,19 +77,24 @@ but the cost and shipping logistics as well as
 the likely issues with working with a new product
 render this solution prohibitive.
 
-In terms of the computer running the \gls{dl} training,
+In terms of the computer running the \gls{ml} training,
 the technical challenge presents itself as 
 the accuracy and cost tradeoff.
-The \gls{drl} model that \textcite{Ged21} came up with 
-is fixed and not big
-but the object detection one is up to us.
-For the object detection task, 
+The project involves two \gls{dl} models,
+one of which designed by \textcite{Ged21}.
+This \gls{drl} model is used unaltered so 
+the computer specifications must minimally be sufficient 
+to train it.
+The other one is a \gls{dl} model for object detection
+used to identify the targets during the training
+and its properties are left to our discretion.
+For this, 
 the depth and width of the model cannot be too big that
 a normal data center cannot run although 
 being big will improve
 the model accuracy. In other words, we need to trade off
 the accuracy for the size of the model 
-for the maximum computational resources that we can handle. 
+based on the maximum computational resources that we can handle. 
 As a result of this, we will have to accept some misses
 when the \gls{uav} is detecting the targets during the 
 \gls{drl} training knowing that improving the accuracy 
