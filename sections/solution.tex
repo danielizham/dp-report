@@ -47,8 +47,16 @@ From the above table, we can see some tradeoffs between design A and design B., 
 \end{table} \label{tab: onboard computers }  
 \newpage
 \subsection{Selected solution overview}
-
-The proposed solution consists of two main sections: a commercial drone and a controlling section.We have chosen the commercial drones especially the Parrot ANAFI drone for several reasons. Firstly, the support of SDK and control the drone with a simple python script. Secondly, Good flight time support ANAFI drone has a 2700mAh battery which can fly up to 25 min which is good enough for our application. Finally, the support of Wi-Fi 802.11 and \gls{gps} features is essential in our project for executing scripts and navigation.For how the system will work firstly, the user will import or choose the mobility pattern and set the constraints to the monitor device, which is a laptop. Then the laptop will send high-level commands to the drone agent, which will apply certain operations such as start/stop etc. Once the user finishes importing the mobility pattern and starting the drone mission, the drone will begin to take off and begin to visit the area to scan for getting the most number of mobile targets using \gls{drl} model. Users will keep receiving live updates and the status of service on the control section using Wi-Fi. Most of the connections in the system are wireless, which will have benefits and drawbacks which will be discussed in hardware/software to be used section.
+The proposed solution consists of two main sections: a commercial drone and a controlling section.
+We have chosen the commercial drones especially the Parrot ANAFI drone for several reasons.
+Firstly, the support of SDK and control the drone with a simple python script.
+Secondly, Good flight time support ANAFI drone has a 2700mAh battery which can fly up to 25 min which is good enough for our application.
+Finally, the support of Wi-Fi 802.11 and \gls{gps} features is essential in our project for executing scripts and navigation. 
+For how the system will work firstly, the user will import or choose the mobility pattern and set the constraints to the monitor device, which is a laptop.
+Then the laptop will send high-level commands to the drone agent, which will apply certain operations such as start/stop etc.
+Once the user finishes importing the mobility pattern and starting the drone mission, the drone will begin to take off and begin to visit the area to scan for getting the most number of mobile targets using \gls{drl} model.
+Users will keep receiving live updates and the status of service on the control section using Wi-Fi.
+Most of the connections in the system are wireless, which will have benefits and drawbacks which will be discussed in hardware/software to be used section.
 
 \newpage
 \subsection{High level architecture}
