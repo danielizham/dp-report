@@ -1,8 +1,9 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
+\subsection{Alternative solutions and tradeoffs}
 
-\subsection{Solution overview}
+\subsection{Selected solution overview}
 
 The proposed solution consists of two main sections: a drone and a monitor section. The user will import or choose 
 the mobility pattern and set the constraints to the monitor device, which is a laptop. Then the laptop will send high-level commands to the drone agent, which will apply certain operations such as start/stop etc. Once the user finishes importing the mobility pattern and starting the drone mission, the drone will begin to take off and begin to visit the area to scan for getting the most number of mobile targets using \gls{drl} model. Users will keep receiving live updates and the status of service on the control section using Wi-Fi. Most of the connections in the system are wireless, which will have benefits and drawbacks which will be discussed in hardware/software to be used section.
@@ -25,7 +26,12 @@ Figure 1 shows a high-level architecture of a complete working system, in which 
 %Gazebo simulator
 %roboflow
 %google colab notebook /jupyter notebook
-There are three primary categories of software depending on the usage: simulation, training, and application. The first part will focus on simulating the environment, testing the models, and flight control. Before discussing the software to be used, we have selected Ubuntu 18.04 as an operating system for several reasons. One key reason is the compatibility because parrot Olympe and Sphinx are only supported on limited distributions and operating systems. Another reason its a lite os and can be installed on the onboard computer that will be attached to the drone.For the simulation part, using Sphinx and gazebo software is very helpful in visualizing the environment and drone flight control and apply the \gls{drl} model.[more talk about simulation].In the training part, we used the simulation tools to generate some training datasets. We use a website called roboflow which helped us labeling the objects and generate new datasets from the existing ones with modified constraints like rotation and scaling. For the object detection model, google colab notebook was a sufficient tool to start training using \gls{cnn} Yolov5.[more talk about roboflow/training].Application software used in this project was parrot Olympe to send commands to the drone and control the flight trip and how the drone moves.[more talk about application software].
+There are three primary categories of software depending on the usage: simulation, training, and application. The first part will focus on simulating the environment, testing the models, and flight control. Before discussing the software to be used, we have selected Ubuntu 18.04 as an operating system for several reasons. One key reason is the compatibility because parrot Olympe and Sphinx are only supported on limited distributions and operating systems. Another reason its a lite os and can be installed on the onboard computer that will be attached to the drone.For the simulation part, using Sphinx and Gazebo software is very helpful in visualizing the environment and drone flight control and apply the \gls{drl} model.Sphinx is a simulation tool to run the Parrot drone firmware on personal computers.which comes with helpful features for simulation like Visualize flight data at runtime,Can be run remotely, and can be scripted using command line.Gazebo is a robot GUI simulation which simulates the visual and physical surrounding of drones and custom 3D objects. Figure 2 shows how the Gazebo and Sphinx look like.  \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{gazebo.png}
+	\caption{Sphinx and Gazebo }\label{fig2:gazebo}
+\end{figure}
+In the training part, we used the simulation tools to generate some training datasets. Firstly, We use a website called roboflow which helped us labeling the objects and generate new datasets from the existing ones with modified constraints like rotation and scaling. For the object detection model, google colab notebook was a sufficient tool to start training using \gls{cnn} Yolov5.[more talk about roboflow/training].Application software used in this project was parrot Olympe to send commands to the drone and control the flight trip and how the drone moves.[more talk about application software].
 
 
 \subsubsection{Hardware}
