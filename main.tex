@@ -69,6 +69,9 @@ hmargin=2.54cm]{geometry}
 \usepackage{caption}
 \captionsetup[table]{skip=5pt}
 
+\usepackage{ragged2e}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
 % For better lists
 \usepackage{enumerate}
 
