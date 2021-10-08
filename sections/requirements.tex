@@ -107,27 +107,53 @@
     \end{tabular}
 \end{table}
 
-% \newpage
-% \subsection{Design standards}
+\subsection{Design standards}
 
-% \begin{table}[hbt!]
-% 	\begin{tabular}{| P{2.2cm} | P{12.3cm} |}
-% 		\hline 
-% 		\textit{Standard} & \textit{Usage}\\ \hline
-% 		IEEE 802.11 & To be used in the communication between the Raspberry Pi and the Anafi and the Raspberry Pi and the computer \\ \hline 
-		
-% 		WPA2 & To be used in securing the communications above \\ \hline
-		
-% 		GPS & To be used by the Anafi to convey its position to the Raspberry Pi \\ \hline 
-		
-% 		SSH & To be used between the Raspberry Pi and the computer \\ \hline
-		
-% 		JSON-RPC version 2.0 & Communication protocol used to control the components of the simulated Anafi \\ \hline 
-		
-% 		Google Protocol Buffers & To be used by Gazebo for the message passing between its server and client \\ \hline 
-% 	\end{tabular}
-% 	\caption{Design standards table.}
-% \end{table}\label{tab: design-standards}
+\begin{table}[hbt!]
+    \centering
+    \caption{Design standards table.}
+    \label{tab:design-standards}
+    \begin{tabular}{ P{2.2cm} P{12.3cm} }
+        \toprule
+            \textit{Standard} 
+                & \textit{Usage}\\
+
+        \midrule
+        IEEE 802.11 
+                & To be used in the communication between 
+                the Raspberry Pi and the Anafi and the 
+                Raspberry Pi and the computer \\ 
+                \addlinespace
+        
+        WPA2 
+                & To be used in securing the communications above \\
+                \addlinespace
+        
+        
+        GPS 
+                & To be used by the Anafi to convey its position 
+                to the Raspberry Pi \\
+                \addlinespace
+        
+        
+        SSH 
+                & To be used between the Raspberry Pi and the computer \\
+                \addlinespace
+        
+        
+        JSON-RPC version 2.0 
+                & Communication protocol used to control the components 
+                of the simulated Anafi \\
+                \addlinespace
+        
+        
+        Google Protocol Buffers 
+                & To be used by Gazebo for the message passing between 
+                its server and client \\
+        
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 % \subsection{Professional code of ethics}
 
