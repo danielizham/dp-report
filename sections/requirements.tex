@@ -50,60 +50,91 @@
 \end{table}
 
 \begin{table}[hbt!]
-	\begin{tabular}{| P{2.4cm} | P{2cm} | P{10.5cm} |}
-		\hline 
-		\textit{Type} & \textit{Name } & \textit{Description} \\ \hline
-		
-		Economic & Cost & The cost of the entire system must not exceed x \$ \\ \hline 
-		
-		Environmental & Light source & The Anafi requires good lighting to take pictures of the targets \\ \hline
-		
-		Safety/Security & Secure communication & The communication between Anafi-Raspberry Pi and Raspberry Pi-computer should be uninterrupted and secured against interference \\ \hline
-		
-		Safety/Security & Safety & The Anafi must know how to return to base should there be a discommunication with the computer \\ \hline
-		
-		Ethical & Privacy & The drone must not invade the privacy of the entities other than the targets \\ \hline
-		
-		Ethical & Privacy & The monitored targets must be acceptable by law to be tracked \\ \hline
-		
-		Environmental & Eco-friendly & The system only uses electricity and emissions \\ \hline
-		
-		Sustainability & Modularity & The system must be such that the DRL algorithm can be swapped with an improved one easily \\ \hline 
-		
-		Reliability & Efficiency & The DRL should perform as expected all the time \\ \hline
-		
-	\end{tabular}
-	\caption{Practical design constraints.}
-\end{table}\label{tab: practical-design-constraints}
+    \centering
+    \caption{Practical design constraints.}
+    \label{tab:practical-design-constraints}
+    \begin{tabular}{ P{3cm} P{3cm} P{9cm} }
+        \toprule
+        \textit{Type} 
+            & \textit{Name} 
+                & \textit{Description} \\
 
-\newpage
-\subsection{Design standards}
+        \midrule
+        
+        Economic 
+            & Cost 
+                & The cost of the entire system must not exceed \$x \\
+        
+        Environmental 
+            & Light source 
+                & The Anafi requires good lighting to 
+                take pictures of the targets \\
+        
+        Security 
+            & Communication 
+                & The communication between Anafi-Raspberry Pi 
+                and Raspberry Pi-computer should be uninterrupted 
+                and secured against interference \\
+        
+        Safety 
+            & Safeguard 
+                & The Anafi must know how to return to base 
+                should there be a discommunication with the computer \\
+        
+        Ethical 
+            & Privacy 
+                & The drone must not invade the privacy of 
+                the entities other than the targets \\
+        
+        Ethical 
+            & Law-abiding 
+                & The monitored targets must be acceptable 
+                by law to be tracked \\
+        
+        Environmental 
+            & Eco-friendly 
+                & The system only uses electricity and emissions \\
+        
+        Sustainability 
+            & Modularity 
+                & The system must be such that the DRL algorithm can be swapped with an improved one easily \\
+        
+        Reliability 
+            & Efficiency 
+                & The DRL should perform as expected all the time \\
 
-\begin{table}[hbt!]
-	\begin{tabular}{| P{2.2cm} | P{12.3cm} |}
-		\hline 
-		\textit{Standard} & \textit{Usage}\\ \hline
-		IEEE 802.11 & To be used in the communication between the Raspberry Pi and the Anafi and the Raspberry Pi and the computer \\ \hline 
-		
-		WPA2 & To be used in securing the communications above \\ \hline
-		
-		GPS & To be used by the Anafi to convey its position to the Raspberry Pi \\ \hline 
-		
-		SSH & To be used between the Raspberry Pi and the computer \\ \hline
-		
-		JSON-RPC version 2.0 & Communication protocol used to control the components of the simulated Anafi \\ \hline 
-		
-		Google Protocol Buffers & To be used by Gazebo for the message passing between its server and client \\ \hline 
-	\end{tabular}
-	\caption{Design standards table.}
-\end{table}\label{tab: design-standards}
+        \bottomrule		
+    \end{tabular}
+\end{table}
 
-\subsection{Professional code of ethics}
+% \newpage
+% \subsection{Design standards}
 
-\blindtext
+% \begin{table}[hbt!]
+% 	\begin{tabular}{| P{2.2cm} | P{12.3cm} |}
+% 		\hline 
+% 		\textit{Standard} & \textit{Usage}\\ \hline
+% 		IEEE 802.11 & To be used in the communication between the Raspberry Pi and the Anafi and the Raspberry Pi and the computer \\ \hline 
+		
+% 		WPA2 & To be used in securing the communications above \\ \hline
+		
+% 		GPS & To be used by the Anafi to convey its position to the Raspberry Pi \\ \hline 
+		
+% 		SSH & To be used between the Raspberry Pi and the computer \\ \hline
+		
+% 		JSON-RPC version 2.0 & Communication protocol used to control the components of the simulated Anafi \\ \hline 
+		
+% 		Google Protocol Buffers & To be used by Gazebo for the message passing between its server and client \\ \hline 
+% 	\end{tabular}
+% 	\caption{Design standards table.}
+% \end{table}\label{tab: design-standards}
 
-\subsection{Assumptions}
+% \subsection{Professional code of ethics}
 
-\blindtext
+% \blindtext
+
+% \subsection{Assumptions}
+
+% \blindtext
 
 \end{document}
