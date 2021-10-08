@@ -9,22 +9,45 @@
 \subsection{Design constraints}
 
 \begin{table}[hbt!]
-	\begin{tabular}{ | P{2.8cm} | P{12.2cm} |}
-		\hline
-		\textit{Name} & \textit{Description}\\ \hline
-		Power supply  & The Anafi and the Raspberry Pi must be battery powered because they are mobile (with ?? voltages DC/mAh)  \\ \hline
-		
-		Flying range/altitude & The flying range of the Anafi is limited by the signal strength of the communication between the computer and the Raspberry Pi. Also, the altitude is dictated by the Anafi’s maximum height it can reach and the performance of the drone at a certain height. \\ \hline
-		
-		Flying time  & The maximum flying time must be lower than the Anafi’s 25 minutes max flight lower than the Raspberry Pi’s ?? minutes \\ \hline
-		
-		Transmission delay  & The delay in the communication between the Raspberry Pi and the Anafi must be acceptable \\ \hline
-		
-		Payload/weights  & The Raspberry Pi with its peripherals should not exceed the maximum load the Anafi can carry. \\ \hline
-		
-	\end{tabular}
-	\caption{Technical design constraints}
-\end{table} \label{tab: technical-design-constraints}
+    \centering
+    \caption{Technical design constraints}
+    \label{tab:technical-design-constraints}
+    \begin{tabular}{ P{2.8cm} P{12.2cm} }
+        \toprule
+        \textit{Name} 
+            & \textit{Description} \\
+
+        \midrule
+
+        Power supply  
+            & The Anafi and the Raspberry Pi must be 
+            battery powered because they are mobile 
+            (with ?? voltages DC/mAh)  \\
+
+        Flying range/altitude 
+            & The flying range of the Anafi is limited 
+            by the signal strength of the communication 
+            between the computer and the Raspberry Pi. 
+            Also, the altitude is dictated by the Anafi’s 
+            maximum height it can reach and the performance 
+            of the drone at a certain height. \\
+
+        Flying time  
+            & The maximum flying time must be lower than 
+            the Anafi’s 25 minutes max flight lower than 
+            the Raspberry Pi’s ?? minutes \\ 
+
+        Transmission delay  
+            & The delay in the communication between 
+            the Raspberry Pi and the Anafi must be acceptable \\
+
+        Payload/weights  
+            & The Raspberry Pi with its peripherals should not 
+            exceed the maximum load the Anafi can carry. \\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \begin{table}[hbt!]
 	\begin{tabular}{| P{2.4cm} | P{2cm} | P{10.5cm} |}
