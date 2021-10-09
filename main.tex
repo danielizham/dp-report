@@ -62,12 +62,16 @@ hmargin=2.54cm]{geometry}
 \usetikzlibrary{automata,positioning,calc,fit,matrix}
 
 % For tables
+\usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{diagbox}
 \usepackage{makecell}
 \usepackage{caption}
 \captionsetup[table]{skip=5pt}
+
+\usepackage{ragged2e}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 
 % For better lists
 \usepackage{enumerate}
