@@ -3,7 +3,7 @@
 % For document layout and formatting
 \usepackage[a4paper, vmargin=2.54cm,
 hmargin=2.54cm]{geometry}
-\usepackage{lineno}
+\usepackage{etoolbox,lineno}
 \linespread{1.1} % 1.6 for double spacing and 1.3 for one-and-a-half spacing
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -120,13 +120,17 @@ hmargin=2.54cm]{geometry}
 \glsunset{gps}
 \glsunset{lidar}
 
-\linenumbers
-
 \begin{document}
 
 \subfile{sections/title}
 
 \pagenumbering{roman}
+
+\begin{linenumbers}
+\makeatletter
+\patchcmd{\@startsection}{\@ifstar}{\nolinenumbers\@ifstar}{}{}
+\patchcmd{\@xsect}{\ignorespaces}{\linenumbers\ignorespaces}{}{}
+\makeatother
 
 \addcontentsline{toc}{section}{Declaration}
 \section*{Declaration} \label{sec:declaration}
@@ -142,8 +146,11 @@ hmargin=2.54cm]{geometry}
 \section*{Acknowledgment} \label{sec:acknowledgement}
 \subfile{sections/acknowledgment}
 \newpage
+\end{linenumbers}
 
 \glsunsetall
+
+\nolinenumbers
 
 \tableofcontents
 \newpage
@@ -162,6 +169,12 @@ hmargin=2.54cm]{geometry}
 \glsunset{acm}
 \glsunset{gps}
 \glsunset{lidar}
+
+\begin{linenumbers}
+\makeatletter
+\patchcmd{\@startsection}{\@ifstar}{\nolinenumbers\@ifstar}{}{}
+\patchcmd{\@xsect}{\ignorespaces}{\linenumbers\ignorespaces}{}{}
+\makeatother
 
 \section{Introduction and Motivation} \label{sec:intro}
 \subfile{sections/introduction}
@@ -183,6 +196,8 @@ hmargin=2.54cm]{geometry}
 
 \section{Project Plan} \label{sec:plan}
 \subfile{sections/plan}
+
+\end{linenumbers}
 
 % \section{Short Guide} \label{sec:guide}
 % \subfile{sections/guide}
