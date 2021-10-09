@@ -10,11 +10,11 @@
 - [ ] Acknowledgment
 - [x] Introduction and Motivation
 - [ ] Background and Related Work
-   - [ ] Part 1 (Bahri)
+   - [x] Part 1 (Bahri)
    - [x] Part 2 (Daniel)
    - [x] Part 3 (Abdulrahman)
 - [ ] Requirements Analysis
-- [ ] Proposed Solution
+- [x] Proposed Solution
 - [ ] Proof of Concept
 - [ ] Market Research and Business Viability
 - [ ] Project Plan
