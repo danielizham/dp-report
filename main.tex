@@ -143,6 +143,8 @@ hmargin=2.54cm]{geometry}
 \subfile{sections/acknowledgment}
 \newpage
 
+\glsunsetall
+
 \tableofcontents
 \newpage
 
@@ -153,6 +155,13 @@ hmargin=2.54cm]{geometry}
 \newpage
 
 \pagenumbering{arabic}
+
+\glsresetall
+
+\glsunset{ieee}
+\glsunset{acm}
+\glsunset{gps}
+\glsunset{lidar}
 
 \section{Introduction and Motivation} \label{sec:intro}
 \subfile{sections/introduction}
