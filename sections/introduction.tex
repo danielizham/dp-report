@@ -10,7 +10,7 @@ of visiting a set of destinations in the fastest time possible
 in order to carry out an observation.
 For example, an operational engineer needs to monitor
 a number of reactors and plants during his or her shift.
-The need to do so in the fastest time can be due to restrictions in
+The need to do so in the shortest time can be due to restrictions in
 cost, energy or other limited resources of concern.
 This problem is commonly known as the Travelling Salesman problem
 where historically, a salesman had to make a decision in which order
@@ -20,7 +20,7 @@ that is the most efficient in terms of the metric of interest
 and algorithms such as Dijkstra's have been successfully used 
 to find the shortest path between the cities.
 
-To accomplish that observation, \textcite{Sha19}
+To perform that observation, \textcite{Sha19}
 deduced that using \glspl{uav}, or commonly known as drones,
 can bring many benefits 
 compared to the traditional methods.
@@ -38,13 +38,25 @@ then the problem can be formulated as an optimization problem
 and may be solved using mixed-integer programming.
 However, if the mobility pattern of the targets is not known,
 then such a solution will not work.
-This is the problem that the project at hand intends to solve.
+This problem, as illustrated in \cref{fig:problem}, 
+is what the project at hand intends to solve.
 Given some mobile targets' historical locations 
 but unknown mobility pattern,
 how can we make a \gls{uav} able to visit them
-in the fastest time and in turn, the most energy-saving way. 
+in the fastest possible time and in turn, the most energy-saving way. 
 Particularly, this project aims to demonstrate the 
 use of physics simulation in solving it. 
+% }}}
+
+% {{{ Figure of the problem
+\begin{figure}[htb] 
+    \centering
+    \includegraphics[width=0.8\textwidth]{problem.png} 
+    \caption{The \gls{uav} needs to calculate 
+    the best trajectory to cover the red cars
+    as fast as possible before it runs out of battery.} 
+    \label{fig:problem} 
+\end{figure}
 % }}}
 
 % {{{ Differentiate between technical and non-technical challenges
@@ -138,14 +150,12 @@ and the community to find support from is markedly small.
 % }}}}
 % }}}
 
-% # Include graphical content if possible
-
 \subsection{Project significance}
 
 % {{{ Project importance
 Completing this project, which will provide the solution
 to using a simulation and \gls{drl} in making an intelligent drone 
-that is able to visit mobile targets in the fastest time,
+that is able to visit mobile targets in the shortest time,
 holds lasting and critical importance 
 in the local and global societies.
 First of all, the \gls{uav} combines the best features
