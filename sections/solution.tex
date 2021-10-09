@@ -28,9 +28,12 @@ an onboard microcomputer must be present for
 flying control and the support of autopilot feature. 
 There are three options for onboard microcomputers, 
 which are shown in the following 
-\cref{tab:onboard-computers}. Raspberry Pi 4 seems to be the winner since it has advantages in specifications, connection interfaces, and availability.
+\cref{tab:onboard-computers}. Raspberry Pi 4 seems 
+to be the winner since it has advantages 
+in specifications, connection interfaces, 
+and availability.
 
-\begin{table}[H]
+\begin{table}[hbt]
     \centering
     \caption{A comparison of the onboard computers.}
     \label{tab:onboard-computers}  
@@ -113,7 +116,7 @@ and destinations.
 In the next section, hardware and software components 
 will be presented in a more detailed manner.
 
-\begin{figure}[H]
+\begin{figure}[hbt]
     \centering
     \includegraphics[width=0.9\textwidth]{high-level-arch.png}
     \caption{The high-level architecture of the overall system.}
@@ -150,15 +153,17 @@ tool built on top of Gazebo
 to run the Parrot's drone firmware on 
 personal computers, which comes with helpful 
 features for simulation like visualizing flight 
-data at runtime, running the \gls{uav} remotely, and executing scripts with the command line. 
+data at runtime, running the \gls{uav} remotely, 
+and executing scripts with the command line. 
 Gazebo is a robot \textsc{gui} simulation 
 which simulates the visual and physical surrounding 
 of drones and custom 3D objects. 
-\Cref{fig:gazebo} shows how the Sphinx program look like. 
+\Cref{fig:gazebo} shows how the Sphinx 
+program looks like. 
 
-\begin{figure}[H]
+\begin{figure}[hbt]
     \centering
-    \includegraphics[width=0.8\textwidth]{gazebo.png}
+    \includegraphics[width=0.9\textwidth]{gazebo.png}
     \caption{The Sphinx program that runs on top of Gazebo.}
     \label{fig:gazebo}
 \end{figure}
@@ -226,7 +231,7 @@ and time for our application.
 The connection between the Raspberry Pi and 
 the power board is shown in \cref{fig:connection}.
 
-\begin{figure}[H]
+\begin{figure}[hbt]
     \centering
     \includegraphics[width=0.6\textwidth]{connection.png}
     \caption{Raspberry Pi and Power board connection.}
