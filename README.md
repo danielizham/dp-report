@@ -13,7 +13,7 @@
    - [x] Part 1 (Bahri)
    - [x] Part 2 (Daniel)
    - [x] Part 3 (Abdulrahman)
-- [ ] Requirements Analysis
+- [x] Requirements Analysis
 - [x] Proposed Solution
 - [ ] Proof of Concept
 - [ ] Market Research and Business Viability
