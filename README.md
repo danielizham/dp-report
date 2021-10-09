@@ -14,7 +14,7 @@
    - [x] Part 2 (Daniel)
    - [x] Part 3 (Abdulrahman)
 - [ ] Requirements Analysis
-- [ ] Proposed Solution
+- [x] Proposed Solution
 - [ ] Proof of Concept
 - [ ] Market Research and Business Viability
 - [ ] Project Plan
