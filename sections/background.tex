@@ -1,0 +1,283 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+	
+	\subsection{Background}
+	
+	\blindtext
+	
+	\subsection{Related work}
+	% summary table 
+	
+	% Part 1
+	
+	
+	One of the essential ideas of the project is the drone's visitation of mobile 
+	targets, this takes into consideration the distance traveled by the drone and the time taken to detect and survey through all targets in a specific area.
+	This is a complex optimization problem for navigating and tracking the objects while minimizing the required time to detect all targets,
+	it is critical as the efficiency of any algorithms 
+	or project is always judged based on time and resource usage.
+	Various methods and approaches were studied and implemented 
+	in previous research papers with different constraints and 
+	goals in mind.
+	As most of the drones have a low battery life, 
+	and consequently low flying time, the time constraint was a major limitation 
+	for most of the previous research papers. 
+	Some authors considered other factors such as the quality 
+	of data communication (i.e. throughput, latency, etc) between the command/control 
+	system and the drone.
+	The methodology and algorithm in each paper was different 
+	as some of them used AI related algorithms while others relied 
+	on heavy mathematical calculations to determine the best path.
+	
+	% #1
+	In paper ~\cite{hua20}, the authors \citeauthor{hua20} 
+	addressed a problem of autonomous navigation of \glspl{uav}. 
+	They proposed a reactive real-time sliding mode control algorithm 
+	that navigates a team of communicating \glspl{uav}.
+	The drones were equipped with ground-facing video cameras,
+	towards moving targets. 
+	Furthermore, they adopted the Voronoi partitioning \textsc{vp} technique 
+	to reduce the range of movement for each \gls{uav} and 
+	minimize the revisit time of each target as each drone was responsible 
+	for a sub-area.
+	They also ran extensive computer simulations using \textsc{matlab}. 
+	Their simulations were tried on one \gls{uav} and multiple \glspl{uav},
+	and they also considered the case where of an uneven ground. 
+	Their main findings where that the use of the \textsc{vp} technique 
+	leads to more computation burden, but can considerably reduce the target 
+	revisit time.
+	
+	% #2
+	
+	In paper ~\cite{pen21}, authors \citeauthor{pen21} studied the idea 
+	of taking advantage of \glspl{uav} in order to increase the network
+	coverage and execute computing tasks offloaded from multiple devices. 
+	The constraints were to minimize the energy consumption of the \gls{uav}, 
+	and maximize the amount of offloaded bits. 
+	Objects on the ground were not stationary and were following a Gauss-Markov 
+	movement pattern. Their approach was to apply \gls{drl} to develop an online path planning algorithm based on double deep Q-learning network (\textsc{ddqn}).
+	Simulations were made to prove the viability of their idea and the 
+	effectiveness of the \gls{drl}-based path planning algorithm.
+	
+	% #3
+	In a third paper, \citeauthor{hua21} focused on navigating a team
+	of \glspl{uav} equipped with cameras to monitor groups of ground 
+	pedestrians or vehicles that were moving with a bounded speed but an unknown pattern. 
+	The surveillance is supposed to be from the shortest distances possible. 
+	They proposed an algorithm in which the \gls{uav} is able to determine 
+	its movement locally with some help from a central station.
+	Simulations were done to prove the algorithm's efficiency. However, the 
+	specific simulation software was not mentioned. 
+	
+	All the mentioned papers presented their solutions using different 
+	simulation software. However, none of them was implemented in the real-world which questions the reliability of the algorithms.
+	
+	
+	
+	% Part 2
+	% {{{
+	
+	% Background 
+	% {{{{
+	The second important concept of the project is the computer simulation.
+	Simulation is a cost-effective, time-saving, flexible 
+	and safe way to experiment with a drone
+	at the expense of a reduction in accuracy compared to the real world.
+	The research realm has shown that the use of simulation 
+	is highly attractive in \gls{drl} studies with drones.
+	This is because \gls{drl} involves
+	making gradual improvements to a model based on 
+	repeated cycles of experience, and computer simulation 
+	allows these iterations to be carried out cheaply.
+	
+	According to the literature review, 
+	the combination of Gazebo, \gls{ros}
+	and \textsc{px4} are the most widely used software stack 
+	for the \gls{sitl} development
+	because they are open-source. 
+	In contrast, Sphinx and Olympe, which are used in this project, 
+	are closed-source.
+	Although open-source software 
+	allows for full control and the flexibility to tinker
+	since the source code is freely available,
+	it is less stable and time-consuming to debug
+	when there is an error in the source code.
+	Another conclusion from the literature is that 
+	the transfer from simulation to the real world,
+	which this project also aims to accomplish,
+	is lacking in the studies reviewed.
+	As a result, it is not possible to comment on 
+	how the simulation findings effectively translate
+	to the physical environment.
+	% }}}}
+	
+	% Related work
+	% {{{{ Zhou2020
+	% Topic sentence
+	The use of simulation makes rapid experiments in realistic settings 
+	and iterative \gls{uav} designs possible, 
+	both of which are important in \gls{ai} training. 
+	% Explanation
+	\citeauthor{Zho20} demonstrates this by % or \textcite{Zho20}
+	using a combination of the open-source 3D dynamic simulator Gazebo
+	and the autopilot system \textsc{px4}.
+	Through this, they avoided the time-consuming steps of 
+	carrying out physical experiments
+	and adjusting parameters according 
+	to the environmental settings~\cite{Zho20}.
+	Thanks to the simulation, 
+	the authors were also able to propose a generic
+	framework to integrate the \gls{dqn} algorithm into 
+	the simulated \gls{uav} environment~\cite{Zho20}.
+	In our work, the same Gazebo physics engine
+	simulation software is used, and \gls{drl} is similarly trained
+	for the high-level control of the \gls{uav}. 
+	However, the authors used the \gls{ros}-\textsc{px4} as the controller 
+	while in our work, the Olympe program is used.
+	The main criticism against this paper is that the operating system,
+	which was Ubuntu 16.04, and 
+	the \gls{ros} version, which was Kinetic Kame, 
+	were old and no longer supported 
+	even though the paper was written in 2020.
+	Nevertheless, the explanation and the flowchart illustrating the 
+	Q-learning in the context of drone control are instructive 
+	for our work going forward.
+	% }}}}
+	
+	% {{{{ Walker2019
+	% Topic sentence
+	The time-saving benefit and the ease of experimentation 
+	afforded by the use of computer simulation are further emphasized 
+	when studying uncertain environments.
+	% Explanation
+	Dealing with an unknown environment for search and navigation applications,
+	\citeauthor{Wal19} used simulation to train a \gls{uav}
+	to solve a local planning problem
+	by framing the problem as 
+	a \gls{pomdp}
+	using continuous action spaces~\cite{Wal19}.
+	Similar to the previous paper, the \gls{ros}-\textsc{px4} stack 
+	and the Gazebo 
+	simulation software were used compared to Olympe and Sphinx 
+	in this project~\cite{Wal19}.
+	In addition, both the paper and this project study path planning 
+	with \gls{drl} but our work uses it for target visitation 
+	in an obstacle-free environment 
+	while the authors used it for searching and navigation
+	in both obstacle-free and non-obstacle-free environments.
+	However, the use of a \gls{uav} indoor by the authors as an application 
+	does not leverage the unique features of \glspl{uav}, 
+	but it is a good starting point 
+	and easier to implement in the real world 
+	when the outdoor flight is restricted.
+	A useful lesson that this paper provides for our project
+	is the use of the open \gls{ai} gym in creating the \gls{uav} environment
+	resulting in clearer abstraction in the codebase
+	for the training process.
+	% }}}}
+	
+	% {{{{ Garcia2020
+	% Topic sentence
+	Yet another \gls{uav} research-related applications 
+	that profits from the use of computer simulation 
+	is the testing of new sensors on the \gls{uav}.
+	% Evidence 1
+	\citeauthor{Gar20} argues that the future of \glspl{uav}
+	relies on the use of advanced sensors and 
+	the ease of analyzing their functions
+	in real operational conditions~\cite{Gar20}.
+	% Response
+	To demonstrate such viability, they connected a \gls{lidar} sensor
+	to a PixHawk flight controller and tested the improvement
+	that the new sensor provided
+	in the application of navigation and obstacle avoidance.
+	Importantly, prior to that, they used QGroundControl and the \textsc{px4}
+	platforms to analyze the addition of a \gls{lidar} sensor
+	on a simulated 3DR Iris \gls{uav}.
+	Unlike our work, the authors' focus for using the simulation
+	was on sensor integration and not \gls{drl} 
+	which did not feature in the paper. 
+	The main criticism of this work is that 
+	the sensor is simulated without noise
+	when in the real world, the data captured
+	by the sensor is invariably noisy.
+	Although the objectives between the authors' and our work
+	are different, it is still very helpful to learn from
+	the extensive software stack and architecture guide 
+	presented by the authors.
+	% }}}}
+	
+	% }}}
+	
+	% Background 
+	% {{{{
+	% Part 3
+	% {{{
+	% Background 
+	% {{{{
+	The third and final concept of the project is hardware realization for drone visits.
+	The hardware part is essential in the implementation in the real world, where the simulation sometimes strays from the truth.
+	There is a lack of hardware implementations in the field of research regarding drones with \gls{drl}, and most of the research papers focus on the simulations.
+	According to the literature review, the \gls{cnn} models were used in the majority of the papers for object detection. 
+	Also, the controller boards and custom drone kits were used instead of commercial drones.
+	Those kits give the researcher and user more flexibility since the drone is customizable 
+	in hardware and software.But in our design, we will use a commercial drone so that we focus
+	on the \gls{drl}, not the actual drone build process. 
+	
+	% }}}}
+	
+	% Related work
+	% {{{{ Khan2021
+	% Topic sentence
+	The use of a microcomputer with Quadcopter \glspl{uav} and autopilot software will help in the hardware implementation part.
+	% Explanation
+	\citeauthor{Khan21} used the drone in the agriculture field to spray 
+	pesticides and monitor the crops. Unlike our work, the drone was limited to specific
+	boundaries and fixed targets such as crops.
+	They used a Raspberry Pi microcomputer board attached to the drone, which will handle two different operations. Firstly, it will control the drone using an open-source
+	software called Arducopter autopilot which will handle the trip of the drone and autonomous 
+	flight option. The second operation is to deal with the Intel neural computer stick 2, which will deploy the \gls{cnn} model and deal with the computation part~\cite{Khan21}.
+	Although this work is close to ours, there are some differences, 
+	one of them is using a custom drone which is not considered since we are limited in time.
+	Since we will use the Anafi drone, the Olympe program will take control of the drone, which will
+	be installed on the Raspberry Pi. Finally, using \gls{cnn} only is not enough without \gls{drl} 
+	which makes the drone more intelligent and accurate.
+	
+	
+	% }}}}
+	
+	% {{{{ Wang2018
+	% Topic sentence
+	Commercial drone with onboard computer uses SDK with image processing techniques.
+	% Explanation
+	The hardware architecture in \citeauthor{Wang18} work for this paper includes a DJI 
+	commercial drone and an onboard computer called manifold, which is from the same manufacturer.
+	Also, onboard sensors like camera,\gls{gps} and inertial sensor are included. Finally,
+	external battery for the manifold computer and Wi-Fi adapter that is used for connection 
+	between the drone and the onboard computer. This hardware architecture is inspirational, and our design is somehow close to it with minor changes in the onboard computer and 
+	without the existence of the sensors.Image and video processing techniques were used, such as 
+	segmentation to keep detecting moving targets was presented in ~\cite{Wang18}.
+	For the navigation part, they used predetermined waypoints related to historical path cost. 
+	However, in our work, probability and mobility patterns will be used to guess the target's location.
+	% }}}}
+	
+	% {{{{ Zhao2018
+	% Topic sentence
+	The use of embedded system attached to the \gls{uav} which implements mobility pattern recognition, to decrease response time and save transmission bandwidth. 
+	% Explanation 
+	\citeauthor{Zhao18} work used a quadrotor \gls{uav} supported with \gls{gps} module and a Pix 
+	Hawk flight controller. The power sources in the architecture were two lithium batteries, 
+	one for the drone and one for the embedded system. The system uses NVIDIA Jetson development
+	kits which give enough computing power for the processing and communication between the flight 
+	controller and the system. The Jetson board is connected to the flight controller using serial 
+	communication while connected to the ground controller using Wi-Fi. Communication tools and protocols used in \citeauthor{Zhao18} work will help us to determine the best way to communicate between the development board and the drone without any delay or interference ~\cite{Zhao18}. 
+	
+	
+	% }}}}
+	
+	% }}}
+	
+	
+	
+\end{document}
