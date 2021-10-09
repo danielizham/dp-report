@@ -1,127 +1,273 @@
-\begin{table}[htb]
-    \centering
-    \small
-    \caption{Literature review table summary}
-    \label{tab:lit-summary}
-    \begin{tabular}{ P{0.6cm} P{4cm} P{1.6cm} P{1.3cm} P{1.4cm} P{1.4cm} P{1.4cm} P{1.4cm} }
-        % \begin{tabular}{| P{0.6cm} | P{4cm} | P{1.6cm} | P{1.3cm} | P{1.4cm} | P{1.4cm} | P{1.4cm} | P{1.4cm} |}
-        \toprule
-        \textit{Ref} 
-            & \textit{Main Objective} 
-                & \textit{Simulation} 
-                    & \textit{Real-world} 
-        & \textit{Single or Multi Drone} 
-            & \textit{Technique} 
-                & \textit{Localizes Targets}  
-                    & \textit{Mobile or Fixed Targets} \\
+\begin{center}
+    \begin{small}
+        \begin{longtable}{ p{0.6cm} p{4cm} p{1.6cm} p{1.3cm} p{1.4cm} p{1.4cm} p{1.4cm} p{1.4cm} }
+            \caption{Literature review summary
+            \label{tab:lit-summary}} \\
 
-        \midrule
+            \toprule
+            \textit{Ref} 
+                & \textit{Main Objective} 
+                    & \textit{Simulation} 
+                        & \textit{Real-world} 
+            & \textit{Single or Multi Drone} 
+                & \textit{Technique} 
+                    & \textit{Localizes Targets}  
+                        & \textit{Mobile or Fixed Targets} \\
+            \midrule
+            \endfirsthead
+            \caption[]{Literature review summary (continued)}\\
+            \toprule
+            \textit{Ref} 
+                & \textit{Main Objective} 
+                    & \textit{Simulation} 
+                        & \textit{Real-world} 
+            & \textit{Single or Multi Drone} 
+                & \textit{Technique} 
+                    & \textit{Localizes Targets}  
+                        & \textit{Mobile or Fixed Targets} \\
+            \midrule
+            \endhead
 
-        Huang20  
-            & Minimize the time to scan targets and 
-            propose a reactive real-time sliding 
-            mode control algorithm to navigate a team 
-            of \glspl{uav}. 
-                & Yes
-                    & No 
-        & Single and Multi 
-            & Complex Math Calculations (\textsc{no ai}) 
-                & yes 
-                    & mobile \\ \addlinespace
+            Huang20  
+                & Minimize the time to scan targets and 
+                propose a reactive real-time sliding 
+                mode control algorithm to navigate a team 
+                of \glspl{uav}. 
+                    & Yes
+                        & No 
+            & Single and Multi 
+                & Complex Math Calculations (\textsc{no ai}) 
+                    & yes 
+                        & mobile \\ \addlinespace
 
-        Peng21  
-            & To develop an online path planning 
-            algorithm using \gls{drl}, minimize 
-            energy consumption and maximize 
-            offloaded data bits. 
-                & Yes 
-                    & No 
-        & Single 
-            & Deep Reinforcement Learning 
-                & yes 
-                    & mobile \\ \addlinespace
-
-        Savkin21
-            & To navigate a team of unmanned 
-            aerial vehicles (\glspl{uav}) to 
-            monitor groups of ground pedestrians 
-            and deliver a high-quality surveillance 
-                & Yes 
+            Peng21  
+                & To develop an online path planning 
+                algorithm using \gls{drl}, minimize 
+                energy consumption and maximize 
+                offloaded data bits. 
                     & Yes 
-        & Multi 
-            & Complex Math Calculations (\textsc{no ai}) 
-                &yes 
-                    & mobile \\ \addlinespace
+                        & No 
+            & Single 
+                & Deep Reinforcement Learning 
+                    & yes 
+                        & mobile \\ \addlinespace
 
-        Zho20  
-            & To adopt existing simulators and 
-            propose a general framework to 
-            incorporate \gls{dqn} algorithm with 
-            the \gls{uav} simulation environment 
-                & Yes 
+            Savkin21
+                & To navigate a team of unmanned 
+                aerial vehicles (\glspl{uav}) to 
+                monitor groups of ground pedestrians 
+                and deliver a high-quality surveillance 
+                    & Yes 
+                        & Yes 
+            & Multi 
+                & Complex Math Calculations (\textsc{no ai}) 
+                    &yes 
+                        & mobile \\ \addlinespace
+
+            Zho20  
+                & To adopt existing simulators and 
+                propose a general framework to 
+                incorporate \gls{dqn} algorithm with 
+                the \gls{uav} simulation environment 
+                    & Yes 
+                        & \_ 
+            &\_ 
+                & \gls{drl} 
+                     & \_ 
+                         & \_ \\ \addlinespace
+
+            Wal19  
+                 & To present the \gls{uav} indoor 
+                 search problem two separate problems, 
+                 a global planning problem and 
+                 a local one, create a model to test 
+                 the application of modern \gls{drl} 
+                 approaches to the two problems. 
+                    & Yes 
+                        & No 
+            & Single 
+                & Deep Reinforcement Learning 
                     & \_ 
-        &\_ 
-            & \gls{drl} 
-                 & \_ 
-                     & \_ \\ \addlinespace
+                        & \_ \\ \addlinespace
 
-        Wal19  
-             & To present the \gls{uav} indoor 
-             search problem two separate problems, 
-             a global planning problem and 
-             a local one, create a model to test 
-             the application of modern \gls{drl} 
-             approaches to the two problems. 
-                & Yes 
+            Gar20 
+                & To use available software for 
+                mission definition and execution in 
+                \glspl{uav} based on PixHawk flight 
+                controller and peripherals in 
+                integrating and evaluating 
+                a \gls{lidar} sensor 
+                    & Yes 
+                        & Yes 
+            & Single 
+                & Sensors 
+                    & \_ 
+                        & \_ \\ \addlinespace
+
+            Zhao18 
+                & To build a deep learning model 
+                that verifies the efficiency of 
+                \gls{dl} for object detection 
+                    & Yes 
+                        & Yes 
+            & Single 
+                & Deep Learning and CNN 
+                    & yes 
+                        & mobile \\ \addlinespace
+
+            Wang18 
+                & Create a powerful online drone 
+                based moving target detection 
+                for site inspection and 
+                a violation detection tool 
                     & No 
-        & Single 
-            & Deep Reinforcement Learning 
-                & \_ 
-                    & \_ \\ \addlinespace
+                        & Yes 
+            & Single 
+                & Deep Learning and CNN 
+                    & yes 
+                        & mobile  \\
 
-        Gar20 
-            & To use available software for 
-            mission definition and execution in 
-            \glspl{uav} based on PixHawk flight 
-            controller and peripherals in 
-            integrating and evaluating 
-            a \gls{lidar} sensor 
-                & Yes 
+            Khan21
+                & To build integrate a deep 
+                learning model in \glspl{uav} to spray 
+                pesticides and monitor the crops.
                     & Yes 
-        & Single 
-            & Sensors 
-                & \_ 
-                    & \_ \\ \addlinespace
+                        & Yes 
+            & Single 
+                & Deep Learning and \gls{cnn} 
+                    & yes 
+                        & mobile \\ \addlinespace
 
-        Zhao18 
-            & To build a deep learning model 
-            that verifies the efficiency of 
-            \gls{dl} for object detection 
-                & Yes 
-                    & Yes 
-        & Single 
-            & Deep Learning and CNN 
-                & yes 
-                    & mobile \\ \addlinespace
+            \bottomrule
+        \end{longtable}
+    \end{small}
+\end{center}
 
-        Wang18 
-            & Create a powerful online drone based moving target detection for site inspection and a violation detection tool 
-                & No 
-                    & Yes 
-        & Single 
-            & Deep Learning and CNN 
-                & yes 
-                    & mobile  \\
 
-        Khan21
-            & To build integrate a deep learning model in UAVs to spray pesticides and monitor the crops.
-                & Yes 
-                    & Yes 
-        & Single 
-            & Deep Learning and CNN 
-                & yes 
-                    & mobile \\ \addlinespace
+% \begin{table}[htb]
+%     \centering
+%     \small
+%     \caption{Literature review table summary}
+%     \label{tab:lit-summary}
+%     \begin{tabular}{ P{0.6cm} P{4cm} P{1.6cm} P{1.3cm} P{1.4cm} P{1.4cm} P{1.4cm} P{1.4cm} }
+%         % \begin{tabular}{| P{0.6cm} | P{4cm} | P{1.6cm} | P{1.3cm} | P{1.4cm} | P{1.4cm} | P{1.4cm} | P{1.4cm} |}
+%         \toprule
+%         \textit{Ref} 
+%             & \textit{Main Objective} 
+%                 & \textit{Simulation} 
+%                     & \textit{Real-world} 
+%         & \textit{Single or Multi Drone} 
+%             & \textit{Technique} 
+%                 & \textit{Localizes Targets}  
+%                     & \textit{Mobile or Fixed Targets} \\
 
-              \bottomrule
-    \end{tabular}
-\end{table}
+%         \midrule
+
+%         Huang20  
+%             & Minimize the time to scan targets and 
+%             propose a reactive real-time sliding 
+%             mode control algorithm to navigate a team 
+%             of \glspl{uav}. 
+%                 & Yes
+%                     & No 
+%         & Single and Multi 
+%             & Complex Math Calculations (\textsc{no ai}) 
+%                 & yes 
+%                     & mobile \\ \addlinespace
+
+%         Peng21  
+%             & To develop an online path planning 
+%             algorithm using \gls{drl}, minimize 
+%             energy consumption and maximize 
+%             offloaded data bits. 
+%                 & Yes 
+%                     & No 
+%         & Single 
+%             & Deep Reinforcement Learning 
+%                 & yes 
+%                     & mobile \\ \addlinespace
+
+%         Savkin21
+%             & To navigate a team of unmanned 
+%             aerial vehicles (\glspl{uav}) to 
+%             monitor groups of ground pedestrians 
+%             and deliver a high-quality surveillance 
+%                 & Yes 
+%                     & Yes 
+%         & Multi 
+%             & Complex Math Calculations (\textsc{no ai}) 
+%                 &yes 
+%                     & mobile \\ \addlinespace
+
+%         Zho20  
+%             & To adopt existing simulators and 
+%             propose a general framework to 
+%             incorporate \gls{dqn} algorithm with 
+%             the \gls{uav} simulation environment 
+%                 & Yes 
+%                     & \_ 
+%         &\_ 
+%             & \gls{drl} 
+%                  & \_ 
+%                      & \_ \\ \addlinespace
+
+%         Wal19  
+%              & To present the \gls{uav} indoor 
+%              search problem two separate problems, 
+%              a global planning problem and 
+%              a local one, create a model to test 
+%              the application of modern \gls{drl} 
+%              approaches to the two problems. 
+%                 & Yes 
+%                     & No 
+%         & Single 
+%             & Deep Reinforcement Learning 
+%                 & \_ 
+%                     & \_ \\ \addlinespace
+
+%         Gar20 
+%             & To use available software for 
+%             mission definition and execution in 
+%             \glspl{uav} based on PixHawk flight 
+%             controller and peripherals in 
+%             integrating and evaluating 
+%             a \gls{lidar} sensor 
+%                 & Yes 
+%                     & Yes 
+%         & Single 
+%             & Sensors 
+%                 & \_ 
+%                     & \_ \\ \addlinespace
+
+%         Zhao18 
+%             & To build a deep learning model 
+%             that verifies the efficiency of 
+%             \gls{dl} for object detection 
+%                 & Yes 
+%                     & Yes 
+%         & Single 
+%             & Deep Learning and CNN 
+%                 & yes 
+%                     & mobile \\ \addlinespace
+
+%         Wang18 
+%             & Create a powerful online drone based moving target detection for site inspection and a violation detection tool 
+%                 & No 
+%                     & Yes 
+%         & Single 
+%             & Deep Learning and CNN 
+%                 & yes 
+%                     & mobile  \\
+
+%         Khan21
+%             & To build integrate a deep learning model in UAVs to spray pesticides and monitor the crops.
+%                 & Yes 
+%                     & Yes 
+%         & Single 
+%             & Deep Learning and CNN 
+%                 & yes 
+%                     & mobile \\ \addlinespace
+
+%               \bottomrule
+%     \end{tabular}
+% \end{table}
