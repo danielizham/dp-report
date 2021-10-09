@@ -109,48 +109,48 @@ on the \gls{drl}, not the actual drone build process.
 \subsection{Related work}
 
 % {{{ Part 1
-		% #1
-		In paper ~\cite{hua20}, the authors \citeauthor{hua20} 
-		addressed a problem of autonomous navigation of \glspl{uav}. 
-		They proposed a reactive real-time sliding mode control algorithm 
-		that navigates a team of communicating \glspl{uav}.
-		The drones were equipped with ground-facing video cameras,
-		towards moving targets. 
-		Furthermore, they adopted the Voronoi partitioning \textsc{vp} technique 
-		to reduce the range of movement for each \gls{uav} and 
-		minimize the revisit time of each target as each drone was responsible 
-		for a sub-area.
-		They also ran extensive computer simulations using \textsc{matlab}. 
-		Their simulations were tried on one \gls{uav} and multiple \glspl{uav},
-		and they also considered the case where of an uneven ground. 
-		Their main findings where that the use of the \textsc{vp} technique 
-		leads to more computation burden, but can considerably reduce the target 
-		revisit time.
-		
-		% #2
-		
-		In paper ~\cite{pen21}, authors \citeauthor{pen21} studied the idea 
-		of taking advantage of \glspl{uav} in order to increase the network
-		 coverage and execute computing tasks offloaded from multiple devices. 
-		The constraints were to minimize the energy consumption of the \gls{uav}, 
-		and maximize the amount of offloaded bits. 
-		Objects on the ground were not stationary and were following a Gauss-Markov 
-		movement pattern. Their approach was to apply \gls{drl} to develop an online path planning algorithm based on double deep Q-learning network (\textsc{ddqn}).
-		Simulations were made to prove the viability of their idea and the 
-		effectiveness of the \gls{drl}-based path planning algorithm.
-		
-		% #3
-		In a third paper, \citeauthor{hua21} focused on navigating a team
-		of \glspl{uav} equipped with cameras to monitor groups of ground 
-		pedestrians or vehicles that were moving with a bounded speed but an unknown pattern. 
-		The surveillance is supposed to be from the shortest distances possible. 
-		They proposed an algorithm in which the \gls{uav} is able to determine 
-		its movement locally with some help from a central station.
-		Simulations were done to prove the algorithm's efficiency. However, the 
-		specific simulation software was not mentioned. 
-		
-		All the mentioned papers presented their solutions using different 
-		simulation software. However, none of them was implemented in the real-world which questions the reliability of the algorithms.
+% #1
+In paper ~\cite{hua20}, the authors \citeauthor{hua20} 
+addressed a problem of autonomous navigation of \glspl{uav}. 
+They proposed a reactive real-time sliding mode control algorithm 
+that navigates a team of communicating \glspl{uav}.
+The drones were equipped with ground-facing video cameras,
+towards moving targets. 
+Furthermore, they adopted the Voronoi partitioning \textsc{vp} technique 
+to reduce the range of movement for each \gls{uav} and 
+minimize the revisit time of each target as each drone was responsible 
+for a sub-area.
+They also ran extensive computer simulations using \textsc{matlab}. 
+Their simulations were tried on one \gls{uav} and multiple \glspl{uav},
+and they also considered the case where of an uneven ground. 
+Their main findings where that the use of the \textsc{vp} technique 
+leads to more computation burden, but can considerably reduce the target 
+revisit time.
+
+% #2
+
+In paper ~\cite{pen21}, authors \citeauthor{pen21} studied the idea 
+of taking advantage of \glspl{uav} in order to increase the network
+coverage and execute computing tasks offloaded from multiple devices. 
+The constraints were to minimize the energy consumption of the \gls{uav}, 
+and maximize the amount of offloaded bits. 
+Objects on the ground were not stationary and were following a Gauss-Markov 
+movement pattern. Their approach was to apply \gls{drl} to develop an online path planning algorithm based on double deep Q-learning network (\textsc{ddqn}).
+Simulations were made to prove the viability of their idea and the 
+effectiveness of the \gls{drl}-based path planning algorithm.
+
+% #3
+In a third paper, \citeauthor{hua21} focused on navigating a team
+of \glspl{uav} equipped with cameras to monitor groups of ground 
+pedestrians or vehicles that were moving with a bounded speed but an unknown pattern. 
+The surveillance is supposed to be from the shortest distances possible. 
+They proposed an algorithm in which the \gls{uav} is able to determine 
+its movement locally with some help from a central station.
+Simulations were done to prove the algorithm's efficiency. However, the 
+specific simulation software was not mentioned. 
+
+All the mentioned papers presented their solutions using different 
+simulation software. However, none of them was implemented in the real-world which questions the reliability of the algorithms.
 % }}}
 
 % {{{ Part 2
