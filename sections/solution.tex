@@ -2,48 +2,44 @@
 
 \begin{document}
 \subsection{Alternative solutions and tradeoffs}
-\begin{table}[hbt!]
-	\begin{tabular}{ | p{4cm}| p{6cm} | p{6cm} |}
-		\hline
-		\textit{} & \textit{Design A} & \textit{Design B}\\ \hline
-		Type  & custom made drone with onboard computer & commercial drone with high performance and many features    \\ \hline
-		Flexibility & very flexible and and customization is easy & hard to customize or modify it since it flies under limited protocols and standards. \\ \hline
+\begin{table}[H]
+        \centering
+	\caption{A comparison of the alternative solutions.}
+        \label{tab:alt-solutions}
+	\begin{tabular}{ p{4cm} p{6cm} p{6cm} }
+		\toprule
+		\textit{} & \textit{Design A} & \textit{Design B}\\ \midrule
+		Type  & custom made drone with onboard computer & commercial drone with high performance and many features    \\
+		Flexibility & very flexible and and customization is easy & hard to customize or modify it since it flies under limited protocols and standards. \\
 		
-		Price \& Availability & cheaper but the shipping and building processes must be considered & expensive but in our case its available in our hands and ready to fly.   \\ \hline
+		Price \& Availability & cheaper but the shipping and building processes must be considered & expensive but in our case its available in our hands and ready to fly.   \\
 		
-		Onboard computer & must have & must have \\ \hline
-		
-%	  &  &   \\ \hline
-		
-%		  &  &   \\ \hline
-		
+		Onboard computer & must have & must have \\
+                \bottomrule
 	\end{tabular}
-	\caption{Alternative solutions comparison}
-\end{table} \label{tab: Alternative solutions and tradeoffs comparison }
+\end{table} 
 From the above table, we can see some tradeoffs between design A and design B, but in both designs, an onboard microcomputer must be present for flying control and the support of autopilot feature. There are three options for onboard microcomputers, which are shown in the following table. Raspberry Pi 4 seems to be the winner since it has advantages in specifications, connection interfaces, and availability.
-\begin{table}[hbt!]
-	\begin{tabular}{ | p{3cm} | p{4cm}| p{4cm} | p{4cm} |}
-		\hline
-		\textit{} & \textit{Raspberry Pi 4} & \textit{NVIDIA Jetson Nano} & \textit{dji Manifold}\\ \hline
-		Specifications  & CPU:Cortex-A72 (ARM v8) 64-bit@ 1.5GHz | Ram :4GB or 8GB LPDDR4-3200 SDRAM | GPU : Broadcom VideoCore VI & CPU:Quad-core ARM A57 @ 1.43 GHz | Ram: 4 GB 64-bit LPDDR4   | GPU:128-core Maxwell & CPU:Quad-core,ARM | Ram: 2 GB DDR3L | GPU:Low-power GeForce graphics processor \\ \hline
-		Connection interfaces & 2.4 GHz and 5.0 GHz IEEE 802.11ac wireless, Bluetooth 5.0 & Gigabit Ethernet \& M.2 Key E (for WiFi support). &10/100/1000 BASE-T Ethernet \\ \hline
+\begin{table}[H]
+        \centering
+	\caption{A comparison of the onboard computers.}
+        \label{tab:onboard-computers}  
+	\begin{tabular}{ p{3cm} p{4cm} p{4cm} p{4cm} }
+		\toprule
+		\textit{} & \textit{Raspberry Pi 4} & \textit{NVIDIA Jetson Nano} & \textit{dji Manifold}\\ \midrule
+		Specifications  & CPU:Cortex-A72 (ARM v8) 64-bit@ 1.5GHz | Ram :4GB or 8GB LPDDR4-3200 SDRAM | GPU : Broadcom VideoCore VI & CPU:Quad-core ARM A57 @ 1.43 GHz | Ram: 4 GB 64-bit LPDDR4   | GPU:128-core Maxwell & CPU:Quad-core,ARM | Ram: 2 GB DDR3L | GPU:Low-power GeForce graphics processor \\ \addlinespace
+		Connection interfaces & 2.4 GHz and 5.0 GHz IEEE 802.11ac wireless, Bluetooth 5.0 & Gigabit Ethernet \& M.2 Key E (for WiFi support). &10/100/1000 BASE-T Ethernet \\ \addlinespace
 		
-		Price \& Availability & 300 QAR available and can be used on any drone & 400 QAR available but need to be ordered and shipped & very expensive and restricted to dji drones and dji company stopped selling it    \\ \hline
+		Price \& Availability & 300 QAR available and can be used on any drone & 400 QAR available but need to be ordered and shipped & very expensive and restricted to dji drones and dji company stopped selling it \\ \addlinespace
 		Picture & \begin{minipage}{.2\textwidth}.
 			\includegraphics[width=40mm, height=30mm]{raspberry.jpg}
 		\end{minipage}  & \begin{minipage}{.2\textwidth}.
 		\includegraphics[width=40mm, height=30mm]{jetson.jpg}
 	\end{minipage} & \begin{minipage}{.2\textwidth}.
 	\includegraphics[width=40mm, height=30mm]{manifold.jpg}
-\end{minipage} \\ \hline
-		
-		%	  &  &   \\ \hline
-		
-		%		  &  &   \\ \hline
-		
+\end{minipage} \\
+            \bottomrule
 	\end{tabular}
-	\caption{onboard computers comparison}
-\end{table} \label{tab: onboard computers }  
+\end{table}
 \newpage
 \subsection{Selected solution overview}
 The proposed solution consists of two main sections: a commercial drone and a controlling section.
