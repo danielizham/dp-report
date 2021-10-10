@@ -14,14 +14,16 @@ The need to do so in the shortest time can be due to restrictions in
 cost, energy or other limited resources of concern.
 This problem is commonly known as the Travelling Salesman problem
 where historically, a salesman had to make a decision in which order
-to visit a set of cities in the most time-saving manner to do his trade.
+to visit a set of cities exactly once to conduct his trade
+in the most time-saving manner.
 To achieve that goal, the destinations have to be visited in the order
 that is the most efficient in terms of the metric of interest
 and algorithms such as Dijkstra's have been successfully used 
 to find the shortest path between the cities.
 
-To perform that observation, \textcite{Sha19}
-deduced that using \glspl{uav}, or commonly known as drones,
+As for the mechanism by which to visit them, 
+\textcite{Sha19} deduced that using \glspl{uav}, 
+or commonly known as drones,
 can bring many benefits 
 compared to the traditional methods.
 Instead of going to the locations in person, installing a \textsc{cctv},
@@ -31,10 +33,14 @@ having to be installed and maintained at that site
 or being restricted to that specific location~\cite{Sha19}.
 Moreover, the mobility of the \glspl{uav} is important
 in cases where the destinations are actually mobile targets~\cite{Sha19}.
-For instance, a marine biologist needs to investigate 
-migrating pods of whales.
-If such targets move in a straight line only,
-then the problem can be formulated as an optimization problem
+For instance, a marine biologist needs to examine 
+the interactions between members of a migrating 
+pod of whales whose task neither \textsc{cctv}s 
+or satellites are suited for.
+If \glspl{uav} are used and such targets move 
+in a straight line only,
+then the problem can be formulated as 
+an optimization problem
 and may be solved using mixed-integer programming.
 However, if the mobility pattern of the targets is not known,
 then such a solution will not work.
@@ -61,9 +67,8 @@ use of physics simulation in solving it.
 
 % {{{ Differentiate between technical and non-technical challenges
 % {{{{ technical challenges
-To solve the problem mentioned above, 
-there are many technical and non-technical challenges
-that need to be dealt with.
+There are many technical and non-technical challenges
+that lie in the path to solving this problem.
 Like many other engineering projects,
 these challenges have forced us to make trade-offs.
 The former category of challenges arises 
@@ -75,8 +80,7 @@ is its power supply which is battery powered due to its mobility.
 Other types of power supply such as wireless power transfer
 are also possible but infeasible since firstly, it is not the
 focus of this project, and secondly, the technology requires 
-advanced knowledge which cannot be gained within the duration 
-of the design project.
+advanced knowledge which cannot be gained within the set duration.
 This challenge is similarly faced with the Raspberry Pi attached
 to the drone, although its power usage 
 is much lower compared to the drone.
@@ -85,15 +89,15 @@ directly leads to a host of other technical challenges
 such as short flying range and altitude, restricted flying time,
 and low allowable payload.
 Many of the challenges can be alleviated if the drone model is changed
-from the Anafi 4K to another one such as 
-the Anafi Ai or the \textsc{dji} Matrice 300 \textsc{rtk},
+from the regular Anafi drone to another one such as 
+the Anafi \textsc{a}i or the \textsc{dji} Matrice 300 \textsc{rtk},
 but the cost and shipping logistics as well as
 the likely issues with working with a new product
 render this solution prohibitive.
 
 In terms of the computer running the \gls{ml} training,
 the technical challenge presents itself as 
-the accuracy and cost tradeoff.
+the accuracy and cost trade-off.
 The project involves two \gls{dl} models,
 one of which designed by \textcite{Ged21}.
 This \gls{drl} model is used unaltered so 
@@ -115,8 +119,8 @@ when the \gls{uav} is detecting the targets during the
 will not be possible given our limitations.
 We estimate that the computer used to develop the \gls{drl} model
 should have at least an Intel i5 10th generation or
-Ryzen 4000 series \textsc{cpu}, and a \textsc{ram} of 8GB, 
-and a \textsc{gpu} of at least an Nvidia 2000 series
+Ryzen 4000 series \textsc{cpu}, a \textsc{ram} of 8GB, 
+and a \textsc{gpu} of at least an \textsc{nvidia} 2000 series
 with a \textsc{vram} of 12GB.
 % }}}}
 
@@ -132,8 +136,7 @@ This means that the fixed and variable costs of this project
 coming from procuring the Anafi drone, the Raspberry Pi and other
 components in the system, 
 and wages for designing and training the model
-should be around \textsc{qar} 4000 to make a 30\% profit 
-which is our target.
+should be around \textsc{qar} 4000 to make a 30\% target profit.
 The second non-technical challenge that we are required to consider
 is the logistics of procuring the materials and devices above.
 The Anafi drone, its spare parts and special Raspberry Pi
@@ -173,9 +176,10 @@ compared to terrestrial vehicles and
 it flies at a higher altitude 
 making it more able to avoid 
 many of the surrounding obstacles.
-Another aspect of the project which is \gls{drl} 
+Being another major aspect of the project, \gls{drl} 
 allows the \gls{uav} to generalize better
-hence making it perform better in an unknown environment
+making it perform more robustly
+in an unknown environment
 and with unknown targets mobility patterns.
 Finally, using physics simulation will make the product 
 more accurate since it considers 
@@ -184,7 +188,7 @@ the kinematics and dynamics of the \gls{uav} more accurately.
 Consequently, the training of the \gls{drl} model 
 using the simulation will be improved 
 and the result will perform better
-compared to using a mathematical simulation.
+compared to using a merely mathematical simulation.
 % }}}
 
 % {{{{ Describe how can stakeholders use the project,
@@ -209,13 +213,13 @@ time-consuming, tedious and expensive
 while some will remain infeasible
 causing the stakeholders to be deprived of ample growth opportunities.
 In some instances, the difference between using 
-an intelligent \gls{uav} \gls{drl}-trained on mobile target visitation
-and not
+and not using an intelligent \gls{uav} 
+\gls{drl}-trained on mobile target visitation
 will be a matter of life-and-death
 such as in the search-and-rescue field.
 Moreover, Qatar stands to benefit the most from this project 
 considering the \textsc{fifa} 2022 it will be hosting
-and the rapidly transforming economy and population.
+and its rapidly transforming economy and population.
 For example, the use of drones can help manage 
 the \textsc{fifa} World Cup 
 and the increase in population through better monitoring 
@@ -251,7 +255,7 @@ Besides the jobs that are directly related to the project,
 there are other fields that will appreciate the knowledge
 and skills that we will gain from the methodological processes 
 of designing the simulation,
-training the \gls{drl} models and testing it in the real world.
+training the \gls{drl} models and testing them in the real world.
 These include robotics, machine learning, and 
 network security.
 % }}}
@@ -265,10 +269,11 @@ network security.
 The \gls{uav} enjoys the benefits of \textsc{cctv}s and satellites
 in surveillance and monitoring without their drawbacks.
 Therefore, it has the potential to replace these
-traditional technologies in many applications 
-most of which involves mobile target visitation. 
-Although few studies have investigated the use of \gls{drl}
-to make a \gls{uav} intelligent to carry out such a task,
+traditional technologies in many applications, 
+most of which involve mobile target visitation. 
+Although there exist a few studies 
+that have investigated it in terms of \gls{drl}-trained
+\gls{uav},
 none of them thus far have attempted to
 integrate a physics simulator in the training
 and demonstrate the product in the real world.
@@ -284,18 +289,19 @@ The project's detailed objectives are as follows:
         which utilizes a physics simulator, 
         that implements the \gls{drl} model 
         published in the \textcite{Ged21} paper.
-    \item Construct a \gls{uav} system using the Anafi and 
+    \item Construct a physical \gls{uav} system 
+        using the Anafi and 
         Raspberry Pi that together is able to execute
         a target visitation mission autonomously.
-    \item Evaluate the trained model using real Anafi drone
-        and targets in a physical environment.
+    \item Evaluate the trained model using this system
+        and several targets in a physical environment.
 \end{enumerate}
 % }}}
 
 % {{{ Deliverables and desired results
 To demonstrate the objectives, there will be a number 
 of deliverables that we will produce.
-Firstly, we will present a detailed report that will detail
+Firstly, we will present a report detailing
 our aim, objectives, literature review, methodology,
 solution and the market value of the project.
 Secondly, we will output a trained \gls{drl} model for 
@@ -307,7 +313,7 @@ that will contain the model and instruct
 the Anafi throughout the mission.
 Based on the deliverables, the desired result is that
 given the same mobility pattern for 
-the moving targets during the \gls{drl} training,
+the moving targets as the one in the \gls{drl} training,
 the \gls{uav} should be able to fly to locations it has learned
 will allow it to capture the most targets. In other words,
 it should anticipate that these locations are those it can reach
