@@ -12,7 +12,7 @@ For example, an operational engineer needs to monitor
 a number of reactors and plants during his or her shift.
 The need to do so in the shortest time can be due to restrictions in
 cost, energy or other limited resources of concern.
-This problem is commonly known as the Travelling Salesman problem
+This problem is commonly known as the travelling salesman problem
 where historically, a salesman had to make a decision in which order
 to visit a set of cities exactly once to conduct his trade
 in the most time-saving manner.
@@ -89,8 +89,9 @@ directly leads to a host of other technical challenges
 such as short flying range and altitude, restricted flying time,
 and low allowable payload.
 Many of the challenges can be alleviated if the drone model is changed
-from the regular Anafi drone to another one such as 
-the Anafi \textsc{a}i or the \textsc{dji} Matrice 300 \textsc{rtk},
+from the regular \anafi drone to another one such as 
+the \anafi \textsc{a}i or the \textsc{dji} 
+\textsc{m}atrice 300 \textsc{rtk},
 but the cost and shipping logistics as well as
 the likely issues with working with a new product
 render this solution prohibitive.
@@ -119,9 +120,9 @@ when the \gls{uav} is detecting the targets during the
 will not be possible given our limitations.
 We estimate that the computer used to develop the \gls{drl} model
 should have at least an Intel i5 10th generation or
-Ryzen 4000 series \textsc{cpu}, a \textsc{ram} of 8GB, 
+Ryzen 4000 series \textsc{cpu}, a \textsc{ram} of 8\textsc{gb}, 
 and a \textsc{gpu} of at least an \textsc{nvidia} 2000 series
-with a \textsc{vram} of 12GB.
+with a \textsc{vram} of 12\textsc{gb}.
 % }}}}
 
 % {{{{ non-technical challenges
@@ -131,21 +132,21 @@ from attempting to solve the problem.
 One of the most important of them is cost. 
 We have deliberated that
 the resulting price for the stakeholders or clients
-should not exceed \textsc{qar} 6000. 
+should not exceed \textsc{qar}~6000. 
 This means that the fixed and variable costs of this project
-coming from procuring the Anafi drone, the Raspberry Pi and other
+coming from procuring the \anafi drone, the Raspberry Pi and other
 components in the system, 
 and wages for designing and training the model
-should be around \textsc{qar} 4000 to make a 30\% target profit.
+should be around \textsc{qar}~4000 to make a 30\% target profit.
 The second non-technical challenge that we are required to consider
 is the logistics of procuring the materials and devices above.
-The Anafi drone, its spare parts and special Raspberry Pi
+The \anafi drone, its spare parts and special Raspberry Pi
 components required in the solution are only available abroad.
 Not only that they cost more due to the additional shipping charge,
 but they are also limited in number 
 and take more time to arrive, which can delay 
 and disrupt the progress.
-Finally, since using the Parrot Anafi 4K in \gls{drl}
+Finally, since using the Parrot \anafi drone in \gls{drl}
 is a niche area of research let alone of the market,
 it is challenging to find learning resources for the tools
 that are used to program both technologies
@@ -290,7 +291,7 @@ The project's detailed objectives are as follows:
         that implements the \gls{drl} model 
         published in the \textcite{Ged21} paper.
     \item Construct a physical \gls{uav} system 
-        using the Anafi and 
+        using the \anafi drone and 
         Raspberry Pi that together is able to execute
         a target visitation mission autonomously.
     \item Evaluate the trained model using this system
@@ -308,9 +309,9 @@ Secondly, we will output a trained \gls{drl} model for
 the target visitation task of a specific
 mobility pattern.
 Finally, we will build a \gls{uav} system
-consisting of the Anafi drone as well as a Raspberry Pi
+consisting of the \anafi drone as well as a Raspberry Pi
 that will contain the model and instruct
-the Anafi throughout the mission.
+the \anafi drone throughout the mission.
 Based on the deliverables, the desired result is that
 given the same mobility pattern for 
 the moving targets as the one in the \gls{drl} training,

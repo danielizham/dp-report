@@ -19,7 +19,7 @@ and the \gls{uav} system:
         and their movement details/patterns
         to us for the \gls{rl}.
     \item The user should receive 
-        an Anafi-Raspberry Pi-\gls{drl} 
+        an \anafi-Raspberry Pi-\gls{drl} 
         model bundle after a maximum of 3 months.
     \item The system should take pictures, capture videos
         or record other physical properties using
@@ -35,7 +35,7 @@ and the \gls{uav} system:
     \item The system should only allow 
         authorized users 
         to view the collected pictures and 
-        data from the Anafi system.
+        data from the \anafi system.
     \item The users must not be allowed to access 
         the source code.
 \end{enumerate}
@@ -54,32 +54,38 @@ and the \gls{uav} system:
         \midrule
 
         Power supply  
-            & The Anafi and the Raspberry Pi must be 
+            & The \anafi drone and the Raspberry Pi must be 
             battery powered because they are mobile 
-            (2700mAh for the Anafi 
+            (2700mAh for the \anafi drone 
             and 4000mAh for the Raspberry Pi)  \\
 
         Flying range/altitude 
-            & The flying range of the Anafi is limited 
+            & The flying range of the \anafi drone is 
+            limited 
             by the signal strength of the communication 
             between the computer and the Raspberry Pi. 
-            Also, the altitude is dictated by the Anafi’s 
-            maximum height it can reach and the performance 
+            Also, the altitude is dictated 
+            by the \anafi drone’s 
+            maximum height it can reach 
+            and the performance 
             of the drone at a certain height. \\
 
         Flying time  
             & The maximum flying time must be lower than 
-            the Anafi’s maximum capability which is 25 minutes 
+            the \anafi drone’s maximum capability 
+            which is 25 minutes 
             (the Raspberry Pi can last for 4 hours under normal
             operations) \\ 
 
         Transmission delay  
             & The delay in the communication between 
-            the Raspberry Pi and the Anafi must be acceptable \\
+            the Raspberry Pi and the \anafi drone
+            must be acceptable \\
 
         Payload/weights  
             & The Raspberry Pi with its peripherals should not 
-            exceed the maximum load the Anafi can carry. \\
+            exceed the maximum load the \anafi 
+            drone can carry. \\
 
         \bottomrule
     \end{tabular}
@@ -105,18 +111,20 @@ and the \gls{uav} system:
         
         Environmental 
             & Light source 
-                & The Anafi requires good lighting to 
+                & The \anafi drone requires 
+                good lighting to 
                 take pictures of the targets \\
         
         Security 
             & Communication 
-                & The communication between Anafi-Raspberry Pi 
+                & The communication between \anafi-Raspberry Pi 
                 and Raspberry Pi-computer should be uninterrupted 
                 and secured against interference \\
         
         Safety 
             & Safeguard 
-                & The Anafi must know how to return to base 
+                & The \anafi drone must know how 
+                to return to base 
                 should there be a discommunication with the computer \\
         
         Ethical 
@@ -158,9 +166,10 @@ and the \gls{uav} system:
                 & \textit{Usage}\\
 
         \midrule
-        \textsc{ieee} 802.11 
+        \gls{ieee} 802.11 
                 & To be used in the communication between 
-                the Raspberry Pi and the Anafi and the 
+                the Raspberry Pi and the \anafi drone
+                and the 
                 Raspberry Pi and the computer \\ 
                 \addlinespace
         
@@ -170,7 +179,8 @@ and the \gls{uav} system:
         
         
         \textsc{gps}  
-                & To be used by the Anafi to convey its position 
+                & To be used by the \anafi drone to 
+                convey its position 
                 to the Raspberry Pi \\
                 \addlinespace
         
@@ -182,7 +192,7 @@ and the \gls{uav} system:
         
         \textsc{json-rpc} version 2.0 
                 & Communication protocol used to control the components 
-                of the simulated Anafi \\
+                of the simulated \anafi drone \\
                 \addlinespace
         
         
@@ -197,7 +207,7 @@ and the \gls{uav} system:
 \subsection{Professional code of ethics}
 
 \noindent
-In accordance with the \textsc{ieee} Code of Ethics:
+In accordance with the \gls{ieee} Code of Ethics:
 \begin{itemize}
     \item[I-7] Stakeholders and users 
         should accept our terms and services which include 
@@ -210,7 +220,7 @@ In accordance with the \textsc{ieee} Code of Ethics:
 \end{itemize}
 
 \noindent
-In accordance with the \textsc{acm} Code of Ethics:
+In accordance with the \gls{acm} Code of Ethics:
 \begin{itemize}
     \item[1.6] Respect privacy of the people and their 
         properties and collect/train data after confirmations.
@@ -230,8 +240,8 @@ In accordance with the \textsc{acm} Code of Ethics:
     \item Obstacle-free environment
     \item Windless environment
     \item The targets move according to one of the mobility patterns
-    \item The physical Anafi performs identically to the simulated Anafi
-    \item The Anafi captures the required/full details of the target 
+    \item The physical \anafi drone performs identically to the simulated \anafi drone
+    \item The \anafi drone captures the required/full details of the target 
         when it takes the target’s picture
     \item Similarly, when it takes the target’s picture, 
         it is assumed the task at hand 

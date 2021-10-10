@@ -60,14 +60,14 @@ and availability.
 The proposed solution consists of two main parts: 
 a commercial drone and a controlling system.
 We have chosen the commercial drones especially 
-the Parrot \textsc{anafi} for several reasons.
+the Parrot \anafi for several reasons.
 Firstly, it is supported by a continuously updated 
 \textsc{sdk} and it can be controlled easily 
 with a simple Python script which makes 
 \gls{drl} development much easier and more stable. 
 
 Secondly, it has a good flight time 
-as the \textsc{anafi} drone has a 2700 mAh battery. 
+as the \anafi drone has a 2700 mAh battery. 
 It can fly up to 25 minutes which is good enough 
 for our application.
 Finally, its support of Wi-Fi 802.11 and \gls{gps} 
@@ -110,7 +110,7 @@ to adjust settings, execute scripts, and get
 live updates and results. 
 Finally, there will be multiple moving targets 
 in the target section. For example, 
-R/C cars are controlled manually and moving in 
+\textsc{r/c} cars are controlled manually and moving in 
 a specific mobility pattern with varying directions 
 and destinations. 
 In the next section, hardware and software components 
@@ -197,7 +197,7 @@ Python script.
     %Wi-Fi adapter dongle
     %laptop control station
 The main core of the hardware part is the drone, 
-which will be the Parrot \textsc{anafi}. This model 
+which will be the Parrot \anafi. This model 
 has a couple of features that made us choose it 
 which have been listed in the 
 \cref{sec:selected-solution} above. 
@@ -217,7 +217,7 @@ handle several tasks such as:
         sending data to the command and control system.
 \end{enumerate}
  
-The Parrot \textsc{anafi} is connected 
+The Parrot \anafi drone is connected 
 to the onboard computer using another 
 2.4GHz Wi-Fi interface with the help of a 
 300Mbps Wi-Fi adapter dongle connected to 
@@ -234,7 +234,7 @@ the power board is shown in \cref{fig:connection}.
 \begin{figure}[bt]
     \centering
     \includegraphics[width=0.6\textwidth]{connection.png}
-    \caption{Raspberry Pi and power board connection.}
+    \caption{The Raspberry Pi and power board connection.}
     \label{fig:connection}
 \end{figure}     
 
