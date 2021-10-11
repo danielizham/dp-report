@@ -128,7 +128,8 @@ will be presented in a more detailed manner.
     %parrot sphinx
     %Gazebo simulator
     %roboflow
-    %google colab notebook /jupyter notebook
+    %google colab notebook 
+    %jupyter notebook
 There are three primary categories of software 
 depending on the usage: simulation, training, 
 and application. The first part will focus on 
@@ -149,7 +150,7 @@ and apply the \gls{drl} model. Sphinx is a simulation
 tool built on top of Gazebo 
 to run the Parrot's drone firmware on 
 personal computers, which comes with helpful 
-features for simulation like visualizing flight 
+features for simulation such as visualizing flight 
 data at runtime, running the \gls{uav} remotely, and executing scripts with the command line. 
 Gazebo is a robot \textsc{gui} simulation 
 which simulates the visual and physical surrounding 
@@ -170,7 +171,7 @@ using the simulated drone camera. We have used a
 website called Roboflow which helped us labelling 
 the objects and generate new datasets from the 
 existing ones with different types of augmentation 
-like rotation and scaling. 
+such as rotation and scaling. 
 For the object detection model, Google Colab notebook 
 was a sufficient tool to start training using 
 \gls{cnn} \textsc{yolo}v5 in addition to the 
@@ -184,6 +185,37 @@ how the drone moves. Parrot Olympe uses Python
 controller programming interface for Parrot drones 
 which makes controlling simple and easy using a 
 Python script.
+
+\begin{table}[H]
+	\centering
+	\caption{Software used in the project}
+    \label{tab:software-used}  
+	\begin{tabular}{ p{3cm} p{3cm} p{6cm} }
+		\toprule
+		\textit{Software} & \textit{Logo} & \textit{Justification} \\ \midrule
+		Parrot Olympe  & \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=30mm]{parrot.png}
+		\end{minipage} & Compatible with Parrot \textsc{anafi} drone.
+	which makes controlling the drone simple and easy using a 
+Python script \\ \addlinespace
+		Parrot Sphinx  & \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=30mm]{parrot.png}
+		\end{minipage} & Compatible with Parrot \textsc{anafi} drone and allow to use Parrot's drone firmware in the simulation environment\\ \addlinespace
+		Gazebo simulator  & \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=30mm]{gazbo-logo.png}
+		\end{minipage} & general robots simulator for visual and physical environments and actions which will help in this project \\ \addlinespace
+		Roboflow  & \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=30mm]{roboflow.png}
+		\end{minipage} & easy to label the images, easy to split/merge the datasets , easy to add Image Transformations and filters to the images, and finally it generates a ready online link for the datasets which will be used in the training notebooks.  \\ \addlinespace
+		Colab notebooks  & \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=30mm]{colab.png}
+		\end{minipage} & portable and easy to share,easy to use, simple implement and run the code, flexible in changing the processing resources option such as choosing the Servers GPU  or local machine GPU \\ \addlinespace
+		Jupyter Notebook  & \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=30mm]{jupyter.png}
+		\end{minipage} & completely free, does not require internet access like colab, used to run demos of the Gazebo and Sphinx simulation\\ \addlinespace
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \subsubsection{Hardware}
     %Parrot ANAFI Drone
