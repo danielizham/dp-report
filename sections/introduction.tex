@@ -8,22 +8,22 @@
 More often than not, individuals and organizations face the problem
 of visiting a set of destinations in the fastest time possible
 in order to carry out an observation.
-For example, an operational engineer needs to monitor
+For example, an operation engineer needs to monitor
 a number of reactors and plants during his or her shift.
-The need to do so in the shortest time can be due to restrictions in
+The need to do so in the shortest time can be due to restrictions on
 cost, energy or other limited resources of concern.
 This problem is commonly known as the travelling salesman problem
-where historically, a salesman had to make a decision in which order
+where historically, a scalesman had to make a decision in which order
 to visit a set of cities exactly once to conduct his trade
 in the most time-saving manner.
 To achieve that goal, the destinations have to be visited in the order
 that is the most efficient in terms of the metric of interest
-and algorithms such as Dijkstra's have been successfully used 
+and algorithms such as which Dijkstra's have been successfully used 
 to find the shortest path between the cities.
 
 As for the mechanism by which to visit them, 
 \textcite{Sha19} deduced that using \glspl{uav}, 
-or commonly known as drones,
+commonly known as drones,
 can bring many benefits 
 compared to the traditional methods.
 Instead of going to the locations in person, installing a \textsc{cctv},
@@ -47,9 +47,8 @@ then such a solution will not work.
 This problem, as illustrated in \cref{fig:problem}, 
 is what the project at hand intends to solve.
 Given some mobile targets' historical locations 
-but unknown mobility pattern,
-how can we make a \gls{uav} able to visit them
-in the fastest possible time and in turn, the most energy-saving way. 
+but unknown mobility pattern, making a \gls{uav} able to visit them
+in the fastest possible time and in turn, the most energy-saving way is the aim of this project . 
 Particularly, this project aims to demonstrate the 
 use of physics simulation in solving it. 
 % }}}
@@ -81,11 +80,11 @@ Other types of power supply such as wireless power transfer
 are also possible but infeasible since firstly, it is not the
 focus of this project, and secondly, the technology requires 
 advanced knowledge which cannot be gained within the set duration.
-This challenge is similarly faced with the Raspberry Pi attached
+ A similar challenge is occurs with the Raspberry Pi attached
 to the drone, although its power usage 
 is much lower compared to the drone.
 The problem with the type of the power supply, in addition to its size, 
-directly leads to a host of other technical challenges
+ is that it directly leads to a host of other technical challenges
 such as short flying range and altitude, restricted flying time,
 and low allowable payload.
 Many of the challenges can be alleviated if the drone model is changed
@@ -97,10 +96,10 @@ the likely issues with working with a new product
 render this solution prohibitive.
 
 In terms of the computer running the \gls{ml} training,
-the technical challenge presents itself as 
+the technical challenge presents itself in terms of as 
 the accuracy and cost trade-off.
 The project involves two \gls{dl} models,
-one of which designed by \textcite{Ged21}.
+one of which is designed by \textcite{Ged21}.
 This \gls{drl} model is used unaltered so 
 the computer specifications must minimally be sufficient 
 to train it.
@@ -108,7 +107,7 @@ The other one is a \gls{dl} model for object detection
 used to identify the targets during the training
 and its properties are left to our discretion.
 For this, 
-the depth and width of the model cannot be too big that
+the depth and width of the model cannot be so big that
 a normal data center cannot run although 
 being big will improve
 the model accuracy. In other words, we need to trade off
@@ -116,7 +115,7 @@ the accuracy for the size of the model
 based on the maximum computational resources that we can handle. 
 As a result of this, we will have to accept some misses
 when the \gls{uav} is detecting the targets during the 
-\gls{drl} training knowing that improving the accuracy 
+\gls{drl} training, knowing that improving the accuracy 
 will not be possible given our limitations.
 We estimate that the computer used to develop the \gls{drl} model
 should have at least an Intel i5 10th generation or
@@ -134,20 +133,20 @@ We have deliberated that
 the resulting price for the stakeholders or clients
 should not exceed \textsc{qar}~6000. 
 This means that the fixed and variable costs of this project
-coming from procuring the \anafi drone, the Raspberry Pi and other
+come from procuring the \anafi drone, the Raspberry Pi and other
 components in the system, 
-and wages for designing and training the model
+and wages for designing and training the model  
 should be around \textsc{qar}~4000 to make a 30\% target profit.
 The second non-technical challenge that we are required to consider
 is the logistics of procuring the materials and devices above.
 The \anafi drone, its spare parts and special Raspberry Pi
 components required in the solution are only available abroad.
-Not only that they cost more due to the additional shipping charge,
+Not only do they cost more due to the additional shipping charge,
 but they are also limited in number 
 and take more time to arrive, which can delay 
 and disrupt the progress.
 Finally, since using the Parrot \anafi drone in \gls{drl}
-is a niche area of research let alone of the market,
+is a niche area of research and new on the market ,
 it is challenging to find learning resources for the tools
 that are used to program both technologies
 and the community to find support from is markedly small.
@@ -164,7 +163,7 @@ holds lasting and critical importance
 in the local and global societies.
 First of all, the \gls{uav} combines the best features
 from \textsc{cctv}s and satellites.
-Using \glspl{uav} enjoys high resolution images
+Using \glspl{uav} gives the benefit of high resolution images
 for the purposes of surveillance and monitoring
 similar to \textsc{cctv} cameras 
 without the restriction in movement~\cite{Sha19}.
@@ -177,18 +176,18 @@ compared to terrestrial vehicles and
 it flies at a higher altitude 
 making it more able to avoid 
 many of the surrounding obstacles.
-Being another major aspect of the project, \gls{drl} 
+Being another major aspect of the project, \gls{drl}, 
 allows the \gls{uav} to generalize better
 making it perform more robustly
 in an unknown environment
 and with unknown targets mobility patterns.
 Finally, using physics simulation will make the product 
 more accurate since it considers 
-the environmental noise and
+environmental noise and
 the kinematics and dynamics of the \gls{uav} more accurately.
 Consequently, the training of the \gls{drl} model 
 using the simulation will be improved 
-and the result will perform better
+and the performance will be better
 compared to using a merely mathematical simulation.
 % }}}
 
@@ -198,13 +197,13 @@ compared to using a merely mathematical simulation.
 % ## and benefits of the project in Qatar and the region.
 Based on the project's significance, we have identified 
 its stakeholders to be 
-those companies, institutions and organizations who
+those companies, institutions and organizations which
 have certain fixed or mobile subjects of interest 
 that they want to monitor, capture or track.
 By using our product,
 they will be able to make these tasks faster or,
 better yet, possible.
-Applications range from criminals tracking 
+Applications range from criminal tracking 
 to wildlife monitoring,
 and from security surveillance
 to last-mile delivery.
@@ -230,7 +229,7 @@ In addition, the Covid 19 has made online shopping
 the number one choice for 
 the majority of people to buy goods in Qatar~\cite{Has20}.
 The success of this project can help in delivering
-the goods to intended destinations with minimum delay
+the goods to intended destinations with minimum delay,
 thus contributing to a healthy economy.
 % }}}
 
@@ -249,7 +248,7 @@ Therefore, we believe there is a huge value
 in this project and upon the successful completion of it,
 there will be many doors opening up to us in terms of
 career opportunities because 
-this technology is becoming highly demanded yet 
+this technology is in high demanded yet, 
 people with the right competency
 are scarce.
 Besides the jobs that are directly related to the project,
@@ -302,8 +301,7 @@ The project's detailed objectives are as follows:
 % {{{ Deliverables and desired results
 To demonstrate the objectives, there will be a number 
 of deliverables that we will produce.
-Firstly, we will present a report detailing
-our aim, objectives, literature review, methodology,
+Firstly, we will present a detailed report that will elaborate on our aim, objectives, literature review, methodology,
 solution and the market value of the project.
 Secondly, we will output a trained \gls{drl} model for 
 the target visitation task of a specific
@@ -316,7 +314,7 @@ Based on the deliverables, the desired result is that
 given the same mobility pattern for 
 the moving targets as the one in the \gls{drl} training,
 the \gls{uav} should be able to fly to locations it has learned
-will allow it to capture the most targets. In other words,
+and this will allow it to capture the maximum targets. In other words,
 it should anticipate that these locations are those it can reach
 the quickest and also where most targets will gather.
 In doing so, it will prove that it can accomplish 
