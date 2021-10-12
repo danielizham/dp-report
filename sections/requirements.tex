@@ -4,22 +4,248 @@
 
 \subsection{Functional requirements}
 
-\blindtext
+In order to achieve the objectives listed
+in \cref{sec:objectives}, the following activities 
+and operations should be expected by the user 
+and the \gls{uav} system:
+
+\begin{enumerate}
+    \item The users of the system are authorized
+        individuals and organizations to track, monitor or survey
+        some moving objects.
+    \item The user should supply the 
+        profile of the targets 
+        and their movement details/patterns
+        to us for the \gls{rl}.
+    \item The user should receive 
+        an \anafi-Raspberry Pi-\gls{drl} 
+        model bundle after a maximum of 3 months.
+    \item The system should take pictures, capture videos
+        or record other physical properties using
+        suitable sensors of the intended
+        targets according to the needs
+        of the user.
+    \item The user should receive some 
+        guidance and support 
+        to handle the system.
+    \item The user should agree on 
+        the terms and conditions 
+        which limit the type of users.
+    \item The system should only allow 
+        authorized users 
+        to view the collected pictures and 
+        data from the \anafi system.
+    \item The users must not be allowed to access 
+        the source code.
+\end{enumerate}
 
 \subsection{Design constraints}
 
-\blindtext
+\begin{table}[H]
+    \centering
+    \caption{Technical design constraints.}
+    \label{tab:technical-design-constraints}
+    \begin{tabular}{ P{2.8cm} P{12.2cm} }
+        \toprule
+        \textit{Name} 
+            & \textit{Description} \\
+
+        \midrule
+
+        Power supply  
+            & The \anafi drone and the Raspberry Pi must be 
+            battery powered because they are mobile 
+            (2700mAh for the \anafi drone 
+            and 4000mAh for the Raspberry Pi)  \\
+
+        Flying range/altitude 
+            & The flying range of the \anafi drone is 
+            limited 
+            by the signal strength of the communication 
+            between the computer and the Raspberry Pi. 
+            Also, the altitude is dictated 
+            by the \anafi drone’s 
+            maximum height it can reach 
+            and the performance 
+            of the drone at a certain height. \\
+
+        Flying time  
+            & The maximum flying time must be lower than 
+            the \anafi drone’s maximum capability 
+            which is 25 minutes 
+            (the Raspberry Pi can last for 4 hours under normal
+            operations) \\ 
+
+        Transmission delay  
+            & The delay in the communication between 
+            the Raspberry Pi and the \anafi drone
+            must be acceptable \\
+
+        Payload/weights  
+            & The Raspberry Pi with its peripherals should not 
+            exceed the maximum load the \anafi 
+            drone can carry. \\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Practical design constraints.}
+    \label{tab:practical-design-constraints}
+    \begin{tabular}{ P{3cm} P{3cm} P{9cm} }
+        \toprule
+        \textit{Type} 
+            & \textit{Name} 
+                & \textit{Description} \\
+
+        \midrule
+        
+        Economic 
+            & Cost 
+                & The selling price of the entire system must 
+                not exceed \textsc{qar} 6000 or the product
+                may not be sellable due to being too expensive \\
+        
+        Environmental 
+            & Light source 
+                & The \anafi drone requires 
+                good lighting to 
+                take pictures of the targets \\
+        
+        Security 
+            & Communication 
+                & The communication between \anafi-Raspberry Pi 
+                and Raspberry Pi-computer should be uninterrupted 
+                and secured against interference \\
+        
+        Safety 
+            & Safeguard 
+                & The \anafi drone must know how 
+                to return to base 
+                should there be a discommunication with the computer \\
+        
+        Ethical 
+            & Privacy 
+                & The drone must not invade the privacy of 
+                the entities other than the targets \\
+        
+        Ethical 
+            & Law-abiding 
+                & The monitored targets must be acceptable 
+                by law to be tracked \\
+        
+        Environmental 
+            & Eco-friendly 
+                & The system only uses electricity and emissions \\
+        
+        Sustainability 
+            & Modularity 
+                & The software system must be such that the \gls{drl} model 
+                can be swapped with an improved one easily \\
+        
+        Reliability 
+            & Efficiency 
+                & The \gls{drl} should perform as expected all the time \\
+
+        \bottomrule		
+    \end{tabular}
+\end{table}
 
 \subsection{Design standards}
 
-\blindtext
+\begin{table}[H]
+    \centering
+    \caption{Design standards table.}
+    \label{tab:design-standards}
+    \begin{tabular}{ P{2.2cm} P{12.3cm} }
+        \toprule
+            \textit{Standard} 
+                & \textit{Usage}\\
+
+        \midrule
+        \gls{ieee} 802.11 
+                & To be used in the communication between 
+                the Raspberry Pi and the \anafi drone
+                and the 
+                Raspberry Pi and the computer \\ 
+                \addlinespace
+        
+        \textsc{wpa}2 
+                & To be used in securing the communications above \\
+                \addlinespace
+        
+        
+        \textsc{gps}  
+                & To be used by the \anafi drone to 
+                convey its position 
+                to the Raspberry Pi \\
+                \addlinespace
+        
+        
+        \textsc{ssh} 
+                & To be used between the Raspberry Pi and the computer \\
+                \addlinespace
+        
+        
+        \textsc{json-rpc} version 2.0 
+                & Communication protocol used to control the components 
+                of the simulated \anafi drone \\
+                \addlinespace
+        
+        
+        Google Protocol Buffers 
+                & To be used by Gazebo for the message passing between 
+                its server and client \\
+        
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsection{Professional code of ethics}
 
-\blindtext
+\noindent
+In accordance with the \gls{ieee} Code of Ethics:
+\begin{itemize}
+    \item[I-7] Stakeholders and users 
+        should accept our terms and services which include 
+        avoiding injuring others and their property 
+        and protecting the privacy of others.
+    \item[II-7] Stakeholders and users should not use our product 
+        or service to discriminate any
+        part of the community according 
+        to their race, religion, etc.
+\end{itemize}
+
+\noindent
+In accordance with the \gls{acm} Code of Ethics:
+\begin{itemize}
+    \item[1.6] Respect privacy of the people and their 
+        properties and collect/train data after confirmations.
+    \item[1.7] The client's data and information, which is gathered 
+        to make the product consisting of the model along with 
+        the drone kit, should be kept confidential except in cases 
+        where the application violates the law, 
+        organizational regulations or the Code.
+    \item[2.3] Usage of product/services should be under 
+        the local and international laws and regulations. 
+        For example, you need a license to fly a drone in Qatar.
+\end{itemize}
 
 \subsection{Assumptions}
 
-\blindtext
+\begin{enumerate}
+    \item Obstacle-free environment
+    \item Windless environment
+    \item The targets move according to one of the mobility patterns
+    \item The physical \anafi drone performs identically to the simulated \anafi drone
+    \item The \anafi drone captures the required/full details of the target 
+        when it takes the target’s picture
+    \item Similarly, when it takes the target’s picture, 
+        it is assumed the task at hand 
+        (e.g. criminal tracking, smart farming, search and rescue, etc.) 
+        is accomplished.
+\end{enumerate}
 
 \end{document}

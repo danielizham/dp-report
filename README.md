@@ -8,13 +8,13 @@
 **Phase 1 (Interim) - Due by the XX of November 2021**
 - [ ] Abstract
 - [ ] Acknowledgment
-- [ ] Introduction and Motivation
-- [ ] Background and Related Work
-   - [ ] Part 1 (Bahri)
+- [x] Introduction and Motivation
+- [x] Background and Related Work
+   - [x] Part 1 (Bahri)
    - [x] Part 2 (Daniel)
    - [x] Part 3 (Abdulrahman)
-- [ ] Requirements Analysis
-- [ ] Proposed Solution
+- [x] Requirements Analysis
+- [x] Proposed Solution
 - [ ] Proof of Concept
 - [ ] Market Research and Business Viability
 - [ ] Project Plan

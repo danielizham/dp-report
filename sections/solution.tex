@@ -28,9 +28,12 @@ an onboard microcomputer must be present for
 flying control and the support of autopilot feature. 
 There are three options for onboard microcomputers, 
 which are shown in the following 
-\cref{tab:onboard-computers}. Raspberry Pi 4 seems to be the winner since it has advantages in specifications, connection interfaces, and availability.
+\cref{tab:onboard-computers}. Raspberry Pi 4 seems 
+to be the winner since it has advantages 
+in specifications, connection interfaces, 
+and availability.
 
-\begin{table}[H]
+\begin{table}[bt]
     \centering
     \caption{A comparison of the onboard computers.}
     \label{tab:onboard-computers}  
@@ -57,14 +60,14 @@ which are shown in the following
 The proposed solution consists of two main parts: 
 a commercial drone and a controlling system.
 We have chosen the commercial drones especially 
-the Parrot \textsc{anafi} for several reasons.
+the Parrot \anafi for several reasons.
 Firstly, it is supported by a continuously updated 
 \textsc{sdk} and it can be controlled easily 
 with a simple Python script which makes 
 \gls{drl} development much easier and more stable. 
 
 Secondly, it has a good flight time 
-as the \textsc{anafi} drone has a 2700 mAh battery. 
+as the \anafi drone has a 2700 mAh battery. 
 It can fly up to 25 minutes which is good enough 
 for our application.
 Finally, its support of Wi-Fi 802.11 and \gls{gps} 
@@ -107,13 +110,13 @@ to adjust settings, execute scripts, and get
 live updates and results. 
 Finally, there will be multiple moving targets 
 in the target section. For example, 
-R/C cars are controlled manually and moving in 
+\textsc{r/c} cars are controlled manually and moving in 
 a specific mobility pattern with varying directions 
 and destinations. 
 In the next section, hardware and software components 
 will be presented in a more detailed manner.
 
-\begin{figure}[H]
+\begin{figure}[bt]
     \centering
     \includegraphics[width=0.9\textwidth]{high-level-arch.png}
     \caption{The high-level architecture of the overall system.}
@@ -144,7 +147,7 @@ one which is Ubuntu 18.04.
 Another reason is that it is a lite \textsc{os} 
 and can be installed on the onboard computer that 
 will be attached to the drone. For the simulation part, 
-using Sphinx and Gazebo software is a very helpful tool 
+using Sphinx and Gazebo software is a very helpful
 to visualize the environment, control the drone, 
 and apply the \gls{drl} model. Sphinx is a simulation 
 tool built on top of Gazebo 
@@ -155,11 +158,12 @@ data at runtime, running the \gls{uav} remotely, and executing scripts with the 
 Gazebo is a robot \textsc{gui} simulation 
 which simulates the visual and physical surrounding 
 of drones and custom 3D objects. 
-\Cref{fig:gazebo} shows how the Sphinx program look like. 
+\Cref{fig:gazebo} shows how the Sphinx 
+program looks like. 
 
-\begin{figure}[H]
+\begin{figure}[bt]
     \centering
-    \includegraphics[width=0.8\textwidth]{gazebo.png}
+    \includegraphics[width=0.9\textwidth]{gazebo.png}
     \caption{The Sphinx program that runs on top of Gazebo.}
     \label{fig:gazebo}
 \end{figure}
@@ -244,7 +248,7 @@ handle several tasks such as:
         sending data to the command and control system.
 \end{enumerate}
  
-The Parrot \textsc{anafi} is connected 
+The Parrot \anafi drone is connected 
 to the onboard computer using another 
 2.4GHz Wi-Fi interface with the help of a 
 300Mbps Wi-Fi adapter dongle connected to 
@@ -288,5 +292,6 @@ and time for our application.
 		\bottomrule
 	\end{tabular}
 \end{table}    
+
 
 \end{document}
