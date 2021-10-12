@@ -194,18 +194,18 @@ Python script.
 		\toprule
 		\textit{Software} & \textit{Logo} & \textit{Justification} \\ \midrule
 		Parrot Olympe  & \begin{minipage}{.1\textwidth}
-			\includegraphics[width=30mm, height=30mm]{parrot.png}
+			\includegraphics[width=30mm, height=20mm]{parrot.png}
 		\end{minipage} & Compatible with Parrot \textsc{anafi} drone.
 	which makes controlling the drone simple and easy using a 
 Python script \\ \addlinespace
-		Parrot Sphinx  & \begin{minipage}{.1\textwidth}
-			\includegraphics[width=30mm, height=30mm]{parrot.png}
+		Parrot Sphinx  & \begin{minipage}{.0\textwidth}
+			\includegraphics[width=30mm, height=20mm]{parrot.png}
 		\end{minipage} & Compatible with Parrot \textsc{anafi} drone and allow to use Parrot's drone firmware in the simulation environment\\ \addlinespace
 		Gazebo simulator  & \begin{minipage}{.1\textwidth}
-			\includegraphics[width=30mm, height=30mm]{gazbo-logo.png}
-		\end{minipage} & general robots simulator for visual and physical environments and actions which will help in this project \\ \addlinespace
+			\includegraphics[width=30mm, height=35mm]{gazbo-logo.png}
+		\end{minipage}  & general robots simulator for visual and physical environments and actions which will help in this project \\ \addlinespace
 		Roboflow  & \begin{minipage}{.1\textwidth}
-			\includegraphics[width=30mm, height=30mm]{roboflow.png}
+			\includegraphics[width=28mm, height=28mm]{roboflow.png}
 		\end{minipage} & easy to label the images, easy to split/merge the datasets , easy to add Image Transformations and filters to the images, and finally it generates a ready online link for the datasets which will be used in the training notebooks.  \\ \addlinespace
 		Colab notebooks  & \begin{minipage}{.1\textwidth}
 			\includegraphics[width=30mm, height=30mm]{colab.png}
@@ -263,6 +263,38 @@ the power board is shown in \cref{fig:connection}.
     \includegraphics[width=0.6\textwidth]{connection.png}
     \caption{Raspberry Pi and Power board connection.}
     \label{fig:connection}
-\end{figure}     
+\end{figure} 
+    %Parrot ANAFI Drone
+%Raspberry Pi 4
+%lithium Battery
+%Wi-Fi adapter dongle
+%laptop control station
+\begin{table}[H]
+	\centering
+	\caption{hardware used in the project}
+	\label{tab:hardware-used}  
+	\begin{tabular}{ p{4cm} p{3cm} p{6cm} }
+		\toprule
+		\textit{Hardware} & \textit{Picture} & \textit{Justification} \\ \midrule
+		Parrot ANAFI Drone  & \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=20mm]{anafi.png}
+		\end{minipage} & available in the university, can be controlled easily 
+	   with simple Python script, 4K-high resolution camera  \\ \addlinespace
+		Raspberry Pi 4  & \begin{minipage}{.0\textwidth}
+			\includegraphics[width=30mm, height=20mm]{raspberry.jpg}
+		\end{minipage} & specifications is enough for our application, support WiFi and its small size and weight is an advantage\\ \addlinespace
+		RPI UPSPack V3 with 4000mAh 
+		lithium Battery  & \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=35mm]{RPI.jpg}
+		\end{minipage}  & support up to 4 hours which is more than enough , the board got an LED indicator for charging level also the weight and shape is an advantage  \\ \addlinespace
+		Wireless N Nano USB Adapter  & \begin{minipage}{.1\textwidth}
+			\includegraphics[width=28mm, height=28mm]{dongle.jpg}
+		\end{minipage} & cheap and do its job, good coverage range  \\ \addlinespace
+	   Laptop & \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=30mm]{laptop.png}
+		\end{minipage} & any laptop with good WiFi interface card will be enough for our case \\ \addlinespace
+		\bottomrule
+	\end{tabular}
+\end{table}    
 
 \end{document}
