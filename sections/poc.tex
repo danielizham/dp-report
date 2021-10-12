@@ -11,7 +11,13 @@
 \lipsum[1]
 
 \subsection{Physical components}
+The most critical parts in the hardware architecture are the Raspberry Pi and the drone. So we started configuring the Raspberry Pi sd-card, flashed it with Ubuntu 18.04 desktop version, and installed Parrot Olympe successfully. Then we plugged in the WiFi dongle adapter in a USB 2.0 slot in the Raspberry Pi, and the OS discovered it automatically. Now everything is ready to test the  \textsc{ANAFI} drone, so we will connect the Raspberry Pi to the drone using built-in WiFi to allow Raspberry to send/receive instructions to/from the drone. For connecting Raspberry Pi and the laptop, we used the external WiFi adapter, and now we can connect to Raspberry Pi and execute scripts using SSH protocol. We executed the takeoff and backward scripts, and it worked successfully, so we got the green light to continue. We were thinking of modifying the drone's battery by removing the plastic shield because of the drone's payload restrictions, but everything changed after testing the drone's payload. As shown in \cref{fig:payload} we attached 190 grams of Raspberry Pi and Arduino boards to see the effect on the performance and flight and battery drain percentage. The drone has taken off successfully, and the flight was normal but, we faced an expected battery drain that went from 100\% to 90\% in 1.5 minutes, This means the drone can fly up to 15 minutes which is 10 minutes less than the default battery time which will be considered in design constrains. In our case our parts weight will be less than 170 grams which will give us small time increase.
 
-\lipsum[1]
+\begin{figure}[bt]
+	\centering
+	\includegraphics[width=0.6\textwidth]{payload.png}
+	\caption{The drone payload}
+	\label{fig:payload}
+\end{figure}  
 
 \end{document}
