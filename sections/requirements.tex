@@ -41,11 +41,18 @@ and the \gls{uav} system:
 
 \subsection{Design constraints}
 
+The following are the restrictions that have been imposed
+on our component, technology and technique selections 
+due to the nature of 
+the devices we have chosen to use 
+and the environmental elements the drone will 
+fly around.
+
 \begin{table}[H]
     \centering
     \caption{Technical design constraints.}
     \label{tab:technical-design-constraints}
-    \begin{tabular}{ P{2.8cm} P{12.2cm} }
+    \begin{tabular}{ p{2.8cm} p{12.2cm} }
         \toprule
         \textit{Name} 
             & \textit{Description} \\
@@ -55,36 +62,70 @@ and the \gls{uav} system:
         Power supply  
             & The \anafi drone and the Raspberry Pi must be 
             battery powered because they are mobile 
-            (2700mAh for the \anafi drone 
-            and 4000mAh for the Raspberry Pi)  \\
+            (
+            \SI{2700}{\milli\ampere\hour} 
+            for the \anafi drone and 
+            \SI{4000}{\milli\ampere\hour} 
+            for the Raspberry Pi)  \\
 
-        Flying range/altitude 
-            & The flying range of the \anafi drone is 
-            limited 
-            by the signal strength of the communication 
-            between the computer and the Raspberry Pi. 
-            Also, the altitude is dictated 
-            by the \anafi drone’s 
-            maximum height it can reach 
-            and the performance 
-            of the drone at a certain height. \\
+        Flying range 
+            & The maximum flying range of the 
+            \anafi drone is 
+            \SI{90}{\meter}
+            \tobedone{Test this} from the computer. 
+            This is limited by the maximum distance
+            the Wi-Fi signal can reach between 
+            the computer and the Raspberry Pi. \\
 
-        Flying time  
-            & The maximum flying time must be lower than 
-            the \anafi drone’s maximum capability 
-            which is 25 minutes 
-            (the Raspberry Pi can last for 4 hours under normal
-            operations) \\ 
+        Altitude 
+            & The flying altitude must fall 
+            between \tobedone{Check in the simulation} 
+            \SIrange{3}{9}{\meter} 
+            or the 
+            \SI{1 x 1.64}{\meter}
+            cell in focus either 
+            is not covered by the \gls{fov} in its
+            entirety or the \gls{fov} covers too much
+            of the surrounding cells.
+            The minimum and maximum altitudes 
+            were determined based on the 
+            normal and 2.8\texttimes\ digital zoom
+            of the \anafi drone's camera. \\
 
-        Transmission delay  
-            & The delay in the communication between 
-            the Raspberry Pi and the \anafi drone
-            must be acceptable \\
+        Flying duration
+            & The maximum flying duration is 
+            \SI{15}{\minute}
+            as the battery is drained by 
+            \SI{10}{\percent}
+            on average in 
+            \SI{1.5}{\minute} 
+            when it is flown with a payload of 
+            \SI{190}{\gram}.
+            This means that the target visitation
+            mission needs to be completed under 
+            this time. 
+            (the Raspberry Pi can last for 
+            \SI{4}{\hour} 
+            under normal operations) \\ 
 
-        Payload/weights  
-            & The Raspberry Pi with its peripherals should not 
-            exceed the maximum load the \anafi 
-            drone can carry. \\
+        Reaction time
+            & The time between a command sent by 
+            the computer, the \anafi drone 
+            starting to execute it, and finally
+            the computer receiving the confirmation
+            of the execution must be
+            below \tobedone{Test this} 
+            \SI{1}{\second}. 
+            This is to make sure the commands
+            do not overlap causing any of them
+            to be ignored. \\
+
+        Payload  
+            & The Raspberry Pi with its peripherals 
+            must not exceed 
+            \SI{200}{\gram}, 
+            which is the maximum payload mass 
+            of the \anafi drone. \\
 
         \bottomrule
     \end{tabular}
@@ -94,7 +135,7 @@ and the \gls{uav} system:
     \centering
     \caption{Practical design constraints.}
     \label{tab:practical-design-constraints}
-    \begin{tabular}{ P{3cm} P{3cm} P{9cm} }
+    \begin{tabular}{ p{3cm} p{3cm} p{8.4cm} }
         \toprule
         \textit{Type} 
             & \textit{Name} 
@@ -104,51 +145,52 @@ and the \gls{uav} system:
         
         Economic 
             & Cost 
-                & The selling price of the entire system must 
-                not exceed \textsc{qar} 6000 or the product
-                may not be sellable due to being too expensive \\
+                & The selling price of the entire 
+                system must not exceed 
+                \SI{6000}[\textsc{qar}\,]  
+                or the product may not be sellable 
+                due to being too expensive. \\
         
         Environmental 
             & Light source 
                 & The \anafi drone requires 
                 good lighting to 
-                take pictures of the targets \\
-        
-        Security 
-            & Communication 
-                & The communication between \anafi-Raspberry Pi 
-                and Raspberry Pi-computer should be uninterrupted 
-                and secured against interference \\
-        
-        Safety 
-            & Safeguard 
-                & The \anafi drone must know how 
-                to return to base 
-                should there be a discommunication with the computer \\
-        
-        Ethical 
-            & Privacy 
-                & The drone must not invade the privacy of 
-                the entities other than the targets \\
-        
-        Ethical 
-            & Law-abiding 
-                & The monitored targets must be acceptable 
-                by law to be tracked \\
+                take pictures of the targets. \\
         
         Environmental 
-            & Eco-friendly 
-                & The system only uses electricity and emissions \\
-        
-        Sustainability 
-            & Modularity 
-                & The software system must be such that the \gls{drl} model 
-                can be swapped with an improved one easily \\
+            & Temperature 
+                & The \anafi drone cannot be flown
+                when the temperature outside is below
+                \SI{-10}{\celsius}
+                or above
+                \SI{40}{\celsius}. \\
+
+        Environmental 
+            & Wind 
+                & The \anafi drone cannot be flown
+                when the wind speed is above 
+                \SI{50}{\kilo\meter\per\hour}. \\
         
         Reliability 
-            & Efficiency 
-                & The \gls{drl} should perform as expected all the time \\
+            & Monitoring
+                & The \anafi drone should send
+                an event to the computer upon 
+                executing a command to confirm that 
+                it is performing the task. \\
 
+        Deployment 
+            & \gls{drl} model 
+                & The software system must be such 
+                that when the details of the task change,
+                it should be easy for the \gls{drl} model 
+                to be swapped with another one trained for
+                the new task. \\
+
+        Environmental 
+            & Eco-friendliness 
+                & The system only uses electricity 
+                and no emission. \\
+        
         \bottomrule		
     \end{tabular}
 \end{table}
@@ -159,7 +201,7 @@ and the \gls{uav} system:
     \centering
     \caption{Design standards table.}
     \label{tab:design-standards}
-    \begin{tabular}{ P{2.2cm} P{12.3cm} }
+    \begin{tabular}{ p{2.5cm} p{12.3cm} }
         \toprule
             \textit{Standard} 
                 & \textit{Usage}\\
@@ -167,37 +209,35 @@ and the \gls{uav} system:
         \midrule
         \gls{ieee} 802.11 
                 & To be used in the communication between 
-                the Raspberry Pi and the \anafi drone
+                the Raspberry Pi and the \anafi drone,
                 and the 
-                Raspberry Pi and the computer \\ 
+                Raspberry Pi and the computer. \\ 
                 \addlinespace
         
         \textsc{wpa}2 
-                & To be used in securing the communications above \\
+                & To be used in securing the 
+                communications above. \\
                 \addlinespace
         
         
         \textsc{gps}  
                 & To be used by the \anafi drone to 
                 convey its position 
-                to the Raspberry Pi \\
+                to the Raspberry Pi. \\
                 \addlinespace
         
         
         \textsc{ssh} 
-                & To be used between the Raspberry Pi and the computer \\
+                & To be used by the computer to 
+                send high-level commands to the 
+                Raspberry Pi, which in turn, makes
+                the drone execute them. \\
                 \addlinespace
         
         
-        \textsc{json-rpc} version 2.0 
-                & Communication protocol used to control the components 
-                of the simulated \anafi drone \\
-                \addlinespace
-        
-        
-        Google Protocol Buffers 
-                & To be used by Gazebo for the message passing between 
-                its server and client \\
+        \textsc{json-rpc} 2.0 
+                & To be used to control the components 
+                of the simulated \anafi drone. \\
         
         \bottomrule
     \end{tabular}
@@ -235,17 +275,36 @@ In accordance with the \gls{acm} Code of Ethics:
 
 \subsection{Assumptions}
 
+The following states are assumed to be true
+since the design decisions to meet the opposite
+conditions fall outside the scope of this project.
+
 \begin{enumerate}
-    \item Obstacle-free environment
-    \item Windless environment
-    \item The targets move according to one of the mobility patterns
-    \item The physical \anafi drone performs identically to the simulated \anafi drone
-    \item The \anafi drone captures the required/full details of the target 
-        when it takes the target’s picture
-    \item Similarly, when it takes the target’s picture, 
-        it is assumed the task at hand 
-        (e.g. criminal tracking, smart farming, search and rescue, etc.) 
-        is accomplished.
+    \item The environment is obstacle-free and windless.
+    \item The targets move according to one 
+        of the mobility patterns only.
+    \item The physical \anafi drone performs 
+        identically to the simulated \anafi drone.
+    \item The \anafi drone captures the 
+        required details of the target 
+        when it takes the target’s picture.
+    \item Having taken all of the targets' pictures 
+        is equivalent to accomplishing the task at hand 
+        (e.g. criminal tracking, smart farming, 
+        search and rescue, etc.).
+    \item The \anafi drone is fully charged before 
+        initiating each target visitation task,
+        which is completed before the drone
+        runs out of battery.
+    \item The \anafi drone always flies within the
+        maximum range in case the computer needs
+        to send an abort-mission command.
+    \item The Wi-Fi connection between the \anafi drone
+        and its onboard computer (Raspberry Pi)
+        does not drop and is strong at all times.
+    \item The security mechanisms used by the \anafi
+        drone are enough to protect it against
+        any virtual and physical attacks.
 \end{enumerate}
 
 \end{document}
