@@ -62,11 +62,10 @@ fly around.
         Power supply  
             & The \anafi drone and the Raspberry Pi must be 
             battery powered because they are mobile 
-            (
-            \SI{2700}{\milli\ampere\hour} 
+            (\SI{2700}{\milli\ampere\hour} 
             for the \anafi drone and 
             \SI{4000}{\milli\ampere\hour} 
-            for the Raspberry Pi)  \\
+            for the Raspberry Pi)~\cite{Par19}.  \\
 
         Flying range 
             & The maximum flying range of the 
@@ -103,10 +102,10 @@ fly around.
             \SI{190}{\gram}.
             This means that the target visitation
             mission needs to be completed under 
-            this time. 
+            this time 
             (the Raspberry Pi can last for 
             \SI{4}{\hour} 
-            under normal operations) \\ 
+            under normal operations). \\ 
 
         Reaction time
             & The time between a command sent by 
@@ -116,7 +115,7 @@ fly around.
             of the execution must be
             below \tobedone{Test this} 
             \SI{1}{\second}. 
-            This is to make sure the commands
+            This is to ensure the commands
             do not overlap causing any of them
             to be ignored. \\
 
@@ -163,13 +162,15 @@ fly around.
                 when the temperature outside is below
                 \SI{-10}{\celsius}
                 or above
-                \SI{40}{\celsius}. \\
+                \SI{40}{\celsius}% 
+                ~\cite{Par19}. \\
 
         Environmental 
             & Wind 
                 & The \anafi drone cannot be flown
                 when the wind speed is above 
-                \SI{50}{\kilo\meter\per\hour}. \\
+                \SI{50}{\kilo\meter\per\hour}%
+                ~\cite{Par19}. \\
         
         Reliability 
             & Monitoring
