@@ -131,10 +131,11 @@ will be presented in a more detailed manner.
     %parrot sphinx
     %Gazebo simulator
     %roboflow
-    %google colab notebook /jupyter notebook
+    %google colab notebook 
+    %jupyter notebook
 There are three primary categories of software 
 depending on the usage: simulation, training, 
-and application. The first part will focus on 
+and application and they are listed in \cref{tab:software-used}. The first part will focus on 
 simulating the environment, testing the models, 
 and flight control. Before discussing the software 
 to be used, we have selected Ubuntu 18.04 (Bionic Beaver) 
@@ -152,7 +153,7 @@ and apply the \gls{drl} model. Sphinx is a simulation
 tool built on top of Gazebo 
 to run the Parrot's drone firmware on 
 personal computers, which comes with helpful 
-features for simulation like visualizing flight 
+features for simulation such as visualizing flight 
 data at runtime, running the \gls{uav} remotely, 
 and executing scripts with the command line. 
 Gazebo is a robot \textsc{gui} simulation 
@@ -175,7 +176,7 @@ using the simulated drone camera. We have used a
 website called Roboflow which helped us labelling 
 the objects and generate new datasets from the 
 existing ones with different types of augmentation 
-like rotation and scaling. 
+such as rotation and scaling. 
 For the object detection model, Google Colab notebook 
 was a sufficient tool to start training using 
 \gls{cnn} \textsc{yolo}v5 in addition to the 
@@ -190,6 +191,86 @@ controller programming interface for Parrot drones
 which makes controlling simple and easy using a 
 Python script.
 
+\begin{table}[H]
+    \centering
+    \caption{Software used in the project.}
+    \label{tab:software-used}  
+    \begin{tabular}{ p{3cm} p{3cm} p{6cm} }
+        \toprule
+        \textit{Software} 
+            & \textit{Logo} 
+                & \textit{Justification} \\ 
+
+        \midrule
+
+        Parrot Olympe  
+            & 
+            \raisebox{-0.7\height}
+            {\includegraphics[width=2.7cm]
+            {parrot.png}}
+                & A controller for the Parrot \anafi 
+                drone. It makes controlling 
+                the drone possible 
+                using a Python script \\
+                \addlinespace
+
+        Parrot Sphinx  
+            & 
+            \raisebox{-0.7\height}
+            {\includegraphics[width=2.7cm]
+            {parrot.png}}
+                & A simulator for the Parrot \anafi drone.
+                It loads the Parrot's drone firmware 
+                in the simulation environment.
+                It is largely based on Gazebo. \\
+                \addlinespace
+
+        Roboflow  
+            & 
+            \raisebox{-0.9\height}
+            {\includegraphics[width=2.4cm]
+            {roboflow.png}}
+                & A framework for Computer Vision
+                development that can be used online.
+                It facilitates labelling of images, 
+                splitting and merging datasets, 
+                applying image transformations 
+                and filters, 
+                and generating a link for 
+                the augmented datasets 
+                which will be used in the 
+                training notebooks.  \\
+                \addlinespace
+
+        Jupyter Notebook  
+            & 
+            \raisebox{-0.9\height}
+            {\includegraphics[width=2.5cm]{jupyter.png}}
+                & A web application for writing, testing 
+                and sharing of code. It is free 
+                and does not require internet access like 
+                the Google Colab. It is used heavily 
+                in this project to experiment with new 
+                ideas in the Sphinx simulation. \\ 
+                \addlinespace
+
+        Google Colab 
+            & 
+            \raisebox{-0.9\height}
+            {\includegraphics[width=2.8cm]{colab.png}}
+                & A Jupyter notebook environment
+                running in the cloud. 
+                It makes it easy to write, run, 
+                and share the code. Most importantly, 
+                it gives an option to use remote 
+                processing resources in addition to the 
+                local ones. \\ 
+                \addlinespace
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 \subsubsection{Hardware}
     %Parrot ANAFI Drone
     %Raspberry Pi 4
@@ -197,7 +278,7 @@ Python script.
     %Wi-Fi adapter dongle
     %laptop control station
 The main core of the hardware part is the drone, 
-which will be the Parrot \anafi. This model 
+which will be the Parrot \textsc{anafi}. This model 
 has a multiple of features that made us choose it 
 which have been listed in the 
 \cref{sec:selected-solution} above. 
@@ -219,23 +300,92 @@ handle several tasks such as:
  
 The Parrot \anafi drone is connected 
 to the onboard computer using another 
-2.4GHz Wi-Fi interface with the help of a 
-300Mbps Wi-Fi adapter dongle connected to 
+\SI{2.4}{\giga\hertz}
+Wi-Fi interface with the help of a 
+\SI[per-mode=symbol,per-symbol=p]{300}{MBps} 
+Wi-Fi adapter dongle connected to 
 the Raspberry Pi through its \textsc{usb} interface. 
-The power source for the Raspberry Pi will be a 
+Regarding the power source for the Raspberry Pi, 
+we thought of taking power directly from the 
+drone's battery, but, after some research, we found 
+that the \anafi drone's  
+socket is somehow different. It is also challenging 
+and the drone battery is susceptible to shutting down 
+immediately if the voltage reaches less than 3.0 Volt. 
+So, we did not want to take the risk and used a 
 lithium battery with a power board called 
-\textsc{UPSP}ack Standard Power Supply attached to 
-the main Raspberry Pi board. It includes a 4000mAh 
+\textsc{upsp}ack Standard Power Supply attached to 
+the main Raspberry Pi board. It includes a 
+\SI{4000}{\milli\ampere\hour}
 lithium battery, which provides enough power 
 and time for our application.
-The connection between the Raspberry Pi and 
-the power board is shown in \cref{fig:connection}.
 
-\begin{figure}[bt]
+    %Parrot ANAFI Drone
+%Raspberry Pi 4
+%lithium Battery
+%Wi-Fi adapter dongle
+%laptop control station
+\begin{table}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{connection.png}
-    \caption{The Raspberry Pi and power board connection.}
-    \label{fig:connection}
-\end{figure}     
+    \caption{hardware used in the project}
+    \label{tab:hardware-used}  
+    \begin{tabular}{ p{4cm} p{3cm} p{6cm} }
+        \toprule
+        \textit{Hardware} 
+            & \textit{Picture} 
+                & \textit{Justification} \\ 
+        
+        \midrule
+
+        Parrot \anafi Drone  
+            & \begin{minipage}{.1\textwidth}
+                \includegraphics[width=30mm, height=20mm]{anafi.png}
+        \end{minipage} 
+                & Available in the university, can be 
+                controlled easily 
+                with simple Python script, 
+                4K-high resolution camera.  \\ 
+                \addlinespace
+
+        Raspberry Pi 4  
+            & \begin{minipage}{.0\textwidth}
+                \includegraphics[width=30mm, height=20mm]{raspberry.jpg}
+        \end{minipage} 
+                & Specifications are enough for our 
+                application, support WiFi and its 
+                small size and weight is an advantage.\\ 
+                \addlinespace
+
+        RPI UPSPack V3 with 4000mAh 
+        lithium Battery  
+            & \begin{minipage}{.1\textwidth}
+                \includegraphics[width=30mm, height=35mm]{RPI.jpg}
+        \end{minipage}  
+                & Support up to 4 hours which is more 
+                than enough , the board got an LED 
+                indicator for charging level also the 
+                weight and shape is an advantage.  \\ 
+                \addlinespace
+
+        Wireless N Nano USB Adapter  
+            & \begin{minipage}{.1\textwidth}
+                \includegraphics[width=28mm, height=28mm]{dongle.jpg}
+        \end{minipage} 
+                & Cheap and do its job, good coverage 
+                range.  \\ 
+                \addlinespace
+
+   Laptop 
+            & \begin{minipage}{.1\textwidth}
+                \includegraphics[width=30mm, height=30mm]{laptop.png}
+        \end{minipage} 
+                & Any laptop with good WiFi interface 
+                card will be enough for our case. \\ 
+                \addlinespace
+
+        \bottomrule
+    \end{tabular}
+\end{table}    
+
 
 \end{document}
