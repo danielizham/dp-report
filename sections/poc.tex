@@ -19,6 +19,7 @@ and installed Parrot Olympe successfully.
 Then we plugged in the WiFi dongle adapter
 in a USB 2.0 port in the Raspberry Pi, 
 and the OS discovered it automatically. 
+
 Now everything is ready to test the 
 \anafi drone, so we will connect the
 Raspberry Pi to the drone using built-in WiFi
@@ -48,9 +49,15 @@ which will be considered in design constraints.
 In our case, the total weight of our parts will be 
 less than 170 grams which will add small time
 to the battery life.
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{payload.png}
+	\caption{The drone payload}
+	\label{fig:payload}
+\end{figure} 
 
 For Raspberry Pi power supply it can be connected in 
-two different options as shown in \cref{fig:connection},
+two different options as shown in \cref{fig:connection}, 
 for option A we can use USB-A to power the Raspberry directly without
 need to solder any wires,
 but there is some internal resistance,
@@ -62,20 +69,12 @@ For simplicity, we will choose option A and we will
 follow the instruction of the manufacture by choosing 
 the thickest and shortest possible USB cable to reduce 
 the cable loss and voltage drops~\cite{makerfocus}. 	 
-
-
-\begin{figure}[bt]
-	\centering
-	\includegraphics[width=0.6\textwidth]{payload.png}
-	\caption{The drone payload}
-	\label{fig:payload}
-\end{figure}  
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.6\textwidth]{connection.png}
-	\caption{The Raspberry Pi and power board connection.}
-	\label{fig:connection}
-\end{figure}     
+ 
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=0.6\textwidth]{connection.png}
+ 	\caption{The Raspberry Pi and power board connection.}
+ 	\label{fig:connection}
+ \end{figure}   
 
 \end{document}
