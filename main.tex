@@ -5,11 +5,55 @@
 hmargin=2.54cm]{geometry}
 \usepackage{etoolbox,lineno}
 \linespread{1.1} % 1.6 for double spacing and 1.3 for one-and-a-half spacing
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{subfiles}
 \usepackage[toc,page]{appendix}
 \usepackage[acronym]{glossaries}
+\usepackage{xargs} % Use more than one optional parameter in a new commands
+
+% For to-do lists
+\usepackage[colorinlistoftodos,
+            prependcaption,
+            textsize=tiny]
+            {todonotes}
+\usepackage{marginnote}
+\renewcommand{\marginpar}{\marginnote}
+
+\definecolor{OliveGreen}{RGB}{181,179,92}
+\definecolor{Plum}{RGB}{142,69,133}
+\definecolor{Goldenrod}{RGB}{245,198,60}
+
+\newcommandx{\tobedone}[2][1=]{
+    \todo[linecolor=red,
+            backgroundcolor=red!25,
+            bordercolor=red,#1]{#2}
+}
+\newcommandx{\unsure}[2][1=]{
+    \todo[linecolor=Goldenrod,
+            backgroundcolor=Goldenrod!25,
+            bordercolor=Goldenrod,#1]{#2}
+}
+\newcommandx{\change}[2][1=]{
+    \todo[linecolor=blue,
+            backgroundcolor=blue!25,
+            bordercolor=blue,#1]{#2}
+}
+\newcommandx{\info}[2][1=]{
+    \todo[linecolor=OliveGreen,
+            backgroundcolor=OliveGreen!25,
+            bordercolor=OliveGreen,#1]{#2}
+}
+\newcommandx{\improvement}[2][1=]{
+    \todo[linecolor=Plum,
+            backgroundcolor=Plum!25,
+            bordercolor=Plum,#1]{#2}
+}
+\newcommandx{\thiswillnotshow}[2][1=]{
+    \todo[disable,#1]{#2}
+}
 
 % For fonts and symbols
 \usepackage{times}
@@ -17,8 +61,15 @@ hmargin=2.54cm]{geometry}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{amsfonts}
-\usepackage{siunitx}
 \usepackage{xspace}
+\usepackage{siunitx}
+\sisetup{
+    mode=text,
+    per-mode=symbol,
+    product-units=single,
+    range-units=single,
+    group-separator={,},
+}
 
 % For references
 \usepackage[backend=biber, style=ieee]{biblatex}
@@ -69,9 +120,6 @@ hmargin=2.54cm]{geometry}
 \usepackage{caption}
 \captionsetup[table]{skip=5pt}
 
-\usepackage{ragged2e}
-\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
-
 % For better lists
 \usepackage{enumerate}
 
@@ -117,6 +165,7 @@ hmargin=2.54cm]{geometry}
 % Technologies
 \newacronym{gps}{\textsc{gps}}{the Global Positioning System}
 \newacronym{lidar}{\textsc{lidar}}{Light Detection and Ranging}
+\newacronym{fov}{\textsc{fov}}{field of view}
 
 % never expand the these acronyms
 \glsunset{ieee}
