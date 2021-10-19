@@ -56,6 +56,8 @@ to the battery life.
 	\label{fig:payload}
 \end{figure} 
 
+We have done another experiment regarding the response time of the drone after sending a command to it from the Raspberry Pi. Calculating the response time was by starting a timer when sending the command and stop it when the state of the drone changes, the experiment was done on simulation using sphinx then we moved to the real-word.
+
 For Raspberry Pi power supply it can be connected in 
 two different options as shown in \cref{fig:connection}, 
 for option A we can use USB-A to power the Raspberry directly without
@@ -68,7 +70,9 @@ this option has small internal resistance compared to option A.
 For simplicity, we will choose option A and we will 
 follow the instruction of the manufacture by choosing 
 the thickest and shortest possible USB cable to reduce 
-the cable loss and voltage drops~\cite{makerfocus}. 	 
+the cable loss and voltage drops~\cite{makerfocus}.
+
+ 	 
  
  \begin{figure}[h]
  	\centering
@@ -84,7 +88,7 @@ the cable loss and voltage drops~\cite{makerfocus}.
 	\begin{tabular}{ p{6cm} p{4cm} p{4cm} }
 		\toprule
 		\textit{} & \textit{Simulation} & \textit{Real-world}\\ \midrule
-		motor ramping for take off  & 0.3506 seconds & 0.0323 seconds    \\
+		motor ramping for takeoff  & 0.3506 seconds & 0.0323 seconds    \\
 		move while flying & 0.7441 seconds & 0.1511 seconds  \\
 		\bottomrule
 	\end{tabular}
