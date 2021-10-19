@@ -56,7 +56,20 @@ to the battery life.
 	\label{fig:payload}
 \end{figure} 
 
-We have done another experiment regarding the response time of the drone after sending a command to it from the Raspberry Pi. Calculating the response time was by starting a timer when sending the command and stop it when the state of the drone changes, the experiment was done on simulation using sphinx then we moved to the real-word.
+We have done another experiment regarding the response time of the drone after sending a command to it from the Raspberry Pi. Calculating the response time was by starting a timer when sending the command and stopping it when the state of the drone changes, the experiment was done on simulation using sphinx, then we moved to the real world using \anafi drone. From \cref{tab:respone-time} below, we can see that all the results are less than \SI{1}{\second} which satisfied our response time constraint. Another thing we can conclude from the table is that the response time of the real world is less than the simulation, and this is predictable since the simulation depends on the GPU power and processing time. 
+
+\begin{table}[H]
+	\centering
+	\caption{the response time of the drone after sending command.}
+	\label{tab:respone-time}
+	\begin{tabular}{ p{6cm} p{4cm} p{4cm} }
+		\toprule
+		\textit{} & \textit{Simulation} & \textit{Real-world}\\ \midrule
+		motor ramping for takeoff  & 0.3506 seconds & 0.0323 seconds    \\
+		move while flying & 0.7441 seconds & 0.1511 seconds  \\
+		\bottomrule
+	\end{tabular}
+\end{table} 
 
 For Raspberry Pi power supply it can be connected in 
 two different options as shown in \cref{fig:connection}, 
@@ -74,24 +87,13 @@ the cable loss and voltage drops~\cite{makerfocus}.
 
  	 
  
- \begin{figure}[h]
+ \begin{figure}[tbp]
  	\centering
  	\includegraphics[width=0.6\textwidth]{connection.png}
  	\caption{The Raspberry Pi and power board connection.}
  	\label{fig:connection}
  \end{figure}   
 
-\begin{table}[H]
-	\centering
-	\caption{the response time of the drone after sending command.}
-	\label{tab:respone-time}
-	\begin{tabular}{ p{6cm} p{4cm} p{4cm} }
-		\toprule
-		\textit{} & \textit{Simulation} & \textit{Real-world}\\ \midrule
-		motor ramping for takeoff  & 0.3506 seconds & 0.0323 seconds    \\
-		move while flying & 0.7441 seconds & 0.1511 seconds  \\
-		\bottomrule
-	\end{tabular}
-\end{table} 
+
 
 \end{document}
