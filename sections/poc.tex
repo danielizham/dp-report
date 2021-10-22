@@ -26,10 +26,6 @@
 % Demonstrate your PoC to the examiners during the 
 % senior project presentation.
 
-\newcommand{\gym}{the \textsc{o}pen\textsc{ai} 
-    \textsc{g}ym\xspace} 
-\newcommand{\id}{\textsc{id}\xspace} 
-
 The simulation and reinforcement learning are critical
 components to achieve objective \ref{obj:drl}.
 This part of the project starts with receiving
@@ -190,7 +186,7 @@ movement is off by few centimeters, we made the camera
 cover an area bigger than a cell. 
 This however results in a more difficult
 object detection because in addition to their 
-\textsc{id}'s, we need to also distinguish between
+\id's, we need to also distinguish between
 the targets that are within the cell and 
 those outside of it.
 Another related question that has arisen is if we 
@@ -239,7 +235,7 @@ except with different shades. The bigger the number of
 targets in the training, the harder it is to
 distinguish between them in the object detection part
 thus causing errors and inaccuracy. Hence, we decided
-to use numbers by displaying a unique \textsc{id}
+to use numbers by displaying a unique \id
 to differentiate them, but
 Sphinx does not provide that option by default.
 A way to get around this is to develop a Gazebo plugin,
