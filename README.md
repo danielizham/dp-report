@@ -9,7 +9,7 @@
 - [ ] Abstract
 - [ ] Acknowledgment
 - [x] Introduction and Motivation
-- [ ] Background and Related Work
+- [x] Background and Related Work
    - [x] Part 1 (Bahri)
    - [x] Part 2 (Daniel)
    - [x] Part 3 (Abdulrahman)
