@@ -13,7 +13,7 @@
 \subsection{Physical components}
 The most critical parts in the hardware
 architecture are the Raspberry Pi and the drone. 
-So we started by configuring the Raspberry Pi sd-card,
+We started by configuring the Raspberry Pi microSD card,
 flashed it with Ubuntu 18.04 desktop version,
 and installed Parrot Olympe successfully. 
 Then we plugged in the WiFi dongle adapter
@@ -21,23 +21,29 @@ in a USB 2.0 port in the Raspberry Pi,
 and the OS discovered it automatically. 
 
 Now everything is ready to test the 
-\anafi drone, so we will connect the
+\anafi drone, so we have connected the
 Raspberry Pi to the drone using built-in WiFi
-to allow Raspberry to send/receive instructions
-to the drone. 
+to allow Raspberry to send/receive control and status 
+instructions to the drone. 
 For connecting Raspberry Pi and the laptop, 
-we used the external WiFi adapter and turned on the hotspot feature to create an access point,
-now we can connect to Raspberry Pi and execute 
-scripts using \textsc{ssh} protocol.
+we used the external WiFi adapter and turned 
+on the hotspot feature to create an access point,
+and this made the process so convenient because 
+once the Raspberry Pi boots up, it turns on the 
+access point, and the user can connect to it 
+easily and execute scripts using \textsc{ssh} 
+protocol or open the graphical interface 
+control using \textsc{vnc} feature.
 
 We executed the takeoff and move forward scripts,
 and it worked successfully, so we got the green 
 light to continue. 
-Regarding the power supply we were thinking of modifying the drone's battery
-by removing the plastic shield because of the drone's
-payload restrictions and limitations, but everything changed after 
-testing the drone's maximum payload. As shown in \cref{fig:payload} below
-we attached 190 grams of Raspberry Pi and Arduino boards
+Regarding the power supply we were thinking 
+of modifying the drone's battery by removing the 
+plastic shield because of the drone's payload restrictions 
+and limitations, but everything changed after testing 
+the drone's maximum payload. As shown in \cref{fig:payload}
+below we attached 190 grams of Raspberry Pi and Arduino boards
 to see the effect on the performance and flight and
 battery drain percentage. 
 The drone has taken off  successfully, 
@@ -49,6 +55,7 @@ which will be considered in design constraints.
 In our case, the total weight of our parts will be 
 less than 170 grams which will add small time
 to the battery life.
+
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{payload.png}
@@ -56,7 +63,20 @@ to the battery life.
 	\label{fig:payload}
 \end{figure} 
 
-We have done another experiment regarding the response time of the drone after sending a command to it from the Raspberry Pi. Calculating the response time was by starting a timer when sending the command and stopping it when the state of the drone changes, the experiment was done on simulation using sphinx, then we moved to the real world using \anafi drone. From \cref{tab:respone-time} below, we can see that all the results are less than \SI{1}{\second} which satisfied our response time constraint. Another thing we can conclude from the table is that the response time of the real world is less than the simulation, and this is predictable since the simulation depends on the GPU power and processing time. 
+We have done another experiment regarding the response time 
+of the drone after sending a command to it from the Raspberry Pi. 
+Calculating the response time was by starting a timer when 
+sending the command and stopping it when the 
+state of the drone changes, the experiment was done 
+on simulation using sphinx,
+then we have moved to the real world using \anafi drone.
+From \cref{tab:respone-time} below, 
+we can see that all the results are less than \SI{1}{\second}
+which satisfied our response time constraint.
+Another thing we can conclude from the table is that 
+the response time of the real world is less than 
+the simulation, and this is predictable since the simulation
+depends on the GPU power and processing time. 
 
 \begin{table}[H]
 	\centering
@@ -65,19 +85,22 @@ We have done another experiment regarding the response time of the drone after s
 	\begin{tabular}{ p{6cm} p{4cm} p{4cm} }
 		\toprule
 		\textit{} & \textit{Simulation} & \textit{Real-world}\\ \midrule
-		motor ramping for takeoff  & 0.3506 seconds & 0.0323 seconds    \\
-		move while flying & 0.7441 seconds & 0.1511 seconds  \\
+		motor ramping for takeoff (seconds)  & 0.3506 & 0.0323     \\
+		move while flying (seconds) & 0.7441  & 0.1511   \\
 		\bottomrule
 	\end{tabular}
 \end{table} 
 
-For Raspberry Pi power supply it can be connected in 
-two different options as shown in \cref{fig:connection}, 
+For the Raspberry Pi power supply, we have ordered it 
+online because it's not available locally and 
+it arrived after 17 days at the post office.
+Regarding the connection, there are 
+two different options to connect as shown in \cref{fig:connection}, 
 for option A we can use USB-A to power the Raspberry directly without
 need to solder any wires,
 but there is some internal resistance,
 in option B it Power the Raspberry Pi through the \textsc{gpio} 
-interface by soldering two wires to the motherboard and 
+interface by soldering two wires to the power board and 
 connect to pin 4 and 6 in the Raspberry Pi board,
 this option has small internal resistance compared to option A.
 For simplicity, we will choose option A and we will 
@@ -85,15 +108,41 @@ follow the instruction of the manufacture by choosing
 the thickest and shortest possible USB cable to reduce 
 the cable loss and voltage drops~\cite{makerfocus}.
 
- 	 
- 
  \begin{figure}[tbp]
  	\centering
- 	\includegraphics[width=0.6\textwidth]{connection.png}
+ 	\includegraphics[width=0.5\textwidth]{connection.png}
  	\caption{The Raspberry Pi and power board connection.}
  	\label{fig:connection}
  \end{figure}   
 
+Since all the components are available as shown 
+in \cref{fig:components}, we can now assemble 
+all the parts in one piece and start testing the whole system.
+We have used the zip tie to hold the components and to
+make sure everything sticks together. After trying to use the 
+nylon straps tape to attach the components to the drone 
+we have figured out that it blocks the fan 
+and sensors in the bottom of the drone, 
+so normal wires attached to the sides of the drone were 
+used as a temporary solution. Also, we are considering 
+designing a 3D printed holder to make the process more 
+flexible and convenient in future advancements but for now,
+we will stick to the simple way. As shown in 
+\cref{fig:full-hardware} all the parts are in one system 
+and test flight was smooth and everything works perfectly. 
 
+ \begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.5\textwidth]{components.jpg}
+	\caption{All components needed.}
+	\label{fig:components}
+\end{figure}
+
+  \begin{figure}[tbp]
+ 	\centering
+ 	\includegraphics[width=0.5\textwidth]{full-hardware.jpg}
+ 	\caption{Full hardware system.}
+ 	\label{fig:full-hardware}
+ \end{figure}  
 
 \end{document}
