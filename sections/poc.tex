@@ -13,7 +13,7 @@
 \subsection{Physical components}
 The most critical parts in the hardware
 architecture are the Raspberry Pi and the drone. 
-We started by configuring the Raspberry Pi microSD card,
+We started by configuring the Raspberry Pi micro\textsc{sd} card,
 flashed it with Ubuntu 18.04 desktop version,
 and installed Parrot Olympe successfully. 
 Then we plugged in the WiFi dongle adapter
@@ -33,7 +33,7 @@ once the Raspberry Pi boots up, it turns on the
 access point, and the user can connect to it 
 easily and execute scripts using \textsc{ssh} 
 protocol or open the graphical interface 
-control using \textsc{vnc} feature.
+control using the \textsc{vnc} feature.
 
 We executed the takeoff and move forward scripts,
 and it worked successfully, so we got the green 
@@ -43,7 +43,7 @@ of modifying the drone's battery by removing the
 plastic shield because of the drone's payload restrictions 
 and limitations, but everything changed after testing 
 the drone's maximum payload. As shown in \cref{fig:payload}
-below we attached 190 grams of Raspberry Pi and Arduino boards
+we attached \SI{190}{\gram} of Raspberry Pi and Arduino boards
 to see the effect on the performance and flight and
 battery drain percentage. 
 The drone has taken off  successfully, 
@@ -67,39 +67,39 @@ We have done another experiment regarding the response time
 of the drone after sending a command to it from the Raspberry Pi. 
 Calculating the response time was by starting a timer when 
 sending the command and stopping it when the 
-state of the drone changes, the experiment was done 
-on simulation using sphinx,
-then we have moved to the real world using \anafi drone.
-From \cref{tab:respone-time} below, 
+state of the drone changes. 
+The experiment was done on simulation using Sphinx,
+then we have moved to the real world using the \anafi drone.
+From \cref{tab:respone-time}, 
 we can see that all the results are less than \SI{1}{\second}
 which satisfied our response time constraint.
 Another thing we can conclude from the table is that 
 the response time of the real world is less than 
 the simulation, and this is predictable since the simulation
-depends on the GPU power and processing time. 
+depends on the \textsc{gpu} power and processing time. 
 
-\begin{table}[H]
+\begin{table}[tbp]
 	\centering
-	\caption{the response time of the drone after sending command.}
+	\caption{The response time of the drone after sending a control command.}
 	\label{tab:respone-time}
 	\begin{tabular}{ p{6cm} p{4cm} p{4cm} }
 		\toprule
 		\textit{} & \textit{Simulation} & \textit{Real-world}\\ \midrule
-		motor ramping for takeoff (seconds)  & 0.3506 & 0.0323     \\
-		move while flying (seconds) & 0.7441  & 0.1511   \\
+		Motor ramping for takeoff (seconds)  & 0.3506 & 0.0323     \\
+		Move while flying (seconds) & 0.7441  & 0.1511   \\
 		\bottomrule
 	\end{tabular}
 \end{table} 
 
 For the Raspberry Pi power supply, we have ordered it 
-online because it's not available locally and 
+online because it is not available locally and 
 it arrived after 17 days at the post office.
 Regarding the connection, there are 
-two different options to connect as shown in \cref{fig:connection}, 
-for option A we can use USB-A to power the Raspberry directly without
+two different options to connect as shown in \cref{fig:connection}.
+For option A we can use USB-A to power the Raspberry directly without
 need to solder any wires,
-but there is some internal resistance,
-in option B it Power the Raspberry Pi through the \textsc{gpio} 
+but there is some internal resistance.
+In option B it power the Raspberry Pi through the \textsc{gpio} 
 interface by soldering two wires to the power board and 
 connect to pin 4 and 6 in the Raspberry Pi board,
 this option has small internal resistance compared to option A.
@@ -127,7 +127,7 @@ so normal wires attached to the sides of the drone were
 used as a temporary solution. Also, we are considering 
 designing a 3D printed holder to make the process more 
 flexible and convenient in future advancements but for now,
-we will stick to the simple way. As shown in 
+we will stick to the simpler way. As shown in 
 \cref{fig:full-hardware} all the parts are in one system 
 and test flight was smooth and everything works perfectly. 
 
