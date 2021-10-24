@@ -153,10 +153,10 @@ simulating the environment, testing the models,
 and flight control. Before discussing the software 
 to be used, we have selected Ubuntu 18.04 (Bionic Beaver) 
 as an operating system for several reasons. 
-One key reason is due to compatibility because 
-Parrot's Olympe and Sphinx programs are only 
-supported on limited distributions and operating systems,
-one which is Ubuntu 18.04. 
+One key reason is that in addition to
+still being supported, it is compatible with the 
+Parrot's Olympe and Sphinx programs, which are only 
+supported on limited distributions and operating systems.
 Another reason is that it is a lite \textsc{os} 
 and can be installed on the onboard computer that 
 will be attached to the drone. For the simulation part, 
@@ -174,35 +174,6 @@ which simulates the visual and physical surrounding
 of drones and custom 3D objects. 
 \Cref{fig:gazebo} shows how the Sphinx 
 program looks like. 
-
-\begin{figure}[tbp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{gazebo.png}
-    \caption{The Sphinx program that runs on top of Gazebo.}
-    \label{fig:gazebo}
-\end{figure}
-
-In the training part, we used simulation tools to 
-generate some training datasets. Firstly, 
-we placed random objects and captured the images 
-using the simulated drone camera. We have used a 
-website called Roboflow which helped us labelling 
-the objects and generate new datasets from the 
-existing ones with different types of augmentation 
-such as rotation and scaling. 
-For the object detection model, Google Colab notebook 
-was a sufficient tool to start training using 
-\gls{cnn} \textsc{yolo}v5 in addition to the 
-Jupyter notebook which was very helpful 
-in code experimentation. 
-
-For the application software, Parrot Olympe 
-was used to send commands to the physical as well as 
-the simulated drone and control the flight trip and 
-how the drone moves. Parrot Olympe uses Python 
-controller programming interface for Parrot drones 
-which makes controlling simple and easy using a 
-Python script.
 
 \begin{table}[tbp]
     \centering
@@ -283,6 +254,51 @@ Python script.
         \bottomrule
     \end{tabular}
 \end{table}
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{gazebo.png}
+    \caption{The Sphinx program that runs on top of Gazebo.}
+    \label{fig:gazebo}
+\end{figure}
+
+In the training part, we used simulation tools to 
+generate some training datasets. Firstly, 
+we placed random objects and captured the images 
+using the simulated drone camera. We have used a 
+website called Roboflow which helped us labelling 
+the objects and generate new datasets from the 
+existing ones with different types of augmentation 
+such as rotation and scaling. 
+For the object detection model, Google Colab notebook 
+was a sufficient tool to start training using 
+\gls{cnn} \textsc{yolo}v5 in addition to the 
+Jupyter notebook which was very helpful 
+in code experimentation. 
+
+For the application software, Parrot Olympe 
+was used to send commands to the physical as well as 
+the simulated drone and control the flight trip and 
+how the drone moves. Parrot Olympe uses Python 
+controller programming interface for Parrot drones 
+which makes controlling simple and easy using a 
+Python script. Moreover, Olympe allows us to read
+sensor data, such as the \gls{gps} fixes and camera feed, 
+from the \anafi
+drone. This will make it possible to build a user interface
+on the control and command station
+shown in \cref{fig:ui-prototype} to monitor 
+the progress of the drone
+when it is autonomously executing the task visitation
+mission.
+
+\begin{figure}[bp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{ui-prototype}
+    \caption{An example of a user interface that will be built
+                using sensor data coming from the \anafi drone.}
+    \label{fig:ui-prototype}
+\end{figure}
 
 \subsubsection{Hardware}
     %Parrot ANAFI Drone
