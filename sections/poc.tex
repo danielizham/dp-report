@@ -42,20 +42,25 @@ as green 3D flat boxes
 % as transparent 3D flat boxes
 % with their \textsc{id}'s displayed on the top face
 as can be seen in \cref{fig:one-target}. 
-The basic shape and green were created by 
+The basic shape and the colour green green were created by 
 % The basic shape and transparency was created by 
 defining a model 
 in the \gls{sdf}
 including its visual, collision and inertial properties.
-Using libgazebo7 library, we have written a Gazebo plugin 
+Using the \textit{libgazebo7} development package, 
+we have written a Gazebo plugin 
 in c++ to describe custom properties and  
 behaviour of the model.
+Developing a Gazebo plugin is not a straightforward
+process in our case, as explained later, due to 
+the incompatibility between the Sphinx plugins and
+our \textsc{os}.
 % The main property is the model's \textsc{id} and 
 % its placement
 % while the main type of behaviour is its mobility pattern, 
-The main type of behaviour is its mobility pattern,
-which for the proof of concept, 
-has been set to be a straight line movement.
+Nevertheless, we have managed to program the targets' main type of behaviour which is its mobility pattern.
+For the proof of concept, 
+it has been set to be a straight line movement.
 The \texttt{population} tag in \gls{sdf} was used 
 to place the required number of targets (in this case 20)
 following the assumed uniform probability distribution 
@@ -85,8 +90,8 @@ client as shown in \cref{fig:target-population}.
 
 The 3D model, properties and behaviour
 of the \anafi drone is provided by Parrot in the 
-form of firmware. 
-Both this and the target's models were spawn
+form of a firmware. 
+Both the drone's and the target's models were spawn
 in Sphinx using the \gls{sdf} language.
 With Sphinx running, the simulated \anafi drone 
 started using
@@ -112,7 +117,7 @@ if the battery is simulated, the drone will
 perform badly while running
 out of battery and after around 20 minutes, 
 the drone will stop working and the whole system
-needs to be respawn. For this reason, the drone's
+needs to be re-spawn. For this reason, the drone's
 battery was not simulated.
 
 As for sending movement commands to the drone,
@@ -125,15 +130,15 @@ we could send the Olympe control commands to the drone
 to execute the visitation task. Which command to use
 depends on the reinforcement learning.
 
-The reinforcement learning was done 
-using another library called \gym.
+The reinforcement learning was aided 
+by another library called \gym.
 We used it to facilitate developing the
 \gls{drl} algorithm we are implementing and to 
 teach the drone how to achieve the 
 target visitation mission.
 Specifically, \gym provides an abstract class 
 called \texttt{Env}
-which we inherited and then we overrode the 
+which we have inherited and overridden the 
 required unimplemented methods.
 The action space is defined in the subclass, and its
 elements call the necessary Olympe functions. 
@@ -166,7 +171,8 @@ identify the targets and count their quantity.
 % checking if their \id's are not listed 
 % in the already captured targets. 
 In addition to object detection which is explained
-in the succeeding \cref{sec:obj-detection}, it involves 
+in the succeeding \cref{sec:obj-detection}, developing this
+aspect of the simulation involved 
 setting the camera and position of the drone to ensure
 the rewards are valid and accurate.
 
@@ -239,18 +245,19 @@ to use numbers by displaying a unique \id
 to differentiate them, but
 Sphinx does not provide that option by default.
 A way to get around this is to develop a Gazebo plugin,
-but this needs to be done using the libgazebo7 running
+but this needs to be done using the \textit{libgazebo7} running
 on Ubuntu 16.04 as opposed to Ubuntu 18.04 which we 
 have chosen to use because the former 
 is no longer supported.
 We further solved this problem by using the Ubuntu 16.04
 Docker container to write the plugin. While we managed
 to successfully made the plugin, it unfortunately still
-could not be used on our machine because libgazebo7
+could not be used on our machine because \textit{libgazebo7}
 uses some shared libraries whose versions can be only 
 be run on Ubuntu 16.04. One such culprit is the 
-libprotobuf.so.9 from the Google Protocol Buffer 
-(Protobuf) used heavily by Gazebo. Consequently, 
+\textit{libprotobuf.so.9} from the Google Protocol Buffer 
+(Protobuf) used heavily by Sphinx but cannot be compiled
+in Ubuntu 18.04. Consequently, 
 to solve the problem of making each target distinct, 
 we have decided that we would wait for the new
 version of Sphinx running on the latest Gazebo
@@ -273,11 +280,10 @@ produced at the end of the training,
 the drone was able to accurately
 fly to the target destination. 
 
-Having proven the use of the physics simulation
-through Sphinx, Olympe, \gym and the 
-\gls{drl} model, and  
-the feasibility of an \gls{rl} training 
-with the current setup, 
+Having proven the feasibility of the physics simulation
+and the \gls{rl} training through Sphinx, Olympe, and \gym
+to convert client's target information to
+a set of \gls{drl} model weights, 
 we are confident that the final implementation 
 in terms of the simulation and the \gls{rl} components
 of the project will be successful in Senior 2.
