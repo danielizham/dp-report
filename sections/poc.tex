@@ -289,12 +289,83 @@ in terms of the simulation and the \gls{rl} components
 of the project will be successful in Senior 2.
 
 \subsection{Object detection}\label{sec:obj-detection}
-
+%
+%
 One of the essential parts in our project is the object
-detection model.
+detection model. Object detection is a new computer vision
+technique which refers to the capability of a computer to 
+identify and locate objects in a certain area given a data set 
+of images or videos. It relies on machine learning and different 
+sub-fields of it to train a model given a data set and then 
+deploy it in various use cases. 
 We started our work with the object detection model right 
 after creating the virtual environment in which we created
-some targets \ref{fig:one-target}
+some targets as shown in Figure \ref{fig:target-population}, these 
+target are easily identifiable by humans, but how could a
+machine see it and separate it from the environment around it. 
+After creating the virtual environment, we started taking random 
+screenshots all around the entire environment, these screenshots 
+might have a lot of targets within their frame, or they might
+not have any targets at all, this randomness is excellent 
+for the model training as it gives the model many different cases.
+We took around 300 screenshots to create a data set of images and
+start the labeling process. For labeling we used Roboflow, which is a very useful online tool that allowed us to work as a team and label all 300 images together
+in a similar way with the exact same method to avoid any confusions in
+the model training process. The labeling process must be clear and 
+mistake-free, which means that all the boxes created around the targets 
+must be very precise and exactly around it without including much pixels
+from the surrounding environment.
+\begin{figure}[H]%
+	\centering
+	\subfloat[ten targets within the frame]{
+		{\includegraphics[width=6cm]{labeling-process-1} }
+		\label{fig:labeling-process-1} }%
+	\hspace{0.5cm}
+	\subfloat[four targets within the frame]{
+		{\includegraphics[width=6cm]{labeling-process-2} }
+		\label{fig:labeling-process-2} }%
+	\caption{%
+		\protect\subref{fig:labeling-process-1} 
+		Labeling 10 targets and
+		\protect\subref{fig:labeling-process-2} 
+		labeling 4 targets.}%
+	\label{fig:labeling-targets}%
+\end{figure}
+For the model training, we relied on \textsc{yolo}v5 which is an open
+source family of object detection models and architectures built in 
+PyTorch. \textsc{yolo}v5 is based on deep learning schemes such as 
+\gls{cnn} to train models given large data sets, there are different versions 
+of \textsc{yolo}v5, there is a compact version that does not require a lot of
+processing power, and there is a full version that is more suitable for large
+data sets, we trained our model many times using different hardware and GPUs, 
+we also tried performing data augmentation on our data set using built in 
+methods in Roboflow which allowed us to make the data set larger and enhance
+the performance of the model. The data augmentation process resulted in creating
+three images for each image that we have, in that process, images are mixed
+together and shuffled, or put in different directions with an amount of rotation 
+that will make the image look new once again to the model, thus training it 
+better. We ran our model training using Google Collaborate which allowed us to either 
+use our personal hardware or make use of external resource allocated specifically for
+research purposes by Google itself. In Google Colab, we can choose the runtime type to
+either be the internal CPU, GPU or an external resources from Google. A remote connection
+was made to google's server and we trained one of our models using a very good GPU 
+allocated by google called Nvidia Tesla-K80 which is a GPU accelerator with 560 MHz core, 
+10 GHz effective memory clock, and 24GB GDDR5 vRAM.
+The results we got were better than what we got using our personal, we got better results, 
+better precision and confidence intervals were accomplished, but it was still not the best
+solution that could be made. Later, we started tweaking the model and changing all the 
+possible variables to see how the model performs. Tweaking the model involves changing many
+things, such as the batch size, the number of epochs, the learning rate, the optimizer, and
+other small changes that resulted in different outcomes. After that, we managed to have
+access to Qatar University's servers, we contacted the ITS department to connect to one of
+the research-purpose servers and do the training on it. So in total, we had three
+different resources, personal hardware and GPUs, Google Collab's free GPUs, and the 
+university servers. The results we got from the three different resources were different, 
+and the performance was increasingly improving with the better resources and hardware used 
+for model training. 
+
+% In the next section I willshow the different images that we got from the training and compare between the different results. This step cannot be done until the training is finished using the servers.
+
 
 
 
@@ -349,7 +420,7 @@ In our case, the total weight of our parts is equal
 to \SI{170}{\gram} which will add small time
 to the battery life.
 
-\begin{figure}[tbp]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{payload.png}
 	\caption{The drone payload}
