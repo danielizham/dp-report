@@ -58,7 +58,8 @@ our \textsc{os}.
 % The main property is the model's \textsc{id} and 
 % its placement
 % while the main type of behaviour is its mobility pattern, 
-Nevertheless, we have managed to program the targets' main type of behaviour which is its mobility pattern.
+In spite of this, we have managed to program the targets' 
+main type of behaviour which is its mobility pattern.
 For the proof of concept, 
 it has been set to be a straight line movement.
 The \texttt{population} tag in \gls{sdf} was used 
@@ -66,6 +67,10 @@ to place the required number of targets (in this case 20)
 following the assumed uniform probability distribution 
 function supplied by the
 client as shown in \cref{fig:target-population}.
+Nevertheless, in the final implementation, the locations 
+and the mobility pattern of the targets cannot be uniform
+and must follow a certain distribution so that the learning
+of the \gls{rl} agent can converge.
 
 \begin{figure}[tb]%
     \centering

@@ -262,7 +262,39 @@ program looks like.
     \label{fig:gazebo}
 \end{figure}
 
-In the training part, we used simulation tools to 
+The training part is divided into \gls{rl}, which is
+used to teach the \anafi drone to complete the task, and object
+detection, which is used to detect and count the targets
+required in determining the reward during the training. 
+The \gls{rl} agent is based on the \gls{drl} model 
+developed by \textcite{Ged21}. The action space is composed 
+of 9 movements in the 
+forward, backward, left,
+right, forward-left, forward-right, backward-left and 
+backward-right directions as well as a no-operation.
+State space is given as
+\begin{align}
+    s = \{ t, cell, [ I_1, I_2, I_3, \ldots, I_m] \} 
+    \label{eq:state-space}
+\end{align}
+
+\noindent 
+where $t$ is the current timestep, $cell$ is the \id of the
+cell above which the drone is, and the vector, having the
+same length as the number of targets, is an
+indicator if that particular target has been seen. For example,
+if only targets with \id's 3 and 7 have been visited
+in the current and previous cells since the beginning of the 
+episode,
+then the vector will have elements of one at index 2 and 6 while
+the other elements are zeros.
+It follows that all the targets must be uniquely identifiable.
+In addition, the reward is how many new targets are captured 
+in the current cell,
+and if the drone flies past the boundary, then a big negative
+reward will be incurred.
+
+For the object detection, we used simulation tools to 
 generate some training datasets. Firstly, 
 we placed random objects and captured the images 
 using the simulated drone camera. We have used a 
