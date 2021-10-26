@@ -12,6 +12,48 @@
 
 \subsection{Anticipated risks}
 
-\lipsum[1]
+\begin{table}[H]
+	\centering
+	\caption{Anticipated Risks.}
+	\label{tab:Anticipated Risks}
+	\begin{tabular}{ p{4.5cm} p{5.5cm} p{6cm} }
+		\toprule
+		\textit{Anticipated Risk} 
+		& \textit{Description} 
+		& \textit{minimizing approach} \\
+		
+		\midrule
+		
+		Late delivery of the components 
+		& Some components available online 
+		and it takes time to arrive, 
+		any delay will affect the hardware implementation.
+		& order early and from trusted sources with previous 
+		customers reviews. \\
+		
+		Lose connection to the Raspberry Pi
+		& Because we are connecting using Wi-Fi, maybe a connection loss 
+		happen to due coverage or hardware issue.
+		& code a script to return the drone to the takeoff location 
+		and do multiple tests to make sure we cover all the possible cases. \\
+		
+		Lose control of the drone
+		& Because we are limited in fly time and battery capacity, 
+		the drone can shut down immediately if no power reaches it.
+		Another reason can be that software bugs and crashes can 
+		result in unexpected behavior like flying in random directions.
+		& For the fly time, we will make sure we land the drone before it reaches the flight time constraints.
+		We will create a handlers script for the software crashes 
+		to ensure that Raspberry Pi gets the control again.  \\
+		
+		Flying drone outdoor without permissions 
+		& Qatar has very restricted rules regarding flying a drone 
+		with a camera outdoor.
+		& get the required permissions to fly the drone in 
+		Al-Khor airport or fly it indoors inside the university with permission from the department. \\
+		
+		\bottomrule		
+	\end{tabular}
+\end{table}
 
 \end{document}
