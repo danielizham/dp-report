@@ -4,7 +4,10 @@
 
 % {{{ Motivation
 The \uav is one of the most promising devices in the 
-21\textsuperscript{st} century. Commonly known as drone, 
+21\textsuperscript{st} century. It has been estimated that
+there will be as high as \SI{1.2}{million} \uavs in use 
+by 2040 \cite{Amo19}. 
+Commonly known as drone, 
 it improves many existing applications and makes possible 
 innumerable new ones. It can be used to monitor livestock, 
 carry out security surveillance, manage traffic 
@@ -22,10 +25,10 @@ the study of interactions between members of a migrating
 pod of whales can be done using a \uav but not 
 \textsc{cctv}s nor satellites.
 However, micro-drones, which is the most common type of \uavs,
-suffer from limited flight time. This is especially 
-disadvantageous in
+suffer from limited flight time \cite{Sha19}. 
+This is especially disadvantageous in
 the mentioned tasks because they require visitation of targets
-whose pattern of movement is the only information known.
+whose pattern of movement is the only known information.
 % }}}
 
 \subsection{Problem statement}
@@ -72,11 +75,12 @@ the most energy-saving way.
 There are many inherent challenges that solving this problem
 presents. First of all, it is difficult to make a drone
 fly autonomously to visit multiple targets whose locations
-are not known. 
+have not been known beforehand. 
 This is a common scenario in various applications. 
 Moreover, this needs to be done in the minimum
-amount of flight time.
-Otherwise, several \uavs need to be used concurrently
+amount of flight time because \uavs use batteries
+as their main power supply.
+Otherwise, several units need to be used concurrently
 or sequentially.
 Secondly, flying a drone efficiently is complicated 
 because it has six degrees of freedom. In other words, 
@@ -85,11 +89,12 @@ take into account to move
 it precisely to a destination point. 
 Thirdly, there will be obstacles that the autonomous \uav
 needs to know how to avoid while visiting the targets.
-Finally, the fact that \uavs generally use a battery
-as a power supply makes it imperative to save energy 
-while flying it.
-Based on the goal of the project, the challenges that will be 
-tackled are the autonomous navigation
+Last but not least, the fact that \uavs communicate wirelessly
+with the command and control station in the open 
+over a long range makes them susceptible
+to malicious hackers.
+Based on the goal of the project, the only challenge 
+that will be tackled is the autonomous navigation
 of the drone to visit identifiable targets in the shortest
 time and energy-saving way.
 % }}}
@@ -103,8 +108,7 @@ a hardware integration between a drone and an onboard
 computer. This is to avoid the command and control
 station sending the commands to the drone. Instead, the drone
 will possess its own computer that it will use to 
-autonomously visit the targets. Consequently, the system 
-will also be scalable.
+autonomously visit the targets.
 % }}}
 
 \subsection{Project significance}
@@ -135,7 +139,9 @@ it flies at a higher altitude
 making it more able to avoid 
 many of the surrounding obstacles.
 This allows it to monitor traffic and make last mile delivery
-among others.
+among others. In the long term, we may see \uavs helping the
+blind to visit particular destinations or acting as first
+responders to crash sites and crime scenes.
 % }}}
 
 % {{{{ Describe how can stakeholders use the project,
