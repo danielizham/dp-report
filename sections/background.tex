@@ -165,7 +165,8 @@ both of which are important in \gls{ai} training.
 % Explanation
 \citeauthor{Zho20} demonstrates this by % or \textcite{Zho20}
 using a combination of the open-source 3D dynamic simulator Gazebo
-and the autopilot system \textsc{px}4.
+and the autopilot system \textsc{px}4 
+as shown in \cref{fig:zho20}.
 Through this, they avoided the time-consuming steps of 
 carrying out physical experiments
 and adjusting parameters according 
@@ -181,13 +182,21 @@ However, the authors used the \gls{ros}-\textsc{px}4 as the controller
 while in our work, the Olympe program is used.
 The possible criticism against this paper could be the operating system,
 which is Ubuntu 16.04 and 
-the \gls{ros} version,Kinetic Kame that are old and are no longer supported 
+the \gls{ros} version, Kinetic Kame that are old and are no longer supported 
 even though the paper was written in 2020.
 Nevertheless, the explanation and the flowchart illustrating the 
 Q-learning in the context of drone control are instructive 
 for our work to go forward.
+
+\begin{figure}[tb] 
+    \centering
+    \includegraphics[width=0.9\textwidth]{zho20-flowchart} 
+    \caption{The architecture of the framework proposed by
+    \citeauthor{Zho20}~\cite[Fig.~2]{Zho20}.} 
+    \label{fig:zho20} 
+\end{figure}
 % }}}}
-%wcstophere
+
 % {{{{ Walker2019
 % Topic sentence
 The time-saving benefit and the ease of experimentation 
@@ -236,7 +245,8 @@ that the new sensor provided
 in the application of navigation and obstacle avoidance.
 Importantly, prior to that, they used \textsc{qg}round\textsc{c}ontrol and the \textsc{px}4
 platforms to analyze the addition of a \gls{lidar} sensor
-on a simulated 3\textsc{dr} Iris \gls{uav}.
+on a simulated 3\textsc{dr} Iris \gls{uav} which is shown
+in \cref{fig:gar20}.
 Unlike our work, the authors' focus on using the simulation
 was on sensor integration and not \gls{drl} 
 which did not feature in the paper. 
@@ -248,6 +258,15 @@ Although the objectives between the authors' and our work
 are different, it is still very helpful to learn from
 the extensive software stack and architecture guide 
 presented by the authors.
+
+\begin{figure}[tb] 
+    \centering
+    \includegraphics[width=0.5\textwidth]{gar20-iris} 
+    \caption{The 3\textsc{dr} Iris model in the 
+    Gazebo simulation used by 
+    \citeauthor{Gar20}~\cite[Fig.~4]{Gar20}.} 
+    \label{fig:gar20} 
+\end{figure}
 % }}}}
 
 % }}}
@@ -274,7 +293,7 @@ which makes the drone more intelligent and accurate.
 
 % {{{{ Wang2018
 % Topic sentence
-In addition, Commercial drones with an onboard computer use an \textsc{sdk} with image processing techniques.
+In addition, commercial drones with an onboard computer use an \textsc{sdk} with image processing techniques.
 % Explanation
 The hardware architecture in \citeauthor{Wang18} includes a \textsc{dji} 
 commercial drone and an onboard computer called manifold, which is from the same manufacturer.
