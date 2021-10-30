@@ -300,8 +300,8 @@ sub-fields of it to train a model given a data set and then
 deploy it in various use cases. 
 We started our work with the object detection model right 
 after creating the virtual environment in which we created
-some targets as shown in Figure \ref{fig:target-population}, these 
-target are easily identifiable by humans, but how could a
+some targets as shown in Figure \cref{fig:target-population}, these 
+targets are easily identifiable by humans, but how could a
 machine see it and separate it from the environment around it. 
 After creating the virtual environment, we started taking random 
 screenshots all around the entire environment, these screenshots 
@@ -309,12 +309,15 @@ might have a lot of targets within their frame, or they might
 not have any targets at all, this randomness is excellent 
 for the model training as it gives the model many different cases.
 We took around 300 screenshots to create a data set of images and
-start the labeling process. For labeling we used Roboflow, which is a very useful online tool that allowed us to work as a team and label all 300 images together
-in a similar way with the exact same method to avoid any confusions in
+start the labeling process. For labeling we used Roboflow, which is a 
+very useful online tool that allowed us to work as a team and label all
+300 images together systematically and consistently to avoid any confusion in
 the model training process. The labeling process must be clear and 
 mistake-free, which means that all the boxes created around the targets 
 must be very precise and exactly around it without including much pixels
 from the surrounding environment.
+
+
 \begin{figure}[H]%
 	\centering
 	\subfloat[ten targets within the frame]{
@@ -331,40 +334,92 @@ from the surrounding environment.
 		labeling 4 targets.}%
 	\label{fig:labeling-targets}%
 \end{figure}
+
+
 For the model training, we relied on \textsc{yolo}v5 which is an open
 source family of object detection models and architectures built in 
 PyTorch. \textsc{yolo}v5 is based on deep learning schemes such as 
-\gls{cnn} to train models given large data sets, there are different versions 
-of \textsc{yolo}v5, there is a compact version that does not require a lot of
-processing power, and there is a full version that is more suitable for large
-data sets, we trained our model many times using different hardware and GPUs, 
-we also tried performing data augmentation on our data set using built in 
-methods in Roboflow which allowed us to make the data set larger and enhance
-the performance of the model. The data augmentation process resulted in creating
-three images for each image that we have, in that process, images are mixed
-together and shuffled, or put in different directions with an amount of rotation 
-that will make the image look new once again to the model, thus training it 
-better. We ran our model training using Google Collaborate which allowed us to either 
-use our personal hardware or make use of external resource allocated specifically for
-research purposes by Google itself. In Google Colab, we can choose the runtime type to
-either be the internal CPU, GPU or an external resources from Google. A remote connection
-was made to google's server and we trained one of our models using a very good GPU 
-allocated by google called Nvidia Tesla-K80 which is a GPU accelerator with 560 MHz core, 
+\gls{cnn} to train models given large data sets. There are different
+versions of \textsc{yolo}v5, there is a compact version that does not
+require a lot of processing power, and there is a full version that 
+is more suitable for large data sets, we trained our model many times 
+using different hardware and \textsc{gpu}s, we also tried performing 
+data augmentation on our data set using built in methods in Roboflow 
+which allowed us to make the data set larger and enhance the performance 
+of the model. The data augmentation process resulted in creating three 
+images for each image that we have, in that process, images are mixed
+together and shuffled, or put in different directions with an amount of
+rotation that will make the image look new once again to the model, 
+thus training it better. We ran our model training using Google 
+Collaborate which allowed us to either use our personal hardware or 
+make use of external resource allocated specifically for research purposes 
+by Google itself. In Google Colab, we can choose the runtime type to
+either be the internal \textsc{cpu}, textsc{gpu} or an external resources 
+from Google. A remote connection was made to Google's server and we trained 
+one of our models using a very good \textsc{gpu} allocated by google called 
+Nvidia Tesla-K80 which is a \textsc{gpu} accelerator with 560 MHz core, 
 10 GHz effective memory clock, and 24GB GDDR5 vRAM.
-The results we got were better than what we got using our personal, we got better results, 
-better precision and confidence intervals were accomplished, but it was still not the best
-solution that could be made. Later, we started tweaking the model and changing all the 
-possible variables to see how the model performs. Tweaking the model involves changing many
-things, such as the batch size, the number of epochs, the learning rate, the optimizer, and
-other small changes that resulted in different outcomes. After that, we managed to have
-access to Qatar University's servers, we contacted the ITS department to connect to one of
-the research-purpose servers and do the training on it. So in total, we had three
-different resources, personal hardware and GPUs, Google Collab's free GPUs, and the 
-university servers. The results we got from the three different resources were different, 
-and the performance was increasingly improving with the better resources and hardware used 
-for model training. 
+The results we got were better than what we got using our personal 
+\textsc{gpu}s, higher precision and confidence intervals were accomplished,
+but it was still not the best solution that could be made. Later, we started 
+tweaking the model and changing all the possible variables to see how the 
+model performs. Tweaking the model involves changing many things, such 
+as the batch size, the number of epochs, the learning rate, the optimizer, and
+other small changes that resulted in different outcomes. After that, we 
+managed to have access to Qatar University's servers, we contacted the 
+\textsc{its} department to connect to one of the research-purpose servers 
+and do the training on it. So in total, we had three different resources,
+personal hardware and \textsc{gpu}s, Google Collab's free 
+\textsc{gpu}s, and the university servers. The results we got from the 
+three different resources were different, and the performance was 
+increasingly improving with the better resources and hardware used for 
+model training. 
 
 % In the next section I willshow the different images that we got from the training and compare between the different results. This step cannot be done until the training is finished using the servers.
+
+\textbf{Model Performances }
+
+For the first model, we used the small version of \textsc{yolo}v5 which is 
+more \textsc{gpu} friendly and takes shorter training time.
+We made use of data augmentation for this model, the batch size was 
+sixteen to avoid overloading the \textsc{gpu}, and we ran it for a hundred 
+epochs only.
+
+\begin{figure}[H] 
+	\centering
+	\includegraphics[width=1.0\textwidth]{model-1-output} 
+	\caption{Model No. 1 output} \label{fig:model-1-output} 
+\end{figure}
+
+The main evaluation metrics are the precision and recall: 
+\begin{figure}[H] 
+	\centering
+	\includegraphics[width=0.8\textwidth]{model-1-performance} 
+	\caption{Model No. 1 performance evaluation} \label{fig:model-1-performance} 
+\end{figure}
+
+The precision is an essential indicator of a model's performance, it shows 
+how precise the predictions are. 
+It is calculated by the following formula: 
+\[ Precision =  \frac{True Positives}{True Positives + False Positives} \]
+
+Another important metric is the recall value, which shows how many of the 
+true positives were found and classified correctly, it is calculated by:
+\[ Recall =  \frac{True Positives}{True Positives + False Negatives} \] 
+From the figure, we observe that both the precision and recall start low 
+at the beginning, and increase as more epochs pass. By the hundredth 
+epoch, both precision and recall are at a high value which is very close 
+to one.  
+
+As for the mean Average Precision (mAP), it is shown in the following 
+figure.
+
+\begin{figure}[H] 
+	\centering
+	\includegraphics[width=0.8\textwidth]{model-1-mAP} 
+	\caption{Model No. 1 mAP} \label{fig:model-1-mAP} 
+\end{figure}
+ 
 
 
 
