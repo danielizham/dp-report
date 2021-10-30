@@ -17,7 +17,7 @@
 - [x] Proposed Solution
 - [ ] Proof of Concept
 - [ ] Market Research and Business Viability
-- [ ] Project Plan
+- [x] Project Plan
 - [ ] Appendix
 
 **Phase 2 (Final) - Due by the XX of XXXX 2022**

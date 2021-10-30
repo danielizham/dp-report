@@ -4,56 +4,161 @@
 
 \subsection{Project milestones}
 
-\lipsum[1]
+\begin{table}[H]
+    \centering
+    \caption{Senior 1 project milestones.}
+    \label{tab:milestones}
+    \begin{tabularx}{\textwidth}{ X p{5cm} p{9cm} }
+        \toprule
+
+        \textit{No.} & \textit{Milestone} 
+            & \textit{Description}
+        \\
+
+        \midrule
+
+        1 & Simulation environment
+            & Setup the environment and be familiar with 
+            the software and libraries that will be used.
+        \\
+        2 & Object detection model
+            & Create dataset and start training the model 
+            then try to enhance it.
+        \\
+        3 & Research hardware interfacing and possible 
+        solutions
+            & Collect information about possible hardware 
+            components and architectures to be used.
+        \\
+        4 & Literature review and related work
+            & Start reading related work and previous papers 
+            related to our topic, compare, criticize, and 
+            summarize them.
+        \\
+        5 & Hardware architecture and implementation
+            & Start grouping the components together 
+            and see what is missing and from where to get it.
+        \\
+        6 & Enhance the simulation environment
+            & Apply the detection model and tweak 
+            the environment and improve it.
+        \\
+        7 & Hardware testing and proving design constraints 
+        parameters
+            & Test the design constraints and push the 
+            drone and hardware components to the limit.
+        \\
+        8 & Interim report
+            & Finalize the different sections of the report
+            and compile them.
+        \\
+        9 & Report review and corrections
+            & Review the written report with the supervisor
+            and make corrections as necessary.
+        \\
+        10 & Presentation
+            & Create a presentation based on the report
+            as well as the introductory video.
+        \\
+
+        \bottomrule
+    \end{tabularx}
+\end{table}
 
 \subsection{Project timeline}
 
-\lipsum[1]
+\input{../tables/timeline.tex}
 
 \subsection{Anticipated risks}
 
-\begin{table}[H]
-	\centering
-	\caption{Anticipated Risks.}
-	\label{tab:Anticipated Risks}
-	\begin{tabular}{ p{4.5cm} p{5.5cm} p{6cm} }
-		\toprule
-		\textit{Anticipated Risk} 
-		& \textit{Description} 
-		& \textit{minimizing approach} \\
-		
-		\midrule
-		
-		Late delivery of the components 
-		& Some components available online 
-		and it takes time to arrive, 
-		any delay will affect the hardware implementation.
-		& order early and from trusted sources with previous 
-		customers reviews. \\
-		
-		Lose connection to the Raspberry Pi
-		& Because we are connecting using Wi-Fi, maybe a connection loss 
-		happen to due coverage or hardware issue.
-		& code a script to return the drone to the takeoff location 
-		and do multiple tests to make sure we cover all the possible cases. \\
-		
-		Lose control of the drone
-		& Because we are limited in fly time and battery capacity, 
-		the drone can shut down immediately if no power reaches it.
-		Another reason can be that software bugs and crashes can 
-		result in unexpected behavior like flying in random directions.
-		& For the fly time, we will make sure we land the drone before it reaches the flight time constraints.
-		We will create a handlers script for the software crashes 
-		to ensure that Raspberry Pi gets the control again.  \\
-		
-		Flying drone outdoor without permissions 
-		& Qatar has very restricted rules regarding flying a drone 
-		with a camera outdoor.
-		& get the required permissions to fly the drone in 
-		Al-Khor airport or fly it indoors inside the university with permission from the department. \\
-		
-		\bottomrule		
-	\end{tabular}
-\end{table}
+\begin{center}
+    \begin{xltabular}{\textwidth}{ X X X }
+        \caption{Anticipated risks.}
+        \label{tab:risks} \\
+        \toprule
+        \textit{Anticipated Risk} 
+        & \textit{Description} 
+        & \textit{Minimizing approach} \\
+        \midrule
+        \endfirsthead
+
+        \caption[]{Anticipated risks (continued)} \\
+        \toprule
+        \textit{Anticipated Risk} 
+        & \textit{Description} 
+        & \textit{Minimizing approach} \\
+        \midrule
+        \endhead
+
+        Late delivery of the components 
+        & Some components available online 
+        and it takes time to arrive, 
+        any delay will affect the hardware implementation.
+        & Order early and from trusted sources with previous 
+        customers reviews. \\
+        
+        Lose connection to the Raspberry Pi
+        & Because we are connecting using Wi-Fi, 
+        maybe a connection loss 
+        happen to due coverage or hardware issue.
+        & Code a script to return the drone 
+        to the takeoff location 
+        and do multiple tests to make sure 
+        we cover all the possible cases. \\
+        
+        Lose control of the drone
+        & Because we are limited in fly time 
+        and battery capacity, 
+        the drone can shut down immediately if 
+        no power reaches it.
+        Another reason can be that software bugs 
+        and crashes can 
+        result in unexpected behavior like flying 
+        in random directions.
+        & For the fly time, we will make sure 
+        we land the drone before it reaches 
+        the flight time constraints.
+        We will create a handlers script 
+        for the software crashes 
+        to ensure that Raspberry Pi gets the 
+        control again.  \\
+        
+        Flying drone outdoor without permissions 
+        & Qatar has very restricted rules regarding flying 
+        a drone 
+        with a camera outdoor.
+        & Get the required permissions to fly the drone in 
+        Al-Khor airport or fly it indoors inside the 
+        university with permission from the department. \\
+
+        Mismatch between the development and 
+        simulation environments
+        & The development platforms for Sphinx, Olympe
+        and \gym may not use the same \textsc{os}
+        and libraries as running them. For example,
+        developing plugins for Sphinx has to be done
+        on Ubuntu 16.04 only, but running it can be
+        done on Ubuntu 18.04.
+        & Use Docker to run a suitable container 
+        for the development platforms.
+        \\
+
+        Accidental premature termination of the 
+        training
+        & The \gls{rl} training can last for a few
+        days. Many things can happen during that
+        period such as forgetting to plug in the
+        power supply, disconnection between 
+        Olympe and Sphinx, and sudden shutdown of
+        the laptop due to overheating.
+        & Save checkpoints of the weights and
+        the last learning rate from time to time
+        so that the training can be resumed from
+        the point before the termination.
+        \\
+        
+        \bottomrule		
+    \end{xltabular}
+\end{center}
 
 \end{document}
