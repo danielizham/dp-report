@@ -120,7 +120,15 @@ hmargin=2.54cm]{geometry}
 \usepackage{diagbox}
 \usepackage{makecell}
 \usepackage{caption}
-\captionsetup[table]{skip=5pt}
+\DeclareCaptionLabelSeparator{ieee}{.\quad}
+\captionsetup[table]{
+    skip=5pt,
+    labelsep=ieee,
+}
+\captionsetup[figure]{
+    name=Fig.,
+    labelsep=ieee,
+}
 
 % For better lists
 \usepackage{enumerate}
