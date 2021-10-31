@@ -2,6 +2,54 @@
 
 \begin{document}
 
-\lipsum[1]
+From traffic monitoring to livestock tracking, and 
+military reconnaissance to marine discovery, the \uav
+is indispensable.
+However, its dependence on a battery as a power supply means
+that it has a limited flight time to visit the required
+locations. This makes it necessary to minimise 
+the mechanical energy by reducing the execution time as much
+as possible.
+The goal of this project is to develop a system 
+that can perform the target visitation task in the shortest
+possible time. The objectives are to integrate hardware to make
+an autonomous drone, use \gls{ml} 
+to detect targets,
+and implement \gls{rl} to 
+teach the drone how to visit all targets in a minimum amount of time.
+The main design constraints have been identified to be 
+\SI{15}{minutes} of flying duration and \SI{200}{grams}
+of drone payload, indicating that the total mass of the 
+onboard computer and peripherals must be below this
+value. The scope of this project only covers 
+environments that are windless and obstacle-free,
+and targets that do not move in an arbitrary fashion but follow
+an established mobility pattern. It is assumed that 
+the task is considered
+complete when the photos of all targets have been taken.
+The significance of this project is that \uavs will be
+able to autonomously capture details of motorists in
+traffic monitoring, farm animals in livestock tracking
+or enemy positions in military reconnaissance 
+while minimising mechanical energy and time.
+The hardware part of the proposed solution 
+consists of a Raspberry Pi acting as the onboard computer
+attached to a Parrot \anafi drone. The onboard computer
+also receives high-level commands from the command and control
+station. On the software side, \gls{drl} is 
+implemented to train a model in the Sphinx 3D
+cyber-physical environment. At the same time,
+the Olympe program is utilized
+to send commands to the simulated and real \anafi drone
+and receive sensor data from them. 
+In addition, RoboFlow is employed
+to build the target detection model using \gls{ml}.
+The results so far are an \anafi-Raspberry Pi hardware system
+that is able to fly, an \gls{rl} framework that can train the
+simulated drone to go to a set position, and a \gls{ml}
+model that can identify green cubic targets.
+Our research has shown that there is a growing market for
+our product because the surveillance landscape
+is becoming increasingly dynamic.
 
 \end{document}
