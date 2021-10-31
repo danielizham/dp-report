@@ -6,7 +6,7 @@
 >Guides : [Simple Git workflow is simple](https://www.atlassian.com/git/articles/simple-git-workflow-is-simple), [Latex best practices](https://github.com/dspinellis/latex-advice#advice-for-writing-latex-documents)
 
 **Phase 1 (Interim) - Due on the 11<sup>th</sup> of November 2021**
-- [ ] Abstract
+- [x] Abstract
 - [ ] Acknowledgment
 - [x] Introduction and Motivation
 - [x] Background and Related Work
