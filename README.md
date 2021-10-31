@@ -18,7 +18,6 @@
 - [ ] Proof of Concept
 - [ ] Market Research and Business Viability
 - [x] Project Plan
-- [ ] Appendix
 
 **Phase 2 (Final) - Due by the XX of XXXX 2022**
 - [ ] Task 1: 
