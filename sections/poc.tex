@@ -323,7 +323,7 @@ the targets must be precise and exactly surrounding targets without
 including much pixels from the surrounding environment.
 
 
-\begin{figure}[H]%
+\begin{figure}[tbp]%
 	\centering
 	\subfloat[ten targets within the frame]{
 		{\includegraphics[width=6cm]{labeling-process-1} }
@@ -387,7 +387,7 @@ hardware used for model training.
 
 % In the next section I willshow the different images that we got from the training and compare between the different results. This step cannot be done until the training is finished using the servers.
 
-\textbf{Model Performances }
+\subsection{Model Performances }
 
 For the first model, we used the small version of \textsc{yolo}v5 which is 
 more \textsc{gpu} friendly and takes shorter training time.
@@ -395,27 +395,35 @@ We made use of data augmentation for this model, the batch size was
 sixteen to avoid overloading the \textsc{gpu}, and we ran it for a 
 hundred epochs only.
 
-\begin{figure}[H] 
+\begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=1.0\textwidth, height=7cm]{model-1-output} 
 	\caption{Model No. 1 output} \label{fig:model-1-output} 
 \end{figure}
 
-The main evaluation metrics are the precision and recall: 
-\begin{figure}[H] 
+\begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=0.8\textwidth]{model-1-performance} 
 	\caption{Model No. 1 performance evaluation} \label{fig:model-1-performance} 
 \end{figure}
 
+The main evaluation metrics are the precision and recall
+as seen in \cref{fig:model-1-performance}.
 The precision is an essential indicator of a model's performance, it shows 
 how precise the predictions are. 
-It is calculated by the following formula: 
-\[ Precision =  \frac{True Positives}{True Positives + False Positives} \]
+It is calculated by the following \cref{eq:precision}. 
+%
+\begin{align}
+    Precision =  \frac{True Positives}{True Positives + False Positives} \label{eq:precision}
+\end{align}
 
 Another important metric is the recall value, which shows how many of the 
-true positives were found and classified correctly, it is calculated by:
-\[ Recall =  \frac{True Positives}{True Positives + False Negatives} \] 
+true positives were found and classified correctly, it is calculated by \cref{eq:recall}.
+%
+\begin{align}
+    Recall =  \frac{True Positives}{True Positives + False Negatives} \label{eq:recall}
+\end{align}
+
 From \cref{fig:model-1-performance}, we observe that both the precision and recall start low 
 at the beginning, and increase as more epochs pass. By the hundredth 
 epoch, both precision and recall are at a high value which is very close 
@@ -431,17 +439,11 @@ values over different IoV (intersection over union) thresholds ranging
 between 0.5:0.95, this is not and optimal result and it could be 
 improved with better resources.
 
-
-\begin{figure}[H] 
+\begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=0.8\textwidth]{model-1-mAP} 
 	\caption{Model No. 1 mAP} \label{fig:model-1-mAP} 
 \end{figure}
- 
-
-
-
-
 
 \subsection{Physical components}
 
@@ -493,7 +495,7 @@ In our case, the total weight of our parts is equal
 to \SI{170}{\gram} which will add small time
 to the battery life.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{payload.png}
 	\caption{The drone payload}
@@ -543,11 +545,10 @@ connect to pin 4 and 6 in the Raspberry Pi board,
 this option has small internal resistance compared to option A.
 For simplicity, we will choose option A and we will 
 follow the instruction of the manufacture by choosing 
-
 the thickest and shortest possible USB cable to reduce 
 the cable loss and voltage drops~\cite{makerfocus}.
 
- \begin{figure}[tbp]
+ \begin{figure}[p]
  	\centering
  	\includegraphics[width=0.5\textwidth]{connection.png}
  	\caption{The Raspberry Pi and power board connection.}
@@ -570,14 +571,14 @@ we will stick to the simpler way. As shown in
 \cref{fig:full-hardware} all the parts are in one system 
 and test flight was smooth and everything works perfectly. 
 
- \begin{figure}[tbp]
+ \begin{figure}[p]
 	\centering
 	\includegraphics[width=0.5\textwidth]{components.jpg}
 	\caption{All components needed.}
 	\label{fig:components}
 \end{figure}
 
-  \begin{figure}[tbp]
+  \begin{figure}[p]
  	\centering
  	\includegraphics[width=0.5\textwidth]{full-hardware.jpg}
  	\caption{Full hardware system.}
