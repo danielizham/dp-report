@@ -49,15 +49,32 @@ Models encapsulate the key characteristics and behaviour
 which allow them to be manipulated logically by a computer.
 Through this crucial property, simulation can show 
 the models' evolutions with time.
-Moreover ,Simulation is a cost-effective, time-saving, flexible 
+Moreover, simulation is a cost-effective, time-saving, flexible 
 and safe way to experiment with a \gls{uav}
 at the expense of a reduction in accuracy compared to the real world.
 The research realm has shown that the use of simulation 
 is highly attractive in \gls{drl} studies with \glspl{uav}.
-This is because \gls{drl} involves
-making gradual improvements to a model based on 
-repeated cycles of experiences, and computer simulation 
+\gls{rl} is a branch of machine learning that involves
+an agent gradually learning the best action. This happens by 
+interacting with 
+the environment directly through repeated trial-and-error
+and getting a reward based on the chosen action.
+\gls{drl} uses deep neural network (\textsc{dnn}) as the
+model.
+The \gls{rl} process is illustrated in 
+\cref{fig:rl-flowchart}.
+Because of the recurrent cycles of experiences, 
+computer simulation is useful as it
 allows these iterations to be carried out cheaply.
+
+\begin{figure}[tb] 
+    \centering
+    \includegraphics[width=0.8\textwidth]{rl-flowchart} 
+    \caption{The interaction between the agent and the
+        environment in \gls{rl}%
+        ~\cite[Fig.~3.1]{Sut20}.} 
+    \label{fig:rl-flowchart} 
+\end{figure}
 
 According to the literature review, 
 the combination of Gazebo, \gls{ros}
@@ -188,7 +205,7 @@ Nevertheless, the explanation and the flowchart illustrating the
 Q-learning in the context of drone control are instructive 
 for our work to go forward.
 
-\begin{figure}[tb] 
+\begin{figure}[b] 
     \centering
     \includegraphics[width=0.9\textwidth]{zho20-flowchart} 
     \caption{The architecture of the framework proposed by
