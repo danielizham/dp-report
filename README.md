@@ -15,7 +15,7 @@
    - [x] Part 3 (Abdulrahman)
 - [x] Requirements Analysis
 - [x] Proposed Solution
-- [ ] Proof of Concept
+- [x] Proof of Concept
 - [ ] Market Research and Business Viability
 - [x] Project Plan
 
