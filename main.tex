@@ -12,6 +12,7 @@ hmargin=2.54cm]{geometry}
 \usepackage{subfiles}
 \usepackage[toc,page]{appendix}
 \usepackage[acronym]{glossaries}
+\usepackage{csquotes}
 \usepackage{xargs} % Use more than one optional parameter in a new commands
 
 % For to-do lists
@@ -74,9 +75,15 @@ hmargin=2.54cm]{geometry}
 % For references
 \usepackage[backend=biber, style=ieee]{biblatex}
 \addbibresource{refs.bib}
-
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 \usepackage[capitalise]{cleveref} % [capitalise,noabbrev] options
-\usepackage{csquotes}
 
 % For equations
 \usepackage{extramarks}
