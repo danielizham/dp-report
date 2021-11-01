@@ -387,7 +387,7 @@ hardware used for model training.
 
 % In the next section I willshow the different images that we got from the training and compare between the different results. This step cannot be done until the training is finished using the servers.
 
-\subsection{Model Performances }
+\subsubsection{Model Performances}
 
 For the first model, we used the small version of \textsc{yolo}v5 which is 
 more \textsc{gpu} friendly and takes shorter training time.
@@ -414,14 +414,14 @@ how precise the predictions are.
 It is calculated by the following \cref{eq:precision}. 
 %
 \begin{align}
-    Precision =  \frac{True Positives}{True Positives + False Positives} \label{eq:precision}
+    Precision =  \frac{True\ Positives}{True\ Positives + False\ Positives} \label{eq:precision}
 \end{align}
 
 Another important metric is the recall value, which shows how many of the 
 true positives were found and classified correctly, it is calculated by \cref{eq:recall}.
 %
 \begin{align}
-    Recall =  \frac{True Positives}{True Positives + False Negatives} \label{eq:recall}
+    Recall =  \frac{True\ Positives}{True\ Positives + False\ Negatives} \label{eq:recall}
 \end{align}
 
 From \cref{fig:model-1-performance}, we observe that both the precision and recall start low 
