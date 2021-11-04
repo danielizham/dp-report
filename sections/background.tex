@@ -136,9 +136,22 @@ and summarized in \namecref{tab:lit-summary}~\ref{tab:lit-summary}.
 
 \subsection{Related works}\label{sec:related-work}
 
+In general, the relevant papers are divided into three main
+categories. The first three sets of papers study
+the different types of target visitation done by \uavs
+and various techniques that were used to accomplished them. 
+The next three papers concentrate on the use of simulation
+to aid in achieving some tasks with a \uav.
+Finally, the last three papers are concerned with designing
+and testing a physical \uav system.
+Reviewing these three areas of focus have helped us learnt
+from existing knowledge how to meet our objectives
+and identified the gaps that our paper will attempt to 
+address.
+
 % {{{ Part 1
 % #1
-In paper ~\cite{hua20}, \citeauthor{hua20} 
+Related to the first category, \citeauthor{hua20} 
 addressed a problem of autonomous navigation of \glspl{uav}. 
 They proposed a reactive real-time sliding mode control algorithm 
 that navigates a team of communicating \glspl{uav}.
@@ -157,7 +170,7 @@ revisit time.
 
 % #2
 
-In paper ~\cite{pen21}, \citeauthor{pen21} studied the idea 
+In paper~\cite{pen21}, \citeauthor{pen21} studied the idea 
 of taking advantage of \glspl{uav} in order to increase the network
 coverage and execute computing tasks offloaded from multiple devices. 
 The constraints were to minimize the energy consumption of the \gls{uav} 
@@ -170,7 +183,7 @@ effectiveness of the \gls{drl}-based path planning algorithm.
 % #3
 In a third paper, \citeauthor{hua21} focused on navigating a team
 of \glspl{uav} equipped with cameras to monitor groups of ground 
-pedestrians or vehicles that were moving with a bounded speed but an unknown pattern. 
+pedestrians or vehicles that were moving with a bounded speed with an unknown pattern. 
 The surveillance is supposed to be from the shortest distances possible. 
 They proposed an algorithm in which the \gls{uav} is able to determine 
 its movement locally with some help from a central station.
@@ -256,7 +269,7 @@ for the training process.
 % {{{{ Garcia2020
 % Topic sentence
 Yet another \gls{uav} research-related applications 
-that profits from the use of computer simulation 
+that benefits from the use of computer simulation 
 is the testing of new sensors on the \gls{uav}.
 % Evidence 1
 \citeauthor{Gar20} argued that the future of \glspl{uav}
@@ -303,8 +316,7 @@ presented by the authors.
 % Related work
 % {{{{ Khan2021
 % Topic sentence
-The use of a microcomputer with quadcopter \glspl{uav} and autopilot software helps in the hardware implementation part.
-% Explanation
+With regards to the third category of papers,
 \citeauthor{Khan21} used the drone in the agriculture field to spray 
 pesticides and monitor crops. Unlike our work, the drone was limited to specific
 boundaries and fixed targets such as crops.
