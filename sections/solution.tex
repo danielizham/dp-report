@@ -4,6 +4,22 @@
 	
 The overview of the proposed solution is depicted in 
 \cref{fig:solution-overview}. 
+The hardware components consist of an \anafi drone,
+a Raspberry Pi with an external battery, and a Wi-Fi
+dongle. The built-in camera of the drone is used to
+take pictures of the targets and the Wi-Fi dongle
+is used to communicate with the command and control
+system, which sends high-level commands whenever the
+connection is present. An object detection model trained
+using RoboFlow detects and identifies the targets in the
+pictures. In addition, a \gls{drl} agent is trained to
+visit virtual targets having the same mobility pattern as the
+real ones in a cyber-physical simulator called Sphinx.
+This finished model is loaded into the Raspberry Pi that acts
+as an onboard computer to the \anafi drone and instructs
+it where to move to cover the targets in a minimum amount
+of time.
+
 The following subsections will
 explain in more detail why this solution is chosen
 and what the integral components are.
@@ -52,11 +68,11 @@ and availability.
     \label{tab:onboard-computers}  
     \begin{tabular}{ p{3cm} p{4cm} p{4cm} p{4cm} }
         \toprule
-        \textit{} & \textit{Raspberry Pi 4} & \textit{NVIDIA Jetson Nano} & \textit{\textsc{dji} Manifold}\\ \midrule
-        Specifications  & CPU:Cortex-A72 (ARM v8) 64-bit@ 1.5GHz | Ram :4GB or 8GB LPDDR4-3200 SDRAM | GPU : Broadcom VideoCore VI & CPU:Quad-core ARM A57 @ 1.43 GHz | Ram: 4 GB 64-bit LPDDR4   | GPU:128-core Maxwell & CPU:Quad-core,ARM | Ram: 2 GB DDR3L | GPU:Low-power GeForce graphics processor \\ \addlinespace
-        Connection interfaces & 2.4 GHz and 5.0 GHz IEEE 802.11ac wireless, Bluetooth 5.0 & Gigabit Ethernet \& M.2 Key E (for WiFi support). &10/100/1000 BASE-T Ethernet \\ \addlinespace
+        \textit{} & \textit{Raspberry Pi 4} & \textit{\textsc{nvidia} Jetson Nano} & \textit{\textsc{dji} Manifold}\\ \midrule
+        Specifications  & \textsc{cpu}: Cortex-A72 (\textsc{arm} v8) 64-bit@ 1.5GHz | Ram: 4GB or 8GB \textsc{lpddr4}-3200 \textsc{sdram} | \textsc{gpu}: Broadcom VideoCore VI & \textsc{cpu}: Quad-core \textsc{arm} A57 @ 1.43 GHz | Ram: 4 GB 64-bit \textsc{lpddr4}   | \textsc{gpu}: 128-core Maxwell & \textsc{cpu}: Quad-core, \textsc{arm} | Ram: 2 GB \textsc{ddr3l} | \textsc{gpu}: Low-power GeForce graphics processor \\ \addlinespace
+        Connection interfaces & 2.4 GHz and 5.0 GHz \gls{ieee} 802.11ac wireless, Bluetooth 5.0 & Gigabit Ethernet \& M.2 Key E (for WiFi support). &10/100/1000 \textsc{base-t} Ethernet \\ \addlinespace
 
-        Price \& Availability & 300 QAR available and can be used on any drone & 400 QAR available but need to be ordered and shipped & Very expensive and restricted to \textsc{dji} drones and \textsc{dji} company stopped selling it \\ \addlinespace
+    Price \& Availability & \qar{300}. Available and can be used on any drone & \qar{400}. Available but need to be ordered and shipped & Very expensive and restricted to \textsc{dji} drones and \textsc{dji} company stopped selling it \\ \addlinespace
         Picture & \begin{minipage}{.2\textwidth}
             \includegraphics[width=40mm, height=30mm]{raspberry.jpg}
             \end{minipage}  & \begin{minipage}{.2\textwidth}
@@ -271,7 +287,7 @@ developed by \textcite{Ged21}. The action space is composed
 of 9 movements in the 
 forward, backward, left,
 right, forward-left, forward-right, backward-left and 
-backward-right directions as well as a no-operation.
+backward-right directions as well as a hover.
 State space is given as
 \begin{align}
     s = \{ t, cell, [ I_1, I_2, I_3, \ldots, I_m] \} 
