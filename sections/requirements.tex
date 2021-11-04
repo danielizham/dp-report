@@ -18,7 +18,7 @@ and the \gls{uav} system:
         and their movement details/patterns
         to us for the \gls{rl}.
     \item The user should receive 
-        an \anafi-Raspberry Pi-\gls{drl} 
+        an \anafi-\textsc{r}aspberry \textsc{p}i-\gls{drl} 
         model bundle after a maximum of 3 months.
     \item The system should take pictures, capture videos
         or record other physical properties using
@@ -66,21 +66,12 @@ and the environment within which the drone will fly.
             \SI{4000}{\milli\ampere\hour} 
             for the Raspberry Pi)~\cite{Par19}.  \\
 
-        Flying range 
-            & The maximum flying range of the 
-            \anafi drone is 
-            \SI{90}{\meter}
-            from the computer. 
-            This is limited by the maximum distance
-            the Wi-Fi signal can reach between 
-            the computer and the Raspberry Pi. \\
-
         Altitude 
             & The flying altitude must fall 
             between
-            \SIrange{3}{9}{\meter} 
+            \SIrange{3}{9}{meters} 
             or the 
-            \qtyproduct{1 x 1.64}{\meter}
+            \qtyproduct{1 x 1.64}{square-meter}
             cell in focus either 
             is not covered by the \gls{fov} in its
             entirety or the \gls{fov} covers too much
@@ -92,18 +83,18 @@ and the environment within which the drone will fly.
 
         Flying duration
             & The maximum flying duration is 
-            \SI{15}{\minute}
+            \SI{15}{minutes}
             as the battery is drained by 
             \SI{10}{\percent}
             on average in 
-            \SI{1.5}{\minute} 
+            \SI{1.5}{minutes} 
             when it is flown with a payload of 
-            \SI{190}{\gram}.
+            \SI{190}{grams}.
             This means that the target visitation
-            mission needs to be completed under 
+            mission needs to be completed within 
             this time 
             (the Raspberry Pi can last for 
-            \SI{4}{\hour} 
+            \SI{4}{hours} 
             under normal operations). \\ 
 
         Response time
@@ -113,7 +104,7 @@ and the environment within which the drone will fly.
             the computer receiving the confirmation
             of the execution must be
             below 
-            \SI{1}{\second}. 
+            \SI{1}{second}. 
             This is to ensure the commands
             do not overlap causing any of them
             to be ignored. \\
@@ -121,7 +112,7 @@ and the environment within which the drone will fly.
         Payload  
             & The Raspberry Pi with its peripherals 
             must not exceed 
-            \SI{200}{\gram}, 
+            \SI{200}{grams}, 
             which is the maximum payload mass 
             of the \anafi drone. \\
 
@@ -150,12 +141,6 @@ and the environment within which the drone will fly.
                 due to being too expensive. \\
         
         Environmental 
-            & Light source 
-                & The \anafi drone requires 
-                good lighting to 
-                take pictures of the targets. \\
-        
-        Environmental 
             & Temperature 
                 & The \anafi drone cannot be flown
                 when the temperature outside is below
@@ -171,13 +156,6 @@ and the environment within which the drone will fly.
                 \SI{50}{\kilo\meter\per\hour}%
                 ~\cite{Par19}. \\
         
-        Reliability 
-            & Monitoring
-                & The \anafi drone should send
-                an event to the computer upon 
-                executing a command to confirm that 
-                it is performing the task. \\
-
         Deployment 
             & \gls{drl} model 
                 & The software system must be such 
@@ -208,35 +186,32 @@ and the environment within which the drone will fly.
 
         \midrule
         \gls{ieee} 802.11 
-                & To be used in the communication between 
+                & Used in the communication between 
                 the Raspberry Pi and the \anafi drone,
                 and the 
                 Raspberry Pi and the computer. \\ 
                 \addlinespace
         
         \textsc{wpa}2 
-                & To be used in securing the 
+                & Used in securing the 
                 communications above. \\
                 \addlinespace
         
-        
         \textsc{gps}  
-                & To be used by the \anafi drone to 
+                & Used by the \anafi drone to 
                 convey its position 
                 to the Raspberry Pi. \\
                 \addlinespace
         
-        
         \textsc{ssh} 
-                & To be used by the computer to 
+                & Used by the computer to 
                 send high-level commands to the 
                 Raspberry Pi, which in turn, makes
                 the drone execute them. \\
                 \addlinespace
         
-        
         \textsc{json-rpc} 2.0 
-                & To be used to control the components 
+                & Used to control the components 
                 of the simulated \anafi drone. \\
         
         \bottomrule
@@ -281,10 +256,13 @@ conditions fall outside the scope of this project.
 
 \begin{enumerate}
     \item The environment is obstacle-free and windless.
-    \item The targets move according to one 
-        of the mobility patterns only.
-    \item The physical \anafi drone performs 
-        identically to the simulated \anafi drone.
+    \item The site is bright enough for the drone to
+        detect and identify the targets.
+    \item The real targets move according to the mobility 
+        pattern used to train the machine learning model.
+    \item The targets in simulation and practice are 
+        equally detectable and identifiable by
+        machine learning.
     \item The \anafi drone captures the 
         required details of the target 
         when it takes the target’s picture.
@@ -296,15 +274,9 @@ conditions fall outside the scope of this project.
         initiating each target visitation task,
         which is completed before the drone
         runs out of battery.
-    \item The \anafi drone always flies within the
-        maximum range in case the computer needs
-        to send an abort-mission command.
-    \item The Wi-Fi connection between the \anafi drone
-        and its onboard computer (Raspberry Pi)
-        does not drop and is strong at all times.
     \item The security mechanisms used by the \anafi
-        drone are enough to protect it against
-        any virtual and physical attacks.
+        drone are enough to protect against
+        any cyber and physical attacks.
 \end{enumerate}
 
 \end{document}
