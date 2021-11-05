@@ -7,7 +7,7 @@
 
 **Phase 1 (Interim) - Due on the 11<sup>th</sup> of November 2021**
 - [x] Abstract
-- [ ] Acknowledgment
+- [x] Acknowledgment
 - [x] Introduction and Motivation
 - [x] Background and Related Work
    - [x] Part 1 (Bahri)
