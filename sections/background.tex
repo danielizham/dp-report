@@ -7,7 +7,7 @@
 % {{{{ background idea #1
 One of the essential ideas of the project 
 is the drone's visitation of mobile 
-targets. And this takes into consideration 
+targets, which takes into consideration 
 the distance travelled by the drone and 
 the time taken to detect and survey 
 through all targets in a specific area.
@@ -40,7 +40,7 @@ the best path.
 % }}}}
 
 % {{{{ background idea #2 
-The second important concept of the project is the computer simulation.
+The second important concept of the project is the cyber-physical simulation.
 Simulation is an imitation of the physical world
 created to answer some specific questions about it.
 It contains one or more models 
@@ -60,7 +60,8 @@ interacting with
 the environment directly through repeated trial-and-error
 and getting a reward based on the chosen action.
 \gls{drl} uses deep neural network (\textsc{dnn}) as the
-model.
+model to approximate the learning experience mapping
+actions to estimated rewards.
 The \gls{rl} process is illustrated in 
 \cref{fig:rl-flowchart}.
 Because of the recurrent cycles of experiences, 
@@ -83,7 +84,7 @@ the combination of Gazebo, \gls{ros}
 and \textsc{px4} are the most widely used software stack 
 for the \gls{sitl} development,
 which is a process that involves running the compiled code
-used for the physical device in computer simulation.
+used for the physical device in visual simulation environment.
 The reason for their popularity is most likely 
 due to their open-source nature. 
 In contrast, Sphinx and Olympe, which are used in this project, 
@@ -111,7 +112,7 @@ verify and validate the performance of the simulation.
 The hardware part is essential in the implementation 
 in the real world, where the simulation 
 sometimes strays from the reality.
-There also a lack of hardware implementations in 
+There is also a lack of hardware implementations in 
 the field of research regarding drones with \gls{drl}, 
 and most of the research papers focus on the simulations.
 According to the literature review, the \gls{cnn} 
@@ -120,7 +121,10 @@ Moreover, the controller boards and custom drone kits
 were used instead of commercial drones.
 Those kits give researchers and users more flexibility 
 since the drone is customizable 
-in hardware and software. However, in design of the present research commercial drone will used so that the research focuses on the \gls{drl}, but not on the actual drone build process. 
+in hardware and software. 
+However, in design of the present research, 
+a commercial drone will be used so that the research focuses 
+on the \gls{drl}, but not on the actual drone building process. 
  
 % }}}}
 
@@ -132,9 +136,22 @@ and summarized in \namecref{tab:lit-summary}~\ref{tab:lit-summary}.
 
 \subsection{Related works}\label{sec:related-work}
 
+In general, the relevant papers are divided into three main
+categories. The first three sets of papers study
+the different types of target visitation done by \uavs
+and various techniques that were used to accomplished them. 
+The next three papers concentrate on the use of simulation
+to aid in achieving some tasks with a \uav.
+Finally, the last three papers are concerned with designing
+and testing a physical \uav system.
+Reviewing these three areas of focus have helped us learnt
+from existing knowledge how to meet our objectives
+and identified the gaps that our paper will attempt to 
+address.
+
 % {{{ Part 1
 % #1
-In paper ~\cite{hua20}, \citeauthor{hua20} 
+Related to the first category, \citeauthor{hua20} 
 addressed a problem of autonomous navigation of \glspl{uav}. 
 They proposed a reactive real-time sliding mode control algorithm 
 that navigates a team of communicating \glspl{uav}.
@@ -153,7 +170,7 @@ revisit time.
 
 % #2
 
-In paper ~\cite{pen21}, \citeauthor{pen21} studied the idea 
+In paper~\cite{pen21}, \citeauthor{pen21} studied the idea 
 of taking advantage of \glspl{uav} in order to increase the network
 coverage and execute computing tasks offloaded from multiple devices. 
 The constraints were to minimize the energy consumption of the \gls{uav} 
@@ -166,7 +183,7 @@ effectiveness of the \gls{drl}-based path planning algorithm.
 % #3
 In a third paper, \citeauthor{hua21} focused on navigating a team
 of \glspl{uav} equipped with cameras to monitor groups of ground 
-pedestrians or vehicles that were moving with a bounded speed but an unknown pattern. 
+pedestrians or vehicles that were moving with a bounded speed with an unknown pattern. 
 The surveillance is supposed to be from the shortest distances possible. 
 They proposed an algorithm in which the \gls{uav} is able to determine 
 its movement locally with some help from a central station.
@@ -252,7 +269,7 @@ for the training process.
 % {{{{ Garcia2020
 % Topic sentence
 Yet another \gls{uav} research-related applications 
-that profits from the use of computer simulation 
+that benefits from the use of computer simulation 
 is the testing of new sensors on the \gls{uav}.
 % Evidence 1
 \citeauthor{Gar20} argued that the future of \glspl{uav}
@@ -299,8 +316,7 @@ presented by the authors.
 % Related work
 % {{{{ Khan2021
 % Topic sentence
-The use of a microcomputer with quadcopter \glspl{uav} and autopilot software helps in the hardware implementation part.
-% Explanation
+With regards to the third category of papers,
 \citeauthor{Khan21} used the drone in the agriculture field to spray 
 pesticides and monitor crops. Unlike our work, the drone was limited to specific
 boundaries and fixed targets such as crops.

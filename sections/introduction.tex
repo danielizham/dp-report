@@ -3,10 +3,10 @@
 \begin{document}
 
 % {{{ Motivation
-The \uav is one of the most promising devices in the 
+The \uav is one of the most promising enabling technologies in the 
 21\textsuperscript{st} century. It has been estimated that
 there will be as high as \SI{1.2}{million} \uavs in use 
-by 2040 \cite{Amo19}. 
+by 2040~\cite{Amo19}. 
 Commonly known as drone, 
 it improves many existing applications and makes possible 
 innumerable new ones. It can be used to monitor livestock, 
@@ -25,7 +25,7 @@ the study of interactions between members of a migrating
 pod of whales can be done using a \uav but not 
 \textsc{cctv}s nor satellites.
 However, micro-drones, which is the most common type of \uavs,
-suffer from limited flight time \cite{Sha19}. 
+suffer from limited flight time~\cite{Sha19}. 
 This is especially disadvantageous in
 the mentioned tasks because they require visitation of targets
 whose pattern of movement is the only known information.
@@ -66,16 +66,21 @@ the most energy-saving way.
     \includegraphics[width=0.9\textwidth]{problem.png} 
     \caption{The \gls{uav} needs to calculate 
     the best trajectory to cover the red cars
+    based on their expected movements
     as fast as possible before it runs out of battery.} 
     \label{fig:problem} 
 \end{figure}
 % }}}
 
 % {{{ Technical and non-technical challenges
-There are many inherent challenges that solving this problem
-presents. First of all, it is difficult to make a drone
+There are many inherent challenges that this problem
+poses. First of all, it is difficult to make a drone
 fly autonomously to visit multiple targets whose locations
 have not been known beforehand. 
+Not only that the targets must be detected, 
+but they also need to be uniquely
+identified so that the already visited targets
+can be distinguished from those that are not.
 This is a common scenario in various applications. 
 Moreover, this needs to be done in the minimum
 amount of flight time because \uavs use batteries
@@ -93,7 +98,7 @@ Last but not least, the fact that \uavs communicate wirelessly
 with the command and control station in the open 
 over a long range makes them susceptible
 to malicious hackers.
-Based on the goal of the project, the only challenge 
+Based on the goal of the project, the main challenge 
 that will be tackled is the autonomous navigation
 of the drone to visit identifiable targets in the shortest
 time and energy-saving way.
@@ -133,12 +138,12 @@ This feature of the \uav is useful in applications
 such as marine biology, livestock monitoring and military
 reconnaissance.
 Second of all, target visitation done by a \gls{uav}
-is faster because it has a higher degree of freedom
-compared to terrestrial vehicles, and
-it flies at a higher altitude 
-making it more able to avoid 
+is faster compared to terrestrial vehicles
+because it has a higher degree of freedom, and
+flying at a higher altitude 
+allows it to avoid 
 many of the surrounding obstacles.
-This allows it to monitor traffic and make last mile delivery
+This makes it more suited for traffic monitoring and last mile delivery
 among others. In the long term, we may see \uavs helping the
 blind to visit particular destinations or acting as first
 responders to crash sites and crime scenes.
@@ -153,7 +158,7 @@ its stakeholders to be
 those companies, institutions and organizations which
 have certain fixed or mobile subjects of interest 
 that they want to monitor, capture or track.
-By using our product,
+By using our solution,
 they will be able to make the aforementioned applications
 faster or,
 better yet, possible.
@@ -191,7 +196,7 @@ thus contributing to a healthy economy.
     \includegraphics[width=0.9\textwidth]{qatar2022} 
     \caption{The \uav can help prevent misconducts during
     the 2022 \textsc{fifa} World Cup in Qatar by flying 
-    to crowded sites and detecting potential red flags.} 
+    over crowded sites to detect potential red flags.} 
     \label{fig:fifa} 
 \end{figure}
 % }}}
@@ -218,13 +223,10 @@ Besides the jobs that are directly related to the project,
 there are other fields that will appreciate the knowledge
 and skills that we will gain from the methodological processes 
 of designing the simulation,
-training the \gls{drl} models and testing them in the real world.
+exploring \gls{drl} and testing them in the real world.
 These include robotics, machine learning, and 
 network security.
 % }}}
-
-% # Possibly cite relevant references that discuss 
-% # the importance of our project
 
 \subsection{Project objectives}\label{sec:objectives}
 
@@ -250,7 +252,7 @@ The project's detailed objectives are as follows:
         to the drone.
     \item \label{obj:machine-learning} 
         Use \gls{ml} to detect and identify
-        targets and their locations.
+        targets when they are visited by the drone.
     \item \label{obj:drl} Use \gls{rl}
         to intelligently
         navigate the drone to try to visit all the targets
