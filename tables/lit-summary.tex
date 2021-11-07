@@ -1,7 +1,7 @@
 \afterpage{
 \begin{center}
     \begin{small}
-        \begin{longtable}{ p{0.6cm} p{4cm} p{1.6cm} p{1.3cm} p{1.4cm} p{1.4cm} p{1.4cm} p{1.4cm} }
+        \begin{longtable}{ p{0.6cm} p{4cm} p{1.6cm} p{1.3cm} p{1.4cm} p{1.4cm} p{1.4cm} p{1.4cm} p{1.4cm} }
             \caption{Literature review summary.} 
             \label{tab:lit-summary} \\
 
@@ -11,9 +11,10 @@
                     & \textit{Simulation} 
                         & \textit{Real-world} 
             & \textit{Single or Multi Drone} 
-                & \textit{Technique} 
-                    & \textit{Localizes Targets}  
-                        & \textit{Mobile or Fixed Targets} \\
+                & \textit{Smart Navigation Technique} 
+ 					& \textit{Target Localization Technique}                   
+                    	& \textit{Localizes Targets}  
+                        	& \textit{Mobile or Fixed Targets} \\
             \midrule
             \endfirsthead
             \caption[]{Literature review summary (continued)}\\
@@ -23,9 +24,10 @@
                     & \textit{Simulation} 
                         & \textit{Real-world} 
             & \textit{Single or Multi Drone} 
-                & \textit{Technique} 
-                    & \textit{Localizes Targets}  
-                        & \textit{Mobile or Fixed Targets} \\
+                & \textit{Smart Navigation Technique} 
+                	& \textit{Target Localization Technique}
+                    	& \textit{Localizes Targets}  
+                        	& \textit{Mobile or Fixed Targets} \\
             \midrule
             \endhead
 
@@ -38,8 +40,9 @@
                         & No 
             & Single and Multi 
                 & Complex Math Calculations (\textsc{no ai}) 
-                    & yes 
-                        & mobile \\ \addlinespace
+                	& General physics prediction 
+                    	& yes 
+                        	& mobile \\ \addlinespace
 
             \cite{pen21}  
                 & To develop an online path planning 
@@ -49,9 +52,10 @@
                     & Yes 
                         & No 
             & Single 
-                & Deep Reinforcement Learning 
-                    & yes 
-                        & mobile \\ \addlinespace
+                & \gls{drl}
+                    &  \_
+                    	& No  
+                        	& mobile \\ \addlinespace
 
             \cite{hua21}
                 & To navigate a team of unmanned 
@@ -62,8 +66,9 @@
                         & Yes 
             & Multi 
                 & Complex Math Calculations (\textsc{no ai}) 
-                    &yes 
-                        & mobile \\ \addlinespace
+                    & Random prediction
+                        & Yes
+                        	& mobile \\ \addlinespace
 
             \cite{Zho20}  
                 & To adopt existing simulators and 
@@ -75,7 +80,8 @@
             &\_ 
                 & \gls{drl} 
                      & \_ 
-                         & \_ \\ \addlinespace
+                         &\_
+                         	& \_ \\ \addlinespace
 
             \cite{Wal19}  
                  & To present the \gls{uav} indoor 
@@ -87,9 +93,10 @@
                     & Yes 
                         & No 
             & Single 
-                & Deep Reinforcement Learning 
+                & \gls{drl} 
                     & \_ 
-                        & \_ \\ \addlinespace
+                    	& \_
+                        	& \_ \\ \addlinespace
 
             \cite{Gar20} 
                 & To use available software for 
@@ -103,7 +110,8 @@
             & Single 
                 & Sensors 
                     & \_ 
-                        & \_ \\ \addlinespace
+                        & \_
+                        	& \_ \\ \addlinespace
 
             \cite{Zhao18} 
                 & To build a deep learning model 
@@ -112,9 +120,10 @@
                     & Yes 
                         & Yes 
             & Single 
-                & Deep Learning and CNN 
-                    & yes 
-                        & mobile \\ \addlinespace
+                & Deep Learning and \textsc{cnn} 
+                    & \_
+ 						& No                       
+                        	& mobile \\ \addlinespace
 
             \cite{Wang18} 
                 & Create a powerful online drone 
@@ -124,9 +133,10 @@
                     & No 
                         & Yes 
             & Single 
-                & Deep Learning and CNN 
-                    & yes 
-                        & mobile  \\
+                & \_
+                    & \_
+                    	& No
+                        	& Mobile  \\
 
             \cite{Khan21}
                 & To build integrate a deep 
@@ -135,9 +145,10 @@
                     & Yes 
                         & Yes 
             & Single 
-                & Deep Learning and \gls{cnn} 
-                    & yes 
-                        & mobile \\ \addlinespace
+                & \_
+                	& Deep Learning and \textsc{cnn}     
+                    	& Yes 
+                        	& Mobile \\ \addlinespace
 
             \bottomrule
         \end{longtable}
