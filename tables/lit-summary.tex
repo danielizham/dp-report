@@ -1,19 +1,18 @@
 \afterpage{
 \begin{center}
-    \begin{small}
-        \begin{longtable}{ p{0.6cm} p{4cm} p{1.6cm} p{1.3cm} p{1.4cm} p{1.4cm} p{1.4cm} p{1.4cm} p{1.4cm} }
+    \begin{footnotesize}
+        \begin{xltabular}{\textwidth}{ p{0.9cm} p{4cm} X X X X p{1.4cm} p{1.4cm} }
             \caption{Literature review summary.} 
             \label{tab:lit-summary} \\
 
             \toprule
             \textit{Ref} 
                 & \textit{Main Objective} 
-                    & \textit{Simulation} 
+                    & \textit{Simu\-lation} 
                         & \textit{Real-world} 
             & \textit{Single or Multi Drone} 
                 & \textit{Smart Navigation Technique} 
  					& \textit{Target Localization Technique}                   
-                    	& \textit{Localizes Targets}  
                         	& \textit{Mobile or Fixed Targets} \\
             \midrule
             \endfirsthead
@@ -21,12 +20,11 @@
             \toprule
             \textit{Ref} 
                 & \textit{Main Objective} 
-                    & \textit{Simulation} 
+                    & \textit{Simu\-lation} 
                         & \textit{Real-world} 
             & \textit{Single or Multi Drone} 
                 & \textit{Smart Navigation Technique} 
                 	& \textit{Target Localization Technique}
-                    	& \textit{Localizes Targets}  
                         	& \textit{Mobile or Fixed Targets} \\
             \midrule
             \endhead
@@ -41,7 +39,6 @@
             & Single and Multi 
                 & Complex Math Calculations (\textsc{no ai}) 
                 	& General physics prediction 
-                    	& yes 
                         	& mobile \\ \addlinespace
 
             \cite{pen21}  
@@ -54,7 +51,6 @@
             & Single 
                 & \gls{drl}
                     &  \_
-                    	& No  
                         	& mobile \\ \addlinespace
 
             \cite{hua21}
@@ -67,7 +63,6 @@
             & Multi 
                 & Complex Math Calculations (\textsc{no ai}) 
                     & Random prediction
-                        & Yes
                         	& mobile \\ \addlinespace
 
             \cite{Zho20}  
@@ -80,7 +75,6 @@
             &\_ 
                 & \gls{drl} 
                      & \_ 
-                         &\_
                          	& \_ \\ \addlinespace
 
             \cite{Wal19}  
@@ -95,7 +89,6 @@
             & Single 
                 & \gls{drl} 
                     & \_ 
-                    	& \_
                         	& \_ \\ \addlinespace
 
             \cite{Gar20} 
@@ -110,7 +103,6 @@
             & Single 
                 & Sensors 
                     & \_ 
-                        & \_
                         	& \_ \\ \addlinespace
 
             \cite{Zhao18} 
@@ -122,7 +114,6 @@
             & Single 
                 & Deep Learning and \textsc{cnn} 
                     & \_
- 						& No                       
                         	& mobile \\ \addlinespace
 
             \cite{Wang18} 
@@ -135,8 +126,7 @@
             & Single 
                 & \_
                     & \_
-                    	& No
-                        	& Mobile  \\
+                        	& Mobile  \\ \addlinespace
 
             \cite{Khan21}
                 & To build integrate a deep 
@@ -147,12 +137,13 @@
             & Single 
                 & \_
                 	& Deep Learning and \textsc{cnn}     
-                    	& Yes 
                         	& Mobile \\ \addlinespace
 
+			\textit{AirEye} & description & & & & & & \\ \addlinespace
+			
             \bottomrule
-        \end{longtable}
-    \end{small}
+        \end{xltabular}
+    \end{footnotesize}
 \end{center}
 }
 
