@@ -271,14 +271,16 @@ of images or videos. It relies on machine learning and different
 sub-fields of it to train and deploy models in various use cases. 
 We started our work with the object detection model right 
 after creating the virtual environment in which we created
-some targets as shown in \cref{fig:one-target,fig:target-population}, these 
-targets are easily identifiable by humans, but how could a
-machine see it and separate it from the environment around it.
+some targets as shown 
+in \cref{fig:one-target,fig:target-population}. These 
+targets are easily identifiable by humans, but a mere
+machine could not see and separate them from the 
+environment around it.
  
 After creating the virtual environment, we started taking random 
-screenshots all around the virtual area, these screenshots 
-might have a lot of targets within their frame, or no targets at all, 
-this randomness is excellent for the model training as it gives the 
+screenshots all around the virtual area. These screenshots 
+might have a lot of targets within their frame or no targets at all. 
+This randomness is excellent for the model training as it gives the 
 model many different cases as illustrated in 
 \cref{fig:labeling-process-1,fig:labeling-process-2}.
 We took around 300 screenshots to create a dataset of images and
@@ -307,20 +309,21 @@ including many pixels from the surrounding environment.
 	\label{fig:labeling-targets}%
 \end{figure}
 
-
 For the model training, we relied on \textsc{yolo}v5 which is an open
 source family of object detection models and architectures built in 
 PyTorch. \textsc{yolo}v5 is based on deep learning schemes such as 
 \gls{cnn} to train models given large datasets. There are different
-versions of \textsc{yolo}v5, a compact version that does not
-require a lot of processing power, a medium version, and a full one that
+versions of \textsc{yolo}v5. The ones we decided to be 
+the most suitable for our project are either 
+a compact version that does not require a lot of processing 
+power, a medium version, and a full one that
 is more suitable for large datasets. We trained our model many times 
-using different hardware and \textsc{gpu}s, we also tried performing 
+using different hardware and \textsc{gpu}s. We also tried performing 
 data augmentation on our dataset using built in methods in Roboflow 
 which allowed us to make the dataset larger and enhance the performance 
 of the model. The data augmentation process resulted in creating three 
-images for each image that we have, in that process, images are mixed
-together and shuffled, or put in different directions with an amount of
+images for each image that we have. In that process, images are mixed
+together and shuffled or put in different directions with an amount of
 rotation that will make the image look new to the model, 
 thus training it better.
 
@@ -328,15 +331,15 @@ The tool we used to run the model training was Google
 Colab which allowed us to either use our personal hardware or 
 make use of external resources allocated specifically for research 
 purposes by Google itself. In Google Colab, we can choose the runtime 
-type to either be the internal \textsc{cpu}, textsc{gpu} or an external 
+type to either be the internal \textsc{cpu}, \textsc{gpu} or external 
 resources from Google. A remote connection was made to Google's server 
 and we trained our models using an excellent \textsc{gpu} 
-allocated by google called Nvidia Tesla-K80 which is a \textsc{gpu} 
-accelerator with 560 MHz core, 10 GHz effective memory clock, and 24GB 
-GDDR5 vRAM.
+allocated by Google called \textsc{nvidia} Tesla-K80 which is a \textsc{gpu} 
+accelerator with 560 \textsc{mh}z core, 10 \textsc{gh}z effective memory clock, and 24 \textsc{gb} 
+\textsc{gddr5} v\textsc{ram}.
 
 The results we got were better than what we got using our personal 
-\textsc{gpu}s, higher precision and confidence intervals were 
+\textsc{gpu}s. Higher precision and confidence intervals were 
 accomplished, but it was still not the best solution that could be made. 
 Later, we started tweaking the model and changing all the possible 
 variables to see how the model performs. Tweaking the model involves 
@@ -344,7 +347,7 @@ changing many things, such as the batch size, the number of epochs, the
 learning rate, the optimizer, and other small changes that resulted in 
 different outcomes. 
 
-In senior 2, for further improvements in the project, we will run the model 
+In Senior 2, for further improvements in the project, we will run the model 
 on Qatar University's server once it is working properly and we have access 
 to it. This will give us more options to see how the model performs and decide the 
 best possible model for our project.
@@ -370,24 +373,24 @@ and we ran it for a hundred epochs only. The output results can be observed in
 \begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=1.0\textwidth, height=7cm]{model-1-output} 
-	\caption{Model No. 1 output} \label{fig:model-1-output} 
+        \caption{Model No. 1 (small-sized model) output.} \label{fig:model-1-output} 
 \end{figure}
 
 \begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=1.0\textwidth, height=7cm]{model-2-output} 
-	\caption{Model No. 2 output} \label{fig:model-2-output} 
+        \caption{Model No. 2 (large-sized model) output.} \label{fig:model-2-output} 
 \end{figure}
 
 \begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=1.0\textwidth, height=7cm]{model-3-output} 
-	\caption{Model No. 3 output} \label{fig:model-3-output} 
+        \caption{Model No. 3 (medium-sized model) output.} \label{fig:model-3-output} 
 \end{figure}
 
 The main evaluation metrics are the precision and recall
 as seen in \cref{fig:model-1-performance}.
-The precision is an essential indicator of a model's performance, it shows 
+The precision is an essential indicator of a model's performance as it shows 
 how precise the predictions are. 
 It is calculated by the following \cref{eq:precision}. 
 %
@@ -407,32 +410,32 @@ at the beginning, and increase as more epochs pass. By the hundredth
 epoch, both precision and recall are at a high value which is very close 
 to one.  
 
-The last metric is the mean average precision (mAP), as we can see in 
+The last metric is the mean average precision (mAP). As we can see in 
 \cref{fig:model-1-performance}, the value starts low at the beginning and 
-increases with epochs passing, for the mAP 0.5 it is very high and close
+increases with epochs passing. For the mAP 0.5, it is very high and close
 to one, which means that it was a hit and a target was detected 
 correctly most of the time. However, in the mAP 0.5:0.95 the final value 
 is lower and barely above 0.8 which means that there are different mAP 
 values over different IoV (intersection over union) thresholds ranging 
-between 0.5:0.95, this is not and optimal result and it could be improved 
+between 0.5:0.95. This is not an optimal result and it could be improved 
 with better resources.
 
 \begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=0.8\textwidth]{model-1-performance} 
-	\caption{Model No. 1 performance} \label{fig:model-1-performance} 
+        \caption{Model No. 1 (small-sized model) performance.} \label{fig:model-1-performance} 
 \end{figure}
 
 \begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=0.8\textwidth]{model-2-performance} 
-	\caption{Model No. 2 performance} \label{fig:model-2-performance} 
+        \caption{Model No. 2 (large-sized model) performance.} \label{fig:model-2-performance} 
 \end{figure}
 
 \begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=0.8\textwidth]{model-3-performance} 
-	\caption{Model No. 3 performance} \label{fig:model-3-performance} 
+        \caption{Model No. 3 (medium-sized model) performance.} \label{fig:model-3-performance} 
 \end{figure}
 
 For the second model, it performed similar to the first model well in terms of simple 
@@ -441,7 +444,7 @@ were many sharp variations in the precision, recall, and mAP especially around t
 hundredth epoch which clearly shows that something was wrongly configured in this model
 even though it ran on the same \textsc{gpu} Tesla K80.
 The mistake that was made is that we used the large \textsc{yolo}v5 on a small dataset
-without any data augmentation, we also ran it for 150 epochs only which is not enough nor 
+without any data augmentation. We also ran it for 150 epochs only which is not enough nor 
 suitable for the large \textsc{yolo}v5 version (should be 300 epochs).
 
 Finally, the third model was the best optimization between the two previous models. 
