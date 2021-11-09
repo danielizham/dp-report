@@ -139,7 +139,7 @@ to adjust settings, execute scripts, and get
 live updates and results. 
 Finally, there will be multiple moving targets 
 in the target section. For example, 
-\textsc{r/c} cars are controlled manually and moving in 
+\gls{rc} cars are controlled manually and moving in 
 a specific mobility pattern with varying directions 
 and destinations. 
 In the next section, hardware and software components 
@@ -278,9 +278,9 @@ program looks like.
     \label{fig:gazebo}
 \end{figure}
 
-The training part is divided into \gls{rl}, which is
-used to teach the \anafi drone to complete the task, and object
-detection, which is used to detect and count the targets
+The training part is divided into two sections first one is \gls{rl}, which is
+used to allow the smart navigation in the \anafi drone, second part is object
+detection and identification, which is used to detect, count and identify the targets
 required in determining the reward during the training. 
 The \gls{rl} agent is based on the \gls{drl} model 
 developed by \textcite{Ged21}. The action space is composed 
@@ -347,26 +347,23 @@ mission.
                 using sensor data coming from the \anafi drone.}
     \label{fig:ui-prototype}
 \end{figure}
-
+\newpage
 \subsubsection{Hardware}
     %Parrot ANAFI Drone
     %Raspberry Pi 4
     %lithium Battery
     %Wi-Fi adapter dongle
     %laptop control station
-\Cref{tab:hardware-used} lists the pieces of hardware
-used in this project.
 The main core of the hardware part is the drone, 
-which will be the Parrot \anafi. This model 
-has a multiple of features that made us choose it 
-which have been listed in the 
-\cref{sec:selected-solution} above. 
+which will be the Parrot \anafi.
+\Cref{tab:hardware-used} lists the hardware components
+used in this project and their justifications. 
 The second important device is the Raspberry Pi 
 which will be used as an onboard computer and will 
 handle several tasks such as:
 
 \begin{enumerate}
-    \item connecting to the drone 
+    \item connecting to the drone access point 
         using a Wi-Fi interface,
     \item controlling the drone 
         by executing Olympe to send control signals 
@@ -378,12 +375,25 @@ handle several tasks such as:
 \end{enumerate}
  
 The Parrot \anafi drone is connected 
-to the onboard computer using another 
+to the onboard computer using the Raspberry Pi internal 
 \SI{2.4}{\giga\hertz}
-Wi-Fi interface with the help of a 
+Wi-Fi interface. Firstly we add the \anafi drone access point 
+to the saved devices list in the Raspberry Pi and 
+once the Raspberry Pi boots up, it automatically keeps 
+searching for the access point, and it connects 
+to it once it is available.
+For the connection between the command and control system 
+and the Raspberry Pi, 
+Raspberry Pi will use the 
 \SI[per-mode=symbol,per-symbol=p]{300}{MBps} 
 Wi-Fi adapter dongle connected to 
-the Raspberry Pi through its \textsc{usb} interface. 
+the Raspberry Pi, through its \textsc{usb}, interface this 
+will allow it to create an access point,
+this access point will be used to allow command and control device 
+to connect and control the Raspberry Pi,
+for controlling the onboard computer \textsc{ssh} 
+protocol and open the graphical interface 
+control using the \textsc{vnc} feature will be used.
 Regarding the power source for the Raspberry Pi, 
 we thought of taking power directly from the 
 drone's battery, but, after some research, we found 
