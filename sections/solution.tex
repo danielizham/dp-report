@@ -164,7 +164,7 @@ will be presented in a more detailed manner.
     %jupyter notebook
 There are three primary categories of software 
 depending on the usage: simulation, training, 
-and application and they are listed in \cref{tab:software-used}. The first part will focus on 
+and application, and they are listed in \cref{tab:software-used}. The first part will focus on 
 simulating the environment, testing the models, 
 and flight control. Before discussing the software 
 to be used, we have selected Ubuntu 18.04 (Bionic Beaver) 
@@ -191,7 +191,14 @@ of drones and custom 3D objects.
 \Cref{fig:gazebo} shows how the Sphinx 
 program looks like. 
 
-\begin{table}[tbp]
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{gazebo.png}
+    \caption{The Sphinx program that runs on top of Gazebo.}
+    \label{fig:gazebo}
+\end{figure}
+
+\begin{table}[p]
     \centering
     \caption{Software used in the project.}
     \label{tab:software-used}  
@@ -271,16 +278,10 @@ program looks like.
     \end{tabular}
 \end{table}
 
-\begin{figure}[tbp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{gazebo.png}
-    \caption{The Sphinx program that runs on top of Gazebo.}
-    \label{fig:gazebo}
-\end{figure}
-
-The training part is divided into two sections first one is \gls{rl}, which is
-used to allow the smart navigation in the \anafi drone, second part is object
-detection and identification, which is used to detect, count and identify the targets
+The training part is divided into \gls{rl}, 
+which is used to teach the \anafi drone to complete the task, 
+and object detection and identification, 
+which is used to detect and count the targets
 required in determining the reward during the training. 
 The \gls{rl} agent is based on the \gls{drl} model 
 developed by \textcite{Ged21}. The action space is composed 
@@ -340,14 +341,14 @@ the progress of the drone
 when it is autonomously executing the task visitation
 mission.
 
-\begin{figure}[bp]
+\begin{figure}[tbp]
     \centering
     \includegraphics[width=0.9\textwidth]{ui-prototype}
     \caption{An example of a user interface that will be built
                 using sensor data coming from the \anafi drone.}
     \label{fig:ui-prototype}
 \end{figure}
-\newpage
+
 \subsubsection{Hardware}
     %Parrot ANAFI Drone
     %Raspberry Pi 4
@@ -358,16 +359,21 @@ The main core of the hardware part is the drone,
 which will be the Parrot \anafi.
 \Cref{tab:hardware-used} lists the hardware components
 used in this project and their justifications. 
-The second important device is the Raspberry Pi 
-which will be used as an onboard computer and will 
-handle several tasks such as:
+The second important device is the Raspberry Pi. It
+acts as an onboard computer and is used in this project
+mainly to facilitate the low-level control of the drone
+by sending frequent control commands to the drone
+in a certain direction or keep hovering.
+The choice of action is determined by the \gls{drl}
+model that will be installed in it.
+Hence, the tasks of the Raspberry Pi are:
 
 \begin{enumerate}
-    \item connecting to the drone access point 
+    \item connecting to the drone's access point 
         using a Wi-Fi interface,
     \item controlling the drone 
-        by executing Olympe to send control signals 
-        to and receive sensory data from the drone,
+        by executing Olympe to send low-level control signals 
+        and to receive sensory data,
     \item applying the \gls{drl} model supported by 
         the command and control system,
     \item and receiving high-level commands and 
@@ -375,25 +381,30 @@ handle several tasks such as:
 \end{enumerate}
  
 The Parrot \anafi drone is connected 
-to the onboard computer using the Raspberry Pi internal 
+to the Raspberry Pi, which is the onboard computer,
+using both devices' internal 
 \SI{2.4}{\giga\hertz}
-Wi-Fi interface. Firstly we add the \anafi drone access point 
-to the saved devices list in the Raspberry Pi and 
-once the Raspberry Pi boots up, it automatically keeps 
-searching for the access point, and it connects 
+Wi-Fi interfaces. 
+Firstly, we add the \anafi drone's access point 
+to the saved devices list in the Raspberry Pi.
+Once the Raspberry Pi boots up, it automatically keeps 
+searching for the access point and connects 
 to it once it is available.
+
 For the connection between the command and control system 
 and the Raspberry Pi, 
-Raspberry Pi will use the 
+the Raspberry Pi will use a 
 \SI[per-mode=symbol,per-symbol=p]{300}{MBps} 
 Wi-Fi adapter dongle connected to 
-the Raspberry Pi, through its \textsc{usb}, interface this 
-will allow it to create an access point,
-this access point will be used to allow command and control device 
-to connect and control the Raspberry Pi,
-for controlling the onboard computer \textsc{ssh} 
-protocol and open the graphical interface 
-control using the \textsc{vnc} feature will be used.
+its \textsc{usb} port. 
+This will allow it to create an access point
+to which the command and control device 
+will connect and by which the Raspberry Pi can be controlled.
+This control of the onboard computer 
+is done through the Secure Shell (\textsc{ssh})
+protocol or the Virtual Network Computing (\textsc{vnc})
+if the graphical interface is needed. 
+
 Regarding the power source for the Raspberry Pi, 
 we thought of taking power directly from the 
 drone's battery, but, after some research, we found 
@@ -414,7 +425,7 @@ and time for our application.
 %lithium Battery
 %Wi-Fi adapter dongle
 %laptop control station
-\begin{table}[tbp]
+\begin{table}[p]
     \centering
     \caption{Hardware used in the project.}
     \label{tab:hardware-used}  
