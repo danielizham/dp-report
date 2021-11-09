@@ -474,7 +474,7 @@ For the second model, it performed similar to the first model well in terms of s
 classification and detection cases, but the results were not as expected and there 
 were many sharp variations in the precision, recall, and mAP especially around the 
 hundredth epoch which clearly shows that something was wrongly configured in this model
-even though it ran on the same \textsc{gpu} 'Tesla K80'.
+even though it ran on the same \textsc{gpu} Tesla K80.
 The mistake that was made is that the we used the large \textsc{yolo}v5 on a small dataset
 without any data augmentation, we also ran it for 150 epochs only which is not enough nor 
 suitable for the large \textsc{yolo}v5 version (should be 300 epochs).
