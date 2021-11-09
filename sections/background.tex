@@ -14,7 +14,8 @@ through all targets in a specific area.
 It is a complex optimization problem 
 for navigating and tracking the objects 
 while minimizing the required time to detect all targets.
-It can be said that this is critical as the efficiency of any algorithms 
+It can be said that this is critical as the 
+efficiency of any algorithm 
 or project is always judged based on the time 
 and usage of resources.
 Various methods and approaches were studied 
@@ -114,7 +115,7 @@ in the real world, where the simulation
 sometimes strays from the reality.
 There is also a lack of hardware implementations in 
 the field of research regarding drones with \gls{drl}, 
-and most of the research papers focus on the simulations.
+and most of the research papers focus on simulations.
 According to the literature review, the \gls{cnn} 
 models were used in the majority of the papers for object detection. 
 Moreover, the controller boards and custom drone kits 
@@ -151,7 +152,7 @@ address.
 
 % {{{ Part 1
 % #1
-Related to the first category, \citeauthor{hua20} 
+Related to the first category, authors in \cite{hua20} 
 addressed a problem of autonomous navigation of \glspl{uav}. 
 They proposed a reactive real-time sliding mode control algorithm 
 that navigates a team of communicating \glspl{uav}.
@@ -170,9 +171,9 @@ revisit time.
 
 % #2
 
-In paper~\cite{pen21}, \citeauthor{pen21} studied the idea 
+In~\cite{pen21}, the idea 
 of taking advantage of \glspl{uav} in order to increase the network
-coverage and execute computing tasks offloaded from multiple devices. 
+coverage and execute computing tasks offloaded from multiple devices is studied. 
 The constraints were to minimize the energy consumption of the \gls{uav} 
 and maximize the amount of offloaded bits. 
 Objects on the ground were not stationary and were following a Gauss-Markov 
@@ -181,7 +182,7 @@ Simulations were also made to prove the viability of their idea and the
 effectiveness of the \gls{drl}-based path planning algorithm.
 
 % #3
-In a third paper, \citeauthor{hua21} focused on navigating a team
+In a third paper, \cite{hua21} focused on navigating a team
 of \glspl{uav} equipped with cameras to monitor groups of ground 
 pedestrians or vehicles that were moving with a bounded speed with an unknown pattern. 
 The surveillance is supposed to be from the shortest distances possible. 
@@ -202,12 +203,12 @@ both of which are important in \gls{ai} training.
 \citeauthor{Zho20} demonstrates this by % or \textcite{Zho20}
 using a combination of the open-source 3D dynamic simulator Gazebo
 and the autopilot system \textsc{px}4 
-as shown in \cref{fig:zho20}.
+as shown in~\cref{fig:zho20}~\cite{Zho20}.
 Through this, they avoided the time-consuming steps of 
 carrying out physical experiments
 and adjusting parameters according 
 to the environmental settings~\cite{Zho20}.
-Thanks to the simulation, 
+Thanks to simulation, 
 the authors were also able to propose a generic
 framework to integrate the \gls{dqn} algorithm into 
 the simulated \gls{uav} environment~\cite{Zho20}.
