@@ -419,7 +419,6 @@ and we ran it for a hundred epochs only. The output results can be observed in
 	\caption{Model No. 3 output} \label{fig:model-3-output} 
 \end{figure}
 
-
 The main evaluation metrics are the precision and recall
 as seen in \cref{fig:model-1-performance}.
 The precision is an essential indicator of a model's performance, it shows 
@@ -475,12 +474,11 @@ classification and detection cases, but the results were not as expected and the
 were many sharp variations in the precision, recall, and mAP especially around the 
 hundredth epoch which clearly shows that something was wrongly configured in this model
 even though it ran on the same \textsc{gpu} Tesla K80.
-The mistake that was made is that the we used the large \textsc{yolo}v5 on a small dataset
+The mistake that was made is that we used the large \textsc{yolo}v5 on a small dataset
 without any data augmentation, we also ran it for 150 epochs only which is not enough nor 
 suitable for the large \textsc{yolo}v5 version (should be 300 epochs).
 
 Finally, the third model was the best optimization between the two previous models. 
-The output of the model is  
 We used the \textsc{yolo}v5 medium version, performed data augmentation, and ran it for
 150 epochs. This resulted in a steady rise in the precision as shown in 
 \cref{fig:model-2-performance} without many oscillations which means a smooth learning
@@ -492,20 +490,20 @@ of mAP\_0.5:0.95, which is 0.87 as shown in \cref{tab:model-comparison}.
 	\begin{center}
 		\caption{A comparison between all three models and their outputs.}
 		\label{tab:model-comparison}
-		\begin{tabular}{c c c c c c} 
+                \begin{tabularx}{\textwidth}
+                    {p{1.3cm} X X X X X} 
 			\toprule
-			\textbf{Model} & \textbf{\textsc{yolo}v5 version} & \textbf{epochs} & 
-			\textbf{Data Augmentation} & \textbf{mAP 0.5:0.95} & \textbf{Performance Rating}\\
+			\textit{Model} & \textit{\textsc{yolo}v5\newline version} & \textit{Epochs} & 
+			\textit{Data\newline Augmentation} & \textit{mAP 0.5:0.95} & \textit{Performance Rating}\\
 			\midrule
 			 1 & Small & 100 & Yes & 0.81 & Moderate \\
 			 2 & Large & 150 & No  & 0.70 & Bad \\
 			 3 & Medium& 150 & Yes & 0.87 & Excellent \\		
 			%\hline 
 			\bottomrule
-		\end{tabular}
+		\end{tabularx}
 	\end{center}
 \end{table}
-
 
 \subsection{Physical components}
 
@@ -557,7 +555,7 @@ In our case, the total weight of our parts is equal
 to \SI{170}{\gram} which will add small time
 to the battery life.
 
-\begin{figure}[tbp]
+\begin{figure}[bp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{payload.png}
 	\caption{The payload of the drone.}
@@ -584,13 +582,13 @@ depends on the \textsc{gpu} power and processing time.
 	\centering
 	\caption{The response time of the drone after sending a control command.}
 	\label{tab:respone-time}
-	\begin{tabular}{ p{6cm} p{4cm} p{4cm} }
+        \begin{tabularx}{0.7\textwidth}{ X c c }
 		\toprule
 		\textit{} & \textit{Simulation} & \textit{Real-world}\\ \midrule
 		Motor ramping for takeoff (seconds)  & 0.3506 & 0.0323     \\
 		Move while flying (seconds) & 0.7441  & 0.1511   \\
 		\bottomrule
-	\end{tabular}
+	\end{tabularx}
 \end{table} 
 
 For the Raspberry Pi power supply, we have ordered it 
