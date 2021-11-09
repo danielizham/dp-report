@@ -299,7 +299,7 @@ of the project will be successful in Senior 2.
 One of the essential parts in our project is the object
 detection model. Object detection is a new computer vision
 technique which refers to the computer's ability to 
-identify and locate objects in a certain area given a training data set 
+identify and locate objects in a certain area given a training dataset 
 of images or videos. It relies on machine learning and different 
 sub-fields of it to train and deploy models in various use cases. 
 We started our work with the object detection model right 
@@ -314,7 +314,7 @@ might have a lot of targets within their frame, or no targets at all,
 this randomness is excellent for the model training as it gives the 
 model many different cases as illustrated in 
 \cref{fig:labeling-process-1,fig:labeling-process-2}.
-We took around 300 screenshots to create a data set of images and
+We took around 300 screenshots to create a dataset of images and
 start the labeling process. For labeling we used Roboflow, which is a 
 very useful online tool that allowed us to work as a team and label all
 300 images together systematically and consistently to avoid any 
@@ -344,13 +344,13 @@ including many pixels from the surrounding environment.
 For the model training, we relied on \textsc{yolo}v5 which is an open
 source family of object detection models and architectures built in 
 PyTorch. \textsc{yolo}v5 is based on deep learning schemes such as 
-\gls{cnn} to train models given large data sets. There are different
+\gls{cnn} to train models given large datasets. There are different
 versions of \textsc{yolo}v5, a compact version that does not
 require a lot of processing power, a medium version, and a full one that
-is more suitable for large data sets. We trained our model many times 
+is more suitable for large datasets. We trained our model many times 
 using different hardware and \textsc{gpu}s, we also tried performing 
-data augmentation on our data set using built in methods in Roboflow 
-which allowed us to make the data set larger and enhance the performance 
+data augmentation on our dataset using built in methods in Roboflow 
+which allowed us to make the dataset larger and enhance the performance 
 of the model. The data augmentation process resulted in creating three 
 images for each image that we have, in that process, images are mixed
 together and shuffled, or put in different directions with an amount of
