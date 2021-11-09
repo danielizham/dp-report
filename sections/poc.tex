@@ -4,28 +4,6 @@
 
 \subsection{Simulation and reinforcement learning}
 
-% Describe detailed design and implementation of 
-% the Proof of Concept (PoC) to prove the feasibility 
-% of your design idea and deliver the core of your 
-% project solution. It is highly recommended to design 
-% and implement the core features of system by choosing 
-% the most important/critical use cases (or important 
-% component(s) from your high-level design) then design, 
-% implement and test them.
-
-% Design and implement part of your complete system. 
-% It is expected that the PoC delivers 20% to 30% of 
-% the important system use cases.
-
-% Conduct initial PoC tests to demonstrate the 
-% feasibility of the design idea of your solution. 
-% This will help you refine your design and identify 
-% potential technical and logistical issues that you 
-% need to address to ensure your project success.
-
-% Demonstrate your PoC to the examiners during the 
-% senior project presentation.
-
 The simulation and reinforcement learning are critical
 components to achieve objective \ref{obj:drl}.
 This part of the project starts with receiving
@@ -39,11 +17,8 @@ with clients and types of the target visitation.
 
 We have represented the targets in the simulation
 as green 3D flat boxes
-% as transparent 3D flat boxes
-% with their \textsc{id}'s displayed on the top face
 as can be seen in \cref{fig:one-target}. 
 The basic shape and the colour green were created by 
-% The basic shape and transparency was created by 
 defining a model 
 in the \gls{sdf}
 including its visual, collision and inertial properties.
@@ -55,9 +30,6 @@ Developing a Gazebo plugin is not a straightforward
 process in our case, as explained later, due to 
 the incompatibility between the Sphinx plugins and
 our \textsc{os}.
-% The main property is the model's \textsc{id} and 
-% its placement
-% while the main type of behaviour is its mobility pattern, 
 In spite of this, we have managed to program the targets' 
 main type of behaviour which is its mobility pattern.
 For the proof of concept, 
@@ -89,9 +61,6 @@ of the \gls{rl} agent can converge.
         the ground following a set distribution.}%
     \label{fig:target}%
 \end{figure}
-
-% \caption{A target with its \textsc{id} on the
-%     top represented as a model in Sphinx.}
 
 The 3D model, properties and behaviour
 of the \anafi drone is provided by Parrot in the 
@@ -173,8 +142,6 @@ in the cell that it has moved to. We have made the drone
 to take a picture of the cell underneath it after 
 every move and we have used object detection to
 identify the targets and count their quantity. 
-% checking if their \id's are not listed 
-% in the already captured targets. 
 In addition to object detection which is explained
 in the succeeding \cref{sec:obj-detection}, developing this
 aspect of the simulation involved 
