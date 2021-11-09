@@ -18,8 +18,10 @@ and the \gls{uav} system:
         and their movement details/patterns
         to us for the \gls{rl}.
     \item The user should receive 
-        an \anafi-\textsc{r}aspberry \textsc{p}i-\gls{drl} 
-        model bundle after a maximum of 3 months.
+        a \uav integrated system consisting of 
+        an \anafi drone, a \textsc{r}aspberry \textsc{p}i,
+        and a \gls{drl} model after the \gls{ml} training
+        is complete.
     \item The system should take pictures, capture videos
         or record other physical properties using
         suitable sensors of the intended
@@ -30,13 +32,13 @@ and the \gls{uav} system:
         to handle the system.
     \item The user should agree on 
         the terms and conditions 
-        which limit the type of users.
+        which limit the type of usages and 
+        ensure that it aligns with the legislations
+        related to the use of drones in that area.
     \item The system should only allow 
         authorized users 
         to view the collected pictures and 
         data from the \anafi system.
-    \item The users must not be allowed to access 
-        the source code.
 \end{enumerate}
 
 \Cref{fig:use-case-diagram} shows the use cases that can
@@ -130,10 +132,10 @@ and the environment within which the drone will fly.
             for the Raspberry Pi)~\cite{Par19}.  \\
 
         Altitude 
-            & The flying altitude must fall 
+            & The flying altitude typically fall 
             between
             \SIrange{3}{9}{meters} 
-            or the 
+            to cover a cell dimension of
             \qtyproduct{1 x 1.64}{square-meter}
             cell in focus either 
             is not covered by the \gls{fov} in its
@@ -168,9 +170,8 @@ and the environment within which the drone will fly.
             of the execution must be
             below 
             \SI{1}{second}. 
-            This is to ensure the commands
-            do not overlap causing any of them
-            to be ignored. \\
+            This is to facilitate real-time monitoring
+            on the command and control station. \\
 
         Payload  
             & The Raspberry Pi with its peripherals 
@@ -251,7 +252,7 @@ and the environment within which the drone will fly.
         \gls{ieee} 802.11 
                 & Used in the communication between 
                 the Raspberry Pi and the \anafi drone,
-                and the 
+                and between the 
                 Raspberry Pi and the computer. \\ 
                 \addlinespace
         
@@ -318,7 +319,8 @@ since the design decisions to meet the opposite
 conditions fall outside the scope of this project.
 
 \begin{enumerate}
-    \item The environment is obstacle-free and windless.
+    \item The environment is obstacle-free with little 
+        to no wind.
     \item The site is bright enough for the drone to
         detect and identify the targets.
     \item The real targets move according to the mobility 
