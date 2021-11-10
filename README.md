@@ -16,7 +16,7 @@
 - [x] Requirements Analysis
 - [x] Proposed Solution
 - [x] Proof of Concept
-- [ ] Market Research and Business Viability
+- [x] Market Research and Business Viability
 - [x] Project Plan
 
 **Phase 2 (Final) - Due by the XX of XXXX 2022**
