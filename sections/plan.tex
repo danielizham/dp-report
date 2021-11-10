@@ -123,37 +123,41 @@
         to ensure that Raspberry Pi gets the 
         control again.  \\
         
-        Flying drone outdoor without permissions 
+        Flying drone outdoor without permission 
         & Qatar has very restricted rules regarding flying 
         a drone 
         with a camera outdoor.
-        & Get the required permissions to fly the drone in 
+        & Get the required permission to fly the drone in 
         Al-Khor airport or fly it indoors inside the 
         university with permission from the department. \\
 
         Inconsistent performance of the drone in the real
         world compared to the simulation
         & The effectiveness of the trained model based on 
-        simulation is yet to be investigated in real world.
-        & Although it is likely that the simulation will 
-        provide a good synthesized environment to train DRL, 
-        we plan to also perform the training on-site in case 
-        transferring the model from simulation to real world 
-        turns out to be inaccurate. 
-        In this case, we can use the simulation for 
-        demonstration purposes.
+        simulation is yet to be investigated in the real 
+        world. It is expected that there will be discrepancies
+        between the virtual environment and reality.
+        & Design the mobility pattern of the targets in 
+        the virtual environment as realistic as possible.
+        Moreover, we will perform transfer learning by
+        taking the model pre-trained in the simulation
+        and training it in the real world. 
+        This way, the model weights will be made more 
+        suitable for the real world while still benefiting 
+        from the convenience of simulation.
         \\
 
-        Mismatch between the development and 
-        simulation environments
-        & The development platforms for Sphinx, Olympe
-        and \gym may not use the same \textsc{os}
-        and libraries as running them. For example,
-        developing plugins for Sphinx has to be done
-        on Ubuntu 16.04 only, but running it can be
+        Incompatibility between the development and 
+        runtime environments
+        & The development tools, including the \textsc{os}
+        and libraries, used for Sphinx, Olympe
+        and \gym may not be the same as the runtime ones. 
+        For example, developing plugins for Sphinx has to 
+        be done on Ubuntu 16.04 only, but running it can be
         done on Ubuntu 18.04.
         & Use Docker to run a suitable container 
-        for the development platforms.
+        for the development platforms and focus the machine's
+        environment only for runtime processes.
         \\
 
         Accidental premature termination of the 
