@@ -363,12 +363,7 @@ best possible model for our project.
 
 \subsubsection{\gls{ml} performance evaluation}
 
-For the first model, we used the small version of \textsc{yolo}v5 which is 
-more \textsc{gpu} friendly and takes shorter training time.
-We made use of data augmentation for this model which improved its result,
-the batch size was sixteen to avoid overloading the \textsc{gpu}, 
-and we ran it for a hundred epochs only. The output results can be observed in 
-\cref{fig:model-1-output}
+
 
 \begin{figure}[tbp] 
 	\centering
@@ -427,7 +422,7 @@ to one.
 The last metric is the mean average precision (mAP), it is an excellent metric
 to compare between models that are running on the same data set. It measures
 how exact the prediction bounding box of the model compared to the correct
-bounding box in the data set. an mAP\_0.5 sets 0.5 as the threshold of overlap 
+bounding box in the data set. An mAP\_0.5 sets 0.5 as the threshold of overlap 
 between the two boxes, consequently it is very high and close to one in all 
 three models as illustrated in 
 \cref{fig:model-1-performance,fig:model-2-performance,fig:model-3-performance}
@@ -438,6 +433,12 @@ between the true box and the predicted box is required to make it count as a tru
 positive. From \cref{tab:model-comparison}, we can see that the third model was better 
 than the other models in the mAP\_0.5:0.95 metric.
 
+For the first model, we used the small version of \textsc{yolo}v5 which is 
+more \textsc{gpu} friendly and takes shorter training time.
+We made use of data augmentation for this model which improved its result,
+the batch size was sixteen to avoid overloading the \textsc{gpu}, 
+and we ran it for a hundred epochs only. The output results can be observed in 
+\cref{fig:model-1-output}
 
 \begin{figure}[tbp] 
 	\centering
@@ -457,7 +458,7 @@ than the other models in the mAP\_0.5:0.95 metric.
         \caption{Model No. 3 (medium-sized model) performance.} \label{fig:model-3-performance} 
 \end{figure}
 
-For the second model, it performed similar to the first model well in terms of simple 
+The second model performed similar to the first model in terms of simple 
 classification and detection cases, but the results were not as expected and there 
 were many sharp variations in the precision, recall, and mAP especially around the 
 hundredth epoch which clearly shows that something was wrongly configured in this model
