@@ -390,8 +390,12 @@ and we ran it for a hundred epochs only. The output results can be observed in
 
 The main evaluation metrics are the precision and recall
 as seen in \cref{fig:model-1-performance}.
+A true positive occurs when the model predicts the positive class correctly, whereas 
+a true negative is when the model predicts the negative class correctly too. 
+False positives and false negatives represent false predictions of the model 
+where it mispredicted the positive and negative classes respectively.
 The precision is an essential indicator of a model's performance as it shows 
-how precise the predictions are. 
+how precise the predictions are by quantifying the number of correct positive predictions. 
 It is calculated by the following \cref{eq:precision}. 
 %
 \begin{align}
@@ -410,15 +414,30 @@ at the beginning, and increase as more epochs pass. By the hundredth
 epoch, both precision and recall are at a high value which is very close 
 to one.  
 
-The last metric is the mean average precision (mAP). As we can see in 
-\cref{fig:model-1-performance}, the value starts low at the beginning and 
-increases with epochs passing. For the mAP 0.5, it is very high and close
-to one, which means that it was a hit and a target was detected 
-correctly most of the time. However, in the mAP 0.5:0.95 the final value 
-is lower and barely above 0.8 which means that there are different mAP 
-values over different IoV (intersection over union) thresholds ranging 
-between 0.5:0.95. This is not an optimal result and it could be improved 
-with better resources.
+%The last metric is the mean average precision (mAP). As we can see in 
+%\cref{fig:model-1-performance}, the value starts low at the beginning and 
+%increases with epochs passing. For the mAP 0.5, it is very high and close
+%to one, which means that it was a hit and a target was detected 
+%correctly most of the time. However, in the mAP 0.5:0.95 the final value 
+%is lower and barely above 0.8 which means that there are different mAP 
+%values over different IoV (intersection over union) thresholds ranging 
+%between 0.5:0.95. This is not an optimal result and it could be improved 
+%with better resources.
+
+The last metric is the mean average precision (mAP), it is an excellent metric
+to compare between models that are running on the same data set. It measures
+how exact the prediction bounding box of the model compared to the correct
+bounding box in the data set. an mAP\_0.5 sets 0.5 as the threshold of overlap 
+between the two boxes, consequently it is very high and close to one in all 
+three models as illustrated in 
+\cref{fig:model-1-performance,fig:model-2-performance,fig:model-3-performance}
+because only an overlap of 0.5 is required to make the box count as a true positive.
+However, when we increase the threshold to be 0.5:0.95 with a step size of 0.05 we
+see that the value of mAP\_0.5:0.95 is not so high as the mAP\_0.5 because more overlap
+between the true box and the predicted box is required to make it count as a true
+positive. From \cref{tab:model-comparison}, we can see that the third model was better 
+than the other models in the mAP\_0.5:0.95 metric.
+
 
 \begin{figure}[tbp] 
 	\centering
