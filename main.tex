@@ -215,6 +215,7 @@ hmargin=2.54cm]{geometry}
 \subfile{sections/title}
 
 \pagenumbering{roman}
+\setcounter{page}{0}
 
 \begin{linenumbers}
 \makeatletter
@@ -222,9 +223,8 @@ hmargin=2.54cm]{geometry}
 \patchcmd{\@xsect}{\ignorespaces}{\linenumbers\ignorespaces}{}{}
 \makeatother
 
-\setcounter{page}{0}
-\addcontentsline{toc}{section}{Declaration}
 \section*{Declaration} \label{sec:declaration}
+\addcontentsline{toc}{section}{Declaration}
 \subfile{sections/declaration}
 \newpage
 

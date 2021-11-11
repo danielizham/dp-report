@@ -72,7 +72,7 @@ and availability.
         Specifications  & \textsc{cpu}: Cortex-A72 (\textsc{arm} v8) 64-bit@ 1.5GHz | Ram: 4GB or 8GB \textsc{lpddr4}-3200 \textsc{sdram} | \textsc{gpu}: Broadcom VideoCore VI & \textsc{cpu}: Quad-core \textsc{arm} A57 @ 1.43 GHz | Ram: 4 GB 64-bit \textsc{lpddr4}   | \textsc{gpu}: 128-core Maxwell & \textsc{cpu}: Quad-core, \textsc{arm} | Ram: 2 GB \textsc{ddr3l} | \textsc{gpu}: Low-power GeForce graphics processor \\ \addlinespace
         Connection interfaces & 2.4 GHz and 5.0 GHz \gls{ieee} 802.11ac wireless, Bluetooth 5.0 & Gigabit Ethernet \& M.2 Key E (for WiFi support). &10/100/1000 \textsc{base-t} Ethernet \\ \addlinespace
 
-    Price \& Availability & \qar{300}. Available and can be used on any drone & \qar{400}. Available but need to be ordered and shipped & Very expensive and restricted to \textsc{dji} drones and \textsc{dji} company stopped selling it \\ \addlinespace
+    Price \& Availability & \qar{300}. Available and can be used on any drone & \qar{400}. Available but needs to be ordered and shipped & Very expensive and restricted to \textsc{dji} drones and \textsc{dji} company stopped selling it \\ \addlinespace
         Picture & \begin{minipage}{.2\textwidth}
             \includegraphics[width=40mm, height=30mm]{raspberry.jpg}
             \end{minipage}  & \begin{minipage}{.2\textwidth}
@@ -171,7 +171,7 @@ supported on limited distributions and operating systems.
 Another reason is that it is a lite \textsc{os} 
 and can be installed on the onboard computer that 
 will be attached to the drone. For the simulation part, 
-using Sphinx and Gazebo software is a very helpful
+using Sphinx and Gazebo software is very helpful
 to visualize the environment, control the drone, 
 and apply the \gls{drl} model. 
 
@@ -286,7 +286,7 @@ of 9 movements in the
 forward, backward, left,
 right, forward-left, forward-right, backward-left and 
 backward-right directions as well as a hover.
-State space is given as
+The state space is given as
 \begin{align}
     s = \{ t, cell, [ I_1, I_2, I_3, \ldots, I_m] \} 
     \label{eq:state-space}
@@ -388,22 +388,23 @@ Hence, the tasks of the Raspberry Pi are:
                 \includegraphics[width=30mm, height=20mm]{raspberry.jpg}
         \end{minipage} 
                 & Specifications are enough for our 
-                application, support WiFi and its 
+                application, support Wi-Fi and its 
                 small size and weight is an advantage.\\ 
                 \addlinespace
 
-        RPI UPSPack V3 with 4000mAh 
+        \textsc{rpi} \textsc{upsp}ack \textsc{v}3 with 
+        \SI{4000}{\milli\ampere\hour} 
         lithium Battery  
             & \begin{minipage}{.1\textwidth}
                 \includegraphics[width=30mm, height=35mm]{RPI.jpg}
         \end{minipage}  
                 & Support up to 4 hours which is more 
-                than enough , the board got an LED 
+                than enough , the board got an \textsc{led} 
                 indicator for charging level also the 
                 weight and shape is an advantage.  \\ 
                 \addlinespace
 
-        Wireless N Nano USB Adapter  
+        Wireless N Nano \textsc{usb} Adapter  
             & \begin{minipage}{.1\textwidth}
                 \includegraphics[width=28mm, height=28mm]{dongle.jpg}
         \end{minipage} 
@@ -430,8 +431,8 @@ Hence, the tasks of the Raspberry Pi are:
         by executing Olympe to send low-level control signals 
         and to receive sensory data,
     \item applying the \gls{drl} model supported by 
-        the command and control system,
-    \item and receiving high-level commands and 
+        the command and control system, and
+    \item receiving high-level commands and 
         sending data to the command and control system.
 \end{enumerate}
  
