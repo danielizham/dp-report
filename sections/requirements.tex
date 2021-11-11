@@ -45,26 +45,35 @@ and the \gls{uav} system:
 happen between the system and the user. The details of their
 interactions are summarized in \cref{tab:use-case-summaries}.
 
-\begin{figure}[p] 
+\begin{figure}[tbp] 
     \centering
-    \includegraphics[width=1.0\textwidth]{use-case-diagram} 
+    \includegraphics[width=0.9\textwidth]{use-case-diagram} 
     \caption{The use case diagram for the system proposed 
             in this project depicting possible interactions 
             between the user and the system.}
     \label{fig:use-case-diagram} 
 \end{figure}
 
-\begin{table}[p]
-    \centering
-    \caption{Summary of the use cases of the system.}
-    \label{tab:use-case-summaries}
-    \begin{tabularx}{\textwidth}{ p{3.5cm} X }
+\begin{center}
+    \begin{xltabular}{\textwidth}{ p{3.5cm} X }
+        \caption{Summary of the use cases of the system.}
+        \label{tab:use-case-summaries} \\
         \toprule
 
         \textit{Use case} & \textit{Description} 
         \\
 
         \midrule
+        \endfirsthead
+
+        \caption[]{Summary of the use cases of the system (continued)} \\
+        \toprule
+
+        \textit{Use case} & \textit{Description} 
+        \\
+
+        \midrule
+        \endhead
 
         Provide information about the targets
             & The main types of information required are
@@ -99,14 +108,14 @@ interactions are summarized in \cref{tab:use-case-summaries}.
             executing the mission.
         \\
         \bottomrule
-    \end{tabularx}
-\end{table}
-
-\newpage
-
+    \end{xltabular}
+\end{center}
+\vspace{-1.5cm}
 \subsection{Design constraints}
 
-The following are the restrictions that have been imposed
+The following lists in 
+\cref{tab:technical-design-constraints,tab:practical-design-constraints} 
+are the restrictions that have been imposed
 on our component, technology and technique selections. 
 They have arisen due to the nature of 
 the devices we have chosen to use 
