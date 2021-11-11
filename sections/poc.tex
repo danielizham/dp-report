@@ -24,7 +24,7 @@ in the \gls{sdf}
 including its visual, collision and inertial properties.
 Using the \textit{libgazebo7} development package, 
 we have written a Gazebo plugin 
-in c++ to describe custom properties and  
+in C++ to describe custom properties and  
 behaviour of the model.
 Developing a Gazebo plugin is not a straightforward
 process in our case, as explained later, due to 
@@ -120,7 +120,8 @@ The space consists of 9 movements:
 forward, backward, left,
 right, forward-left, forward-right, backward-left,
 backward-right and no-operation.
-Similarly, the state space is composed of the 25 cells
+Similarly implemented is the state space 
+which is composed of the 25 cells
 making up the grid on the ground. 
 The relationship and interaction between \gym, Olympe
 and Sphinx are shown in \cref{fig:sim-flowchart}.
@@ -155,9 +156,10 @@ but not more than half of the adjacent cells.
 The reason for the larger coverage is that
 the \anafi drone only uses a regular \gls{gps}.
 This means that its coordinates are accurate only
-to \SIrange{3}{5}{\meter}, but moving to another
+to \SIrange{3}{5}{meters}. However, in our scaled-down
+prototype, moving to another
 cell involves
-movements of less than \SI{2}{\meter}.
+movements of less than \SI{2}{meters}.
 To minimise the errors and ensure that the current
 cell will always be in the \gls{fov} even if the
 movement is off by few centimeters, we made the camera
@@ -218,7 +220,7 @@ to differentiate them, but
 Sphinx does not provide that option by default.
 A way to get around this is to develop a Gazebo plugin,
 but this needs to be done using the \textit{libgazebo7} running
-on Ubuntu 16.04 as opposed to Ubuntu 18.04 which we 
+on Ubuntu 16.04 as opposed to Ubuntu 18.04, which we 
 have chosen to use because the former 
 is no longer supported.
 We further solved this problem by using the Ubuntu 16.04
@@ -235,17 +237,16 @@ we have decided that we would wait for the new
 version of Sphinx running on the latest Gazebo
 which Parrot will release soon. In case that does
 not happen,
-we will resort to installing Ubuntu 16.04 and develop
-all of our project's simulation using it.
+we will resort to installing Ubuntu 16.04 despite its
+obsolescence to remove the incompatibility issues.
 
 We have also done a preliminary test to see if
 we could use an \gls{rl} algorithm
 to teach the \anafi drone to fly to a certain
 point in space. We used the Trust Region Policy
 Optimization (\textsc{trpo}) from the Stable
-Baselines3 (\textsc{sb}3) with similar action
-and state spaces as the target visitation environment
-setup described above.
+Baselines3 (\textsc{sb}3) with similar libraries
+as described above but continuous state and action spaces.
 After \SI{10000}{steps} and \SI{2}{hours}
 of training, by using the file containing the weights 
 produced at the end of the training,
@@ -386,7 +387,7 @@ best possible model for our project.
 The main evaluation metrics are the precision and recall
 as seen in \cref{fig:model-1-performance}.
 A true positive occurs when the model predicts the positive class correctly, whereas 
-a true negative is when the model predicts the negative class correctly too. 
+a true negative is when the model predicts the negative class correctly. 
 False positives and false negatives represent false predictions of the model 
 where it mispredicted the positive and negative classes respectively.
 The precision is an essential indicator of a model's performance as it shows 
@@ -409,36 +410,26 @@ at the beginning, and increase as more epochs pass. By the hundredth
 epoch, both precision and recall are at a high value which is very close 
 to one.  
 
-%The last metric is the mean average precision (mAP). As we can see in 
-%\cref{fig:model-1-performance}, the value starts low at the beginning and 
-%increases with epochs passing. For the mAP 0.5, it is very high and close
-%to one, which means that it was a hit and a target was detected 
-%correctly most of the time. However, in the mAP 0.5:0.95 the final value 
-%is lower and barely above 0.8 which means that there are different mAP 
-%values over different IoV (intersection over union) thresholds ranging 
-%between 0.5:0.95. This is not an optimal result and it could be improved 
-%with better resources.
-
-The last metric is the mean average precision (mAP), it is an excellent metric
-to compare between models that are running on the same data set. It measures
+The last metric is the mean average precision (m\textsc{ap}). It is an excellent metric
+to compare between object detection models that are running on the same dataset. It measures
 how exact the prediction bounding box of the model compared to the correct
-bounding box in the data set. An mAP\_0.5 sets 0.5 as the threshold of overlap 
-between the two boxes, consequently it is very high and close to one in all 
-three models as illustrated in 
-\cref{fig:model-1-performance,fig:model-2-performance,fig:model-3-performance}
+bounding box in the dataset. An m\textsc{ap}\_0.5 sets 0.5 as the threshold of overlap 
+between the two boxes. As illustrated in 
+\cref{fig:model-1-performance,fig:model-2-performance,fig:model-3-performance}, this metric is very high and close to one in all 
+three models 
 because only an overlap of 0.5 is required to make the box count as a true positive.
-However, when we increase the threshold to be 0.5:0.95 with a step size of 0.05 we
-see that the value of mAP\_0.5:0.95 is not so high as the mAP\_0.5 because more overlap
+However, when we increase the threshold to be 0.5:0.95 with a step size of 0.05, we
+see that the value of m\textsc{ap}\_0.5:0.95 is not so high as the m\textsc{ap}\_0.5 because higher precisions of overlap
 between the true box and the predicted box is required to make it count as a true
 positive. From \cref{tab:model-comparison}, we can see that the third model was better 
-than the other models in the mAP\_0.5:0.95 metric.
+than the other models in the m\textsc{ap}\_0.5:0.95 metric.
 
 For the first model, we used the small version of \textsc{yolo}v5 which is 
-more \textsc{gpu} friendly and takes shorter training time.
-We made use of data augmentation for this model which improved its result,
-the batch size was sixteen to avoid overloading the \textsc{gpu}, 
+more \textsc{gpu} friendly and takes a shorter training time.
+We made use of data augmentation for this model which improved its result.
+The batch size was sixteen to avoid overloading the \textsc{gpu}, 
 and we ran it for a hundred epochs only. The output results can be observed in 
-\cref{fig:model-1-output}
+\cref{fig:model-1-output}.
 
 \begin{figure}[tbp] 
 	\centering
@@ -460,7 +451,7 @@ and we ran it for a hundred epochs only. The output results can be observed in
 
 The second model performed similar to the first model in terms of simple 
 classification and detection cases, but the results were not as expected and there 
-were many sharp variations in the precision, recall, and mAP especially around the 
+were many sharp variations in the precision, recall, and m\textsc{ap} especially around the 
 hundredth epoch which clearly shows that something was wrongly configured in this model
 even though it ran on the same \textsc{gpu} Tesla K80.
 The mistake that was made is that we used the large \textsc{yolo}v5 on a small dataset
@@ -473,7 +464,7 @@ We used the \textsc{yolo}v5 medium version, performed data augmentation, and ran
 \cref{fig:model-2-performance} without many oscillations which means a smooth learning
 process unlike what happened in model 2. 
 The third model also outperformed both previous models as it scored the highest value 
-of mAP\_0.5:0.95, which is 0.87 as shown in \cref{tab:model-comparison}. 
+of m\textsc{ap}\_0.5:0.95, which is 0.87 as shown in \cref{tab:model-comparison}. 
 
 \begin{table}[tbp]
 	\begin{center}
@@ -483,7 +474,7 @@ of mAP\_0.5:0.95, which is 0.87 as shown in \cref{tab:model-comparison}.
                     {p{1.3cm} X X X X X} 
 			\toprule
 			\textit{Model} & \textit{\textsc{yolo}v5\newline version} & \textit{Epochs} & 
-			\textit{Data\newline Augmentation} & \textit{mAP 0.5:0.95} & \textit{Performance Rating}\\
+                        \textit{Data\newline Augmentation} & \textit{m\textsc{ap} 0.5:0.95} & \textit{Performance Rating}\\
 			\midrule
 			 1 & Small & 100 & Yes & 0.81 & Moderate \\
 			 2 & Large & 150 & No  & 0.70 & Bad \\
@@ -528,20 +519,20 @@ of modifying the drone's battery by removing the
 plastic shield because of the drone's payload restrictions 
 and limitations, but everything changed after testing 
 the drone's maximum payload. As shown in \cref{fig:payload}
-we attached \SI{190}{\gram} of Raspberry Pi and Arduino boards
+we attached \SI{190}{grams} of Raspberry Pi and Arduino boards
 to see the effect on the performance and flight and
 battery drain percentage. 
 The drone has taken off  successfully, 
 and the flight was normal but, we faced an expected 
 battery drain that went from 
 \SI{100}{\percent} to \SI{90}{\percent} in 
-\SI{1.5}{\minute}.
+\SI{1.5}{minutes}.
 This means the drone can fly up to 
-\SI{15}{\minute} which is \SI{10}{\minute} 
+\SI{15}{minutes} which is \SI{10}{minutes} 
 less than the default battery time 
 which will be considered in design constraints.
 In our case, the total weight of our parts is equal
-to \SI{170}{\gram} which will add small time
+to \SI{170}{grams} which will add small time
 to the battery life.
 
 \begin{figure}[bp]
@@ -560,7 +551,7 @@ state of the drone changes.
 The experiment was done on simulation using Sphinx,
 then we have moved to the real world using the \anafi drone.
 From \cref{tab:respone-time}, 
-we can see that all the results are less than \SI{1}{\second}
+we can see that all the results are less than \SI{1}{second}
 which satisfied our response time constraint.
 Another thing we can conclude from the table is that 
 the response time of the real world is less than 
