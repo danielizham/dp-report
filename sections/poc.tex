@@ -44,7 +44,7 @@ and the mobility pattern of the targets cannot be uniform
 and must follow a certain distribution so that the learning
 of the \gls{rl} agent can converge.
 
-\begin{figure}[tb]%
+\begin{figure}[b]%
     \centering
     \subfloat[one target]{
     {\includegraphics[width=7cm]{one-target} }
@@ -353,35 +353,24 @@ on Qatar University's server once it is working properly and we have access
 to it. This will give us more options to see how the model performs and decide the 
 best possible model for our project.
 
-%After that, we managed to have access to Qatar University's servers, we 
-%contacted the \textsc{its} department to connect to one of the 
-%research-purpose servers and do the training on it. So in total, we had 
-%three different resources, personal hardware and \textsc{gpu}s, Google 
-%Collab's free \textsc{gpu}s, and the university servers. The results we 
-%got from the three different resources were different, and the 
-%performance was increasingly improving with the better resources and 
-%hardware used for model training. 
-
 \subsubsection{\gls{ml} performance evaluation}
 
-
-
-\begin{figure}[tbp] 
+\begin{figure}[bp] 
 	\centering
-	\includegraphics[width=1.0\textwidth, height=7cm]{model-1-output} 
-        \caption{Model No. 1 (small-sized model) output.} \label{fig:model-1-output} 
+	\includegraphics[width=0.8\textwidth]{model-1-performance} 
+        \caption{Model No. 1 (small-sized model) performance.} \label{fig:model-1-performance} 
 \end{figure}
 
 \begin{figure}[tbp] 
 	\centering
-	\includegraphics[width=1.0\textwidth, height=7cm]{model-2-output} 
-        \caption{Model No. 2 (large-sized model) output.} \label{fig:model-2-output} 
+	\includegraphics[width=0.8\textwidth]{model-2-performance} 
+        \caption{Model No. 2 (large-sized model) performance.} \label{fig:model-2-performance} 
 \end{figure}
 
 \begin{figure}[tbp] 
 	\centering
-	\includegraphics[width=1.0\textwidth, height=7cm]{model-3-output} 
-        \caption{Model No. 3 (medium-sized model) output.} \label{fig:model-3-output} 
+	\includegraphics[width=0.8\textwidth]{model-3-performance} 
+        \caption{Model No. 3 (medium-sized model) performance.} \label{fig:model-3-performance} 
 \end{figure}
 
 The main evaluation metrics are the precision and recall
@@ -428,26 +417,25 @@ For the first model, we used the small version of \textsc{yolo}v5 which is
 more \textsc{gpu} friendly and takes a shorter training time.
 We made use of data augmentation for this model which improved its result.
 The batch size was sixteen to avoid overloading the \textsc{gpu}, 
-and we ran it for a hundred epochs only. The output results can be observed in 
-\cref{fig:model-1-output}.
+and we ran it for a hundred epochs only.
 
-\begin{figure}[tbp] 
-	\centering
-	\includegraphics[width=0.8\textwidth]{model-1-performance} 
-        \caption{Model No. 1 (small-sized model) performance.} \label{fig:model-1-performance} 
-\end{figure}
-
-\begin{figure}[tbp] 
-	\centering
-	\includegraphics[width=0.8\textwidth]{model-2-performance} 
-        \caption{Model No. 2 (large-sized model) performance.} \label{fig:model-2-performance} 
-\end{figure}
-
-\begin{figure}[tbp] 
-	\centering
-	\includegraphics[width=0.8\textwidth]{model-3-performance} 
-        \caption{Model No. 3 (medium-sized model) performance.} \label{fig:model-3-performance} 
-\end{figure}
+\begin{table}[bp]
+	\begin{center}
+		\caption{A comparison between all three models and their outputs.}
+		\label{tab:model-comparison}
+                \begin{tabularx}{\textwidth}
+                    {p{1.3cm} X X X X X} 
+			\toprule
+			\textit{Model} & \textit{\textsc{yolo}v5\newline version} & \textit{Epochs} & 
+                        \textit{Data\newline Augmentation} & \textit{m\textsc{ap} 0.5:0.95} & \textit{Performance Rating}\\
+			\midrule
+			 1 & Small & 100 & Yes & 0.81 & Moderate \\
+			 2 & Large & 150 & No  & 0.70 & Bad \\
+			 3 & Medium& 150 & Yes & 0.87 & Excellent \\		
+			\bottomrule
+		\end{tabularx}
+	\end{center}
+\end{table}
 
 The second model performed similar to the first model in terms of simple 
 classification and detection cases, but the results were not as expected and there 
@@ -465,25 +453,6 @@ We used the \textsc{yolo}v5 medium version, performed data augmentation, and ran
 process unlike what happened in model 2. 
 The third model also outperformed both previous models as it scored the highest value 
 of m\textsc{ap}\_0.5:0.95, which is 0.87 as shown in \cref{tab:model-comparison}. 
-
-\begin{table}[tbp]
-	\begin{center}
-		\caption{A comparison between all three models and their outputs.}
-		\label{tab:model-comparison}
-                \begin{tabularx}{\textwidth}
-                    {p{1.3cm} X X X X X} 
-			\toprule
-			\textit{Model} & \textit{\textsc{yolo}v5\newline version} & \textit{Epochs} & 
-                        \textit{Data\newline Augmentation} & \textit{m\textsc{ap} 0.5:0.95} & \textit{Performance Rating}\\
-			\midrule
-			 1 & Small & 100 & Yes & 0.81 & Moderate \\
-			 2 & Large & 150 & No  & 0.70 & Bad \\
-			 3 & Medium& 150 & Yes & 0.87 & Excellent \\		
-			%\hline 
-			\bottomrule
-		\end{tabularx}
-	\end{center}
-\end{table}
 
 \subsection{Physical components}
 

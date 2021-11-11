@@ -33,7 +33,7 @@ and what the integral components are.
 
 \subsection{Alternative solutions and tradeoffs}
 
-\begin{table}[H]
+\begin{table}[b]
     \centering
     \caption{A comparison of the alternative solutions.}
     \label{tab:alt-solutions}
@@ -50,8 +50,8 @@ and what the integral components are.
     \end{tabularx}
 \end{table} 
 
-From the \cref{tab:alt-solutions} above, 
-we can see some tradeoffs 
+In \cref{tab:alt-solutions}, 
+we can see some trade-offs 
 between design A and design B, but in both designs, 
 an onboard microcomputer must be present for 
 flying control and the support of autopilot feature. 
@@ -156,12 +156,7 @@ will be presented in a more detailed manner.
 \subsection{Hardware/software to be used}\label{sec:hardware-software}
 
 \subsubsection{Software}
-    %parrot olympe
-    %parrot sphinx
-    %Gazebo simulator
-    %roboflow
-    %google colab notebook 
-    %jupyter notebook
+
 There are three primary categories of software 
 depending on the usage: simulation, training, 
 and application, and they are listed in \cref{tab:software-used}. The first part will focus on 
@@ -178,25 +173,7 @@ and can be installed on the onboard computer that
 will be attached to the drone. For the simulation part, 
 using Sphinx and Gazebo software is a very helpful
 to visualize the environment, control the drone, 
-and apply the \gls{drl} model. Sphinx is a simulation 
-tool built on top of Gazebo 
-to run the Parrot's drone firmware on 
-personal computers, which comes with helpful 
-features for simulation such as visualizing flight 
-data at runtime, running the \gls{uav} remotely, 
-and executing scripts with the command line. 
-Gazebo is a robot \textsc{gui} simulation 
-which simulates the visual and physical surrounding 
-of drones and custom 3D objects. 
-\Cref{fig:gazebo} shows how the Sphinx 
-program looks like. 
-
-\begin{figure}[tbp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{gazebo.png}
-    \caption{The Sphinx program that runs on top of Gazebo.}
-    \label{fig:gazebo}
-\end{figure}
+and apply the \gls{drl} model. 
 
 \begin{table}[p]
     \centering
@@ -278,6 +255,26 @@ program looks like.
     \end{tabular}
 \end{table}
 
+Sphinx is a simulation 
+tool built on top of Gazebo 
+to run the Parrot's drone firmware on 
+personal computers, which comes with helpful 
+features for simulation such as visualizing flight 
+data at runtime, running the \gls{uav} remotely, 
+and executing scripts with the command line. 
+Gazebo is a robot \textsc{gui} simulation 
+which simulates the visual and physical surrounding 
+of drones and custom 3D objects. 
+\Cref{fig:gazebo} shows how the Sphinx 
+program looks like. 
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{gazebo.png}
+    \caption{The Sphinx program that runs on top of Gazebo.}
+    \label{fig:gazebo}
+\end{figure}
+
 The training part is divided into \gls{rl}, 
 which is used to teach the \anafi drone to complete the task, 
 and object detection and identification, 
@@ -350,11 +347,7 @@ mission.
 \end{figure}
 
 \subsubsection{Hardware}
-    %Parrot ANAFI Drone
-    %Raspberry Pi 4
-    %lithium Battery
-    %Wi-Fi adapter dongle
-    %laptop control station
+
 The main core of the hardware part is the drone, 
 which will be the Parrot \anafi.
 \Cref{tab:hardware-used} lists the hardware components
@@ -368,63 +361,6 @@ The choice of action is determined by the \gls{drl}
 model that will be installed in it.
 Hence, the tasks of the Raspberry Pi are:
 
-\begin{enumerate}
-    \item connecting to the drone's access point 
-        using a Wi-Fi interface,
-    \item controlling the drone 
-        by executing Olympe to send low-level control signals 
-        and to receive sensory data,
-    \item applying the \gls{drl} model supported by 
-        the command and control system,
-    \item and receiving high-level commands and 
-        sending data to the command and control system.
-\end{enumerate}
- 
-The Parrot \anafi drone is connected 
-to the Raspberry Pi, which is the onboard computer,
-using both devices' internal 
-\SI{2.4}{\giga\hertz}
-Wi-Fi interfaces. 
-Firstly, we add the \anafi drone's access point 
-to the saved devices list in the Raspberry Pi.
-Once the Raspberry Pi boots up, it automatically keeps 
-searching for the access point and connects 
-to it once it is available.
-
-For the connection between the command and control system 
-and the Raspberry Pi, 
-the Raspberry Pi will use a 
-\SI[per-mode=symbol,per-symbol=p]{300}{MBps} 
-Wi-Fi adapter dongle connected to 
-its \textsc{usb} port. 
-This will allow it to create an access point
-to which the command and control device 
-will connect and by which the Raspberry Pi can be controlled.
-This control of the onboard computer 
-is done through the Secure Shell (\textsc{ssh})
-protocol or the Virtual Network Computing (\textsc{vnc})
-if the graphical interface is needed. 
-
-Regarding the power source for the Raspberry Pi, 
-we thought of taking power directly from the 
-drone's battery, but, after some research, we found 
-that the \anafi drone's  
-socket is somehow different. It is also challenging 
-and the drone battery is susceptible to shutting down 
-immediately if the voltage reaches less than 3.0 Volt. 
-So, we did not want to take the risk and used a 
-lithium battery with a power board called 
-\textsc{upsp}ack Standard Power Supply attached to 
-the main Raspberry Pi board. It includes a 
-\SI{4000}{\milli\ampere\hour}
-lithium battery, which provides enough power 
-and time for our application.
-
-    %Parrot ANAFI Drone
-%Raspberry Pi 4
-%lithium Battery
-%Wi-Fi adapter dongle
-%laptop control station
 \begin{table}[p]
     \centering
     \caption{Hardware used in the project.}
@@ -487,5 +423,56 @@ and time for our application.
     \end{tabular}
 \end{table}    
 
+\begin{enumerate}
+    \item connecting to the drone's access point 
+        using a Wi-Fi interface,
+    \item controlling the drone 
+        by executing Olympe to send low-level control signals 
+        and to receive sensory data,
+    \item applying the \gls{drl} model supported by 
+        the command and control system,
+    \item and receiving high-level commands and 
+        sending data to the command and control system.
+\end{enumerate}
+ 
+The Parrot \anafi drone is connected 
+to the Raspberry Pi, which is the onboard computer,
+using both devices' internal 
+\SI{2.4}{\giga\hertz}
+Wi-Fi interfaces. 
+Firstly, we add the \anafi drone's access point 
+to the saved devices list in the Raspberry Pi.
+Once the Raspberry Pi boots up, it automatically keeps 
+searching for the access point and connects 
+to it once it is available.
+
+For the connection between the command and control system 
+and the Raspberry Pi, 
+the Raspberry Pi will use a 
+\SI[per-mode=symbol,per-symbol=p]{300}{MBps} 
+Wi-Fi adapter dongle connected to 
+its \textsc{usb} port. 
+This will allow it to create an access point
+to which the command and control device 
+will connect and by which the Raspberry Pi can be controlled.
+This control of the onboard computer 
+is done through the Secure Shell (\textsc{ssh})
+protocol or the Virtual Network Computing (\textsc{vnc})
+if the graphical interface is needed. 
+
+Regarding the power source for the Raspberry Pi, 
+we thought of taking power directly from the 
+drone's battery, but, after some research, we found 
+that the \anafi drone's  
+socket is somehow different. It is also challenging 
+and the drone battery is susceptible to shutting down 
+immediately if the voltage reaches less than 3.0 Volt. 
+So, we did not want to take the risk and used a 
+lithium battery with a power board called 
+\textsc{upsp}ack Standard Power Supply attached to 
+the main Raspberry Pi board. It includes a 
+\SI{4000}{\milli\ampere\hour}
+lithium battery, which provides enough power 
+and time for our application.
 
 \end{document}
