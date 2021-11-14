@@ -1,0 +1,34 @@
+\begin{table}[H]
+    \centering
+    \caption{The (expected) \textsc{drl} performance
+    compared to some baselines.}
+    \label{tab:benchmark}
+    \begin{tabularx}{1.0\textwidth}{ X c c c }
+        \toprule
+        \multirow{2}{*}{\textit{Task}}
+        & \multicolumn{3}{c}{\textit{Time (minute)}}
+        \\
+        & \textit{Random} 
+        & \textit{Zigzag}
+        & \textit{DRL}
+        \\
+
+        \midrule
+        \addlinespace
+
+        Fixed targets with uniformly distributed locations
+        & Fast & Fastest & Slow     
+        \\ \addlinespace
+        Fixed targets with arbitrarily distributed locations
+        & Slow & Fast & Fastest   
+        \\ \addlinespace
+        Mobile targets with a uniform mobility pattern
+        & Fast & Fastest & Slow
+        \\ \addlinespace
+        Mobile targets with an arbitrary mobility pattern
+        & Fast & Slow & Fastest
+        \\ \addlinespace
+
+        \bottomrule
+    \end{tabularx}
+\end{table}
