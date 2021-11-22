@@ -112,6 +112,7 @@ interactions are summarized in \cref{tab:use-case-summaries}.
     \end{xltabular}
 \end{center}
 \vspace{-1.5cm}
+%
 \subsection{Design constraints}
 
 The following lists in 
@@ -122,16 +123,24 @@ They have arisen due to the nature of
 the devices we have chosen to use 
 and the environment within which the drone will fly.
 
-\begin{table}[H]
-    \centering
-    \caption{Technical design constraints.}
-    \label{tab:technical-design-constraints}
-    \begin{tabularx}{\textwidth}{ X p{12.2cm} }
+\begin{center}
+    \begin{xltabular}{\textwidth}{ X p{12.2cm} }
+        \caption{Technical design constraints.}
+        \label{tab:technical-design-constraints} \\
         \toprule
         \textit{Name} 
             & \textit{Description} \\
 
         \midrule
+        \endfirsthead
+
+        \caption[]{Technical design constraints (continued)}\\
+        \toprule
+        \textit{Name} 
+            & \textit{Description} \\
+
+        \midrule
+        \endhead
 
         Power supply  
             & The \anafi drone and the Raspberry Pi must be 
@@ -190,10 +199,23 @@ and the environment within which the drone will fly.
             which is the maximum payload mass 
             of the \anafi drone. \\
 
-        \bottomrule
-    \end{tabularx}
-\end{table}
+        \gls{drl} model \newline accuracy
+            & The most powerful computer at our disposal
+            provides a dedicated \textsc{nvidia} 
+            \textsc{titan} \textsc{8gb} \textsc{gpu}. 
+            Even with these specifications, the training
+            will last an unreasonably long time 
+            to allow the agent to exhaustively explore 
+            the state space and find the global optimum.
+            Moreover, the sampling nature of \gls{rl}
+            means that an optimal solution can never be
+            guaranteed. \\
 
+        \bottomrule
+    \end{xltabular}
+\end{center}
+\vspace{-1.0cm}
+%
 \begin{table}[H]
     \centering
     \caption{Practical design constraints.}
@@ -248,6 +270,11 @@ and the environment within which the drone will fly.
 \end{table}
 
 \subsection{Design standards}
+
+The use of standards ensures reliability and consistency
+among the devices and programs that incorporate them.
+The standards employed in the design of this project are
+listed in the following \cref{tab:design-standards}.
 
 \begin{table}[H]
     \centering
