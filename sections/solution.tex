@@ -293,15 +293,17 @@ The state space is given as
 \end{align}
 
 \noindent 
-where $t$ is the current timestep, $cell$ is the \id of the
-cell above which the drone is, $m$ is the \id of the target,
-and the vector, having the
-same length as the number of targets, is an
-indicator if that particular target has been seen. For example,
+where $t$ is the current time step, $cell$ is the \id of the
+cell above which the drone is, $I_k$ is the binary variable 
+that indicates if the target with an \id of $k$ has been
+visited, $m$ is the total number of targets,
+and the vector of length $m$ is the container for the
+$I$ indicators. 
+For example,
 if only targets with \id's 3 and 7 have been visited
-in the current and previous cells since the beginning of the 
+in the current and previous time steps since the beginning of the 
 episode,
-then the vector will have elements of one at index 2 and 6 while
+then the vector will have elements of one for $I_3$ and $I_7$ while
 the other elements are zeros.
 It follows that all the targets must be uniquely identifiable.
 In addition, the reward is how many new targets are captured 
