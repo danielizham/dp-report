@@ -10,7 +10,7 @@ hmargin=2.54cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{subfiles}
-\usepackage[toc,page]{appendix}
+\usepackage[titletoc,page]{appendix}
 \usepackage[acronym]{glossaries}
 \usepackage{csquotes}
 \usepackage{xargs} % Use more than one optional parameter in a new commands
@@ -99,6 +99,22 @@ hmargin=2.54cm]{geometry}
 \usepackage{microtype}
 \usepackage[plain]{algorithm}
 \usepackage{algpseudocode}
+\usepackage[most]{tcolorbox}
+\definecolor{linequote}{RGB}{224,215,188}
+\definecolor{backquote}{RGB}{249,245,233}
+
+\newtcolorbox{newrequirements}{%
+    enhanced, breakable, 
+    size=fbox,
+    boxsep=5mm,
+    left=5mm,
+    right=5mm,
+    frame hidden,
+    sharp corners,
+    colback=backquote,
+    borderline horizontal={.5pt}{0pt}{linequote},
+    borderline horizontal={.5pt}{1pt}{linequote}
+}
 
 % For plotting
 \usepackage{pgfplots}
@@ -153,7 +169,8 @@ hmargin=2.54cm]{geometry}
 }
 
 \renewcommand{\appendixtocname}{Appendix}
-\renewcommand{\appendixpagename}{\Large Appendix}
+\renewcommand{\appendixpagename}{Appendix}
+% \renewcommand{\appendixpagename}{\Large Appendix}
 
 % Common shortcuts
 \newcommand{\anafi}{\textsc{anafi}\xspace}
@@ -278,31 +295,38 @@ hmargin=2.54cm]{geometry}
 \section{Requirements Analysis} \label{sec:requirements}
 \subfile{sections/requirements}
 
-\section{Proposed Solution} \label{sec:solution}
-\subfile{sections/solution}
+\section{Solution Design} \label{sec:design}
+\subfile{sections/design}
 
-\section{Proof of Concept} \label{sec:poc}
-\subfile{sections/poc}
+\section{Implementation} \label{sec:implementation}
+\subfile{sections/implementation}
 
-\section{Market Research and Business Viability} \label{sec:market}
-\subfile{sections/market}
+\section{Testing} \label{sec:testing}
+\subfile{sections/testing}
 
-\section{Project Plan} \label{sec:plan}
-\subfile{sections/plan}
+\section{Impact} \label{sec:impact}
+\subfile{sections/impact}
+
+\section{Conclusion} \label{sec:conclusion}
+\subfile{sections/conclusion}
+
+\section{Future Work} \label{sec:future}
+\subfile{sections/future}
+
+\section{Reflection} \label{sec:reflection}
+\subfile{sections/reflection}
 
 \end{linenumbers}
-
-% \section{Short Guide} \label{sec:guide}
-% \subfile{sections/guide}
 
 \newpage
 
 \printbibliography[heading=bibintoc]
 
-% \newpage
+\newpage
 
-% \begin{appendices}
-%     \subfile{sections/appendix}
-% \end{appendices}
+\begin{appendices}
+    \section{Project Plan} \label{sec:plan}
+    \subfile{sections/plan}
+\end{appendices}
 
 \end{document}
