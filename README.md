@@ -19,7 +19,17 @@
 - [x] Market Research and Business Viability
 - [x] Project Plan
 
-**Phase 2 (Final) - Due by the XX of XXXX 2022**
-- [ ] Task 1: 
-- [ ] Task 2: 
-- [ ] Task 3: 
+**Phase 2 (Final) - Due on the 21<sup>st</sup> of April 2022**
+- [ ] Abstract
+- [x] Acknowledgment
+- [x] Introduction and Motivation
+- [x] Background and Related Work
+- [ ] Requirements Analysis
+- [ ] Solution Design
+- [ ] Implementation
+- [ ] Testing
+- [ ] Impact
+- [ ] Conclusion
+- [ ] Future Work
+- [ ] Reflection
+- [ ] Appendix - Project Plan
