@@ -2,6 +2,100 @@
 
 \begin{document}
 
+\begin{newrequirements}
+    \begin{todolist}
+    \item Explain, as many as directly apply in 
+        your project, the impact of your 
+        engineered solution in a global, 
+        economic, environmental and societal 
+        context. For example: 
+
+    \begin{todolist}
+    \item Evaluate how your solution could 
+        contribute to addressing global issues 
+        such as climate change, poverty, 
+        illiteracy, sustainable development and 
+        human well-being. 
+
+    \item Social impact relates to the capacity 
+        of your project to create social and 
+        cultural change on communities and 
+        individuals. 
+
+    \item For environmental, you may evaluate 
+        real or perceived health and safety 
+        issues associated with the use of your 
+        system. 
+
+    \item For economic, you may evaluate the 
+        benefits and contribution of your 
+        solution to the country’s economic 
+        growth and economic competitiveness. 
+        Also, you may evaluate the 
+        manufacturability of your product (
+        e.g., ease/difficulty of production). 
+        Any specific issues and additional 
+        costs? 
+    \end{todolist}
+
+    \item Use the following table to quantify the 
+        significance of your design in the 
+        above contexts. You may use a scale of: 
+        \textit{low}, \textit{medium} and \textit{high}, 
+        where you 
+        identify the current status of the 
+        contexts as \textit{no impact} and hence show 
+        how high your work can impact on them
+        (\textit{high} being extremely impactful while 
+        \textit{low} being minor impact). 
+
+    \end{todolist}
+\end{newrequirements}
+
+\newcounter{impactcounter}
+\setcounter{impactcounter}{1}
+\newcommand\showimpactcounter{%
+    \theimpactcounter\stepcounter{impactcounter}%
+}
+
+\begin{table}[H]
+    \centering
+    \caption{Impact of the engineered solution on 
+    different contexts.}
+    \label{tab:impact}
+    \begin{tabularx}{\textwidth}{ c l X l }
+        \toprule
+        \textit{No} 
+            & \textit{Evaluation context} 
+        & \textit{Specific contribution from the project} 
+            & \textit{Impact level} \\
+
+        \midrule
+        
+        \showimpactcounter
+            & Global 
+        & contribution
+            & High \\
+        
+        \showimpactcounter
+            & Economical 
+        & 
+            & \\
+
+        \showimpactcounter
+            & Environmental 
+        & 
+            & \\
+
+        \showimpactcounter
+            & Societal 
+        & 
+            & \\
+
+        \bottomrule		
+    \end{tabularx}
+\end{table}
+
 \lipsum[1]
 
 \end{document}

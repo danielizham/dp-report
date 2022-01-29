@@ -100,20 +100,15 @@ hmargin=2.54cm]{geometry}
 \usepackage[plain]{algorithm}
 \usepackage{algpseudocode}
 \usepackage[most]{tcolorbox}
-\definecolor{linequote}{RGB}{224,215,188}
-\definecolor{backquote}{RGB}{249,245,233}
 
 \newtcolorbox{newrequirements}{%
-    enhanced, breakable, 
-    size=fbox,
-    boxsep=5mm,
-    left=5mm,
-    right=5mm,
-    frame hidden,
-    sharp corners,
-    colback=backquote,
-    borderline horizontal={.5pt}{0pt}{linequote},
-    borderline horizontal={.5pt}{1pt}{linequote}
+    title={\textsf{New requirements}},
+    colframe=red!75!black,
+    colback=red!5!white,
+    fonttitle=\bfseries,
+    breakable,
+    enhanced,
+    toptitle=2mm,
 }
 
 % For plotting
@@ -158,6 +153,7 @@ hmargin=2.54cm]{geometry}
 
 % For better lists
 \usepackage{enumerate}
+\usepackage{enumitem}
 
 % For dummy text
 \usepackage{blindtext}
@@ -168,11 +164,22 @@ hmargin=2.54cm]{geometry}
     {Table of Contents}%
 }
 
+%%% Checklist
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+
+%%% Appendix title name
 \renewcommand{\appendixtocname}{Appendix}
 \renewcommand{\appendixpagename}{Appendix}
 % \renewcommand{\appendixpagename}{\Large Appendix}
 
-% Common shortcuts
+%%% Common shortcuts
 \newcommand{\anafi}{\textsc{anafi}\xspace}
 \newcommand{\gym}{the \textsc{o}pen\textsc{ai} 
     \textsc{g}ym\xspace} 

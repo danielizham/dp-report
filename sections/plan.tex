@@ -4,6 +4,12 @@
 
 \subsection{Project milestones}
 
+\newcounter{milestonecounter}
+\setcounter{milestonecounter}{1}
+\newcommand\showmilestonecounter{%
+    \themilestonecounter\stepcounter{milestonecounter}%
+}
+
 \begin{center}
     \begin{xltabular}{\textwidth}{ X p{5cm} p{9cm} }
         \caption{Senior 1 project milestones.}
@@ -27,46 +33,56 @@
         \midrule
         \endhead
 
-        1 & Simulation environment
+        \showmilestonecounter 
+        & Simulation environment
             & Setup the environment and be familiar with 
             the software and libraries that will be used.
         \\
-        2 & Object detection model
+        \showmilestonecounter
+        & Object detection model
             & Create dataset and start training the model 
             then try to enhance it.
         \\
-        3 & Research hardware interfacing and possible 
+        \showmilestonecounter 
+        & Research hardware interfacing and possible 
         solutions
             & Collect information about possible hardware 
             components and architectures to be used.
         \\
-        4 & Literature review and related work
+        \showmilestonecounter 
+        & Literature review and related work
             & Start reading related work and previous papers 
             related to our topic, compare, criticize, and 
             summarize them.
         \\
-        5 & Hardware architecture and implementation
+        \showmilestonecounter 
+        & Hardware architecture and implementation
             & Start grouping the components together 
             and see what is missing and from where to get it.
         \\
-        6 & Enhance the simulation environment
+        \showmilestonecounter 
+        & Enhance the simulation environment
             & Apply the detection model and tweak 
             the environment and improve it.
         \\
-        7 & Hardware testing and proving design constraints 
+        \showmilestonecounter 
+        & Hardware testing and proving design constraints 
         parameters
             & Test the design constraints and push the 
             drone and hardware components to the limit.
         \\
-        8 & Interim report
+        \showmilestonecounter
+        & Interim report
             & Finalize the different sections of the report
             and compile them.
         \\
-        9 & Report review and corrections
+        \showmilestonecounter 
+        & Report review and corrections
             & Review the written report with the supervisor
             and make corrections as necessary.
         \\
-        10 & Presentation
+        \showmilestonecounter 
+        & Presentation
             & Create a presentation based on the report
             as well as the introductory video.
         \\
