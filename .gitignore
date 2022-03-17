@@ -43,6 +43,7 @@ background.pdf
 *.synctex.gz(busy)
 *.pdfsync
 /build/
+/sections/build/
 
 ## Build tool directories for auxiliary files
 # latexrun
