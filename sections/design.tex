@@ -598,7 +598,59 @@ and time for our application.
 
 \subsubsection{Simulation}
 
-\lipsum[5]
+% class diagram - use the sim flowchart
+The simulation and reinforcement learning are critical
+components to achieve objective \ref{obj:drl}.
+This part of the project starts with receiving
+information about the targets' count, distribution
+and mobility pattern
+and ends with producing a file containing the weights
+for the \gls{drl} model.
+In our work described below, we have assumed certain
+information about the targets but that shall change
+with clients and types of the target visitation.
+
+As for sending movement commands to the drone,
+the Parrot Olympe was used.
+In an \textsc{ide}, the Olympe library was imported
+in a Python script. The library allowed us to connect
+to the simulated drone by specifying the drone's
+\textsc{ip}. Once the connection was established, 
+we could send the Olympe control commands to the drone
+to execute the visitation task. Which command to use
+depends on the reinforcement learning.
+
+The reinforcement learning was aided 
+by another library called \gym.
+We used it to facilitate developing the
+\gls{drl} algorithm we are implementing and to 
+teach the drone how to achieve the 
+target visitation mission.
+Specifically, \gym provides an abstract class 
+called \texttt{Env}
+which we have inherited and overridden the 
+required unimplemented methods.
+The action space is defined in the subclass, and its
+elements call the necessary Olympe functions. 
+The space consists of 9 movements: 
+forward, backward, left,
+right, forward-left, forward-right, backward-left,
+backward-right and no-operation.
+Similarly implemented is the state space 
+which is composed of the 25 cells
+making up the grid on the ground. 
+The relationship and interaction between \gym, Olympe
+and Sphinx are shown in \cref{fig:sim-flowchart}.
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=1.0\textwidth]{sim-flowchart}
+    \caption{A flowchart showing the training process
+        of the reinforcement learning in the project
+        and the interactions between the libraries
+        and programs.}
+    \label{fig:sim-flowchart}
+\end{figure}
 
 \subsubsection{User Interface}
 
