@@ -29,11 +29,11 @@
 - [ ] Solution Design
    - [ ] Hardware (Abdulrahman)
    - [ ] RL (Daniel)
-   - [ ] UI (Abdulrahman)
+   - [ ] UI (Bahri)
 - [ ] Implementation
    - [ ] Hardware (Abdulrahman)
    - [ ] RL (Daniel)
-   - [ ] UI (Abdulrahman)
+   - [ ] UI (Bahri)
 - [ ] Testing
    - [ ] Hardware (Abdulrahman)
    - [ ] RL (Daniel)
@@ -49,4 +49,4 @@
 - [ ] Appendix - Project Plan
    - [ ] Hardware (Abdulrahman)
    - [ ] RL (Daniel)
-   - [ ] UI (Abdulrahman)
+   - [ ] UI (Bahri)
