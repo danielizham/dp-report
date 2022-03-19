@@ -25,11 +25,28 @@
 - [x] Introduction and Motivation
 - [x] Background and Related Work
 - [ ] Requirements Analysis
+   - [ ] Minor modification (Daniel)
 - [ ] Solution Design
+   - [ ] Hardware (Abdulrahman)
+   - [ ] RL (Daniel)
+   - [ ] UI (Abdulrahman)
 - [ ] Implementation
+   - [ ] Hardware (Abdulrahman)
+   - [ ] RL (Daniel)
+   - [ ] UI (Abdulrahman)
 - [ ] Testing
-- [ ] Impact
+   - [ ] Hardware (Abdulrahman)
+   - [ ] RL (Daniel)
+- [ ] Impact (Bahri)
 - [ ] Conclusion
 - [ ] Future Work
+   - [ ] Hardware (Abdulrahman)
+   - [ ] RL (Daniel)
 - [ ] Reflection
+   - [x] Abdulrahman
+   - [ ] Bahri
+   - [ ] Daniel
 - [ ] Appendix - Project Plan
+   - [ ] Hardware (Abdulrahman)
+   - [ ] RL (Daniel)
+   - [ ] UI (Abdulrahman)
