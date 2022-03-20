@@ -508,10 +508,15 @@ and time for our application.
 	\begin{tabularx}{\textwidth}{ p{4cm} X X }
 		\toprule
 		\textit{} & \textit{Option A} & \textit{Option B}\\ \midrule
-		Type  & Custom made drone with onboard computer & Commercial drone with high performance and many features    \\
-		Flexibility & Very flexible and customization is easy & Hard to customize or modify it since it flies under limited protocols and standards. \\
+		Type  & Custom made drone with onboard computer & 
+		Commercial drone with high performance and many features    \\
+		Flexibility & Very flexible and customization is easy & 
+		Hard to customize or modify it since it flies under 
+		limited protocols and standards. \\
 		
-		Price and Availability & Cheaper but the shipping and building processes must be considered & Expensive but in our case its available in our hands and ready to fly.   \\
+		Price and Availability & Cheaper but the shipping and 
+		building processes must be considered & Expensive but 
+		in our case its available in our hands and ready to fly.   \\
 		
 		Onboard computer & Must have & Must have \\
 		\bottomrule
@@ -557,11 +562,21 @@ and availability.
 	\label{tab:onboard-computers}  
 	\begin{tabular}{ p{3cm} p{4cm} p{4cm} p{4cm} }
 		\toprule
-		\textit{} & \textit{Raspberry Pi 4} & \textit{\textsc{nvidia} Jetson Nano} & \textit{\textsc{dji} Manifold}\\ \midrule
-		Specifications  & \textsc{cpu}: Cortex-A72 (\textsc{arm} v8) 64-bit@ 1.5GHz | Ram: 4GB or 8GB \textsc{lpddr4}-3200 \textsc{sdram} | \textsc{gpu}: Broadcom VideoCore VI & \textsc{cpu}: Quad-core \textsc{arm} A57 @ 1.43 GHz | Ram: 4 GB 64-bit \textsc{lpddr4}   | \textsc{gpu}: 128-core Maxwell & \textsc{cpu}: Quad-core, \textsc{arm} | Ram: 2 GB \textsc{ddr3l} | \textsc{gpu}: Low-power GeForce graphics processor \\ \addlinespace
-		Connection interfaces & 2.4 GHz and 5.0 GHz \gls{ieee} 802.11ac wireless, Bluetooth 5.0 & Gigabit Ethernet \& M.2 Key E (for WiFi support). &10/100/1000 \textsc{base-t} Ethernet \\ \addlinespace
+		\textit{} & \textit{Raspberry Pi 4} & \textit{\textsc{nvidia} Jetson Nano} & 
+		\textit{\textsc{dji} Manifold}\\ \midrule
+		Specifications  & \textsc{cpu}: Cortex-A72 (\textsc{arm} v8) 64-bit@ 1.5GHz | Ram: 4GB or 8GB \textsc{lpddr4}-3200 \textsc{sdram} | \textsc{gpu}: Broadcom VideoCore VI & 
+		\textsc{cpu}: Quad-core \textsc{arm} A57 @ 1.43 GHz | Ram: 4 GB 64-bit 
+		\textsc{lpddr4}   | \textsc{gpu}: 128-core Maxwell & \textsc{cpu}: Quad-core, 
+		\textsc{arm} | Ram: 2 GB \textsc{ddr3l} | \textsc{gpu}: Low-power GeForce
+		 graphics processor \\ \addlinespace
+		Connection interfaces & 2.4 GHz and 5.0 GHz \gls{ieee} 802.11ac wireless,
+		 Bluetooth 5.0 & Gigabit Ethernet \& M.2 Key E (for WiFi support). &10/100/1000 
+		 \textsc{base-t} Ethernet \\ \addlinespace
 		
-		Price \& Availability & \qar{300}. Available and can be used on any drone & \qar{400}. Available but needs to be ordered and shipped & Very expensive and restricted to \textsc{dji} drones and \textsc{dji} company stopped selling it \\ \addlinespace
+		Price \& Availability & \qar{300}. Available and can be used on any drone & 
+		\qar{400}. Available but needs to be ordered and shipped & Very expensive 
+		and restricted to \textsc{dji} drones and \textsc{dji} company stopped 
+		selling it \\ \addlinespace
 		Picture & \begin{minipage}{.2\textwidth}
 			\includegraphics[width=40mm, height=30mm]{raspberry.jpg}
 		\end{minipage}  & \begin{minipage}{.2\textwidth}
@@ -574,18 +589,24 @@ and availability.
 \end{table}
 
 \subsubsection{Power Supply options}
-
+As shown in \cref{tab:power-sources}, there are different options for
+the raspberry pi power sources, we have chosen the second option
+RPI pack because it is a complete package and lightweight compared 
+to other options also, availability was another primary concern. 
 \begin{table}[H]
 	\centering
 	\caption{A comparison of the Power-supply sources for RPI4.}
 	\label{tab:power-sources}  
 	\begin{tabular}{ p{3cm} p{4cm} p{4cm} p{4cm} }
 		\toprule
-		\textit{} & \textit{UPS HAT Stable \& Lithium ion battery} & \textit{RPI-ups-pack Lithium polymer battery} & \textit{Power bank}\\ \midrule
+		\textit{} & \textit{UPS HAT Stable \& Lithium ion battery} & 
+		\textit{RPI-ups-pack Lithium polymer battery} & \textit{Power bank}\\ \midrule
 				Weight & 80g & 70g & 1.2kg \\ \addlinespace
 				Voltage,current & 5V 3.5A  & 5V 3.5A &  5V 3.5A\\ \addlinespace
 				
-				Price \& Availability & \qar{100}.board available online without batteries & \qar{80}. Available online with battery included & \qar{60}. available locally\\ \addlinespace
+				Price \& Availability & \qar{100}.board available online without batteries & 
+				\qar{80}. Available online with battery included & \qar{60}. available 
+				locally\\ \addlinespace
 				Charging duration  & longer & fast & longer \\ \addlinespace	
 				Picture & \begin{minipage}{.2\textwidth}
 					\includegraphics[width=40mm, height=30mm]{ion-battery-ups-haT.png}
@@ -598,7 +619,6 @@ and availability.
 			\end{tabular}
 		\end{table}
 
-\subsubsection{WiFi Adapter options}
 
 	
 
