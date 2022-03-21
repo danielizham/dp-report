@@ -165,10 +165,6 @@ we confirm that we can connect to the drone and can control it.
 
 \subsection{Flying duration \& Batteries}
 
-We have used experimental verification to devise some 
-realistic energy models, that can be fed in the simulation to do the comparisons. This will help the RL model to choose 
-the best action depending on less energy consumption 
-when both actions have the same probability. 
 As shown in Fig.~\ref{fig:time-comparison} we have 
 conducted time comparison experiments for both drone 
 battery (2700mAh) and raspberry pi battery (4000mAh) 
@@ -223,6 +219,10 @@ per second is for the 44 meters, we can get the
 energy per second for 1 meter by calculating 
 90.66/44 = 2.06 Joules/s. 
 In (\ref{eq:Energy-moving}) we can generalize an energy equation for moving action, which can be used in the simulation environment to train the RL model, now it will not just consider the time, but also the energy consumption.
+Now we verified the flight duration constrain and we can to devise some 
+realistic energy models, that can be fed in the simulation to do the comparisons. This will help the RL model to choose 
+the best action depending on less energy consumption 
+when both actions have the same probability. 
 
 \begin{align}
 	P = \frac{E(J)}{t(s)} 
