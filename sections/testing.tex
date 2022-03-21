@@ -161,7 +161,25 @@ we confirm that we can connect to the drone and can control it.
 
 \subsection{Command-Control system maximum distance}
 
-
+in this test we want to know the maximum range that can
+the command and control system and the raspberry pi communicate
+and share live video feed. we fixed the command and control system and moved
+the drone away from it, then for every 3 meters we have measured the Signal-to-noise ratio (SNR).
+We have repeated this experiment three times to get the average maximum range.
+From the results shown in ~\ref{fig:snr-vs-distance} after 117 meters 
+the command an control system disconnects from the raspberry pi
+and the video stream stops, disconnecting is not a major issue
+since the raspberry pi once it receive the mission start
+flag it will autonomously finish the mission and record the video needed
+and once the connection is back user continue control or interrupt the mission
+at anytime.
+ 
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=5in]{snr}
+	\caption{Average SNR vs Distance}
+	\label{fig:snr-vs-distance}
+\end{figure}
 
 \subsection{Flying duration \& Batteries}
 
