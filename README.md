@@ -37,6 +37,7 @@
 - [ ] Testing
    - [ ] Hardware (Abdulrahman)
    - [ ] RL (Daniel)
+   - [ ] UI (Bahri)
 - [ ] Impact (Bahri)
 - [ ] Conclusion
 - [ ] Future Work
