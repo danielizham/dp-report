@@ -47,6 +47,10 @@ and installed Parrot Olympe successfully in virtual environment.
 Then we plugged in the Wi-Fi dongle adapter
 in a \textsc{usb}~2.0 port in the Raspberry Pi, 
 and the \textsc{os} discovered it automatically. 
+There were some challenges in setting up the connection automatically 
+once the raspberry pi boots up. We discovered that some packages were not installed properly,
+so we reinstalled the whole system again, and the problems have gone. 
+We managed to setup the startup commands in /etc/rc.local file without any issues.
 
 Regarding the power supply we were thinking 
 of modifying the drone's battery by removing the 
