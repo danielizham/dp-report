@@ -143,11 +143,26 @@
 % HARDWARE
 \subsection{Connecting to the drone}
 
-\lipsum[1]
+We have connected the
+Raspberry Pi to the drone using built-in WiFi
+to allow Raspberry to send/receive control and status 
+instructions to the drone. 
+For connecting Raspberry Pi and the laptop, 
+we used the external WiFi adapter and turned 
+on the hotspot feature to create an access point,
+and this made the process so convenient because 
+once the Raspberry Pi boots up, it turns on the 
+access point, and the user can connect to it 
+easily and execute scripts using \textsc{ssh} 
+protocol or open the web app user interface 
+at www.aireye.com:8000. We executed the takeoff 
+and move forward scripts and it worked successfully, so
+we confirm that we can connect to the drone and can control it.
 
 \subsection{Power supply}
 
-\lipsum[1]
+ 
+
 
 \subsection{Flying duration}
 
@@ -155,11 +170,59 @@
 
 \subsection{Response time}
 
-\lipsum[1]
+We have done another experiment regarding the response time 
+of the drone after sending a command to it from the Raspberry Pi. 
+Calculating the response time was by starting a timer when 
+sending the command and stopping it when the 
+state of the drone changes. 
+The experiment was done on simulation using Sphinx,
+then we have moved to the real world using the \anafi drone.
+From \cref{tab:respone-time}, 
+we can see that all the results are less than \SI{1}{second}
+which satisfied our response time constraint.
+Another thing we can conclude from the table is that 
+the response time of the real world is less than 
+the simulation, and this is predictable since the simulation
+depends on the \textsc{gpu} power and processing time. 
+
+\begin{table}[tbp]
+	\centering
+	\caption{The average response time of the drone after sending a control command.}
+	\label{tab:respone-time}
+	\begin{tabularx}{0.7\textwidth}{ X c c }
+		\toprule
+		\textit{} & \textit{Simulation} & \textit{Real-world}\\ \midrule
+		Motor ramping for takeoff (seconds)  & 0.3506 & 0.0323     \\
+		Move while flying (seconds) & 0.7441  & 0.1511   \\
+		\bottomrule
+	\end{tabularx}
+\end{table} 
 
 \subsection{Payload}
 
-\lipsum[1]
+As shown in \cref{fig:payload}
+we attached \SI{190}{grams} of Raspberry Pi and Arduino boards
+to see the effect on the performance and flight and
+battery drain percentage. 
+The drone has taken off  successfully, 
+and the flight was normal but, we faced an expected 
+battery drain that went from 
+\SI{100}{\percent} to \SI{90}{\percent} in 
+\SI{1.5}{minutes}.This is because the propeller motors will try to push 
+their limits to take off the drone, which will consume more energy.
+After adding payload to the drone at \SI{200}{grams}, the drone couldn't
+takeoff and we now know the limit, which will be considered in the 
+design constraints.
+
+
+\begin{figure}[bp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{payload.png}
+	\caption{The total weight of the payload}
+	\label{fig:payload}
+\end{figure} 
+
+
 
 % SOFTWARE
 \subsection{Simulating the targets}
