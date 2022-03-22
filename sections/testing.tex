@@ -116,7 +116,9 @@
     \centering
     \caption{Summary of the prototype testing}
     \label{tab:testing-summary}
-    \begin{tabularx}{\textwidth}{ l X l l l }
+    \newcolumntype{b}{l}
+    \newcolumntype{s}{>{\hsize=.6\hsize}X}
+    \begin{tabularx}{\textwidth}{bssss}
         \toprule
         \textit{Constraint} 
             & \textit{Testing procedure} 
@@ -127,10 +129,33 @@
         \midrule
         
         
-        ??    & ?? 
+        Power supply    & Test the capacity and the health of the batteries 
+        and check if they produce power the same as in the specifications label or not. 
+        & Met, but the batteries' life cycle will be less when time goes by,so it should be replaced after a particular time.
+            & raspberry pi battery : \SI{1.9}{hours}, \anafi drone battery :\SI{2.8}{hours}
+        &  raspberry pi battery error : 52.5\% , \anafi drone battery error : -3.7\%\\
+        
+        Flying duration & when the batteries if full
+        measure the drone flying duration at different actions such as hovering, moving. 
         & Met
-            & ??
-        & 5 \\
+        & hovering: \SI{14.78}{minutes}, moving:  \SI{13.58}{minutes}
+        & hovering flying duration error :1.47\% , moving flying duration error :9.477\% \\
+        
+         Response & Send the command to the drone and see the consumed time to start executing and should be below 1 second as in the technical design constraints.
+        & Met
+        & \SI{0.1511}{second}
+        & 0 \\
+        
+         Payload & Test the maximum payload by increasing the load gradually 
+         until you find the weight that the drone cannot handle. 
+        & Met
+        & \SI{200}{gram}
+        & 0 \\
+        
+        Economic & the costs didn't exceed the expected value 
+        & Met
+        & \qar{3800}
+        & 0\% \\
 
         \bottomrule		
     \end{tabularx}
