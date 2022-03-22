@@ -118,7 +118,7 @@ interactions are summarized in \cref{tab:use-case-summaries}.
 
 \begin{newrequirements}
     \begin{todolist}
-        \item You also need to \textbf{justify} and 
+    \item[\done] You also need to \textbf{justify} and 
         \textbf{explain why} you need 
         each constraint, and 
         \textbf{discuss how each is relevant}
@@ -130,9 +130,12 @@ The following lists in
 \cref{tab:technical-design-constraints,tab:practical-design-constraints} 
 are the restrictions that have been imposed
 on our component, technology and technique selections. 
-They have arisen due to the nature of 
-the devices we have chosen to use 
-and the environment within which the drone will fly.
+They are relevant to our project 
+because they have arisen due to the nature of 
+the devices and technologies we have chosen to use,
+which are namely the \anafi drone, the Raspberry Pi
+and the reinforcement learning, as well as
+the environment within which the drone will fly.
 
 \begin{center}
     \begin{xltabular}{\textwidth}{ X p{12.2cm} }
@@ -164,9 +167,9 @@ and the environment within which the drone will fly.
         Altitude 
             & The flying altitude typically falls 
             between
-            \SIrange{15}{25}{meters} 
+            \SIrange{5}{10}{meters} 
             to cover a cell having a dimension of
-            \qtyproduct{5 x 8.2}{square-meter}.
+            \qtyproduct{5 x 8}{square-meter}.
             This is to avoid the \gls{fov} not covering 
             the cell in focus in its
             entirety, or the \gls{fov} covering too much
@@ -218,6 +221,8 @@ and the environment within which the drone will fly.
             will last an unreasonably long time 
             to allow the agent to exhaustively explore 
             the state space and find the global optimum.
+            Therefore the accuracy of the \gls{drl} model will converge
+            at a suboptimal level.
             Moreover, the sampling nature of \gls{rl}
             means that an optimal solution can never be
             guaranteed. \\
