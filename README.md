@@ -24,8 +24,8 @@
 - [x] Acknowledgment
 - [x] Introduction and Motivation
 - [x] Background and Related Work
-- [ ] Requirements Analysis
-   - [ ] Minor modification (Daniel)
+- [x] Requirements Analysis
+   - [x] Minor modification (Daniel)
 - [ ] Solution Design
    - [ ] Hardware (Abdulrahman)
    - [ ] RL (Daniel)
