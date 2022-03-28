@@ -170,33 +170,33 @@
 
 We have connected the
 Raspberry Pi to the drone using built-in WiFi
-to allow Raspberry to send/receive control and status 
+to allow the Raspberry to send/receive control and status 
 instructions to the drone. 
-For connecting Raspberry Pi and the laptop, 
+For connecting Raspberry Pi to the laptop, 
 we used the external WiFi adapter and turned 
-on the hotspot feature to create an access point,
-and this made the process so convenient because 
+on the hotspot feature to create an access point.
+This made the process so convenient because 
 once the Raspberry Pi boots up, it turns on the 
 access point, and the user can connect to it 
 easily and execute scripts using \textsc{ssh} 
 protocol or open the web app user interface 
 at www.aireye.com:8000. We executed the takeoff 
-and move forward scripts and it worked successfully, so
-we confirm that we can connect to the drone and can control it.
+and move forward scripts and it worked successfully.
+This way, we confirmed that we can connect to the drone and can control it effectively.
 
 \subsection{Command-Control system maximum distance}
 
-in this test we want to know the maximum range that can
-the command and control system and the raspberry pi communicate
-and share live video feed. we fixed the command and control system and moved
-the drone away from it, then for every 3 meters we have measured the Signal-to-noise ratio (SNR).
+In this test we wanted to validate the maximum communication range that
+the command and control system and the raspberry pi can communicate
+and share live video feed. We fixed the command and control system and moved
+the drone away from it, then for every 3 meters, we have measured the Signal-to-noise ratio (SNR).
 We have repeated this experiment three times to get the average maximum range.
-From the results shown in ~\ref{fig:snr-vs-distance} after 117 meters 
-the command an control system disconnects from the raspberry pi
-and the video stream stops, disconnecting is not a major issue
-since the raspberry pi once it receive the mission start
-flag it will autonomously finish the mission and record the video needed
-and once the connection is back user continue control or interrupt the mission
+From the results shown in ~\ref{fig:snr-vs-distance}, after 117 meters 
+the command and control system disconnects from the Raspberry Pi
+and the video stream stops. Disconnecting is not a major issue
+since once the Raspberry Pi receives the start mission commands, its 
+and it will autonomously finish the mission and record the video needed
+and once the connection is back users can continue control or interrupt the mission
 at anytime.
  
 \begin{figure}[!t]
@@ -209,60 +209,60 @@ at anytime.
 \subsection{Flying duration \& Batteries}
 
 As shown in Fig.~\ref{fig:time-comparison} we have 
-conducted time comparison experiments for both drone 
-battery (2700mAh) and raspberry pi battery (4000mAh) 
+conducted time comparison experiments for both drone's
+battery (2700mAh) and the Raspberry Pi battery (4000mAh) 
 using different actions such as idle, hovering, 
 moving forward, and moving backward. We repeated 
 the same actions without video streaming so that 
-we can see its effect on the power consumption. 
-All the batteries were charged fully and the timer 
+we can see its effect on power consumption. 
+All the batteries were charged fully, and the timer 
 script stops when the battery percent reaches zero. 
 
-First, we will discuss idle action, and as normal 
-the maximum time reached is when both drone and 
-raspberry pi are in an idle state, which both will 
-be on the ground without moving any motors, 
-this action still consumes energy but with 
+First, as we predicted 
+the maximum time reached is when both the drone and 
+the Raspberry Pi are in an idle state, in which both case both will 
+be on the ground without moving any motors.
+This action still consumes energy but with 
 its stability, over time ~\cite{Abey18}. 
-The next action is when the drone is hovering and 
-the raspberry pi is sending navigation control 
+The next action is when the drone is hovering, and 
+the Raspberry Pi is sending navigation control 
 signals to the drone and receiving video frames 
 that are streamed to a web graphical interface. 
-When the drone hovers without streaming it worked 
+When the drone hovers without streaming, it worked 
 for 14.78 minutes, and when the camera is used for 
 the stream which will add more power consumption to 
-the drone battery, it worked for 14.2 minutes which 
-is less than the hovering without steam. The final 
-action is when the drone takeoff and keep moving 
-forward, backward, left, and right, in this action 
+the drone battery; it worked for 14.2 minutes which 
+is less than the hovering without stream. The final 
+action is when the drone takes off and keep moving 
+forward, backward, left, and right, and in this action 
 more energy consumption is seen and that made the 
 battery for the drone survives only for 13.58 minutes 
 when the camera is off, and for 13.18 minutes 
 when the camera and stream are on.
 
 The main focus will be on the drone battery and every 
-action energy this is because the raspberry pi battery 
+action energy. This is because the raspberry pi battery 
 is not being highly affected by the actions. 
 The next step is to derive the energy model for every 
 action by using the distance and time. For the drone battery, 
 we have 2700mAh which is 20.52Wh ~\cite{Par19}, 
 we can get the drone energy by multiplying Wh by 3600 
-so we will have a total of 73,872 Joules. let's take 
+so we will have a total of 73,872 Joules. When taking
 hovering without stream as an example, the battery 
 went from 100 percent to 0 in 14.78 minutes which is 
-886.8 seconds. we can say that the hovering action takes approximately 73,872/886.8 = 83.30 Joules/sec. For moving action 
-we will consider the distance also, so we will keep 
+886.8 seconds. We can say that the hovering action takes approximately 73,872/886.8 = 83.30 Joules/sec. For moving action,
+we also considered the distance , so we kept 
 moving the drone one meter in each direction 
 {forward, backward, left, right} and then calculate 
-the total distance that traveled. The drone repeated 
+the total distance traveled. The drone repeated 
 the moving action 11 times, so the total distance 
 is 44 meters and the energy per second consumed 
 is 73,872/814.8 = 90.66 Joules/sec but this energy 
-per second is for the 44 meters, we can get the 
+per second is for the 44 meters, so we can get the 
 energy per second for 1 meter by calculating 
 90.66/44 = 2.06 Joules/s. 
-In (\ref{eq:Energy-moving}) we can generalize an energy equation for moving action, which can be used in the simulation environment to train the RL model, now it will not just consider the time, but also the energy consumption.
-Now we verified the flight duration constrain and we can to devise some 
+In (\ref{eq:Energy-moving}) we can generalize an energy equation for moving action, which can be used in the simulation environment to train the RL model. Now the model will not just consider the time, but also the energy consumption.
+We verified the flight duration constraint, and we can devise some 
 realistic energy models, that can be fed in the simulation to do the comparisons. This will help the RL model to choose 
 the best action depending on less energy consumption 
 when both actions have the same probability. 
@@ -292,11 +292,11 @@ Calculating the response time was by starting a timer when
 sending the command and stopping it when the 
 state of the drone changes. 
 The experiment was done on simulation using Sphinx,
-then we have moved to the real world using the \anafi drone.
+then we moved to the real world using the \anafi drone.
 From \cref{tab:respone-time}, 
 we can see that all the results are less than \SI{1}{second}
 which satisfied our response time constraint.
-Another thing we can conclude from the table is that 
+Another point we can conclude from the table is that 
 the response time of the real world is less than 
 the simulation, and this is predictable since the simulation
 depends on the \textsc{gpu} power and processing time. 
@@ -318,13 +318,13 @@ depends on the \textsc{gpu} power and processing time.
 
 As shown in \cref{fig:payload}
 we attached \SI{190}{grams} of Raspberry Pi and Arduino boards
-to see the effect on the performance and flight and
+to see the effect on the performance, flight and
 battery drain percentage. 
 The drone has taken off  successfully, 
-and the flight was normal but, we faced an expected 
+and the flight was normal, but we faced an expected 
 battery drain that went from 
 \SI{100}{\percent} to \SI{90}{\percent} in 
-\SI{1.5}{minutes}.This is because the propeller motors will try to push 
+\SI{1.5}{minutes}. This is because the propeller motors will try to push 
 their limits to take off the drone, which will consume more energy.
 After adding payload to the drone at \SI{200}{grams}, the drone couldn't
 takeoff and we now know the payload limit, which will be considered in the 

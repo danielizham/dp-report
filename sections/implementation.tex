@@ -44,29 +44,29 @@ architecture are the Raspberry Pi and the drone.
 We started by configuring the Raspberry Pi micro\textsc{sd} card,
 flashed it with Ubuntu 20.04 desktop version,
 and installed Parrot Olympe successfully in virtual environment. 
-Then we plugged in the Wi-Fi dongle adapter
+Then, we plugged in the Wi-Fi dongle adapter
 in a \textsc{usb}~2.0 port in the Raspberry Pi, 
 and the \textsc{os} discovered it automatically. 
 There were some challenges in setting up the connection automatically 
-once the raspberry pi boots up. We discovered that some packages were not installed properly,
-so we reinstalled the whole system again, and the problems have gone. 
-We managed to setup the startup commands in /etc/rc.local file without any issues.
+once the Raspberry Pi boots up. We discovered that some packages were not installed properly,
+so we reinstalled the whole system again, and the problems has been addressed. 
 
-Regarding the power supply we were thinking 
+
+Regarding the power supply, we were thinking 
 of modifying the drone's battery by removing the 
 plastic shield because of the drone's payload restrictions 
 and limitations, but everything changed after testing 
-the drone's maximum payload check the payload subsection in testing section.
-Regarding the connection, there are 
+the drone's maximum payload.
+As far as the connection, there are 
 two different options as shown in \cref{fig:connection}.
 For option A we can use \textsc{usb}-A to power the Raspberry directly 
-without need to solder any wires,but there is some internal resistance.
+without needing to solder any wires, but there is some internal resistance.
 In option B, it powers the Raspberry Pi through the \textsc{gpio} 
 interface by soldering two wires to the power board and 
 connecting to pin 4 and 6 in the Raspberry Pi board.
-This option has small internal resistance compared to option A.
-For simplicity, we will choose option A and we will 
-follow the instruction of the manufacturer by choosing 
+This option has smaller internal resistance compared to option A.
+For simplicity, we chose option A and   
+followed the instruction of the manufacturer by choosing 
 the thickest and shortest possible \textsc{usb} cable to reduce 
 the power loss and voltage drops~\cite{makerfocus}.
 
@@ -78,17 +78,16 @@ the power loss and voltage drops~\cite{makerfocus}.
 \end{figure}  
 
 Since all the components are available as shown 
-in \cref{fig:components}, we can now assemble 
-all the parts in one piece and start testing the whole system.
+in \cref{fig:components}, we could assemble 
+all the parts in one piece and started testing the whole system.
 We have used the zip tie to hold the components and to
 make sure everything sticks together. After trying to use the 
-nylon straps tape to attach the components to the drone 
+nylon straps tape to attach the components to the drone,
 we have figured out that it blocks the fan 
-and sensors in the bottom of the drone, 
-so normal wires attached to the sides of the drone were 
-used as a temporary solution. As shown in 
+and sensors at the bottom of the drone, 
+. As shown in 
 \cref{fig:full-hardware}, all the parts are in one system. 
-The test flight was smooth, and everything works perfectly. 
+The test flight was smooth, and everything worked perfectly. 
 
 \begin{figure}[p]
 	\centering

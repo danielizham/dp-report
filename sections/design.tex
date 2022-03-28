@@ -111,9 +111,9 @@ In the controlling part, a personal computer
 will be responsible for contacting the onboard computer 
 to adjust settings, execute scripts, and get 
 live updates and results. 
-Finally, there will be multiple moving targets 
+Finally, there are multiple moving targets 
 in the target section. For example, 
-\gls{rc} cars are controlled manually and moving in 
+\gls{rc} cars are controlled manually and move in 
 a specific mobility pattern with varying directions 
 and destinations. 
 In the next section, hardware and software components 
@@ -337,7 +337,7 @@ which will be the Parrot \anafi.
 \Cref{tab:hardware-used} lists the hardware components
 used in this project and their justifications. This quad-copter
 drone is powerful because it combines many technologies 
-and sensors in a small foldable size, also it has 4K HDR Camera supported 
+and sensors in a small foldable size. It also it has 4K HDR Camera supported 
 with 180 degree gimbal. 
 There are seven sensors in total inside the drone which are shown in 
 \cref{tab:sensors-table} 
@@ -379,7 +379,7 @@ The second important device is the Raspberry Pi 4 model B. It
 acts as an onboard computer and is used in this project
 mainly to facilitate the low-level control of the drone
 by sending frequent control commands to the drone
-in a certain direction or keep hovering.
+in a certain direction or stay hovering.
 The choice of action is determined by the \gls{drl}
 model that will be installed in it.
 Hence, the tasks of the Raspberry Pi are: 
@@ -391,7 +391,7 @@ Hence, the tasks of the Raspberry Pi are:
 	by executing Olympe to send low-level control signals 
 	and to receive sensory data,
 	\item applying the \gls{drl} model supported by 
-	the command and control system.
+	the command and control system,
 	\item receiving high-level commands and sending video 
 	frames to the command-control system from the drone camera.
 \end{enumerate}
@@ -423,19 +423,19 @@ control commands and receive the video frames.
 
 
 Regarding the power source for the Raspberry Pi, 
-we thought of taking power directly from the 
-drone's battery, but, after some research, we found 
+we considered taking power directly from the 
+drone's battery, but after some research, we found 
 that the \anafi drone's  
-socket is somehow different. It is also challenging 
-and the drone battery is susceptible to shutting down 
+socket is somehow different in the type and the power output. It is also challenging 
+because the drone battery is susceptible to shutting down 
 immediately if the voltage reaches less than 3.0 Volt. 
-So, we did not want to take the risk and used a 
+Therefore, we did not want to take the risk so we used a 
 lithium battery with a power board called 
 \textsc{upsp}ack Standard Power Supply attached to 
 the main Raspberry Pi board. It includes a 
 \SI{4000}{\milli\ampere\hour}
 lithium battery, which provides enough power 
-and time for our application.
+and long-lasting time for our application.
 
 \subsection{Hardware design}
 
@@ -525,24 +525,24 @@ and time for our application.
 
 In \cref{tab:alt-solutions}, 
 we can see some trade-offs 
-between option A and option B, but in both designs, 
+between option A and option B. However, in both designs, 
 an onboard microcomputer must be present for 
-flying control and the support of autopilot feature and 
-transmit the video frames. 
+flying control and the for the support of autopilot feature as well as for 
+transmitting the video frames. 
 
 
 Firstly, developing a custom drone will consume a lot of time and effort, 
 which is different from our design project idea.
-So we have chosen the commercial drone option especially 
+Hence, we have chosen the commercial drone option especially 
 the Parrot \anafi for several reasons.
-it is supported by a continuously updated 
+The face that it is supported by a continuously updated 
 \textsc{sdk} and it can be controlled easily 
 with a simple Python script which makes 
-\gls{drl} development much easier and more stable. 
+\gls{drl} development much easier and more stable are among common reasons/
 
 Secondly, it has a good flight time 
 as the \anafi drone has a 2700 mAh battery. 
-It can fly up to 25 minutes which is good enough 
+It can fly up to 25 minutes, which is good enough 
 for our application.
 Finally, its support of Wi-Fi 802.11 and \gls{gps} 
 features is essential in our project for 
@@ -552,7 +552,7 @@ executing scripts and navigation.
 There are three options for onboard microcomputers, 
 which are shown in the following 
 \cref{tab:onboard-computers}. Raspberry Pi 4 seems 
-to be the winner since it has advantages 
+to be the best option since it has advantages 
 in specifications, connection interfaces, 
 and availability.
 
@@ -592,7 +592,7 @@ and availability.
 As shown in \cref{tab:power-sources}, there are different options for
 the raspberry pi power sources, we have chosen the second option
 RPI pack because it is a complete package and lightweight compared 
-to other options also, availability was another primary concern. 
+to other options; availability was also another primary concern. 
 \begin{table}[H]
 	\centering
 	\caption{A comparison of the Power-supply sources for RPI4.}
