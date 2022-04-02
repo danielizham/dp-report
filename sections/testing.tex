@@ -114,7 +114,7 @@
 
 \begin{table}[H]
     \centering
-    \caption{Summary of the prototype testing}
+    \caption{Summary of the unit testing}
     \label{tab:testing-summary}
     \newcolumntype{b}{l}
     \newcolumntype{s}{>{\hsize=.6\hsize}X}
@@ -166,7 +166,11 @@
 %% the design constraint being tested.
 
 % HARDWARE
-\subsection{Connecting to the drone}
+\subsection{Unit testing}
+In this section, we will discuss all the conducted tests 
+and challenges regards the design constraints. 
+
+\subsubsection{Connecting to the drone}
 
 We have connected the
 Raspberry Pi to the drone using built-in WiFi
@@ -184,7 +188,7 @@ at www.aireye.com:8000. We executed the takeoff
 and move forward scripts and it worked successfully.
 This way, we confirmed that we can connect to the drone and can control it effectively.
 
-\subsection{Command-Control system maximum distance}
+\subsubsection{Command-Control system maximum communication distance}
 
 In this test we wanted to validate the maximum communication range that
 the command and control system and the raspberry pi can communicate
@@ -206,7 +210,7 @@ at anytime.
 	\label{fig:snr-vs-distance}
 \end{figure}
 
-\subsection{Flying duration \& Batteries}
+\subsubsection{Flying duration \& Batteries}
 
 As shown in Fig.~\ref{fig:time-comparison} we have 
 conducted time comparison experiments for both drone's
@@ -284,7 +288,7 @@ when both actions have the same probability.
 	\label{fig:time-comparison}
 \end{figure}
 
-\subsection{Response time}
+\subsubsection{Response time}
 
 We have done another experiment regarding the response time 
 of the drone after sending a command to it from the Raspberry Pi. 
@@ -301,7 +305,7 @@ the response time of the real world is less than
 the simulation, and this is predictable since the simulation
 depends on the \textsc{gpu} power and processing time. 
 
-\begin{table}[tbp]
+\begin{table}[H]
 	\centering
 	\caption{The average response time of the drone after sending a control command.}
 	\label{tab:respone-time}
@@ -314,7 +318,7 @@ depends on the \textsc{gpu} power and processing time.
 	\end{tabularx}
 \end{table} 
 
-\subsection{Payload}
+\subsubsection{Payload}
 
 As shown in \cref{fig:payload}
 we attached \SI{190}{grams} of Raspberry Pi and Arduino boards
@@ -330,13 +334,14 @@ After adding payload to the drone at \SI{200}{grams}, the drone couldn't
 takeoff and we now know the payload limit, which will be considered in the 
 design constraints.
 
-\begin{figure}[bp]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{payload.png}
 	\caption{The total weight of test payload}
 	\label{fig:payload}
 \end{figure} 
 
+\subsection{Integration testing}
 
 
 % SOFTWARE
