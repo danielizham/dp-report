@@ -436,6 +436,71 @@ the main Raspberry Pi board. It includes a
 \SI{4000}{\milli\ampere\hour}
 lithium battery, which provides enough power 
 and long-lasting time for our application.
+\Cref{tab:hardware-used} lists the hardware components
+used in this project and their justifications. 
+\begin{table}[p]
+	\centering
+	\caption{Hardware used in the project.}
+	\label{tab:hardware-used}  
+	\begin{tabular}{ p{4cm} p{3cm} p{6cm} }
+		\toprule
+		\textit{Hardware} 
+		& \textit{Picture} 
+		& \textit{Justification} \\ 
+		
+		\midrule
+		
+		Parrot \anafi Drone  
+		& \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=20mm]{anafi.png}
+		\end{minipage} 
+		& Available in the university, can be 
+		controlled easily 
+		with simple Python script, 
+		4K-high resolution camera.  \\ 
+		\addlinespace
+		
+		Raspberry Pi 4  
+		& \begin{minipage}{.0\textwidth}
+			\includegraphics[width=30mm, height=20mm]{raspberry.jpg}
+		\end{minipage} 
+		& Specifications are enough for our 
+		application, support Wi-Fi and its 
+		small size and weight is an advantage.\\ 
+		\addlinespace
+		
+		\textsc{rpi} \textsc{upsp}ack \textsc{v}3 with 
+		\SI{4000}{\milli\ampere\hour} 
+		lithium Battery  
+		& \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=35mm]{RPI.jpg}
+		\end{minipage}  
+		& Support up to 4 hours which is more 
+		than enough , the board got an \textsc{led} 
+		indicator for charging level also the 
+		weight and shape is an advantage.  \\ 
+		\addlinespace
+		
+		Wireless N Nano \textsc{usb} Adapter  
+		& \begin{minipage}{.1\textwidth}
+			\includegraphics[width=28mm, height=28mm]{dongle.jpg}
+		\end{minipage} 
+		& Cheap and do its job, good coverage 
+		range.  \\ 
+		\addlinespace
+		
+		Laptop 
+		& \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=30mm]{laptop.png}
+		\end{minipage} 
+		& Any laptop with good WiFi interface 
+		card will be enough for our case. \\ 
+		\addlinespace
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
+
 
 \subsection{Hardware design}
 
