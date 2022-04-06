@@ -150,7 +150,7 @@ testing and integration testing and its results.
          Payload & Test the maximum payload by increasing the load gradually 
          until you find the weight that the drone cannot handle. 
         & Met
-        & \SI{200}{gram}
+        & \SI{250}{gram}
         & 0 \\
         
         Economic & the costs didn't exceed the expected value 
@@ -331,15 +331,25 @@ battery drain that went from
 \SI{100}{\percent} to \SI{90}{\percent} in 
 \SI{1.5}{minutes}. This is because the propeller motors will try to push 
 their limits to take off the drone, which will consume more energy.
-After adding payload to the drone at \SI{200}{grams}, the drone couldn't
+After adding payload to the drone at \SI{250}{grams}, the drone couldn't
 takeoff and we now know the payload limit, which will be considered in the 
-design constraints.
+design constraints. In the actual design, as shown in 
+\cref{fig:actual-total-weight} the total payload 
+is \SI{220}{grams} which is less than the payload constraint.
+
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{payload.png}
 	\caption{The total weight of test payload}
 	\label{fig:payload}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{totalweight.jpg}
+	\caption{The total weight of actual payload}
+	\label{fig:actual-total-weight}
 \end{figure} 
 
 \subsection{Integration testing}

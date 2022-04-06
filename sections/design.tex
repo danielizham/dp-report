@@ -119,9 +119,9 @@ and destinations.
 In the next section, hardware and software components 
 will be presented in a more detailed manner.
 
-\begin{figure}[tbp]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{high-level-arch.png}
+    \includegraphics[width=0.9\textwidth]{high-level-arch.pdf}
     \caption{The high-level architecture of the overall system.}
     \label{fig:arch-fig}
 \end{figure}
@@ -135,6 +135,7 @@ will be presented in a more detailed manner.
         inner working}.
     \end{todolist}
 \end{newrequirements}
+
 
 \subsubsection{Software}
 
@@ -316,19 +317,12 @@ Python script. Moreover, Olympe allows us to read
 sensor data, such as the \gls{gps} fixes and camera feed, 
 from the \anafi
 drone. This will make it possible to build a user interface
-on the control and command station
-shown in \cref{fig:ui-prototype} to monitor 
+on the control and command station to monitor 
 the progress of the drone
 when it is autonomously executing the task visitation
 mission.
 
-\begin{figure}[tbp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{ui-prototype}
-    \caption{An example of a user interface that will be built
-                using sensor data coming from the \anafi drone.}
-    \label{fig:ui-prototype}
-\end{figure}
+
 
 \subsubsection{Hardware}
 
@@ -438,6 +432,27 @@ lithium battery, which provides enough power
 and long-lasting time for our application.
 \Cref{tab:hardware-used} lists the hardware components
 used in this project and their justifications. 
+
+Finally, in \Cref{fig:3d-design} we have designed a 3D printed case that 
+will hold all the components above the drone in 
+a stylish and professional way. We have considered two 
+points in the design. The first one is the weight and the minimal
+complexity, as we have a limited payload that the drone 
+can lift and a narrow space that can fit above the drone.
+The second point is that the Raspberry Pi usually 
+becomes hot due to processing and usage, so we need 
+a design that will help the airflow go through and keep 
+the ventilation process, and this is why we have 
+the holes in the case design.   
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{3d-model-design.png}
+	\caption{3D design of the onboard computer case.}
+	\label{fig:3d-design}
+\end{figure}
+
+
 \begin{table}[p]
 	\centering
 	\caption{Hardware used in the project.}
@@ -564,6 +579,7 @@ used in this project and their justifications.
 
     \end{todolist}
 \end{newrequirements}
+
 
 \subsubsection{UAV options}
 \begin{table}[H]
