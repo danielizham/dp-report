@@ -32,6 +32,11 @@
             appearance
         \\
         \showmilestonecounter
+        & New object detection model  % new
+            & Replace the object detection model built in Senior 1 with
+            another that can uniquely identify the QR codes
+        \\
+        \showmilestonecounter
         & RL agent training for fixed targets mission
             & Train an agent to complete a mission in which targets'
             locations change every episode based on a distribution but 
@@ -41,6 +46,25 @@
         & RL performance verification for fixed targets mission
             & Compare the performance of RL with zig-zag and random
             patterns in terms of time and energy
+        \\
+        \showmilestonecounter
+        & RL agent training for mobile targets mission
+            & Train an agent to complete a mission in which 3 targets
+            moves and 7 targets are fixed throughout an episode.
+            Both the movements and locations rely on distributions.
+        \\
+        \showmilestonecounter
+        & Log and video saving feature % new
+        & Include logging of the drone's action, \gls{gps} location
+        and time for the mission deployment. 
+        In addition, save the video from the drone's camera of the
+        mission.
+        \\
+        \showmilestonecounter
+        & Prepare the environment for full integration testing % new
+        & Modify the environment and agent so that the agent can use
+        the learned model in a smaller environment suited for the full
+        integration testing.
         \\
 
         \bottomrule
