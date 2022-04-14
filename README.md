@@ -27,27 +27,27 @@
 - [x] Requirements Analysis
    - [x] Minor modification (Daniel)
 - [ ] Solution Design
-   - [ ] Hardware (Abdulrahman)
+   - [x] Hardware (Abdulrahman)
    - [ ] RL (Daniel)
    - [ ] UI (Bahri)
 - [ ] Implementation
-   - [ ] Hardware (Abdulrahman)
+   - [x] Hardware (Abdulrahman)
    - [ ] RL (Daniel)
    - [ ] UI (Bahri)
 - [ ] Testing
-   - [ ] Hardware (Abdulrahman)
+   - [x] Hardware (Abdulrahman)
    - [ ] RL (Daniel)
    - [ ] UI (Bahri)
 - [ ] Impact (Bahri)
 - [ ] Conclusion
 - [ ] Future Work
-   - [ ] Hardware (Abdulrahman)
+   - [x] Hardware (Abdulrahman)
    - [ ] RL (Daniel)
 - [ ] Reflection
    - [x] Abdulrahman
    - [ ] Bahri
    - [ ] Daniel
 - [ ] Appendix - Project Plan
-   - [ ] Hardware (Abdulrahman)
+   - [x] Hardware (Abdulrahman)
    - [ ] RL (Daniel)
    - [ ] UI (Bahri)
