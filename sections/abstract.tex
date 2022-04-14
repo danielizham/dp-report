@@ -19,50 +19,64 @@ an autonomous drone, use \gls{ml}
 to detect targets,
 and implement \gls{rl} to 
 teach the drone how to visit all targets in a minimum amount of time.
+
 The significance of this project is that 
 by combining object detection and \gls{rl}, \uavs will be
 able to autonomously capture details of 
 fixed targets with unknown locations, 
 or mobile targets with an arbitrary mobility pattern,
 while minimising mechanical energy and time.
+
 The hardware part of the proposed solution 
 consists of a Raspberry Pi acting as the onboard computer
 attached to a Parrot \anafi drone. The onboard computer
 also receives high-level commands from the command and control
-station. On the software side, \gls{drl} is 
+station. On the software side, \gls{drl} algorithm called \gls{ppo} is 
 implemented to train a model in the Sphinx 3D
 cyber-physical environment. At the same time,
 the Olympe program is utilized
 to send commands to the simulated and real \anafi drone
 and receive sensor data from them. 
-In addition, RoboFlow is employed
-to build the target detection model using \gls{ml}.
-The results so far are an \anafi-Raspberry Pi hardware system
-that is able to fly, an \gls{rl} framework that can train the
-simulated drone to go to a set position, and a \gls{ml}
-model that can identify green cubic targets.
-Our research has shown that there is a growing market for
-our product because the surveillance landscape
-is becoming increasingly dynamic.
+
+The \gls{rl} has been proven to be superior in terms of time and
+energy spent to execute both fixed-targets and mobile-targets
+visitation missions compared to random and zig-zag agents.
+Moreover, the work in the visual simulation has been validated in the
+real world in the integration testing confirming that it can act as
+the digital twin of the physical version.
+The framework that has been proposed in this project is flexible
+enough to be extended to applications beyond target visitation.
+
+The impact of this project on the global scale is through proving that
+\gls{rl} is a viable and effective method to train a \gls{uav} to
+execute a visitation mission either with fixed or mobile targets.
+Once the framework developed in this project is in place, companies
+with little knowledge of \gls{rl} can easily retrain the \gls{uav}
+digital twin in the framework for their new missions. 
+The simplicity will help spread the use and benefits of \glspl{uav}
+more widely. 
+In addition, this project can lead to the creation of new jobs in
+target visitation and area tracking using \glspl{uav} and enhance
+homeland security.
 
 \vfill
 \begin{newrequirements}
     Writing the final report:
     \begin{todolist}
         \item[\done] The abstract cannot be more than \textbf{500 words}.
-        \item Go through the Interim report, 
+        \item[\done] Go through the Interim report, 
             and update it based on changes that have occurred 
             in your project between last semester and now
             and based on the requirements listed in the 
             Project Guide and the Project Grading Rubrics
-        \item Revise the Abstract and enhance it by adding 
+        \item[\done] Revise the Abstract and enhance it by adding 
             the project’s key achievements and most important 
             conclusions. 
             The last paragraph should highlight the novelty 
             of your design (e.g., what makes your design 
             unique and what are the impacts of your 
             engineered solution, etc.)
-        \item Make sure that the tense used is the present 
+        \item[\done] Make sure that the tense used is the present 
             tense and the past and not the future 
             (e.g., avoid ‘we will’ or ‘system should’ 
             and report what has been done) 
