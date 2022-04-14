@@ -1,9 +1,7 @@
 % Hardware milestones
-
-% RL milestones
 \begin{center}
     \setcounter{milestonecounter}{0}
-    \def\mysection{\textsc{hardware}} % <- change this variable
+    \def\mysection{hardware} % <- change this variable
     \begin{xltabular}{\textwidth}{ X p{5cm} p{9cm} }
         \caption{Senior 2 project milestones for \mysection.}
         \label{tab:milestones-hardware} \\ % <- change this label
@@ -42,6 +40,53 @@
             & Find best solution for moving targets
             experiments with specific probability
             and mobility pattern.
+        \\
+
+        \bottomrule
+    \end{xltabular}
+\end{center}
+
+% RL milestones
+\begin{center}
+    \setcounter{milestonecounter}{0}
+    \def\mysection{\textsc{rl}} % <- change this variable
+    \begin{xltabular}{\textwidth}{ X p{5cm} p{9cm} }
+        \caption{Senior 2 project milestones for \mysection.}
+        \label{tab:milestones-rl} \\ % <- change this label
+        \toprule
+
+        \textit{No.} & \textit{Milestone} 
+            & \textit{Description}
+        \\
+
+        \midrule
+        \endfirsthead
+
+        \caption[]{Senior 2 project milestones for \mysection (continued)} \\
+        \toprule
+
+        \textit{No.} & \textit{Milestone} 
+            & \textit{Description}
+        \\
+
+        \midrule
+        \endhead
+
+        \showmilestonecounter 
+        & Target simulation
+            & Simulate the mobility pattern of the targets and their
+            appearance
+        \\
+        \showmilestonecounter
+        & RL agent training for fixed targets mission
+            & Train an agent to complete a mission in which targets'
+            locations change every episode based on a distribution but 
+            they don't move in the episode.
+        \\
+        \showmilestonecounter
+        & RL performance verification for fixed targets mission
+            & Compare the performance of RL with zig-zag and random
+            patterns in terms of time and energy
         \\
 
         \bottomrule

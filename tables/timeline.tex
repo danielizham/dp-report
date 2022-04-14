@@ -1,9 +1,7 @@
 % Hardware timeline
-
-% RL timeline
 \begin{center}
     \setcounter{milestonecounter}{0}
-    \def\mysection{\textsc{hardware}} % <- change this variable
+    \def\mysection{hardware} % <- change this variable
     \begin{small}
         \begin{xltabular}{\textwidth}{ p{3cm} p{5cm} X X c }
             \caption{Senior 2 project timeline for \mysection.}
@@ -125,6 +123,143 @@
                 specific probability in specific direction
                 such as N,NE,NW,S,SE,SW
                 & & & Bahri \\
+
+            \bottomrule
+        \end{xltabular}
+    \end{small}
+\end{center}
+
+% RL timeline
+\begin{center}
+    \setcounter{milestonecounter}{0}
+    \def\mysection{\textsc{rl}} % <- change this variable
+    \begin{small}
+        \begin{xltabular}{\textwidth}{ p{3cm} p{5cm} X X c }
+            \caption{Senior 2 project timeline for \mysection.}
+            \label{tab:timeline-rl} \\ % <- change this label
+
+            \toprule
+            \textit{Task} 
+                & \textit{Description} 
+                    & \textit{Start Date} 
+            & \textit{End Date} 
+                & \textit{Assigned To} \\
+
+            \midrule
+            \endfirsthead
+            \caption[]{Senior 2 project timeline \mysection (continued)}\\
+            \toprule
+            \textit{Task} 
+                & \textit{Description} 
+                    & \textit{Start Date} 
+            & \textit{End Date} 
+                & \textit{Assigned To} \\
+
+            \midrule
+            \endhead
+
+            \addlinespace
+            \multicolumn{2}{p{8cm}}{\raggedright
+                \emph{%
+                    Milestone \showmilestonecounter:
+                    Target simulation
+                }
+                }
+                & \emph{24-01-2022} & \emph{10-02-2022} & 
+            \\ \addlinespace
+
+            Task \thesubcounter: 
+            Code the target mobility pattern.
+                & Give each target the ability to move in 8 directions 
+                -- 70\% of the time north-west the rest randomly among
+                the remaining directions.
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Change the appearance of the targets
+                & Cover the targets with a unique QR code so that they
+                can be individually identified during the training and
+                actual mission
+                & & & Daniel \\
+
+            \addlinespace
+            \multicolumn{2}{p{8cm}}{\raggedright
+                \emph{%
+                    Milestone \showmilestonecounter:
+                    RL agent training for fixed targets mission
+                }
+                }
+                & \emph{10-02-2022} & \emph{20-02-2022} & 
+            \\ \addlinespace
+
+            Task \thesubcounter: 
+            Generate a distribution
+                & Create a multivariate distribution representing
+                the probability of being in a location in x-y
+                coordinates.
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Make the targets listen to the changing locations
+                & Add in the target's plugin the ability to listen to
+                changes in a csv file and extract the information
+                intended for the current target only based on its name
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Create a PPO agent
+                & Make the \anafi drone as a PPO agent so that it can
+                be trained
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Train the agent
+                & Run the agent for 50,000 timesteps through
+                trial-and-error until it learns and improves based on
+                the returns
+                & & & Daniel \\
+
+            \addlinespace
+            \multicolumn{2}{p{8cm}}{\raggedright
+                \emph{%
+                    Milestone \showmilestonecounter:
+                    RL performance verification for fixed targets mission
+                }
+                }
+                & \emph{20-02-2022} & \emph{28-02-2022} & 
+            \\ \addlinespace
+
+            Task \thesubcounter: 
+            Code the agent for testing
+                & Allow the agent to use the learned model in
+                completing the mission 
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Code the zig-zag pattern agent
+                & Define the zig-zag path that the \anafi drone needs 
+                to take in the simulation to act as a baseline
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Code the random pattern agent
+                & Define another agent that moves in the 8 directions
+                uniformly to act as a baseline
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Run all agents
+                & Test all agents by running them in the simulation
+                for 10 episodes and the fixed targets change locations
+                based on the same distribution as in the \gls{rl} training
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Calculate and compare
+                & Based on the chosen movements, calculate the speed
+                and energy and then compare them to see which agent
+                performed the best 
+                & & & Daniel \\
 
             \bottomrule
         \end{xltabular}
