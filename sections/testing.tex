@@ -10,7 +10,7 @@
     amount of effort.}
 
     \begin{todolist}
-    \item describe in detail the tests you have 
+    \item [\done] describe in detail the tests you have 
         conducted to verify that your prototype 
         satisfies the desired functional 
         requirements while meeting the design 
@@ -28,7 +28,7 @@
         verifies correct functionality of every 
         component of your system. 
 
-    \item verify and provide evidence through 
+    \item [\done] verify and provide evidence through 
         testing that your solution solved the 
         stated problem and satisfied the 
         requirement specifications and design 
@@ -37,7 +37,7 @@
         what is lacking and identify possible 
         improvements 
 
-    \item This section must present sufficient 
+    \item [\done] This section must present sufficient 
         evidence and clear discussion that your 
         design and prototype met/did-not-meet 
         all of the identified technical and 
@@ -95,7 +95,7 @@
         voltage/frequency ranges. 
     \end{todolist}
 
-    \item You should present the test results, 
+    \item [\done] You should present the test results, 
         with appropriate level of details in 
         addition to accuracy and completeness, 
         using tables, graphs, diagrams, screen 
@@ -331,11 +331,14 @@ battery drain that went from
 \SI{100}{\percent} to \SI{90}{\percent} in 
 \SI{1.5}{minutes}. This is because the propeller motors will try to push 
 their limits to take off the drone, which will consume more energy.
-After adding payload to the drone at \SI{200}{grams}, the drone couldn't
-takeoff and we now know the payload limit, which will be considered in the 
-design constraints. In the actual design, as shown in 
+After adding payload to the drone at \SI{200}{grams}, the drone could not
+takeoff, and we now know the payload limit for the takeoff. We noticed that the drone movement
+is not normal when the payload exceeds \SI{180}{grams} so we considered that and changed
+the payload constraint. In the actual design, as shown in 
 \cref{fig:actual-total-weight} the total payload 
-is \SI{193}{grams} which is less than the payload constraint.
+is \SI{193}{grams} which is more than the payload constraint. The drone movement was bad, so we removed the 3D printed
+parts to reduce the weight to \SI{172}{grams}, which makes the movement now smooth and 
+stable.
 
 
 
