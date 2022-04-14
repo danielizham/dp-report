@@ -5,24 +5,24 @@
 
 \begin{newrequirements}
     \begin{todolist}
-        \item detailed design specifications of the 
+        \item [\done] detailed design specifications of the 
             hardware and software to meet the 
             functional requirements and the 
             practical design constraints 
 
-        \item use circuit diagrams, logic diagrams, 
+        \item [\done] use circuit diagrams, logic diagrams, 
             block diagrams, flow charts, class 
             diagrams and/or sequence diagrams 
 
-        \item detailed justification of design 
+        \item [\done] detailed justification of design 
             choices 
 
-        \item highlight the novel design aspects 
+        \item [\done] highlight the novel design aspects 
 
         \item evaluate the effect of design choices 
             on your system quality attributes 
 
-        \item not required to include all of these 
+        \item [\done] not required to include all of these 
             sub-sections, instead you need to 
             decide how to best communicate your 
             solution’s design
@@ -111,17 +111,17 @@ In the controlling part, a personal computer
 will be responsible for contacting the onboard computer 
 to adjust settings, execute scripts, and get 
 live updates and results. 
-Finally, there will be multiple moving targets 
+Finally, there are multiple moving targets 
 in the target section. For example, 
-\gls{rc} cars are controlled manually and moving in 
+\gls{rc} cars are controlled manually and move in 
 a specific mobility pattern with varying directions 
 and destinations. 
 In the next section, hardware and software components 
 will be presented in a more detailed manner.
 
-\begin{figure}[tbp]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{high-level-arch.png}
+    \includegraphics[width=0.9\textwidth]{high-level-arch.pdf}
     \caption{The high-level architecture of the overall system.}
     \label{fig:arch-fig}
 \end{figure}
@@ -130,11 +130,12 @@ will be presented in a more detailed manner.
 
 \begin{newrequirements}
     \begin{todolist}
-    \item Describe each hardware component and how it works 
+    \item [\done] Describe each hardware component and how it works 
         and the \textbf{scientific principles of its 
         inner working}.
     \end{todolist}
 \end{newrequirements}
+
 
 \subsubsection{Software}
 
@@ -316,108 +317,77 @@ Python script. Moreover, Olympe allows us to read
 sensor data, such as the \gls{gps} fixes and camera feed, 
 from the \anafi
 drone. This will make it possible to build a user interface
-on the control and command station
-shown in \cref{fig:ui-prototype} to monitor 
+on the control and command station to monitor 
 the progress of the drone
 when it is autonomously executing the task visitation
 mission.
 
-\begin{figure}[tbp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{ui-prototype}
-    \caption{An example of a user interface that will be built
-                using sensor data coming from the \anafi drone.}
-    \label{fig:ui-prototype}
-\end{figure}
+
 
 \subsubsection{Hardware}
 
 The main core of the hardware part is the drone, 
 which will be the Parrot \anafi.
 \Cref{tab:hardware-used} lists the hardware components
-used in this project and their justifications. 
-The second important device is the Raspberry Pi. It
+used in this project and their justifications. This quad-copter
+drone is powerful because it combines many technologies 
+and sensors in a small foldable size. It also it has 4K HDR Camera supported 
+with 180 degree gimbal. 
+There are seven sensors in total inside the drone which are shown in 
+\cref{tab:sensors-table} 
+
+
+\begin{table}[H]
+	\centering
+	\caption{Processor and sensors inside the drone}
+	\label{tab:sensors-table}  
+	\begin{tabular}{ p{4cm} p{8cm} }
+		\toprule
+		\textit{Part Name} 
+		& \textit{used for}  \\ 
+		
+		\midrule
+		Ambarella H22 
+		processor
+		& powerful Quad-core ARM® Cortex™ - capable of dealing with sensors and video I/O , 
+		image processing , video encoding , interfacing \\ 
+		3-axis gyroscope
+		& measure the orientation and angular velocity  \\ 
+		3-axis accelerometer
+		& measure the acceleration in 3 dimensions  \\ 
+		magnetometer 
+		& measure the Earth's magnetic field to know the orientation and the heading   \\ 
+				barometer 
+		& measure atmospheric pressure change to control flight height   \\ 
+				GPS 
+		& determine the location of the drone and navigation  \\ 
+				Ultrasonar 
+		&  height measurement for small height less than 5 meters  \\ 
+				Vertical camera 
+		&  measuring horizontal speed and height using optical flow \\ 
+        \bottomrule
+    \end{tabular}
+\end{table}   
+
+The second important device is the Raspberry Pi 4 model B. It 
 acts as an onboard computer and is used in this project
 mainly to facilitate the low-level control of the drone
 by sending frequent control commands to the drone
-in a certain direction or keep hovering.
+in a certain direction or stay hovering.
 The choice of action is determined by the \gls{drl}
 model that will be installed in it.
-Hence, the tasks of the Raspberry Pi are:
-
-\begin{table}[p]
-    \centering
-    \caption{Hardware used in the project.}
-    \label{tab:hardware-used}  
-    \begin{tabular}{ p{4cm} p{3cm} p{6cm} }
-        \toprule
-        \textit{Hardware} 
-            & \textit{Picture} 
-                & \textit{Justification} \\ 
-        
-        \midrule
-
-        Parrot \anafi Drone  
-            & \begin{minipage}{.1\textwidth}
-                \includegraphics[width=30mm, height=20mm]{anafi.png}
-        \end{minipage} 
-                & Available in the university, can be 
-                controlled easily 
-                with simple Python script, 
-                4K-high resolution camera.  \\ 
-                \addlinespace
-
-        Raspberry Pi 4  
-            & \begin{minipage}{.0\textwidth}
-                \includegraphics[width=30mm, height=20mm]{raspberry.jpg}
-        \end{minipage} 
-                & Specifications are enough for our 
-                application, support Wi-Fi and its 
-                small size and weight is an advantage.\\ 
-                \addlinespace
-
-        \textsc{rpi} \textsc{upsp}ack \textsc{v}3 with 
-        \SI{4000}{\milli\ampere\hour} 
-        lithium Battery  
-            & \begin{minipage}{.1\textwidth}
-                \includegraphics[width=30mm, height=35mm]{RPI.jpg}
-        \end{minipage}  
-                & Support up to 4 hours which is more 
-                than enough , the board got an \textsc{led} 
-                indicator for charging level also the 
-                weight and shape is an advantage.  \\ 
-                \addlinespace
-
-        Wireless N Nano \textsc{usb} Adapter  
-            & \begin{minipage}{.1\textwidth}
-                \includegraphics[width=28mm, height=28mm]{dongle.jpg}
-        \end{minipage} 
-                & Cheap and do its job, good coverage 
-                range.  \\ 
-                \addlinespace
-
-   Laptop 
-            & \begin{minipage}{.1\textwidth}
-                \includegraphics[width=30mm, height=30mm]{laptop.png}
-        \end{minipage} 
-                & Any laptop with good WiFi interface 
-                card will be enough for our case. \\ 
-                \addlinespace
-
-        \bottomrule
-    \end{tabular}
-\end{table}    
+Hence, the tasks of the Raspberry Pi are: 
 
 \begin{enumerate}
-    \item connecting to the drone's access point 
-        using a Wi-Fi interface,
-    \item controlling the drone 
-        by executing Olympe to send low-level control signals 
-        and to receive sensory data,
-    \item applying the \gls{drl} model supported by 
-        the command and control system, and
-    \item receiving high-level commands and 
-        sending data to the command and control system.
+	\item connecting to the drone's access point 
+	using a Wi-Fi interface,
+	\item controlling the drone 
+	by executing Olympe to send low-level control signals 
+	and to receive sensory data,
+	\item applying the \gls{drl} model supported by 
+	the command and control system,
+	\item receiving high-level commands and sending video 
+	frames to the command-control system from the drone camera.
 \end{enumerate}
  
 The Parrot \anafi drone is connected 
@@ -437,34 +407,121 @@ the Raspberry Pi will use a
 \SI[per-mode=symbol,per-symbol=p]{300}{MBps} 
 Wi-Fi adapter dongle connected to 
 its \textsc{usb} port. 
-This will allow it to create an access point
-to which the command and control device 
-will connect and by which the Raspberry Pi can be controlled.
-This control of the onboard computer 
-is done through the Secure Shell (\textsc{ssh})
-protocol or the Virtual Network Computing (\textsc{vnc})
-if the graphical interface is needed. 
+This will allow it to create an access point to which 
+the command and control device will connect and by which 
+the Raspberry Pi can be controlled. This control of the 
+onboard computer is done through the graphical user interface,
+which is simply a web-based application 
+that will allow the user to send the
+control commands and receive the video frames. 
+
 
 Regarding the power source for the Raspberry Pi, 
-we thought of taking power directly from the 
-drone's battery, but, after some research, we found 
+we considered taking power directly from the 
+drone's battery, but after some research, we found 
 that the \anafi drone's  
-socket is somehow different. It is also challenging 
-and the drone battery is susceptible to shutting down 
+socket is somehow different in the type and the power output. It is also challenging 
+because the drone battery is susceptible to shutting down 
 immediately if the voltage reaches less than 3.0 Volt. 
-So, we did not want to take the risk and used a 
+Therefore, we did not want to take the risk so we used a 
 lithium battery with a power board called 
 \textsc{upsp}ack Standard Power Supply attached to 
 the main Raspberry Pi board. It includes a 
 \SI{4000}{\milli\ampere\hour}
 lithium battery, which provides enough power 
-and time for our application.
+and long-lasting time for our application.
+\Cref{tab:hardware-used} lists the hardware components
+used in this project and their justifications. 
+
+Finally, in \Cref{fig:3d-design} we have designed a 3D printed case that 
+will hold all the components above the drone in 
+a stylish and professional way. We have considered two 
+points in the design. The first one is the weight and the minimal
+complexity, as we have a limited payload that the drone 
+can lift and a narrow space that can fit above the drone.
+The second point is that the Raspberry Pi usually 
+becomes hot due to processing and usage, so we need 
+a design that will help the airflow go through and keep 
+the ventilation process, and this is why we have 
+the holes in the case design.   
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{3d-model-design.png}
+	\caption{3D design of the onboard computer case.}
+	\label{fig:3d-design}
+\end{figure}
+
+
+\begin{table}[p]
+	\centering
+	\caption{Hardware used in the project.}
+	\label{tab:hardware-used}  
+	\begin{tabular}{ p{4cm} p{3cm} p{6cm} }
+		\toprule
+		\textit{Hardware} 
+		& \textit{Picture} 
+		& \textit{Justification} \\ 
+		
+		\midrule
+		
+		Parrot \anafi Drone  
+		& \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=20mm]{anafi.png}
+		\end{minipage} 
+		& Available in the university, can be 
+		controlled easily 
+		with simple Python script, 
+		4K-high resolution camera.  \\ 
+		\addlinespace
+		
+		Raspberry Pi 4  
+		& \begin{minipage}{.0\textwidth}
+			\includegraphics[width=30mm, height=20mm]{raspberry.jpg}
+		\end{minipage} 
+		& Specifications are enough for our 
+		application, support Wi-Fi and its 
+		small size and weight is an advantage.\\ 
+		\addlinespace
+		
+		\textsc{rpi} \textsc{upsp}ack \textsc{v}3 with 
+		\SI{4000}{\milli\ampere\hour} 
+		lithium Battery  
+		& \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=35mm]{RPI.jpg}
+		\end{minipage}  
+		& Support up to 4 hours which is more 
+		than enough , the board got an \textsc{led} 
+		indicator for charging level also the 
+		weight and shape is an advantage.  \\ 
+		\addlinespace
+		
+		Wireless N Nano \textsc{usb} Adapter  
+		& \begin{minipage}{.1\textwidth}
+			\includegraphics[width=28mm, height=28mm]{dongle.jpg}
+		\end{minipage} 
+		& Cheap and do its job, good coverage 
+		range.  \\ 
+		\addlinespace
+		
+		Laptop 
+		& \begin{minipage}{.1\textwidth}
+			\includegraphics[width=30mm, height=30mm]{laptop.png}
+		\end{minipage} 
+		& Any laptop with good WiFi interface 
+		card will be enough for our case. \\ 
+		\addlinespace
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
+
 
 \subsection{Hardware design}
 
 \begin{newrequirements}
     \begin{todolist}
-        \item For major hardware subsystems in your 
+        \item[\done] For major hardware subsystems in your 
             design, you must present the theory 
             behind the different technological 
             approaches, the tradeoffs associated 
@@ -483,9 +540,9 @@ and time for our application.
         \begin{todolist}
         \item its programming compatibility with C 
 
-        \item its low cost 
+        \item [\done] its low cost 
 
-        \item its development platform availability 
+        \item [\done] its development platform availability 
 
         \item ability to input analog signals 
         \end{todolist}
@@ -498,7 +555,7 @@ and time for our application.
         \item Circuit Diagram (Showing actual circuit 
         diagram with all the components used) 
 
-        \item Connectivity diagram for modular 
+        \item [\done] Connectivity diagram for modular 
         hardware. 
 
         \item Logic Diagrams (Showing logic flow with 
@@ -514,7 +571,7 @@ and time for our application.
         design 
         \end{todolist}
 
-        \item Organize the content of this section 
+        \item [\done] Organize the content of this section 
         using appropriate subsections. It is 
         recommended to have a sub-section of 
         each of the recommended artifacts 
@@ -523,7 +580,128 @@ and time for our application.
     \end{todolist}
 \end{newrequirements}
 
-\lipsum[4]
+
+\subsubsection{UAV options}
+\begin{table}[H]
+	\centering
+	\caption{A comparison of the \gls{uav} options.}
+	\label{tab:alt-solutions}
+	\begin{tabularx}{\textwidth}{ p{4cm} X X }
+		\toprule
+		\textit{} & \textit{Option A} & \textit{Option B}\\ \midrule
+		Type  & Custom made drone with onboard computer & 
+		Commercial drone with high performance and many features    \\
+		Flexibility & Very flexible and customization is easy & 
+		Hard to customize or modify it since it flies under 
+		limited protocols and standards. \\
+		
+		Price and Availability & Cheaper but the shipping and 
+		building processes must be considered & Expensive but 
+		in our case its available in our hands and ready to fly.   \\
+		
+		Onboard computer & Must have & Must have \\
+		\bottomrule
+	\end{tabularx}
+\end{table} 
+
+In \cref{tab:alt-solutions}, 
+we can see some trade-offs 
+between option A and option B. However, in both designs, 
+an onboard microcomputer must be present for 
+flying control and the for the support of autopilot feature as well as for 
+transmitting the video frames. 
+
+
+Firstly, developing a custom drone will consume a lot of time and effort, 
+which is different from our design project idea.
+Hence, we have chosen the commercial drone option especially 
+the Parrot \anafi for several reasons.
+The face that it is supported by a continuously updated 
+\textsc{sdk} and it can be controlled easily 
+with a simple Python script which makes 
+\gls{drl} development much easier and more stable are among common reasons/
+
+Secondly, it has a good flight time 
+as the \anafi drone has a 2700 mAh battery. 
+It can fly up to 25 minutes, which is good enough 
+for our application.
+Finally, its support of Wi-Fi 802.11 and \gls{gps} 
+features is essential in our project for 
+executing scripts and navigation.
+
+\subsubsection{Onboard-computers options}
+There are three options for onboard microcomputers, 
+which are shown in the following 
+\cref{tab:onboard-computers}. Raspberry Pi 4 seems 
+to be the best option since it has advantages 
+in specifications, connection interfaces, 
+and availability.
+
+\begin{table}[H]
+	\centering
+	\caption{A comparison of the onboard computers.}
+	\label{tab:onboard-computers}  
+	\begin{tabular}{ p{3cm} p{4cm} p{4cm} p{4cm} }
+		\toprule
+		\textit{} & \textit{Raspberry Pi 4} & \textit{\textsc{nvidia} Jetson Nano} & 
+		\textit{\textsc{dji} Manifold}\\ \midrule
+		Specifications  & \textsc{cpu}: Cortex-A72 (\textsc{arm} v8) 64-bit@ 1.5GHz | Ram: 4GB or 8GB \textsc{lpddr4}-3200 \textsc{sdram} | \textsc{gpu}: Broadcom VideoCore VI & 
+		\textsc{cpu}: Quad-core \textsc{arm} A57 @ 1.43 GHz | Ram: 4 GB 64-bit 
+		\textsc{lpddr4}   | \textsc{gpu}: 128-core Maxwell & \textsc{cpu}: Quad-core, 
+		\textsc{arm} | Ram: 2 GB \textsc{ddr3l} | \textsc{gpu}: Low-power GeForce
+		 graphics processor \\ \addlinespace
+		Connection interfaces & 2.4 GHz and 5.0 GHz \gls{ieee} 802.11ac wireless,
+		 Bluetooth 5.0 & Gigabit Ethernet \& M.2 Key E (for WiFi support). &10/100/1000 
+		 \textsc{base-t} Ethernet \\ \addlinespace
+		
+		Price \& Availability & \qar{300}. Available and can be used on any drone & 
+		\qar{400}. Available but needs to be ordered and shipped & Very expensive 
+		and restricted to \textsc{dji} drones and \textsc{dji} company stopped 
+		selling it \\ \addlinespace
+		Picture & \begin{minipage}{.2\textwidth}
+			\includegraphics[width=40mm, height=30mm]{raspberry.jpg}
+		\end{minipage}  & \begin{minipage}{.2\textwidth}
+			\includegraphics[width=40mm, height=30mm]{jetson.jpg}
+		\end{minipage} & \begin{minipage}{.2\textwidth}
+			\includegraphics[width=40mm, height=30mm]{manifold.jpg}
+		\end{minipage} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsubsection{Power Supply options}
+As shown in \cref{tab:power-sources}, there are different options for
+the raspberry pi power sources, we have chosen the second option
+RPI pack because it is a complete package and lightweight compared 
+to other options; availability was also another primary concern. 
+\begin{table}[H]
+	\centering
+	\caption{A comparison of the Power-supply sources for RPI4.}
+	\label{tab:power-sources}  
+	\begin{tabular}{ p{3cm} p{4cm} p{4cm} p{4cm} }
+		\toprule
+		\textit{} & \textit{UPS HAT Stable \& Lithium ion battery} & 
+		\textit{RPI-ups-pack Lithium polymer battery} & \textit{Power bank}\\ \midrule
+				Weight & 80g & 70g & 1.2kg \\ \addlinespace
+				Voltage,current & 5V 3.5A  & 5V 3.5A &  5V 3.5A\\ \addlinespace
+				
+				Price \& Availability & \qar{100}.board available online without batteries & 
+				\qar{80}. Available online with battery included & \qar{60}. available 
+				locally\\ \addlinespace
+				Charging duration  & longer & fast & longer \\ \addlinespace	
+				Picture & \begin{minipage}{.2\textwidth}
+					\includegraphics[width=40mm, height=30mm]{ion-battery-ups-haT.png}
+				\end{minipage}  & \begin{minipage}{.2\textwidth}
+					\includegraphics[width=40mm, height=30mm]{rpi-ups-pack.png}
+				\end{minipage} & \begin{minipage}{.2\textwidth}
+					\includegraphics[width=40mm, height=30mm]{power-banks.png}
+				\end{minipage} \\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+
+
+	
 
 \subsection{Software design}
 
