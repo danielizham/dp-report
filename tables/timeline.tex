@@ -131,139 +131,250 @@
 
 % RL timeline
 \begin{center}
-	\setcounter{milestonecounter}{0}
-	\def\mysection{\textsc{rl}} % <- change this variable
-	\begin{small}
-		\begin{xltabular}{\textwidth}{ p{3cm} p{5cm} X X c }
-			\caption{Senior 2 project timeline for \mysection.}
-			\label{tab:timeline-rl} \\ % <- change this label
-			
-			\toprule
-			\textit{Task} 
-			& \textit{Description} 
-			& \textit{Start Date} 
-			& \textit{End Date} 
-			& \textit{Assigned To} \\
-			
-			\midrule
-			\endfirsthead
-			\caption[]{Senior 2 project timeline \mysection (continued)}\\
-			\toprule
-			\textit{Task} 
-			& \textit{Description} 
-			& \textit{Start Date} 
-			& \textit{End Date} 
-			& \textit{Assigned To} \\
-			
-			\midrule
-			\endhead
-			
-			\addlinespace
-			\multicolumn{2}{p{8cm}}{\raggedright
-				\emph{%
-					Milestone \showmilestonecounter:
-					Target simulation
-				}
-			}
-			& \emph{24-01-2022} & \emph{10-02-2022} & 
-			\\ \addlinespace
-			
-			Task \thesubcounter: 
-			Code the target mobility pattern.
-			& Give each target the ability to move in 8 directions 
-			-- 70\% of the time north-west the rest randomly among
-			the remaining directions.
-			& & & Daniel \\
-			
-			Task \thesubcounter: 
-			Change the appearance of the targets
-			& Cover the targets with a unique QR code so that they
-			can be individually identified during the training and
-			actual mission
-			& & & Daniel \\
-			
-			\addlinespace
-			\multicolumn{2}{p{8cm}}{\raggedright
-				\emph{%
-					Milestone \showmilestonecounter:
-					RL agent training for fixed targets mission
-				}
-			}
-			& \emph{10-02-2022} & \emph{20-02-2022} & 
-			\\ \addlinespace
-			
-			Task \thesubcounter: 
-			Generate a distribution
-			& Create a multivariate distribution representing
-			the probability of being in a location in x-y
-			coordinates.
-			& & & Daniel \\
-			
-			Task \thesubcounter: 
-			Make the targets listen to the changing locations
-			& Add in the target's plugin the ability to listen to
-			changes in a csv file and extract the information
-			intended for the current target only based on its name
-			& & & Daniel \\
-			
-			Task \thesubcounter: 
-			Create a PPO agent
-			& Make the \anafi drone as a PPO agent so that it can
-			be trained
-			& & & Daniel \\
-			
-			Task \thesubcounter: 
-			Train the agent
-			& Run the agent for 50,000 timesteps through
-			trial-and-error until it learns and improves based on
-			the returns
-			& & & Daniel \\
-			
-			\addlinespace
-			\multicolumn{2}{p{8cm}}{\raggedright
-				\emph{%
-					Milestone \showmilestonecounter:
-					RL performance verification for fixed targets mission
-				}
-			}
-			& \emph{20-02-2022} & \emph{28-02-2022} & 
-			\\ \addlinespace
-			
-			Task \thesubcounter: 
-			Code the agent for testing
-			& Allow the agent to use the learned model in
-			completing the mission 
-			& & & Daniel \\
-			
-			Task \thesubcounter: 
-			Code the zig-zag pattern agent
-			& Define the zig-zag path that the \anafi drone needs 
-			to take in the simulation to act as a baseline
-			& & & Daniel \\
-			
-			Task \thesubcounter: 
-			Code the random pattern agent
-			& Define another agent that moves in the 8 directions
-			uniformly to act as a baseline
-			& & & Daniel \\
-			
-			Task \thesubcounter: 
-			Run all agents
-			& Test all agents by running them in the simulation
-			for 10 episodes and the fixed targets change locations
-			based on the same distribution as in the \gls{rl} training
-			& & & Daniel \\
-			
-			Task \thesubcounter: 
-			Calculate and compare
-			& Based on the chosen movements, calculate the speed
-			and energy and then compare them to see which agent
-			performed the best 
-			& & & Daniel \\
-			
-			\bottomrule
-		\end{xltabular}
-	\end{small}
+    \setcounter{milestonecounter}{0}
+    \def\mysection{\textsc{rl}} % <- change this variable
+    \begin{small}
+        \begin{xltabular}{\textwidth}{ p{3cm} p{5cm} X X c }
+            \caption{Senior 2 project timeline for \mysection.}
+            \label{tab:timeline-rl} \\ % <- change this label
+
+            \toprule
+            \textit{Task} 
+                & \textit{Description} 
+                    & \textit{Start Date} 
+            & \textit{End Date} 
+                & \textit{Assigned To} \\
+
+            \midrule
+            \endfirsthead
+            \caption[]{Senior 2 project timeline \mysection (continued)}\\
+            \toprule
+            \textit{Task} 
+                & \textit{Description} 
+                    & \textit{Start Date} 
+            & \textit{End Date} 
+                & \textit{Assigned To} \\
+
+            \midrule
+            \endhead
+
+            \addlinespace
+            \multicolumn{2}{p{8cm}}{\raggedright
+                \emph{%
+                    Milestone \showmilestonecounter:
+                    Target simulation
+                }
+                }
+                & \emph{24-01-2022} & \emph{10-02-2022} & 
+            \\ \addlinespace
+
+            Task \thesubcounter: 
+            Code the target mobility pattern.
+                & Give each target the ability to move in 8 directions 
+                -- 70\% of the time north-west the rest randomly among
+                the remaining directions.
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Change the appearance of the targets
+                & Cover the targets with a unique QR code so that they
+                can be individually identified during the training and
+                actual mission
+                & & & Daniel \\
+
+            \addlinespace
+            \multicolumn{2}{p{8cm}}{\raggedright
+                \emph{%
+                    Milestone \showmilestonecounter:
+                    New object detection model
+                }
+                }
+                & \emph{01-02-2022} & \emph{10-02-2022} & 
+            \\ \addlinespace
+
+            Task \thesubcounter: 
+            Integrate OpenCV QR code detection
+                & Try to use the OpenCV QR code detection library in
+                the training to uniquely identify the targets.
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Integrate Pyzbar QR code detection
+                & The OpenCV QR code library did not allow us to place
+                a logo in the middle of the QR code which is common in
+                its latest version.
+                The logo will contain the ID number which ease
+                debugging for us as it is not possible for humans to
+                identify the ID by just looking at the code.
+                Pyzbar allows the logo in the centre, hence it is
+                chosen instead of OpenCV.
+                & & & Daniel \\
+
+            \addlinespace
+            \multicolumn{2}{p{8cm}}{\raggedright
+                \emph{%
+                    Milestone \showmilestonecounter:
+                    RL agent training for fixed targets mission
+                }
+                }
+                & \emph{10-02-2022} & \emph{20-02-2022} & 
+            \\ \addlinespace
+
+            Task \thesubcounter: 
+            Generate a distribution
+                & Create a multivariate distribution representing
+                the probability of being in a location in x-y
+                coordinates.
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Make the targets listen to the changing locations
+                & Add in the target's plugin the ability to listen to
+                changes in a csv file and extract the information
+                intended for the current target only based on its name
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Create a PPO agent
+                & Make the \anafi drone as a PPO agent so that it can
+                be trained
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Train the agent
+                & Run the agent for 50,000 timesteps through
+                trial-and-error until it learns and improves based on
+                the returns
+                & & & Daniel \\ 
+
+            \addlinespace
+            \multicolumn{2}{p{8cm}}{\raggedright
+                \emph{%
+                    Milestone \showmilestonecounter:
+                    RL performance verification for fixed targets mission
+                }
+                }
+                & \emph{20-02-2022} & \emph{28-02-2022} & 
+            \\ \addlinespace
+
+            Task \thesubcounter: 
+            Code the agent for testing
+                & Allow the agent to use the learned model in
+                completing the mission 
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Code the zig-zag pattern agent
+                & Define the zig-zag path that the \anafi drone needs 
+                to take in the simulation to act as a baseline
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Code the random pattern agent
+                & Define another agent that moves in the 8 directions
+                uniformly to act as a baseline
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Run all agents
+                & Test all agents by running them in the simulation
+                for 10 episodes and the fixed targets change locations
+                based on the same distribution as in the \gls{rl} training
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Calculate and compare
+                & Based on the chosen movements, calculate the speed
+                and energy and then compare them to see which agent
+                performed the best 
+                & & & Daniel \\ 
+                
+            \addlinespace
+            \multicolumn{2}{p{8cm}}{\raggedright
+                \emph{%
+                    Milestone \showmilestonecounter:
+                    RL agent training for mobile targets mission
+                }
+                }
+                & \emph{13-03-2022} & \emph{30-03-2022} & 
+            \\ \addlinespace
+
+            Task \thesubcounter: 
+            Code 3 agents' movements
+                & Use the previously developed movement pattern for
+                only 3 targets 
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Code 7 agents' locations
+                & Generate a different distribution for the fixed
+                positions of 7 of the targets 
+                & & & Daniel \\
+  
+            Task \thesubcounter: 
+            Make the targets listen to the changing locations
+                & Add in the target's plugin the ability to listen to
+                changes in a csv file and extract the information
+                intended for the current target only based on its name
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Create a PPO agent
+                & Make the \anafi drone as a PPO agent so that it can
+                be trained
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Train the agent
+                & Run the agent for 150,000 timesteps through
+                trial-and-error until it learns and improves based on
+                the returns
+                & & & Daniel \\ 
+
+            \addlinespace
+            \multicolumn{2}{p{8cm}}{\raggedright
+                \emph{%
+                    Milestone \showmilestonecounter:
+                    Log and video saving feature
+                }
+                }
+                & \emph{27-03-2022} & \emph{02-04-2022} & 
+            \\ \addlinespace
+
+            Task \thesubcounter: 
+            Add logging feature
+                & Use Python built-in logging module to log the time,
+                current \gls{gps} location and the next action of the
+                drone.
+                & & & Daniel \\
+
+            Task \thesubcounter: 
+            Save camera feed
+                & Use Olympe to capture and save the frames coming
+                from the drone's camera in a video file.
+                & & & Daniel \\
+
+            \addlinespace
+            \multicolumn{2}{p{8cm}}{\raggedright
+                \emph{%
+                    Milestone \showmilestonecounter:
+                    Prepare the environment for full integration testing
+                }
+                }
+                & \emph{03-04-2022} & \emph{21-04-2022} & 
+            \\ \addlinespace
+
+            Task \thesubcounter: 
+            Change the environment
+                & The cell size, targets' size and movements and many
+                other parameters need to be adjusted and verified that
+                the agent could still work using the trained
+                fixed-targets and mobile-targets models
+                & & & Daniel \\
+
+            \bottomrule
+        \end{xltabular}
+    \end{small}
 \end{center}
 
 % UI timeline
