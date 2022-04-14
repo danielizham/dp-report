@@ -20,7 +20,7 @@
 - [x] Project Plan
 
 **Phase 2 (Final) - Due on the 21<sup>st</sup> of April 2022**
-- [ ] Abstract
+- [x] Abstract (Daniel)
 - [x] Acknowledgment
 - [x] Introduction and Motivation
 - [x] Background and Related Work
@@ -28,26 +28,26 @@
    - [ ] Minor modification (Daniel)
 - [ ] Solution Design
    - [ ] Hardware (Abdulrahman)
-   - [ ] RL (Daniel)
+   - [x] RL (Daniel)
    - [ ] UI (Bahri)
 - [ ] Implementation
    - [ ] Hardware (Abdulrahman)
-   - [ ] RL (Daniel)
+   - [x] RL (Daniel)
    - [ ] UI (Bahri)
 - [ ] Testing
    - [ ] Hardware (Abdulrahman)
-   - [ ] RL (Daniel)
+   - [x] RL (Daniel)
    - [ ] UI (Bahri)
 - [ ] Impact (Bahri)
-- [ ] Conclusion
+- [x] Conclusion (Daniel)
 - [ ] Future Work
    - [ ] Hardware (Abdulrahman)
-   - [ ] RL (Daniel)
+   - [x] RL (Daniel)
 - [ ] Reflection
    - [x] Abdulrahman
    - [ ] Bahri
    - [ ] Daniel
 - [ ] Appendix - Project Plan
    - [ ] Hardware (Abdulrahman)
-   - [ ] RL (Daniel)
+   - [x] RL (Daniel)
    - [ ] UI (Bahri)
