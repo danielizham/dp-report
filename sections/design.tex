@@ -232,7 +232,39 @@ and apply the \gls{drl} model.
                 processing resources in addition to the 
                 local ones. \\ 
                 \addlinespace
-
+		Python Flask
+		& 
+		\raisebox{-0.9\height}
+		{\includegraphics[width=2.8cm]{flask-logo}}
+		& A backend framework written in python, 
+		it does not require any libraries or tools 
+		which qualifies it as a microframework. 
+		%It has a built-in web server, but it is not suitable
+		%for production, so it is best used with a 
+		%\textsc{wsgi} \textsc{http} server. 
+		\\ 
+				\addlinespace
+		Gunicorn
+		& 
+		\raisebox{-0.9\height}
+		{\includegraphics[width=2.8cm]{gunicorn-logo}}
+		& A Python Web Server Gateway Interface \textsc{http} server.
+		It is very commonly used for web app deployment as it implements 
+		\textsc{pep} 3333 Python \textsc{wsgi} interface.
+		
+				\\ 
+				\addlinespace				
+		%Nginx
+		%& 
+		%\raisebox{-0.9\height}
+		%{\includegraphics[width=2.8cm]{nginx-logo}}
+		%& A web server that can be utilized in many different ways. Mainly, a 
+		%reverse proxy, mail proxy, \textsc{http} cache, and a load balancer. 
+		%It is very wildly used as it has outperformed Apache due to its 
+		%scalability and lightweight.
+	%	\\ 
+	%	\addlinespace
+		
         \bottomrule
     \end{tabular}
 \end{table}
@@ -780,17 +812,27 @@ to other options; availability was also another primary concern.
 
 \subsubsection{User Interface}
 
-%\begin{figure}[tbp] 
-%	\centering
-%	\includegraphics[width=0.9\textwidth]{gui-use-cases} 
-%	\caption{These are the possible use cases that the user can make with 
-%		the drone through the website.}
-%	\label{fig:gui-use-case-diagram} 
-%	\end{figure}
 We created a simple graphical user interface that allows an authorized user 
-to connect to the drone and run different scripts on it. 
-The solution is mainly a simple website that was built using simple html, css, and javascript for the frontend. As for the backend, we relied on python flask as the micro web framework due to its simplicity as it provides very useful tools and features. 
-We relied on a Python gateway.
+to connect to the drone, run different scripts on it, and even watch the live 
+stream from the drone's camera. 
+As illustrated in \cref{fig:gui-environments}, the solution is mainly a simple 
+website that was built using html, css, and javascript for the frontend. As 
+for the backend, we relied on Python Flask as the web framework due to 
+its simplicity and practicality. Moreover, using Flask was beneficial for us 
+because it is a lightweight framework with a built-in development server and a 
+fast debugger provided. 
+We relied on a web server gateway interface (\textsc{wsgi}) \textsc{http} 
+server called Gunicorn which can forward requests to other web applications 
+and frameworks that are written in Python.
+Furthermore, Nginx is used as a reverse proxy server to ensure the smooth flow 
+of traffic in the network. 
+\begin{figure}[tbp] 
+	\centering
+	\includegraphics[width=0.9\textwidth]{gui-environments} 
+	\caption{shows the interactions between software components that were included to 
+		build the web-based \textsc{gui}.}
+	\label{fig:gui-environments} 
+\end{figure}
 
 
 \end{document}
