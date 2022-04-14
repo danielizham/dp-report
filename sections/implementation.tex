@@ -27,11 +27,11 @@
         steps taken in achieving these 
         novelties in your design. 
 
-    \item [\done] Discuss the challenges encountered 
+    \item[\done] Discuss the challenges encountered 
         during the implementation and how they 
         were addressed. 
 
-    \item [\done] You may organize any of the above 
+    \item[\done] You may organize any of the above 
         recommended points as subsections 
 
     \end{todolist}
@@ -123,150 +123,323 @@ Now the drone takeoff is normal, but the drone faces difficulty moving normally 
 
 \subsection{Reinforcement learning}
 
-The framework that we are proposing facilitates the training of
-a Parrot drone to achieve a mission that contains uncertainty
-based on an arbitrary distribution. 
-In our case, the drone is the Parrot Anafi and 
-the mission is to complete a 
-mobile target visitation task 
-in the shortest time and least energy.
-The uncertainty of the mission comes from the initial positions and 
-movements of the targets.
+\subsubsection{Algorithm}
 
-The initial positions of the targets are generated from 
-a skewed
-multivariate normal distribution shown in Fig.~\ref{fig:position-distribution}.
+We have used the state-of-the-art \gls{ppo} algorithm as our \gls{rl}
+model. 
+It shares features with many other actor-critic algorithms such
+as the \gls{a2c} on which \gls{ppo} directly improves~\cite{ppo}.
+The main reason we have chosen it over the others is that it restricts
+the objective function's updates just like \gls{trpo}, but it does so
+in a simpler and more effective way through clipping~\cite{ppo}.
+This is an important consideration because updates in \gls{rl} are
+notoriously unstable~\cite{Hen18}. 
+
+While \cref{tab:ppo-features} lists the original features of \gls{ppo},
+many frameworks have added their own improvements on the algorithm.
+We are using the \gls{ppo} implementation by Stable~Baselines~3
+which adds advantage normalization and value function clipping%
+~\cite{sb3}.
+Both of these additional features contribute further to the stability
+of the training.
+
+\begin{table}[H]
+    \centering
+    \caption{The main features of \gls{ppo} and their brief
+    descriptions~\cite{ppo}.}
+    \label{tab:ppo-features}
+    \begin{tabularx}{\textwidth}{ X p{12.3cm} }
+        \toprule
+            \textit{Feature} 
+                & \textit{Description}\\
+
+        \midrule
+        Actor-critic
+                & 
+                Learns both a policy and a value function which
+                complement each other. 
+                While the policy network (actor) chooses an action
+                stochastically, the value function network (critic)
+                judges how good the action is and adjusts the policy
+                network updates accordingly. 
+                \\ \addlinespace
+        
+        TD lambda
+                & 
+                Balances the variance and bias very well by allocating
+                weights to all actions in a trajectory according to
+                the hyperparameter $\lambda$ in estimating the
+                state-value function. 
+                \\ \addlinespace
+
+        \gls{gae}
+                & 
+                Uses the TD lambda to estimate the advantage function
+                which is used as the target and baseline in \gls{ppo}.
+                This further reduces the variance of the target in
+                exchange for some bias.
+                \\ \addlinespace
+        
+        Buffer
+                & 
+                Allows the agent to collect experiences and save them
+                in the buffer.
+                The agent then trains the networks on the mini-batches
+                sampled from this buffer.
+                Consequently, it makes mini-batches more \gls{iid}.
+                \\ \addlinespace
+
+        Workers
+                & 
+                Allows the agent to explore different environments at
+                the same time through multiple synchronous vectorized
+                workers.
+                It is imperative to make the seeds of these
+                environments different so that they act differently
+                from each other making the agent really exploit the
+                multiple workers
+                \\ \addlinespace
+        
+        Clipping
+                & 
+                Restricts the objective function updates.
+                If the update is higher than 1-$\epsilon$ and the
+                action is good, the update variable $r$ should be set
+                to 1-$\epsilon$ and not more.
+                Otherwise, if the action is bad and the update is
+                higher than 1-$\epsilon$, also limit the update
+                variable $r$ to 1-$\epsilon$.
+                \\ \addlinespace
+        
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\Cref{tab:hyperparameters} shows the hyperparameters we have used in
+the training for the fixed-targets and mobile-targets missions
+respectively.
+Hyperparameters in \gls{rl} matter more than in \gls{sl}, so we have
+paid an extra attention to setting the correct
+values~\cite{hyperparameters}.
+This is another reason we have chosen the stable \gls{ppo}
+algorithm and the specific implementation described above.
+This means that hyperparameters have less influence in our training
+compared to if we had used algorithms that are not stable such as 
+\gls{dqn} and its variants.
+
+Since there is no tried and true methods to decide on the values of
+the hyperparameters,  we have consulted similar missions such as the frozen
+lake and lunar lander and observe what have worked after thousands of
+trials by the community.
+The reason the fixed-targets and mobile-targets have different
+hyperparameters is due to the fact that
+most hyperparameters are a trade off between faster learning and a
+stable learning.
+For example, making the learning rate high will cause the agent to
+learn faster but it will lose prior knowledge from previous
+observation, and thus learning becomes unstable.
+Similarly, a low buffer size saves time but is less stable. 
+Therefore, considering the mobile targets are more complex than the
+static targets, the hyperparameters are different to make its training
+more stable.
+
+\begin{table}[H]
+    \centering
+    \caption{Hyperparameters used during the training.}
+    \label{tab:hyperparameters}
+    \begin{tabularx}{0.8\textwidth}{ X l l }
+        \toprule
+        \textit{Hyperparameter} 
+            & \textit{Fixed-targets mission} 
+                & \textit{Mobile-targets mission} \\
+
+        \midrule
+        
+        Total timesteps
+            & 50,000 
+                & 100,000 
+                \\
+        Buffer size 
+            & 1024 
+                & 2048 
+                \\
+        
+                \raggedright Max timestep per \newline 
+                \hphantom{M} episode
+            & 15
+                & 20
+                \\
+
+        Learning rate
+            & 0.003
+                & 0.0003
+                \\
+        
+        Reward scale
+            & 1.5 
+                & 1.5 
+                \\
+
+        Batch size
+            & 64
+                & 64
+                \\
+
+        \bottomrule		
+    \end{tabularx}
+\end{table}
+
+\subsubsection{Targets' movements}
+
+\paragraph{Fixed-targets mission}
+
+The initial positions of the targets are generated from a skewed
+multivariate normal distribution using the Scipy library in Python
+shown in Fig.~\ref{fig:position-distribution}.
 After every episode, new positions are generated.
-In addition, their movements consist of eight discrete
-actions: forward, backward, left, right,
-forward-left, forward-right, backward-left and backward-right.
-Each movement lasts for 1 meter, and then a new one is
-chosen.
-We have made the targets such that they choose to move 70\% 
-of the time forward-left and 30\% of the time divided
-among the remaining seven movements.
 
 \begin{figure}[!t]
 	\centering
-	\includegraphics[width=3.4in]{target-distribution}
+	\includegraphics[width=0.8\textwidth]{target-distribution}
 	\caption{The distribution of the initial positions of the
-		targets. The x-y plane corresponds to the ground, and 
-		the drone faces the positive x-direction throughout the mission.}
+            targets in the fixed targets mission. The x-y plane
+            corresponds to the ground, and the drone faces the positive
+            x-direction throughout the mission.}
 	\label{fig:position-distribution}
 \end{figure}
 
-To train a drone using RL requires the
-design of the environment, the agent itself and
-the interaction between them as shown in Fig.~\ref{fig:rl}. 
-The agent, due to being in a certain state, chooses and 
-performs an action on
-the environment resulting in the environment 
-rewarding the agent for taking the action in that state
-and then replying to it with a next state.
+\paragraph{Mobile-targets mission}
+
+When it comes to the mobile targets mission, we have set only three of
+the 10 targets to be mobile and the rest fixed for several reasons.
+Firstly, we would like to be able to perform the integration testing
+replicating the visual simulation, and so three of us can control or
+monitor the three mobile targets accurately and effectively.
+Secondly, we would like to see how the agent will react with having a
+mixed of fixed and mobile targets.
+Finally, we anticipated that the higher the number of mobile targets, the 
+longer the training time. 
+Therefore, training for a mission where all of the targets are mobile
+might not be feasible given our weak computer and the \textsc{sdp}
+timespan.
+
+Similar to the fixed-targets mission,
+new positions are generated after every episode.
+The initial positions of the fixed targets are generated from 
+the distribution shown in
+\cref{fig:fixed-position-distribution}
+while mobile targets from the distribution shown in
+\cref{fig:mobile-position-distribution}.
 
 \begin{figure}[!t]
 	\centering
-	\includegraphics[width=3.4in]{rl-flowchart}
-	\caption{The interaction between the agent and environment
-		in reinforcement learning \cite{Sut20}.}
-	\label{fig:rl}
-\end{figure}
-
-In our framework, we have used the Parrot Sphinx simulator
-as the environment and a simulated Anafi drone as the agent.
-The simulated drone extends the OpenAI Gym \texttt{Env} 
-Python class
-to inherit the methods every RL agent
-needs to undergo to learn.
-The exchange of state, reward and action between them 
-occur through the Parrot Olympe controller as well as
-through JSON-RPC and message passing protocols.
-More detailed commands used and steps taken are laid out 
-in Fig.~\ref{fig:flowchart}.
-
-\begin{figure}[!t]
-	\centering
-	\includegraphics[width=3.4in]{sim-flowchart}
-	\caption{Algorithm implementation: commands and messages passing
-		between programs to train the drone.}
-	\label{fig:flowchart}
-\end{figure}
-
-The correct reward and state representations are critical
-to making the drone learn to visit the targets in the shortest
-time and with the least energy.
-The ground is divided into 25 cells as illustrated in 
-Fig.~\ref{fig:grid}, and in each timestep,
-the drone can occupy only one of those cells.
-In addition, each target is given a unique ID which 
-is embedded in the QR code that the targets are covered with
-as shown in Fig.~\ref{fig:target}.
-
-The drone has nine discrete actions, the first eight of which
-are similar to the targets.
-They are forward, backward, left, right,
-forward-left, forward-right, backward-left, backward-right
-and hover. 
-Another difference between the drone and target movements 
-besides the hovering action  
-is the distance travelled -- while the targets move for 
-1 meter before changing direction, the drone moves to 
-one of the neighbouring eight cells or,
-in case of the hovering action, the current cell.
-
-\begin{figure}[!t]
-	\centering
-	\includegraphics[width=3.4in]{grid}
-	\caption{The environment of the agent with its ground
-		divided into 25 cells.}
-	\label{fig:grid}
+        \includegraphics[width=0.8\textwidth]{fixed-target-distribution}
+	\caption{The distribution of the initial positions of the
+        fixed targets \textbf{in the mobile-targets mission}.}
+	\label{fig:fixed-position-distribution}
 \end{figure}
 
 \begin{figure}[!t]
 	\centering
-	\includegraphics[width=3.4in]{target-3}
-	\caption{Example of a target with ID 3 in the environment. The QR code
-		embedding the ID information covers the top side of the target.}
-	\label{fig:target}
+	\includegraphics[width=0.8\textwidth]{mobile-target-distribution}
+	\caption{The distribution of the initial positions of the
+            mobile targets in the mobile-targets mission.}
+	\label{fig:mobile-position-distribution}
 \end{figure}
 
-We have set the reward to be equal to 1.5 multiplied by 
-the number of new targets captured in the new state.
-If there is no new target, the reward is -1. 
-This ensures the drone learns to
-minimise the time.
-Since there are 10 targets, it follows that the maximum
-return (sum of rewards in an episode) that the agent can gain  
-in an episode is 15.
-To obtain the number of new targets, the drone's simulated camera is
-used to take a photo of the cell
-underneath, which is then processed by a QR code detection 
-model, Pyzbar. 
-The outputs of the processing are the IDs of 
-the detected targets, 
-of which only the previously not encountered ones during 
-the episode are counted towards the reward.
+In addition, their movements consist of eight discrete
+actions: forward, backward, left, right,
+forward-left, forward-right, backward-left and backward-right.
+A new movement is chosen after the previous one has lasted for 1 meter
+or the target has reached a boundary.
+We have made the targets such that they choose to move 70\% 
+of the time forward-left (north-west) and 30\% of the time divided
+among the remaining seven directions.
 
-On the other hand, the state space is made up of several 
-pieces of information as follows
-\begin{align}
-	s = \{ t, cell, [ I_1, I_2, I_3, \ldots, I_m] \} 
-	\label{eq:state-space}
-\end{align}
+\subsubsection{Challenges}
 
-\noindent 
-where $t$ is the current time step, $cell$ is the ID of the
-cell underneath the drone, $I_k$ is the binary variable 
-that indicates if the target with an ID of $k$ has been
-visited, $m$ is the total number of targets,
-and the vector of length $m$ is the container for the
-$I$ indicators. 
-For example,
-if only targets with ID's 3 and 7 have been visited
-in the current and previous time steps since the beginning of the 
-episode,
-then the vector will have elements of one for $I_3$ and $I_7$ while
-the other elements are zeros.
+In \cref{tab:rl-challenges}, we list the challenges we have
+encountered while developing the simulation and \gls{rl} and the ways
+we have tried to address them.
+
+\begin{center}
+    \begin{xltabular}{\textwidth}{ X X }
+        \caption{Challenges and our attempted solutions in simulation and
+        \gls{rl} parts of the project.}
+        \label{tab:rl-challenges} \\
+        \toprule
+        \textit{Challenge} 
+            & \textit{Solution} \\
+
+        \midrule
+        \endfirsthead
+        \caption[]{Challenges and our attempted solutions in simulation and
+        \gls{rl} parts of the project (continued)}\\
+        \toprule
+        \textit{Challenge} 
+            & \textit{Solution} \\
+
+        \midrule
+        \endhead
+        
+        In coding the behaviour of the targets, there were many
+        incompatibilities in the versions of the C/C++ libraries that
+        Sphinx requires and those available on Ubuntu 18.04.
+            & 
+        If the incompatibilities are trivial, we simply symlinked the
+        required library to what is available on Ubuntu 
+        (e.g.~\texttt{libboost}).
+        Otherwise, we used Docker to create the right \textsc{os} 
+        environment and worked in the container 
+        (e.g.~\texttt{libgazebo}). 
+            \\ \addlinespace
+
+        Sphinx has a known bug of memory leak that is caused by the
+        simulated camera storage and by not recognizing the presence
+        of some \textsc{gpu}s and their drivers.
+        This problem led to Sphinx occupying the entire \textsc{ram} and 
+        Swap space thus crashing the system after about 10 minutes.
+        So, training was impossible unless this was solved.
+            & 
+        Our solution for the camera storage during the training was to
+        replace the camera with another communication channel between the
+        targets and the agent.
+        If the agent arrives at a cell, the targets in that cell will
+        inform the agent of their presence.
+        For the \textsc{gpu} and its driver, we have managed to set up
+        one of our laptops in such a way that played nicely with
+        Sphinx, so we used it for the training.
+            \\ \addlinespace
+
+        The training required a powerful computer and took a long
+        time.
+            & 
+        The laptops that we had were too weak for the training task. 
+        At first, we resorted to using the QU's research server which
+        has powerful \textsc{cpu} and \textsc{gpu} but the \textsc{its}
+        frequently reset our access, so this method was unreliable.
+        We also tried using a remote \textsc{gpu}-optimized
+        \textsc{vm} which was charged based on pay-as-you-use.
+        However, the memory leak problem as described above kept
+        occurring on the \textsc{vm}.
+        The only solution left for us was to use our personal laptop
+        to train the agent, but we had to organize our time well to
+        avoid being late.
+            \\ \addlinespace
+
+        One of the unique features of the \gls{ppo} algorithm is the
+        ability of the agent to mobilise multiple workers to collect
+        experiences. 
+        However, Sphinx would not allow multiple drones to be spawned
+        in different environments at the same time.
+            & 
+        There was nothing we could do about this so we resorted to
+        using \gls{ppo} without this feature.
+            \\ \addlinespace
+
+        \bottomrule		
+    \end{xltabular}
+\end{center}
 
 \subsection{User interface}
 
