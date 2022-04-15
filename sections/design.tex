@@ -4,68 +4,7 @@
 
 \begin{document}
 
-\begin{newrequirements}
-    \begin{todolist}
-        \item [\done] detailed design specifications of the 
-            hardware and software to meet the 
-            functional requirements and the 
-            practical design constraints 
-
-        \item [\done] use circuit diagrams, logic diagrams, 
-            block diagrams, flow charts, class 
-            diagrams and/or sequence diagrams 
-
-        \item [\done] detailed justification of design 
-            choices 
-
-        \item [\done] highlight the novel design aspects 
-
-        \item evaluate the effect of design choices 
-            on your system quality attributes 
-
-        \item [\done] not required to include all of these 
-            sub-sections, instead you need to 
-            decide how to best communicate your 
-            solution’s design
-    \end{todolist}
-\end{newrequirements}
-
 \subsection{Overview}
-
-% \begin{newrequirements}
-%     \begin{todolist}
-%         \item a simple one or two paragraphs giving a 
-%             birds-eye view of the solution 
-
-%         \item very generic so that even a layman will 
-%             be able to comprehend the scope of your 
-%             work 
-
-%         \item a high level architecture diagram of 
-%             the proposed solution. The diagram 
-%             should show how your solutions is 
-%             decomposed and organized into 
-%             components. Can be a Block Diagram or 
-%             Illustrative Block diagram in which 
-%             some components/blocks can be 
-%             illustrations/images of the actual 
-%             component. 
-
-%         \item Describe the role and the interfaces of 
-%             key components of your high level 
-%             architecture. 
-
-%         \item Discuss the key interactions between 
-%             the identified components. 
-
-%         \item While one Block diagram can be used to 
-%             show hardware components/connectivity, 
-%             another Block diagram or Flow chart can 
-%             be used to do the same for the software 
-%             aspect of the project. 
-                
-%     \end{todolist}
-% \end{newrequirements}
 
 The overview of the proposed solution is depicted in 
 \cref{fig:solution-overview}. 
@@ -128,15 +67,6 @@ will be presented in a more detailed manner.
 \end{figure}
 
 \subsection{Hardware/software used}
-
-\begin{newrequirements}
-    \begin{todolist}
-    \item [\done] Describe each hardware component and how it works 
-        and the \textbf{scientific principles of its 
-        inner working}.
-    \end{todolist}
-\end{newrequirements}
-
 
 \subsubsection{Software}
 
@@ -488,68 +418,6 @@ the holes in the case design.
 
 \subsection{Hardware design}
 
-\begin{newrequirements}
-    \begin{todolist}
-        \item[\done] For major hardware subsystems in your 
-            design, you must present the theory 
-            behind the different technological 
-            approaches, the tradeoffs associated 
-            with each approach, and your 
-            justification for selecting a 
-            particular approach. For instance, 
-            selection of a particular 
-            microcontroller for your design; what 
-            were the main factors that contributed 
-            to this specific choice. For example, 
-            you may choose between Arduino, 
-            MC68HCxxx, BasicStamp, and PIC18Fxx and 
-            you have decided to use PIC18F47 due 
-            to: 
-
-        \begin{todolist}
-        \item its programming compatibility with C 
-
-        \item [\done] its low cost 
-
-        \item [\done] its development platform availability 
-
-        \item ability to input analog signals 
-        \end{todolist}
-
-        \item To document the design of the hardware 
-        components you can use as many of the 
-        following as possible: 
-
-        \begin{todolist}
-        \item Circuit Diagram (Showing actual circuit 
-        diagram with all the components used) 
-
-        \item [\done] Connectivity diagram for modular 
-        hardware. 
-
-        \item Logic Diagrams (Showing logic flow with 
-        respect to signals/numbers) 
-
-        \item Functional Diagrams (showing subsets of 
-        the circuit as functional blocks) 
-
-        \item State Diagrams (to explain the 
-        sequential logic flow) 
-
-        \item Any other drawings to communicate your 
-        design 
-        \end{todolist}
-
-        \item [\done] Organize the content of this section 
-        using appropriate subsections. It is 
-        recommended to have a sub-section of 
-        each of the recommended artifacts 
-        listed above. 
-
-    \end{todolist}
-\end{newrequirements}
-
-
 \subsubsection{UAV options}
 \begin{table}[H]
 	\centering
@@ -673,75 +541,6 @@ to other options; availability was also another primary concern.
 	
 
 \subsection{Software design}
-
-\begin{newrequirements}
-    \begin{todolist}
-    \item[\done] You should document the structural and 
-        the behavioral aspects of your software 
-        components. For projects that only use 
-        embedded code (e.g., programming 
-        microprocessor), a flow-chart 
-        describing your software design could 
-        be sufficient. Projects with user 
-        interfaces may elaborate on the 
-        functioning of the interface using some 
-        of the models mentioned below. 
-
-    \item The software components could be 
-        documented using class diagram for the 
-        whole system. While Class may be too 
-        specific to JAVA or C++ environments, 
-        you may use equivalent components 
-        applicable to your design. For 
-        instance, VI for LabVIEW designs, MDL 
-        files in MATLAB, etc… If the model is 
-        too big, partition the diagram using 
-        some reasonable criteria.  For example, 
-        you may provide the entity classes and 
-        the controller classes as separate 
-        diagrams. 
-
-    \item Specific emphasis should be given to 
-        the elaboration of the software 
-        components that are responsible for 
-        interfacing with the hardware 
-        components of your design. For example, 
-        if a protocol-like procedure was 
-        developed in connecting to a hardware 
-        module then it should be explained in 
-        detail. Such components may include 
-        packetization/depaketization 
-        procedures, etc… 
-
-    \item Wherever applicable, all associations 
-        between classes/software-modules should 
-        be identified through defining the 
-        association name and the multiplicities 
-        on both ends. Aggregation and 
-        inheritance relationships should be 
-        identified.  A brief explanation should 
-        accompany each diagram. 
-
-    \item[\done] Overall software logic may also be 
-        described in order to know the 
-        appropriate logic flow. In case of 
-        LabVIEW or SIMULINK programs, this may 
-        not be needed. For other programming 
-        environments, the state diagram or 
-        extended flow chart may be sufficient. 
-
-    \item In case of graphical codes (such as 
-        LabVIEW programs) the software 
-        structure may be described by various 
-        sub-Vis of the system. Similarly for 
-        SYMLINK diagrams, the models should be 
-        explained individually. The complete 
-        program (graphical/text) should be 
-        included in appendix and should not be 
-        listed completely in this section. 
-                
-    \end{todolist}
-\end{newrequirements}
 
 \subsubsection{Simulation}
 Based on the use case of this project, we first receive information
