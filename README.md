@@ -26,19 +26,19 @@
 - [x] Background and Related Work
 - [x] Requirements Analysis
    - [x] Minor modification (Daniel)
-- [ ] Solution Design
+- [x] Solution Design
    - [x] Hardware (Abdulrahman)
    - [x] RL (Daniel)
-   - [ ] UI (Bahri)
-- [ ] Implementation
+   - [x] UI (Bahri)
+- [x] Implementation
    - [x] Hardware (Abdulrahman)
    - [x] RL (Daniel)
-   - [ ] UI (Bahri)
+   - [x] UI (Bahri)
 - [ ] Testing
    - [x] Hardware (Abdulrahman)
    - [x] RL (Daniel)
    - [ ] UI (Bahri)
-- [ ] Impact (Bahri)
+- [x] Impact (Bahri)
 - [x] Conclusion (Daniel)
 - [x] Future Work
    - [x] Hardware (Abdulrahman)
