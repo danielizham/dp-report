@@ -7,7 +7,59 @@
 \subsection{Unit testing}
 In this section, we will discuss all the conducted tests 
 and challenges regards the design constraints. 
+\begin{table}[H]
+	\centering
+	\caption{Summary of the unit testing}
+	\label{tab:unit-testing-summary}
+	\begin{tabularx}{\textwidth}{ X X l X l }
+		\toprule
+		\textit{Constraint} 
+		& \textit{Testing procedure} 
+		& \textit{Result}
+		& \textit{Measurement data} 
+		& \textit{Error (\%)} \\
+		
+		\midrule
+		
+		
+		\raggedright Power supply    
+		& Test the capacity and the health of the batteries
+		& Met
+		& RPI battery : \SI{1.9}{hours}, \anafi battery :\SI{2.8}{hours}
+		& RPI,52.5\%
+		,ANAFI,3.7\% \\
+		\addlinespace
+		
+		\raggedright Flying duration
+		& batteries are full measure the drone flying duration at different actions
+		& Met
+		& hovering: \SI{14.78}{minutes},		moving: \SI{13.58}{minutes} 
+		& 9.477\%\\
+		\addlinespace
+		
+		\raggedright Response    
+		& Send the command to the drone and measure response time
+		& Met
+		& \SI{0.1511}{second}
+		& N/A \\
+		\addlinespace
 
+		\raggedright Payload     
+		& Test the maximum payload by increasing the load gradually
+		& Met
+		& \SI{180}{gram}
+		& N/A \\
+		\addlinespace
+		
+		\raggedright Economic     
+		& the costs didn't exceed the expected value 
+		& Met
+		& \qar{3800}
+		& N/A \\
+		\addlinespace		
+		\bottomrule		
+	\end{tabularx}
+\end{table}
 \subsubsection{Connecting to the drone}
 
 We have connected the
