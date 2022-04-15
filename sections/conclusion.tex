@@ -5,21 +5,171 @@
 
 \begin{newrequirements}
     \begin{todolist}
-    \item Discuss the main conclusions (e.g., 
+    \item[\done] Discuss the main conclusions (e.g., 
         match the project objectives with the 
         achievements in your work and state the 
         degree of achievement). 
 
-    \item Highlight the strengths of the solution 
+    \item[\done] Highlight the strengths of the solution 
         and list down its shortcomings (what 
         worked? what didn’t work?). 
 
-    \item Highlight the key contributions and the 
+    \item[\done] Highlight the key contributions and the 
         novel aspects of your work. 
 
     \end{todolist}
 \end{newrequirements}
 
-\lipsum[1]
+In the beginning, we set out to achieve six objectives in order to
+build an autonomous drone that can accomplish the target visitation
+mission in the shortest time and with the least energy.
+By the end, we have successfully fulfilled all those objectives, and
+a brief of summary of how we have done so is laid out
+in~\cref{tab:objective-conclusion}.
+
+\begin{center}
+    \begin{xltabular}{\textwidth}{ c X X }
+        \caption{Challenges and our attempted solutions in simulation and
+        \gls{rl} parts of the project.}
+        \label{tab:objective-conclusion} \\
+        \toprule
+        \textit{Objective} 
+            & \textit{Description} 
+            & \textit{Our approach} \\
+
+        \midrule
+        \endfirsthead
+        \caption[]{Challenges and our attempted solutions in simulation and
+        \gls{rl} parts of the project (continued)}\\
+        \toprule
+        \textit{Objective} 
+            & \textit{Description} 
+            & \textit{Our approach} \\
+
+        \midrule
+        \endhead
+        
+            1
+            & 
+            Develop a solution composed of a drone and a command and
+            control system which can be used to track fixed and mobile
+            targets in the minimum amount of flight time.
+            &
+            We have used an \anafi drone controlled by the Olympe
+            library as a controller that runs on our laptop that acts
+            as the command and control system.
+            The Olympe controls the \anafi drone to track fixed and
+            mobile targets in the shortest time according to a trained
+            \gls{rl} model.
+            \\ \addlinespace
+
+            2
+            & 
+            Design and integrate hardware to enable intelligence on
+            the drone.
+            &
+            We have attached and linked a Raspberry Pi to the \anafi
+            drone to act as an onboard computer. 
+            The Olympe library and \gls{rl} model will mainly run in
+            the Raspberry Pi instead of the laptop to allow the \anafi
+            drone to be fully autonomous whenever the connection with
+            the laptop is lost.
+            \\ \addlinespace
+
+            3
+            & 
+            Develop a command and control system that is able to
+            provide high-level commands to the drone.
+            &
+            The command and control system is a laptop that is
+            connected to the Raspberry Pi (onboard computer) through
+            the \textsc{ssh} or \textsc{vnc} protocols.
+            The laptop can control when to start the mission and what
+            \gls{rl} model needs to be run on the Raspberry Pi, which
+            in turn controls the drone directly.
+            \\ \addlinespace
+
+            4
+            & 
+            Detect and identify targets when they are visited by the
+            drone using \gls{ml}.
+            &
+            Initially, we had trained a custom object detection model
+            to detect the targets.
+            When it comes to uniquely identifying the targets, we have
+            resorted to using \textsc{qr} codes and a pre-trained
+            object detection model called Pyzbar to improve on our own
+            trained model.
+            \\ \addlinespace
+
+            5
+            & 
+            Minimize the mechanical energy through efficiently
+            navigating the drone by leveraging \gls{rl}.
+            &
+            We have assumed in this project that the mechanical energy
+            consumption of the drone is equivalent to its flight time.
+            Thus, we have trained an \gls{rl} model using the \gls{ppo}
+            algorithm with a timestep reward such that it encourages
+            visiting all the targets as fast as possible.
+            We have proven the \gls{rl} model's superiority through
+            the learning curve during the training in terms of episode
+            rewards and episode lengths, and through the comparison
+            with the random and zig-zag agents.
+            \\ \addlinespace
+
+            6
+            & 
+            Use cyber-physical simulation in the \gls{rl} training to
+            teach the drone how to navigate the targets intelligently,
+            and test the navigation in a realistic 3D environment
+            before the actual deployment.
+            &
+            We have utilized the Sphinx simulator to train the \anafi
+            drone using \gls{rl}, which is much cheaper and safer than
+            doing so in the physical world.
+            Also, we have tested the final models in the same
+            simulator in which we created a 3D environment including
+            the real-world physics that matched the deployment
+            settings.
+            This proved to be very effective as we were required to
+            make only minor modifications before successfully making
+            it work as expected during the deployment.
+            \\ \addlinespace
+
+        \bottomrule		
+    \end{xltabular}
+\end{center}
+
+The strengths of our solution are due to our use of \gls{rl} in training
+the agent.
+The \gls{rl} allows us to execute a target-visitation mission without
+knowing the targets' locations beforehand as long as the targets'
+initial positions and movements follow certain distributions and are
+not random. 
+It is versatile in a way that any mobility pattern of the targets can
+be theoretically learned by the agent after the agent has been retrained.
+
+On the other hand, our main shortcomings stem from the use of
+simulator and programs that are not fully open-source.
+As a result, many processes such as creating the 3D environment,
+controlling the drone and applying the \gls{rl} algorithm were limited
+because we could not modify the underlying code.
+Another shortcoming is the need for long training hours to get the
+agent intelligent enough through \gls{rl}.
+Personal laptops are sufficient only for simple applications like
+ours.
+There are other shortcomings which we have outlined as challenges in
+\cref{sec:future}.
+
+The key contributions of our solution lie in the fact that the framework
+is flexible to cater for target visitation applications beyond what
+this project entails.
+The steps remain the same, but things such as the targets' mobility
+pattern, reward function and \gls{rl} algorithm may need to be
+changed.
+Moreover, the framework provides a digital twin of the real
+environment in the form of visual simulation to facilitate the
+exploration of smart navigation.
 
 \end{document}

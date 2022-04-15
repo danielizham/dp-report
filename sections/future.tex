@@ -5,16 +5,16 @@
 
 \begin{newrequirements}
     \begin{todolist}
-    \item Identify areas of improvement in the 
+    \item[\done] Identify areas of improvement in the 
         project and features of interest that 
         can be added later on. 
 
-    \item How the solution shortcomings could be 
+    \item[\done] How the solution shortcomings could be 
         addressed? 
 
-    \item What things could be done better? 
+    \item[\done] What things could be done better? 
 
-    \item What additional resources are required 
+    \item[\done] What additional resources are required 
         to implement the extended / not-
         implemented design or features?
 
@@ -43,6 +43,123 @@ but there are some drawbacks, such as the price of the drone and availability.
 
  
 
-\subsection{RL}
+\subsection{RL and Simulation}
+
+\Cref{tab:shortcomings} and \cref{tab:additional-features} list
+respectively the shortcomings we have identified in our project and
+additional features we could implement as future work with regards to
+\gls{rl} and simulation portions of the project.
+
+\begin{center}
+    \begin{xltabular}{\textwidth}{ X X }
+        \caption{Shortcomings and our proposed solutions in simulation
+        and \gls{rl} parts of the project.}
+        \label{tab:shortcomings} \\
+        \toprule
+        \textit{Shortcoming} 
+            & \textit{Proposed solution} \\
+
+        \midrule
+        \endfirsthead
+        \caption[]{Shortcomings and our proposed solutions in simulation
+        and \gls{rl} parts of the project (continued)}\\
+        \toprule
+        \textit{Shortcoming} 
+            & \textit{Proposed solution} \\
+
+        \midrule
+        \endhead
+        
+        Unable to use the \gls{ppo} workers in the training            
+        & 
+        Sphinx allows for spawning of multiple drones but they all
+        need to be in the same environment. 
+        \gls{ppo} workers ought to be in their own separate
+        environments.
+        To overcome this, we may could choose an open-source drone
+        which will allow us to use the vanilla Gazebo to simulate it.
+        We are then able to create different environments for
+        different simulated drones thus qualifying them to be
+        \gls{ppo} workers.
+        \\ \addlinespace
+
+        Hardcoding the boundary of the agent
+        &
+        Instead of making the drone hover when it decides to go
+        outside the grid, the agent could be made more autonomous by
+        letting it learn in the training that going outside the
+        boundary will incur a big negative reward.
+        \\ \addlinespace
+
+        No energy in the reward equation
+        &
+        The RL may incorporate the energy used for each action in the
+        reward. This is useful for the time when the drone must decide
+        between two or more actions that lead to the same destination,
+        but one of them obviously consumes the least energy.
+        Also, the energy calculation of the \gls{rl} agent will be
+        lower compared to other baseline agents.
+        \\ \addlinespace
+
+        Non-optimal hovering movement of the agent
+        &
+        The agent's hovering movement lasts instantaneously when it
+        should have few-second delay.
+        The delay was not implemented because the training runs twice
+        the speed as normal but the delay would stay the same as it
+        would be defined using the wall clock time.
+        As a result, the agent will learn a wrong hovering movement
+        than what it is supposed to be in the real world.
+        As a proposed solution, we could query Sphinx for the
+        real-time/simulation-time ratio and define the delay with
+        respect to this ratio instead of the wall clock time.
+        \\ \addlinespace
+
+        \bottomrule		
+    \end{xltabular}
+\end{center}
+
+\begin{center}
+    \begin{xltabular}{\textwidth}{ X X }
+        \caption{Additional features and their descriptions in
+        simulation and \gls{rl} parts of the project.}
+        \label{tab:additional-features} \\
+        \toprule
+        \textit{Additional feature} 
+            & \textit{Description} \\
+
+        \midrule
+        \endfirsthead
+        \caption[]{Additional features and their descriptions in
+        simulation and \gls{rl} parts of the project (continued)}\\
+        \toprule
+        \textit{Additional feature} 
+            & \textit{Description} \\
+
+        \midrule
+        \endhead
+        
+        Targets with more advanced mobility patterns
+            & 
+        The project's applications can be extended to cover other
+        mobility patterns such as Manhattan and reference point group
+        mobility (\textsc{rpgm}).
+        The targets will need to be programmed using their plugins to
+        behave as the chosen mobility pattern and then the drone can
+        be trained as we did in this project.
+            \\ \addlinespace
+
+        Train the agent in the cloud
+            &
+        A cloud provider, such as \textsc{aws}, Azure and Google Cloud
+        Platform, offers a \textsc{vm} that can have a much more
+        powerful \textsc{gpu} compared to consumer laptops.
+        This will facilitate the training immensely especially when
+        the targets' mobility pattern is complex.
+            \\ \addlinespace
+
+        \bottomrule		
+    \end{xltabular}
+\end{center}
 
 \end{document}

@@ -1,4 +1,5 @@
 \documentclass[../main.tex]{subfiles}
+\externaldocument{introduction}
 \graphicspath{{\subfix{../images/}}}
 
 \begin{document}
@@ -191,23 +192,6 @@ and apply the \gls{drl} model.
                 It is largely based on Gazebo. \\
                 \addlinespace
 
-        Roboflow  
-            & 
-            \raisebox{-0.9\height}
-            {\includegraphics[width=2.4cm]
-            {roboflow.png}}
-                & A framework for Computer Vision
-                development that can be used online.
-                It facilitates labelling of images, 
-                splitting and merging datasets, 
-                applying image transformations 
-                and filters, 
-                and generating a link for 
-                the augmented datasets 
-                which will be used in the 
-                training notebooks.  \\
-                \addlinespace
-
         Jupyter Notebook  
             & 
             \raisebox{-0.9\height}
@@ -220,17 +204,14 @@ and apply the \gls{drl} model.
                 ideas in the Sphinx simulation. \\ 
                 \addlinespace
 
-        Google Colab 
+        Zbar
             & 
             \raisebox{-0.9\height}
-            {\includegraphics[width=2.8cm]{colab.png}}
-                & A Jupyter notebook environment
-                running in the cloud. 
-                It makes it easy to write, run, 
-                and share the code. Most importantly, 
-                it gives an option to use remote 
-                processing resources in addition to the 
-                local ones. \\ 
+            {\includegraphics[width=1.8cm]{zbar.png}}
+                & A software suite capable of reading widely-used
+                symbologies including QR code. Its Python binding
+                Pyzbar is used as a library in this project to
+                detect the QR codes of the targets. \\ 
                 \addlinespace
 		Python Flask
 		& 
@@ -289,55 +270,11 @@ program looks like.
     \label{fig:gazebo}
 \end{figure}
 
-The training part is divided into \gls{rl}, 
-which is used to teach the \anafi drone to complete the task, 
-and object detection and identification, 
-which is used to detect and count the targets
-required in determining the reward during the training. 
-The \gls{rl} agent is based on the \gls{drl} model 
-developed by \textcite{Ged21}. The action space is composed 
-of 9 movements in the 
-forward, backward, left,
-right, forward-left, forward-right, backward-left and 
-backward-right directions as well as a hover.
-The state space is given as
-\begin{align}
-    s = \{ t, cell, [ I_1, I_2, I_3, \ldots, I_m] \} 
-    \label{eq:state-space}
-\end{align}
-
-\noindent 
-where $t$ is the current time step, $cell$ is the \id of the
-cell above which the drone is, $I_k$ is the binary variable 
-that indicates if the target with an \id of $k$ has been
-visited, $m$ is the total number of targets,
-and the vector of length $m$ is the container for the
-$I$ indicators. 
-For example,
-if only targets with \id's 3 and 7 have been visited
-in the current and previous time steps since the beginning of the 
-episode,
-then the vector will have elements of one for $I_3$ and $I_7$ while
-the other elements are zeros.
-It follows that all the targets must be uniquely identifiable.
-In addition, the reward is how many new targets are captured 
-in the current cell,
-and if the drone flies past the boundary, then a big negative
-reward will be incurred.
-
-For the object detection, we used simulation tools to 
-generate some training datasets. Firstly, 
-we placed random objects and captured the images 
-using the simulated drone camera. We have used a 
-website called Roboflow which helped us labelling 
-the objects and generate new datasets from the 
-existing ones with different types of augmentation 
-such as rotation and scaling. 
-For the object detection model, Google Colab notebook 
-was a sufficient tool to start training using 
-\gls{cnn} \textsc{yolo}v5 in addition to the 
-Jupyter notebook which was very helpful 
-in code experimentation. 
+For the object detection model, the Pyzbar library was used to detect
+the QR codes of the targets.
+It has an accuracy of up to 90\% in good conditions but can be as
+low as 30\% when the QR code is damaged due to an error in photo
+capturing and processing~\cite{dynamsoft}.
 
 For the application software, Parrot Olympe 
 was used to send commands to the physical as well as 
@@ -739,7 +676,7 @@ to other options; availability was also another primary concern.
 
 \begin{newrequirements}
     \begin{todolist}
-    \item You should document the structural and 
+    \item[\done] You should document the structural and 
         the behavioral aspects of your software 
         components. For projects that only use 
         embedded code (e.g., programming 
@@ -785,7 +722,7 @@ to other options; availability was also another primary concern.
         identified.  A brief explanation should 
         accompany each diagram. 
 
-    \item Overall software logic may also be 
+    \item[\done] Overall software logic may also be 
         described in order to know the 
         appropriate logic flow. In case of 
         LabVIEW or SIMULINK programs, this may 
@@ -797,7 +734,7 @@ to other options; availability was also another primary concern.
         LabVIEW programs) the software 
         structure may be described by various 
         sub-Vis of the system. Similarly for 
-        SIMULINK diagrams, the models should be 
+        SYMLINK diagrams, the models should be 
         explained individually. The complete 
         program (graphical/text) should be 
         included in appendix and should not be 
@@ -807,8 +744,147 @@ to other options; availability was also another primary concern.
 \end{newrequirements}
 
 \subsubsection{Simulation}
+Based on the use case of this project, we first receive information
+about the targets' count, distribution and mobility pattern and use
+these pieces of
+information to produce a file containing the weights for a \gls{drl}
+model.
+The simulation and \gls{rl} are critical
+components to output this file thus achieving objective~\ref{obj:drl}.
+The design for these components are shown in~\cref{fig:sim-flowchart}.
 
-\lipsum[5]
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=1.0\textwidth]{sim-flowchart}
+    \caption{A flowchart showing the training process
+        of the \gls{rl} in the project
+        and the interactions between the libraries
+        and programs.}
+    \label{fig:sim-flowchart}
+\end{figure}
+
+In our framework, we have used the Parrot Sphinx simulator
+as the environment and a simulated Anafi drone as the agent.
+The simulated drone extends the OpenAI Gym \texttt{Env} 
+Python class
+to inherit the methods every RL agent
+needs to undergo to learn.
+The exchange of state, reward and action between them 
+occur through the Parrot Olympe controller as well as
+through JSON-RPC and message passing protocols.
+More detailed commands used and steps taken are laid out 
+in~\cref{fig:sim-flowchart}.
+
+The Parrot Olympe library was used for sending movement commands to
+the drone.
+It allowed us to connect
+to the simulated drone by specifying the drone's
+\textsc{ip}. Once the connection was established, 
+we could send the Olympe control commands to the drone
+to execute the visitation task. 
+Which command to use
+depends on the \gls{rl} model.
+
+The \gls{rl} was aided 
+by another library called \gym.
+We used it to facilitate developing the
+\gls{drl} algorithm we are implementing and to 
+teach the drone how to achieve the 
+target visitation mission.
+Specifically, \gym provides an abstract class 
+called \texttt{Env}
+which we have inherited and overridden the 
+required methods.
+One of the methods is step() which is contained in
+\cref{fig:sim-flowchart}.
+
+To train a drone using RL requires the
+design of the environment, the agent itself and
+the interaction between them as shown in~\cref{fig:rl}. 
+The agent, due to being in a certain state, chooses and 
+performs an action on
+the environment resulting in the environment 
+rewarding the agent for taking the action in that state
+and then replying to it with a next state.
+
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=0.8\textwidth]{rl-flowchart}
+	\caption{The interaction between the agent and environment
+        in \gls{rl} \cite{Sut20}.}
+	\label{fig:rl}
+\end{figure}
+
+The action space of the agent is defined as a class, and its
+elements call the necessary Olympe functions. 
+The space consists of 9 movements: 
+forward, backward, left,
+right, forward-left, forward-right, backward-left,
+backward-right and no-operation (hover).
+
+We have set the reward to be equal to 1.5 multiplied by 
+the number of new targets captured in the new state.
+Each target is given a unique \textsc{id} which 
+is embedded in the \textsc{qr} code that the targets are covered with
+as shown in~\cref{fig:target}.
+If there is no new target, the reward is -1. 
+This ensures the drone learns to
+minimise the time.
+Since there are 10 targets, it follows that the maximum
+return (sum of rewards in an episode) that the agent can gain  
+in an episode is 
+\begin{align}
+        1.5 \times 10 = 15
+\end{align}
+To obtain the number of new targets, the drone's simulated camera is
+used to take a photo of the cell
+underneath, which is then processed by a \textsc{qr} code detection 
+model, Pyzbar. 
+The outputs of the processing are the \textsc{id}s of 
+the detected targets, 
+of which only the previously not encountered ones during 
+the episode are counted towards the reward.
+
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=0.8\textwidth]{target-3}
+	\caption{Example of a target with ID 3 in the environment. The QR code
+		embedding the ID information covers the top side of the target.}
+	\label{fig:target}
+\end{figure}
+
+For the state space, the ground is divided into 25 cells as
+illustrated in~\cref{fig:grid} with the numbers representing their
+\textsc{id}s. 
+In each timestep, the drone can occupy only one of these cells.
+In addition to the cell \textsc{id}, the state space is made up of
+other pieces of information as follows
+\begin{align}
+	s = \{ t, cell, [ I_1, I_2, I_3, \ldots, I_m] \} 
+	\label{eq:state-space}
+\end{align}
+
+\noindent 
+where $t$ is the current time step, $cell$ is the ID of the
+cell underneath the drone, $I_k$ is the binary variable 
+that indicates if the target with an ID of $k$ has been
+visited, $m$ is the total number of targets,
+and the vector of length $m$ is the container for the
+$I$ indicators. 
+For example,
+if only targets with ID's 3 and 7 have been visited
+in the current and previous time steps since the beginning of the 
+episode,
+then the vector will have elements of one for $I_3$ and $I_7$ while
+the other elements are zeros.
+
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=0.8\textwidth]{grid}
+	\caption{The environment of the agent with its ground
+		divided into 25 cells.}
+	\label{fig:grid}
+\end{figure}
 
 \subsubsection{User Interface}
 
