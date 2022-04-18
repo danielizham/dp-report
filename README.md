@@ -43,10 +43,10 @@
 - [x] Future Work
    - [x] Hardware (Abdulrahman)
    - [x] RL (Daniel)
-- [ ] Reflection
+- [x] Reflection
    - [x] Abdulrahman
-   - [ ] Bahri
-   - [ ] Daniel
+   - [x] Bahri
+   - [x] Daniel
 - [ ] Appendix - Project Plan
    - [x] Hardware (Abdulrahman)
    - [x] RL (Daniel)
