@@ -45,7 +45,7 @@ and make sure it's one solid piece.
 \begin{figure}[p]
 	\centering
 	\includegraphics[width=0.5\textwidth]{parts.jpg}
-	\caption{3d printed parts \& on-board computer}
+	\caption{3D printed parts \& on-board computer}
 	\label{fig:printed-parts}
 \end{figure} 
 
@@ -129,23 +129,24 @@ of the training.
                 network updates accordingly. 
                 \\ \addlinespace
         
-        TD lambda
+        \textsc{td}-lambda
                 & 
-                Balances the variance and bias very well by allocating
-                weights to all actions in a trajectory according to
-                the hyperparameter $\lambda$ in estimating the
-                state-value function. 
+                \gls{td} learning ($\lambda$) balances the variance
+                and bias very well by allocating weights to all
+                actions in a trajectory according to the
+                hyperparameter $\lambda$ in estimating the state-value
+                function. 
                 \\ \addlinespace
 
         \gls{gae}
                 & 
-                Uses the TD lambda to estimate the advantage function
+                Uses the \gls{td} lambda to estimate the advantage function
                 which is used as the target and baseline in \gls{ppo}.
                 This further reduces the variance of the target in
                 exchange for some bias.
                 \\ \addlinespace
         
-        Buffer
+        Replay buffer
                 & 
                 Allows the agent to collect experiences and save them
                 in the buffer.

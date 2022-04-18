@@ -209,7 +209,7 @@ the environment within which the drone will fly.
             provides a dedicated \textsc{nvidia} 
             \textsc{titan} \textsc{8gb} \textsc{gpu}. 
             Even with these specifications, the training
-            will last an unreasonably long time 
+            will last for an unreasonably long time 
             to allow the agent to exhaustively explore 
             the state space and find the global optimum.
             Therefore the accuracy of the \gls{drl} model will converge
@@ -223,59 +223,127 @@ the environment within which the drone will fly.
 \end{center}
 \vspace{-1.0cm}
 %
+% \begin{table}[H]
+%     \centering
+%     \caption{Practical design constraints.}
+%     \label{tab:practical-design-constraints}
+%     \begin{tabularx}{\textwidth}{ p{3cm} p{3cm} X }
+%         \toprule
+%         \textit{Type} 
+%             & \textit{Name} 
+%                 & \textit{Description} \\
+
+%         \midrule
+        
+%         Economic 
+%             & Cost 
+%                 & The selling price of the entire 
+%                 system must not exceed 
+%                 \SI{6000}[\textsc{qar}\,]  
+%                 or the product may not be sellable 
+%                 due to being too expensive. \\
+        
+%         Environmental 
+%             & Temperature 
+%                 & The \anafi drone cannot be flown
+%                 when the temperature outside is below
+%                 \SI{-10}{\celsius}
+%                 or above
+%                 \SI{40}{\celsius}% 
+%                 ~\cite{Par19}. \\
+
+%         Environmental 
+%             & Wind 
+%                 & The \anafi drone cannot be flown
+%                 when the wind speed is above 
+%                 \SI{50}{\kilo\meter\per\hour}%
+%                 ~\cite{Par19}. \\
+        
+%         Deployment 
+%             & \gls{drl} model 
+%                 & The software system must be such 
+%                 that when the details of the task change,
+%                 it should be easy for the \gls{drl} model 
+%                 to be swapped with another one trained for
+%                 the new task. \\
+
+%         Environmental 
+%             & Eco-friendliness 
+%                 & The system only uses electricity 
+%                 and no emission. \\
+        
+%         \bottomrule		
+%     \end{tabularx}
+% \end{table}
+%
 \begin{table}[H]
     \centering
     \caption{Practical design constraints.}
     \label{tab:practical-design-constraints}
-    \begin{tabularx}{\textwidth}{ p{3cm} p{3cm} X }
+    \begin{tabularx}{\textwidth}{ c p{4cm} X }
         \toprule
-        \textit{Type} 
-            & \textit{Name} 
-                & \textit{Description} \\
+        \textit{No.} 
+            & \textit{Constraint} 
+                & \textit{Relevance to the design} \\
 
         \midrule
         
-        Economic 
-            & Cost 
-                & The selling price of the entire 
-                system must not exceed 
-                \SI{6000}[\textsc{qar}\,]  
-                or the product may not be sellable 
-                due to being too expensive. \\
+        1 
+            & Public Health, Safety, and Welfare 
+                & %
+                \hspace{-0.7cm} \begin{minipage} [t] {0.65\textwidth} 
+                \begin{itemize}
+                  \item The \anafi drone cannot be flown
+                    when the temperature outside is below
+                    \SI{-10}{\celsius}
+                    or above
+                    \SI{40}{\celsius}% 
+                    ~\cite{Par19}. \vspace{-0.2cm}
+                  \item The \anafi drone cannot be flown
+                    when the wind speed is above 
+                    \SI{50}{\kilo\meter\per\hour}%
+                    ~\cite{Par19}.
+               \end{itemize} 
+               \end{minipage}
+                \\ \addlinespace
         
-        Environmental 
-            & Temperature 
-                & The \anafi drone cannot be flown
-                when the temperature outside is below
-                \SI{-10}{\celsius}
-                or above
-                \SI{40}{\celsius}% 
-                ~\cite{Par19}. \\
+        2 
+            & Global Implications 
+                & N/A \\
+                \addlinespace
 
-        Environmental 
-            & Wind 
-                & The \anafi drone cannot be flown
-                when the wind speed is above 
-                \SI{50}{\kilo\meter\per\hour}%
-                ~\cite{Par19}. \\
+        3 
+            & Cultural Implications 
+                & N/A \\
+                \addlinespace
         
-        Deployment 
-            & \gls{drl} model 
+        4 
+            & Social Implications
                 & The software system must be such 
                 that when the details of the task change,
                 it should be easy for the \gls{drl} model 
                 to be swapped with another one trained for
                 the new task. \\
+                \addlinespace
 
-        Environmental 
-            & Eco-friendliness 
+        5 
+            & Environmental Factors
                 & The system only uses electricity 
                 and no emission. \\
+                \addlinespace
+        
+        6 
+            & Economic Factors
+                & The selling price of the entire 
+                system must not exceed 
+                \SI{6000}[\textsc{qar}\,]  
+                or the product may not be sellable 
+                due to being too expensive. \\
+                \addlinespace
         
         \bottomrule		
     \end{tabularx}
 \end{table}
-
 \subsection{Design standards}
 
 The use of standards ensures reliability and consistency
@@ -302,7 +370,8 @@ listed in the following \cref{tab:design-standards}.
         
         \textsc{wpa}2 
                 & Used in securing the 
-                communications above. \\
+                communications between the drone and the command and
+                control system. \\
                 \addlinespace
         
         \textsc{gps}  
@@ -358,7 +427,7 @@ In accordance with the \gls{acm} Code of Ethics:
 
 \subsection{Assumptions}
 
-The following states are assumed to be true
+The following statements are assumed to be true
 since the design decisions to meet the opposite
 conditions fall outside the scope of this project.
 
@@ -370,7 +439,7 @@ conditions fall outside the scope of this project.
     \item The real targets move according to the mobility 
         pattern used to train the machine learning model.
     \item The targets in simulation and practice are 
-        equally detectable and identifiable by
+        equally detectable and identifiable using 
         machine learning.
     \item The \anafi drone captures the 
         required details of the target 
