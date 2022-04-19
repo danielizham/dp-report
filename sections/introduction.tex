@@ -57,8 +57,9 @@ As illustrated in \cref{fig:problem}, this
 is what the project at hand intends to solve.
 Given the mobile targets' mobility pattern,
 how do we make a \uav able to visit them
-in the fastest possible time and in turn, 
-the most energy-saving way?  
+in the fastest possible time and, in turn, 
+the most energy-saving way although it does not know the targets'
+exact locations?  
 % }}}
 
 % {{{ Figure of the problem
@@ -101,7 +102,7 @@ over a long range makes them susceptible
 to malicious hackers.
 Based on the goal of the project, the main challenge 
 that we will focus on is the autonomous navigation
-of the drone to visit identifiable targets in the shortest
+of the drone to visit identifiable and mobile targets in the shortest
 time and energy-saving way.
 % }}}
 
@@ -280,13 +281,14 @@ the target visitation task based on a specific
 mobility pattern.
 Finally, we will build a \gls{uav} system
 consisting of the \anafi drone as well as a Raspberry Pi
-that will contain the model making the
-\anafi drone fully autonomous.
+that will utilize the machine learning and reinforcement learning
+models making the \anafi drone fully autonomous.
 Based on the deliverables, the desired result is that
 given the same mobility pattern for 
-the moving targets as the one in the \gls{drl} training,
+the moving targets,
 the \gls{uav} should be able to fly to locations it has learned
-that allow it to capture the maximum number of targets. 
+that will allow it to capture the maximum number of targets in the
+shortest time possible. 
 % }}}
 
 \subsection{Market research and business viability}
