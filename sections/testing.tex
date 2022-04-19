@@ -397,6 +397,112 @@ discussed in the challenges table.
 	\label{fig:mobile-expriment-detection}
 \end{figure}
 
+% Integration testing challenges
+
+\begin{center}
+    \begin{xltabular}{\textwidth}{ p{4cm} X }
+        \caption{Challenges we faced while carrying out the
+        integration testing and our attempted solutions.} 
+        \label{tab:integration-challenges} \\
+
+        \toprule
+        \textit{Challenge} 
+            & \textit{Solution} \\
+
+        \midrule
+        \endfirsthead
+        \caption[]{Challenges we faced while carrying out the
+        integration testing and our attempted solutions (continued)} \\
+
+        \toprule
+        \textit{Challenge} 
+            & \textit{Solution} \\
+
+        \midrule
+        \endhead
+        
+        \raggedright Weak or non-existent \gls{gps} signal
+        & 
+        During the first trial of the testing, we could not fly the
+        drone as it was not able to obtain a position fix using
+        the \gls{gps}.
+        The first source of the problem was due to the presence of a
+        roof above the outdoor court where we carried out the
+        experiments.
+        For this, we moved to another adjacent court that was completely
+        open. 
+        The second source was having the Raspberry Pi directly on top
+        of the \gls{gps} antenna of the drone causing instability in
+        the signal.
+        To solve this, we simply shifted it towards the back of the
+        drone to avoid interfering with the signal, but this
+        unbalanced the drone slightly. 
+        \\ \addlinespace
+
+        \raggedright Inaccuracy in the movements using \gls{gps}
+        & 
+        Unlike the simulation where the \gls{gps} coordinates allow
+        the drone to travel to the centre of the cells every time, in
+        the real experiment, the drone accumulates errors after every
+        movement even though all of the coordinates are calculated
+        right after take-off.
+        We believe this is because the movements were too short for a
+        normal \gls{gps} used in the \anafi to work.
+        There was nothing that we could do to improve on the situation
+        given the limited time, and movements based on the distance
+        travelled instead of \gls{gps} had been proven to propagate
+        more errors according to the simulation.
+        In the future, we may make the drone detect the boundaries of
+        the cell or \textsc{qr} codes for guidance purposes to centre
+        it within the cell.
+        \\ \addlinespace
+
+        \raggedright Excessive payload when the 3D printed part was used
+        & 
+        Unfortunately, the 3D printed case, which was supposed to
+        secure the onboard computer, proved to be too heavy for the
+        drone.
+        It was consequently not able to execute even simple movements
+        after taking off.
+        As a solution, we simply removed this part leaving only the
+        onboard computer zip-tied to the drone.
+        \\ \addlinespace
+
+        \raggedright Non-functioning object detection model 
+        & 
+        The object detection model Pyzbar that we had used throughout
+        the simulation training and testing did not work when it comes
+        to the real environment.
+        From our analysis, it was due to a combination of low focus
+        and dimness of the camera feed.
+        We tried to perform image processing to enhance the captured
+        frame but some \textsc{qr} codes still were not being
+        detected.
+        Finally, we managed to solve this problem by switching to
+        another object detection model called Dynamsoft which detected
+        all the targets without introducing any more delay.
+        Its only downside was that it was a paid library, but we used
+        its 30-day trial which was enough for our integration testing.
+        \\ \addlinespace
+
+        \raggedright Inconsistent movements in mobile targets 
+        & 
+        Although not directly related to our objectives, programming
+        the physical mobile targets correctly to match those in the
+        simulation was essential in allowing the drone to accomplish
+        its mission.
+        We found that this was not the case despite the fact that we
+        have programmed them to move with the same probability
+        distribution. 
+        So, we adjusted their initial positions and start ups so that
+        they would arrive at the north-west space of the grid around
+        the same time as the simulated mobile targets.
+        \\ \addlinespace
+
+        \bottomrule		
+    \end{xltabular}
+\end{center}
+ 
 % SOFTWARE
 \subsection{\textsc{rl} training}
 
