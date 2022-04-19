@@ -155,20 +155,13 @@ the environment within which the drone will fly.
             \SI{4000}{\milli\ampere\hour} 
             for the Raspberry Pi)~\cite{Par19}.  \\
 
-        Altitude 
-            & The flying altitude typically falls 
-            between
-            \SIrange{5}{10}{meters} 
-            to cover a cell having a dimension of
-            \qtyproduct{5 x 8}{square-meter}.
-            This is to avoid the \gls{fov} not covering 
-            the cell in focus in its
-            entirety, or the \gls{fov} covering too much
-            of the surrounding cells.
-            The minimum and maximum altitudes 
-            were determined based on the 
-            normal and 2.8\texttimes\ digital zoom
-            of the \anafi drone's camera. \\
+        \raggedright Altitude-cell size relationship 
+            & There is a relationship between the size of the cells
+            used to divide the grid on the ground and the height at
+            which the drone needs to fly at.  In particular, the
+            drone's height determines its \gls{fov} which needs to
+            cover the cell underneath in its entirety but not too much
+            of the surrounding cells. \\
 
         Flying duration
             & The maximum flying duration is 
@@ -450,10 +443,6 @@ conditions fall outside the scope of this project.
     \item The \anafi drone captures the 
         required details of the target 
         when it takes the target’s picture.
-    \item Having taken all of the targets' pictures 
-        is equivalent to accomplishing the task at hand 
-        (e.g. criminal tracking, smart farming, 
-        search and rescue, etc.).
     \item The \anafi drone is fully charged before 
         initiating each target visitation task,
         which is completed before the drone
