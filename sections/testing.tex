@@ -256,22 +256,26 @@ which makes the movement now smooth and stable.
 \end{figure} 
 
 \subsection{Integration testing}
+
 This section will discuss the results of the 
 real-world experiments, the challenges we have faced,
 and how we resolved them.
+
 \subsubsection{Environment}
+
 Finding the best location for testing was difficult
-because our requirements depend on multiple factors 
+because our requirements depended on multiple factors 
 such as \gls{gps} signal, free space, dimensions,
 and flying drones regulations. After multiple investigations
 at different locations, as shown in \cref{fig:testing-location}
-we have found that the QU football court was an optimal location
-for testing, since there is good \gls{gps} coverage and the dimensions are
-enough for our testing. In addition, the fence was high enough so that
-the drone cannot exceed the local property flying limit.
-We have set up the \textsc{qr} codes, drone, on-board computer, 
-and the command-control
-system laptop to start testing three experiments in the section below.
+we found that the \textsc{qu} football court was an optimal location
+for testing, since there was good \gls{gps} coverage and the
+dimensions were enough for our testing. 
+In addition, the fence was high enough so that
+the drone would not exceed the local property flying limit.
+We set up the \textsc{qr} codes, drone, on-board computer, and the
+command-and-control laptop to start testing three experiments in the
+section below.
 
 \begin{figure}[H]
 	\centering
@@ -279,24 +283,27 @@ system laptop to start testing three experiments in the section below.
 	\caption{Environment location \& the setup}
 	\label{fig:testing-location}
 \end{figure} 
+
 \subsubsection{Movement and detection}
-In this experiment, we want to verify that drone movement, and
-\textsc{qr} codes detection works perfectly. This experiment is 
-essential since it is the building block for coming experiments
-that need those two primary functions to be fully functional.
+
+In this experiment, we wanted to verify that drone movement, and
+\textsc{qr} codes detection works perfectly. This experiment was 
+essential since it was the building block for coming experiments
+that needed the two primary functions tested in this particular
+experiment to be fully functional.
 
 We have started the mission from the command and control system, 
 the on-board computer responded and sent the control commands 
 to the drone shown in \cref{fig:experiment-drone}.
-The drone moved to the cells without any issues,
+The drone moved to the cells without any issue,
 and the detection tool started to analyze 
 the video feed to detect the \textsc{qr} codes.
 
-The results, as shown in \cref{fig:detection-camera}, 
-the detection tool detected all the targets correctly 
+The results is shown in \cref{fig:detection-camera}, 
+and the detection tool detected all the targets correctly 
 without any missing targets. Also, some challenges 
 in the movement have been resolved and listed in 
-the challenges table. By now, we are ready to do the main tests.
+the challenges table. By now, we were ready to do the main tests.
 
 \begin{figure}[H]
 	\centering
@@ -313,21 +320,22 @@ the challenges table. By now, we are ready to do the main tests.
 \end{figure}
 
 \subsubsection{Fixed targets}
+
 In this experiment, we have tested the drone fixed targets
-visitation task, we have tried to keep the environment similar
+visitation task. We have tried to keep the environment similar
 to the simulation environment to verify the digital twin technology.
 Firstly, as shown in \cref{fig:targets-location},
-we have distributed the \textsc{qr} codes at southeast cells 
-{19,20,24,25} ,this is because we are following 
-the same normal distribution that has been used in the simulation.
+we have distributed the \textsc{qr} codes at south-east cells 
+{19,20,24,25}. This is because we were following 
+the same normal distribution that had been used in the simulation.
 
-We have started the mission, in \cref{fig:fixed-location-detection-camera}
+In \cref{fig:fixed-location-detection-camera},
 the drone did the whole mission in five steps by going
-to the southeast cells and detecting the unique targets. 
+to the south-east cells and detecting the unique targets. 
 The drone did not detect one target in 
 step two (cell 25), so it returned to it in step five. Finally,
 since the drone covered all the targets, it 
-went to land at the original takeoff cell.
+went to land at the original take-off cell.
 
 The whole mission took \SI{35}{seconds} to cover all the targets,
 which is a good number compared to other techniques such as zigzag.
@@ -347,16 +355,16 @@ which is a good number compared to other techniques such as zigzag.
 	\label{fig:fixed-location-detection-camera}
 \end{figure}
 
-
 \subsubsection{Moving \& fixed targets}
-The last experiment will have both fixed and mobile targets,
-again we will try to make the environment the similar to the 
+
+The last experiment had both fixed and mobile targets.
+Again, we tried to make the environment similar to the 
 simulation, so for moving targets as shown in 
-\cref{fig:mobile-targets-real-experiment}, we will have 
-three programmed Lego EV3 that will start 
+\cref{fig:mobile-targets-real-experiment}, we would have 
+three programmed Lego EV3 that would start 
 from the south and will go 70\% of the time to the north-west 
-and the 30\% of the time to random remaining direction. For fixed
-targets they will be distributed according to the generated distribution
+and the 30\% of the time to random remaining directions. For fixed
+targets they would be distributed according to the generated distribution
 as shown before in \cref{fig:fixed-position-distribution}.
 
 Firstly, the drone will go to cover all the fixed targets, and one of the 
@@ -365,9 +373,8 @@ drone finished all fixed targets, it went to the mobile targets cells and
 started to detect them. The result in \cref{fig:fixed-mobile-expriment} 
 shows that it detected all the mobile \& fixed targets, 
 then it went to landing since it covered all the fixed and mobile targets.
-There are some challenges in the movement of the robots, which are 
+There were some challenges in the movement of the robots, which are 
 discussed in the challenges table.
-
 
 \begin{figure}[H]
 	\centering
