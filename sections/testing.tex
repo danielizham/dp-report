@@ -200,15 +200,15 @@ and the challenges we have faced and how we resolved them.
 \subsubsection{Environment}
 Finding the best location for testing was difficult
 because our requirements depend on multiple factors 
-such as GPS signal, free space, dimensions,
+such as \gls{gps} signal, free space, dimensions,
 and flying drones regulations. After multiple investigations
 at different locations, as shown in \cref{fig:testing-location}
 we have found that
-QU football court was an optimal location
-for testing, since there is good GPS coverage and the dimensions are
-enough for our testing, also the fence was high enough so that
+the QU football court was an optimal location
+for testing, since there is good \gls{gps} coverage and the dimensions are
+enough for our testing. In addition, the fence was high enough so that
 the drone cannot exceed the local property flying limit.
-We have set up the QR codes, drone, on-board computer and the command-control
+We have set up the \textsc{qr} codes, drone, on-board computer and the command-control
 system laptop to start testing three experiments in the section below.
 
 \begin{figure}[H]
@@ -219,23 +219,22 @@ system laptop to start testing three experiments in the section below.
 \end{figure} 
 \subsubsection{Movement and detection}
 In this experiment, we want to verify that drone movement and
-QR codes detection works perfectly. This experiment is 
+\textsc{qr} codes detection works perfectly. This experiment is 
 essential since it is the building block for coming experiments
 that need those two primary functions to be fully functional.
 
 We have started the mission from the command and control system, 
 the on-board computer responded and sent the control commands 
 to the drone shown in \cref{fig:experiment-drone}.
-The drone started to takeoff, 
-adjust the altitude, move to the left and right cells, and analyze the 
-video feed to detect the QR codes.
+The drone moved to the cells without any issues,
+and the detection tool started to analyze 
+the video feed to detect the \textsc{qr} codes.
 
-The results as shown in \cref{fig:detection-camera}, the detection 
-worked perfectly after we solved
-some issues related to lighting and detection accuracy, 
-also and there are some challenges in the movement
-which have been resolved and listed in the challenges table, 
-by now, we are ready to do the main tests.
+The results, as shown in \cref{fig:detection-camera}, 
+the detection tool detected all the targets correctly 
+without any missing targets. Also, some challenges 
+in the movement have been resolved and listed in 
+the challenges table. By now, we are ready to do the main tests.
 
 \begin{figure}[H]
 	\centering
@@ -252,13 +251,13 @@ by now, we are ready to do the main tests.
 \end{figure}
 
 \subsubsection{Fixed targets}
-In this experiment, we will test the drone fixed targets
-visitation task, we will try to keep the environment similar
+In this experiment, we have tested the drone fixed targets
+visitation task, we have tried to keep the environment similar
 to the simulation environment to verify the digital twin technology.
-Firstly, as shown in \cref{fig:targets-location}, 
-we will distribute the QR codes at southeast cells
-{19,20,24,25} this because we are following the same
-normal distribution that have been used in the simulation.
+Firstly, as shown in \cref{fig:targets-location},
+we have distributed the \textsc{qr} codes at southeast cells 
+{19,20,24,25} ,this is because we are following 
+the same normal distribution that has been used in the simulation.
 
 We have started the mission, in \cref{fig:fixed-location-detection-camera}
 the drone did the whole mission in five steps by going
@@ -290,7 +289,7 @@ which is good number compared to other technique such as zigzag.
 \subsubsection{Moving \& fixed targets}
 The last experiment will have both fixed and mobile targets,
 again we will try to make the environment the similar to the 
-simulation so, for moving targets as shown in 
+simulation, so for moving targets as shown in 
 \cref{fig:mobile-targets-real-experiment}, we will have 
 three programmed Lego EV3 that will start 
 from the south and will go 70\% of the time to the north-west 
@@ -672,7 +671,7 @@ For certain scenarios, it is required that the agent performs the
 mission in an environment that is scaled down from that used in the
 training.
 Such scenario occurred in this project for the full integration
-testing, in which we had to print the QR codes in A4-sized papers due
+testing, in which we had to print the \textsc{qr} codes in A4-sized papers due
 to our limited resources instead of the 0.7x0.7m material used in the
 training environment.
 To detect these smaller targets, we had to decrease the height of the
