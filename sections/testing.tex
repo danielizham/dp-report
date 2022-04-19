@@ -6,7 +6,8 @@
 
 \subsection{Unit testing}
 In this section, we will discuss all the conducted tests 
-and challenges regards the design constraints. 
+and challenges with regards the design constraints. 
+
 \begin{table}[H]
 	\centering
 	\caption{Summary of the unit testing}
@@ -60,6 +61,7 @@ and challenges regards the design constraints.
 		\bottomrule		
 	\end{tabularx}
 \end{table}
+
 \subsubsection{Connecting to the drone}
 
 We have connected the
@@ -255,256 +257,7 @@ which makes the movement now smooth and stable.
 	\label{fig:actual-total-weight}
 \end{figure} 
 
-\subsection{Integration testing}
-
-This section will discuss the results of the 
-real-world experiments, the challenges we have faced,
-and how we resolved them.
-
-\subsubsection{Environment}
-
-Finding the best location for testing was difficult
-because our requirements depended on multiple factors 
-such as \gls{gps} signal, free space, dimensions,
-and flying drones regulations. After multiple investigations
-at different locations, as shown in \cref{fig:testing-location}
-we found that the \textsc{qu} football court was an optimal location
-for testing, since there was good \gls{gps} coverage and the
-dimensions were enough for our testing. 
-In addition, the fence was high enough so that
-the drone would not exceed the local property flying limit.
-We set up the \textsc{qr} codes, drone, on-board computer, and the
-command-and-control laptop to start testing three experiments in the
-section below.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.9\textwidth]{location.jpg}
-	\caption{Environment location \& the setup}
-	\label{fig:testing-location}
-\end{figure} 
-
-\subsubsection{Movement and detection}
-
-In this experiment, we wanted to verify that drone movement, and
-\textsc{qr} codes detection works perfectly. This experiment was 
-essential since it was the building block for coming experiments
-that needed the two primary functions tested in this particular
-experiment to be fully functional.
-
-We have started the mission from the command and control system, 
-the on-board computer responded and sent the control commands 
-to the drone shown in \cref{fig:experiment-drone}.
-The drone moved to the cells without any issue,
-and the detection tool started to analyze 
-the video feed to detect the \textsc{qr} codes.
-
-The results is shown in \cref{fig:detection-camera}, 
-and the detection tool detected all the targets correctly 
-without any missing targets. Also, some challenges 
-in the movement have been resolved and listed in 
-the challenges table. By now, we were ready to do the main tests.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{drone.png}
-	\caption{Drone setup used}
-	\label{fig:experiment-drone}
-\end{figure} 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{detection-camera.png}
-	\caption{Detection results}
-	\label{fig:detection-camera}
-\end{figure}
-
-\subsubsection{Fixed targets}
-
-In this experiment, we have tested the drone fixed targets
-visitation task. We have tried to keep the environment similar
-to the simulation environment to verify the digital twin technology.
-Firstly, as shown in \cref{fig:targets-location},
-we have distributed the \textsc{qr} codes at south-east cells 
-{19,20,24,25}. This is because we were following 
-the same normal distribution that had been used in the simulation.
-
-In \cref{fig:fixed-location-detection-camera},
-the drone did the whole mission in five steps by going
-to the south-east cells and detecting the unique targets. 
-The drone did not detect one target in 
-step two (cell 25), so it returned to it in step five. Finally,
-since the drone covered all the targets, it 
-went to land at the original take-off cell.
-
-The whole mission took \SI{35}{seconds} to cover all the targets,
-which is a good number compared to other techniques such as zigzag.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{drone-fixed.png}
-	\caption{The setup for the fixed targets}
-	\label{fig:targets-location}
-\end{figure}
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{fixed-targets-detection.png}
-	\caption{Fixed targets visitation results}
-	\label{fig:fixed-location-detection-camera}
-\end{figure}
-
-\subsubsection{Moving \& fixed targets}
-
-The last experiment had both fixed and mobile targets.
-Again, we tried to make the environment similar to the 
-simulation, so for moving targets as shown in 
-\cref{fig:mobile-targets-real-experiment}, we would have 
-three programmed Lego EV3 that would start 
-from the south and will go 70\% of the time to the north-west 
-and the 30\% of the time to random remaining directions. For fixed
-targets they would be distributed according to the generated distribution
-as shown before in \cref{fig:fixed-position-distribution}.
-
-Firstly, the drone will go to cover all the fixed targets, and one of the 
-results is shown in \cref{fig:fixed-mobile-expriment}. After the 
-drone finished all fixed targets, it went to the mobile targets cells and
-started to detect them. The result in \cref{fig:fixed-mobile-expriment} 
-shows that it detected all the mobile \& fixed targets, 
-then it went to landing since it covered all the fixed and mobile targets.
-There were some challenges in the movement of the robots, which are 
-discussed in the challenges table.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{mobile-targets-real-experiment.png}
-	\caption{The setup for the mobile targets}
-	\label{fig:mobile-targets-real-experiment}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{fixed-mobile-expriment.png}
-	\caption{The results of the fixed-targets}
-	\label{fig:fixed-mobile-expriment}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{mobile-targets-detection.png}
-	\caption{The results of the mobile-targets}
-	\label{fig:mobile-expriment-detection}
-\end{figure}
-
-% Integration testing challenges
-
-\begin{center}
-    \begin{xltabular}{\textwidth}{ p{4cm} X }
-        \caption{Challenges we faced while carrying out the
-        integration testing and our attempted solutions.} 
-        \label{tab:integration-challenges} \\
-
-        \toprule
-        \textit{Challenge} 
-            & \textit{Solution} \\
-
-        \midrule
-        \endfirsthead
-        \caption[]{Challenges we faced while carrying out the
-        integration testing and our attempted solutions (continued)} \\
-
-        \toprule
-        \textit{Challenge} 
-            & \textit{Solution} \\
-
-        \midrule
-        \endhead
-        
-        \raggedright Weak or non-existent \gls{gps} signal
-        & 
-        During the first trial of the testing, we could not fly the
-        drone as it was not able to obtain a position fix using
-        the \gls{gps}.
-        The first source of the problem was due to the presence of a
-        roof above the outdoor court where we carried out the
-        experiments.
-        For this, we moved to another adjacent court that was completely
-        open. 
-        The second source was having the Raspberry Pi directly on top
-        of the \gls{gps} antenna of the drone causing instability in
-        the signal.
-        To solve this, we simply shifted it towards the back of the
-        drone to avoid interfering with the signal, but this
-        unbalanced the drone slightly. 
-        \\ \addlinespace
-
-        \raggedright Inaccuracy in the movements using \gls{gps}
-        & 
-        Unlike the simulation where the \gls{gps} coordinates allow
-        the drone to travel to the centre of the cells every time, in
-        the real experiment, the drone accumulates errors after every
-        movement even though all of the coordinates are calculated
-        right after take-off.
-        We believe this is because the movements were too short for a
-        normal \gls{gps} used in the \anafi to work.
-        There was nothing that we could do to improve on the situation
-        given the limited time, and movements based on the distance
-        travelled instead of \gls{gps} had been proven to propagate
-        more errors according to the simulation.
-        In the future, we may make the drone detect the boundaries of
-        the cell or \textsc{qr} codes for guidance purposes to centre
-        it within the cell.
-        \\ \addlinespace
-
-        \raggedright Excessive payload when the 3D printed part was used
-        & 
-        Unfortunately, the 3D printed case, which was supposed to
-        secure the onboard computer, proved to be too heavy for the
-        drone.
-        It was consequently not able to execute even simple movements
-        after taking off.
-        As a solution, we simply removed this part leaving only the
-        onboard computer zip-tied to the drone.
-        \\ \addlinespace
-
-        \raggedright Non-functioning object detection model 
-        & 
-        The object detection model Pyzbar that we had used throughout
-        the simulation training and testing did not work when it comes
-        to the real environment.
-        From our analysis, it was due to a combination of low focus
-        and dimness of the camera feed.
-        We tried to perform image processing to enhance the captured
-        frame but some \textsc{qr} codes still were not being
-        detected.
-        Finally, we managed to solve this problem by switching to
-        another object detection model called Dynamsoft which detected
-        all the targets without introducing any more delay.
-        Its only downside was that it was a paid library, but we used
-        its 30-day trial which was enough for our integration testing.
-        \\ \addlinespace
-
-        \raggedright Inconsistent movements in mobile targets 
-        & 
-        Although not directly related to our objectives, programming
-        the physical mobile targets correctly to match those in the
-        simulation was essential in allowing the drone to accomplish
-        its mission.
-        We found that this was not the case despite the fact that we
-        have programmed them to move with the same probability
-        distribution. 
-        So, we adjusted their initial positions and start ups so that
-        they would arrive at the north-west space of the grid around
-        the same time as the simulated mobile targets.
-        \\ \addlinespace
-
-        \bottomrule		
-    \end{xltabular}
-\end{center}
- 
-% SOFTWARE
-\subsection{\textsc{rl} training}
+\subsubsection{\textsc{rl} training}
 
 \begin{table}[H]
     \centering
@@ -558,7 +311,7 @@ discussed in the challenges table.
     \end{tabularx}
 \end{table}
 
-\subsubsection{Fixed-targets mission}
+\paragraph{Fixed-targets mission}
 
 After 50,000 timesteps of training using the Proximal Policy
 Optimization (PPO) algorithm, the average episode reward converged
@@ -603,7 +356,7 @@ around 5.
         \label{fig:episode-lengths-fixed}
 \end{figure}
 
-\subsubsection{Mobile-targets mission}
+\paragraph{Mobile-targets mission}
 
 As explained in the \cref{sec:implementation}, in this type of
 mission, three targets are mobile while the rest are stationary.
@@ -644,7 +397,7 @@ fixed-targets training.
         \label{fig:episode-lengths-mobile}
 \end{figure}
 
-\subsection{\textsc{rl} model performance}
+\subsubsection{\textsc{rl} model performance}
 
 In order to verify the advantages of an \gls{rl}-trained drone
 in the target visitation mission, we have compared it with
@@ -759,7 +512,7 @@ E_{\text{hover,tot}} &=
 	\label{eq:hover-energy}
 \end{align}
 
-\subsubsection{Fixed-targets mission}
+\paragraph{Fixed-targets mission}
 
 The results for the fixed-targets mission are presented as bar charts in 
 \cref{fig:time-plot-fixed} and \cref{fig:energy-plot-fixed}.
@@ -802,7 +555,7 @@ because after so many timesteps choosing to hover and
 receiving a reward of -1, it has learnt that it is an
 action that is not beneficial in all states.
 
-\subsubsection{Mobile-targets mission}
+\paragraph{Mobile-targets mission}
 
 For the mobile-targets mission, the results for time taken and energy consumed are shown in 
 \cref{fig:time-plot-mobile} and \cref{fig:energy-plot-mobile} respectively.
@@ -840,7 +593,7 @@ chances.
         \label{fig:energy-plot-mobile}
 \end{figure}
 
-\subsection{Drone's height}
+\subsubsection{Drone's height}
 
 For certain scenarios, it is required that the agent performs the
 mission in an environment that is scaled down from that used in the
@@ -881,9 +634,259 @@ points.
 	\label{fig:h-alt-ground}
 \end{figure}
 
-\subsection{User interface}
+\subsubsection{User interface}
 
 \lipsum[1]
 
+\subsection{Integration testing}
 
+This section will discuss the results of the 
+real-world experiments, the challenges we have faced,
+and how we resolved them.
+
+\subsubsection{Environment}
+
+Finding the best location for testing was difficult
+because our requirements depended on multiple factors 
+such as \gls{gps} signal, free space, dimensions,
+and flying drones regulations. After multiple investigations
+at different locations, as shown in \cref{fig:testing-location}
+we found that the \textsc{qu} football court was an optimal location
+for testing, since there was good \gls{gps} coverage and the
+dimensions were enough for our testing. 
+In addition, the fence was high enough so that
+the drone would not exceed the local property flying limit.
+We set up the \textsc{qr} codes, drone, on-board computer, and the
+command-and-control laptop to start testing three experiments in the
+section below.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{location.jpg}
+	\caption{Environment location \& the setup}
+	\label{fig:testing-location}
+\end{figure} 
+
+\subsubsection{Movement and detection}
+
+In this experiment, we wanted to verify that drone movement, and
+\textsc{qr} codes detection works perfectly. This experiment was 
+essential since it was the building block for coming experiments
+that needed the two primary functions tested in this particular
+experiment to be fully functional.
+
+We have started the mission from the command and control system, 
+the on-board computer responded and sent the control commands 
+to the drone shown in \cref{fig:experiment-drone}.
+The drone moved to the cells without any issue,
+and the detection tool started to analyze 
+the video feed to detect the \textsc{qr} codes.
+
+The results is shown in \cref{fig:detection-camera}, 
+and the detection tool detected all the targets correctly 
+without any missing targets. Also, some challenges 
+in the movement have been resolved and listed in 
+the \cref{tab:integration-challenges}. 
+By now, we were ready to do the main tests.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{drone.png}
+	\caption{Drone setup used}
+	\label{fig:experiment-drone}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{detection-camera.png}
+	\caption{Detection results}
+	\label{fig:detection-camera}
+\end{figure}
+
+\subsubsection{Fixed targets}
+
+In this experiment, we have tested the drone fixed targets
+visitation task. We have tried to keep the environment similar
+to the simulation environment to verify the digital twin technology.
+Firstly, as shown in \cref{fig:targets-location},
+we have distributed the \textsc{qr} codes at south-east cells 
+{19,20,24,25}. This is because we were following 
+the same normal distribution that had been used in the simulation.
+
+In \cref{fig:fixed-location-detection-camera},
+the drone did the whole mission in five steps by going
+to the south-east cells and detecting the unique targets. 
+The drone did not detect one target in 
+step two (cell 25), so it returned to it in step five. Finally,
+since the drone covered all the targets, it 
+went to land at the original take-off cell.
+
+The whole mission took \SI{35}{seconds} to cover all the targets,
+which is a good number compared to other techniques such as zigzag.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{drone-fixed.png}
+	\caption{The setup for the fixed targets}
+	\label{fig:targets-location}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{fixed-targets-detection.png}
+	\caption{Fixed targets visitation results}
+	\label{fig:fixed-location-detection-camera}
+\end{figure}
+
+\subsubsection{Moving \& fixed targets}
+
+The last experiment had both fixed and mobile targets.
+Again, we tried to make the environment similar to the 
+simulation, so for moving targets as shown in 
+\cref{fig:mobile-targets-real-experiment}, we would have 
+three programmed Lego EV3 that would start 
+from the south and will go 70\% of the time to the north-west 
+and the 30\% of the time to random remaining directions. For fixed
+targets they would be distributed according to the generated distribution
+as shown before in \cref{fig:fixed-position-distribution}.
+
+Firstly, the drone will go to cover all the fixed targets, and one of the 
+results is shown in \cref{fig:fixed-mobile-experiment}. After the 
+drone finished all fixed targets, it went to the mobile targets cells and
+started to detect them. The result in \cref{fig:fixed-mobile-experiment} 
+shows that it detected all the mobile \& fixed targets, 
+then it went to landing since it covered all the fixed and mobile targets.
+There were some challenges in the movement of the robots, which are 
+discussed in \cref{tab:integration-challenges}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{mobile-targets-real-experiment.png}
+	\caption{The setup for the mobile targets}
+	\label{fig:mobile-targets-real-experiment}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fixed-mobile-expriment.png}
+	\caption{The results of the fixed-targets}
+	\label{fig:fixed-mobile-experiment}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{mobile-targets-detection.png}
+	\caption{The results of the mobile-targets}
+	\label{fig:mobile-expriment-detection}
+\end{figure}
+
+% Integration testing challenges
+
+\begin{center}
+    \begin{xltabular}{\textwidth}{ p{4cm} X }
+        \caption{Challenges we faced while carrying out the
+        integration testing and our attempted solutions.} 
+        \label{tab:integration-challenges} \\
+
+        \toprule
+        \textit{Challenge} 
+            & \textit{Solution} \\
+
+        \midrule
+        \endfirsthead
+        \caption[]{Challenges we faced while carrying out the
+        integration testing and our attempted solutions (continued)} \\
+
+        \toprule
+        \textit{Challenge} 
+            & \textit{Solution} \\
+
+        \midrule
+        \endhead
+        
+        \raggedright Weak or non-existent \gls{gps} signal
+        & 
+        During the first trial of the testing, we could not fly the
+        drone as it was not able to obtain a position fix using
+        the \gls{gps}.
+        The first source of the problem was due to the presence of a
+        roof above the outdoor court where we carried out the
+        experiments.
+        For this, we moved to another adjacent court that was completely
+        open. 
+        The second source was having the Raspberry Pi directly on top
+        of the \gls{gps} antenna of the drone causing instability in
+        the signal.
+        To solve this, we simply shifted it towards the back of the
+        drone to avoid interfering with the signal, but this
+        unbalanced the drone slightly. 
+        \\ \addlinespace
+
+        \raggedright Inaccuracy in the movements using \gls{gps}
+        & 
+        Unlike the simulation where the \gls{gps} coordinates allow
+        the drone to travel to the centre of the cells every time, in
+        the real experiment, the drone accumulates errors after every
+        movement even though all of the coordinates are calculated
+        right after take-off.
+        We believe this is because the movements were too short for a
+        normal \gls{gps} used in the \anafi to work.
+        There was nothing much that we could do to improve on the
+        situation given the limited time other than tweaking the
+        coordinate calculations, and movements based on the distance
+        travelled instead of \gls{gps} had been proven to propagate
+        more errors according to the simulation.
+        In the future, we may make the drone detect the boundaries of
+        the cell or \textsc{qr} codes for guidance purposes to centre
+        it within the cell.
+        \\ \addlinespace
+
+        \raggedright Excessive payload when the 3D printed part was used
+        & 
+        Unfortunately, the 3D printed case, which was supposed to
+        secure the onboard computer, proved to be too heavy for the
+        drone.
+        It was consequently not able to execute even simple movements
+        after taking off.
+        As a solution, we simply removed this part leaving only the
+        onboard computer zip-tied to the drone.
+        \\ \addlinespace
+
+        \raggedright Non-functioning object detection model 
+        & 
+        The object detection model Pyzbar that we had used throughout
+        the simulation training and testing did not work when it comes
+        to the real environment.
+        From our analysis, it was due to a combination of low focus
+        and dimness of the camera feed.
+        We tried to perform image processing to enhance the captured
+        frame but some \textsc{qr} codes still were not being
+        detected.
+        Finally, we managed to solve this problem by switching to
+        another object detection model called Dynamsoft which detected
+        all the targets without introducing any more delay.
+        Its only downside was that it was a paid library, but we used
+        its 30-day trial which was enough for our integration testing.
+        \\ \addlinespace
+
+        \raggedright Inconsistent movements in mobile targets 
+        & 
+        Although not directly related to our objectives, programming
+        the physical mobile targets correctly to match those in the
+        simulation was essential in allowing the drone to accomplish
+        its mission.
+        We found that this was not the case despite the fact that we
+        have programmed them to move with the same probability
+        distribution. 
+        So, we adjusted their initial positions and start ups so that
+        they would arrive at the north-west space of the grid around
+        the same time as the simulated mobile targets.
+        \\ \addlinespace
+
+        \bottomrule		
+    \end{xltabular}
+\end{center}
+ 
+% SOFTWARE
 \end{document}
