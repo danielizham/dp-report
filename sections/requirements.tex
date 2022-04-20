@@ -5,43 +5,38 @@
 
 \subsection{Functional requirements}
 
-In order to achieve the objectives listed
-in \cref{sec:objectives}, the following activities 
-and operations should be expected by the user 
-and the \gls{uav} system:
+This project mainly focuses on two main things, a simulated environment, and 
+a real world experiment. The use case diagram in \cref{fig:use-case-diagram} illustrates different use cases.
 
 % These use cases will be updated according to the new use-case-diagram
 \begin{enumerate}
     \item The users of the system are authorized
         individuals and organizations to track, monitor or survey
         some moving objects.
-    \item The user should supply the 
-        profile of the targets 
-        and their movement details/patterns
-        to us for the \gls{rl}.
-    \item The user should receive 
-        a \uav integrated system consisting of 
-        an \anafi drone, a \textsc{r}aspberry \textsc{p}i,
-        and a \gls{drl} model after the \gls{ml} training
-        is complete.
-    \item The system should take pictures, capture videos
-        or record other physical properties using
-        suitable sensors of the intended
-        targets according to the needs
-        of the user.
-    \item The user should receive some 
-        guidance and support 
-        to handle the system.
-    \item The user should agree on 
-        the terms and conditions 
-        which limit the type of usages and 
-        ensure that it aligns with the legislations
-        related to the use of drones in that area.
-    \item The system should only allow 
-        authorized users 
-        to view the collected pictures and 
-        data from the \anafi system.
+    \item The user should train a new model.
+    \item The user should test the model.
+    \item The user must verify that the model is operating as expected.
+    \item Model migration must occur from the simulated environment to the 
+    real world.
+    \item The user can start each mission, and start the moving targets.
 \end{enumerate}
+
+
+
+
+
+
+% \item The users of the system are authorized
+%individuals and organizations to track, monitor or survey
+%some moving objects.
+%\item The user should train a new model.
+%\item The user should test the model.
+%\item The user must verify that the model is operating as expected.
+%\item Model migration must occur from the simulated environment to the 
+%real world.
+%\item The user can start each mission, and start the moving targets.
+
+
 
 \Cref{fig:use-case-diagram} shows the use cases that can
 happen between the system and the user. The details of their
