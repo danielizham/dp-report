@@ -342,11 +342,11 @@ the agent unable to collect the reward it has received.
 \end{figure}
 
 Similarly, \cref{fig:episode-lengths-fixed} shows the the number of
-time steps the agent performed before accomplishing the mission
+timesteps the agent performed before accomplishing the mission
 (visiting all targets) in each episode.
 The successful learning can also be observed here where the agent took
-fewer and fewer time steps as the training was progressing.
-It started at the maximum allowable time step of 15 and converged at
+fewer and fewer timesteps as the training was progressing.
+It started at the maximum allowable timestep of 15 and converged at
 around 5.
 
 \begin{figure}[!t]
@@ -380,14 +380,14 @@ The same trend as the static-targets mission can be seen in
 \cref{fig:episode-lengths-mobile}.
 The differences lie in the starting and ending points.
 The graph starts at 20 since for this environment, the maximum
-time step was set to be 20 instead of 15 as explained in
+timestep was set to be 20 instead of 15 as explained in
 \cref{sec:implementation}.
 This was to allow the agent to learn effectively in the initial
 stages of the training where the agent was more random and the fixed
 and mobile targets were located further apart compared to those targets
 in the fixed-targets training.
 The further distance between these two groups of targets also explained
-why the graph converged at 12 time steps and not 5 as in the
+why the graph converged at 12 timesteps and not 5 as in the
 fixed-targets training.
 
 \begin{figure}[!t]
