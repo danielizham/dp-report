@@ -342,11 +342,11 @@ the agent unable to collect the reward it has received.
 \end{figure}
 
 Similarly, \cref{fig:episode-lengths-fixed} shows the the number of
-timesteps the agent performed before accomplishing the mission
+time steps the agent performed before accomplishing the mission
 (visiting all targets) in each episode.
-The succesful learning can also be observed here where the agent took
-fewer and fewer timesteps as the training was progressing.
-It starts at the maximum allowable timestep of 15 and converges at
+The successful learning can also be observed here where the agent took
+fewer and fewer time steps as the training was progressing.
+It started at the maximum allowable time step of 15 and converged at
 around 5.
 
 \begin{figure}[!t]
@@ -376,18 +376,18 @@ learning.
         \label{fig:episode-rewards-mobile}
 \end{figure}
 
-The same trend as the static-targets mission can also be seen in
+The same trend as the static-targets mission can be seen in
 \cref{fig:episode-lengths-mobile}.
 The differences lie in the starting and ending points.
 The graph starts at 20 since for this environment, the maximum
-timestep was set to be 20 instead of 15 as explained in
+time step was set to be 20 instead of 15 as explained in
 \cref{sec:implementation}.
-This is to allow the agent to learn effectively in the initial
+This was to allow the agent to learn effectively in the initial
 stages of the training where the agent was more random and the fixed
-and mobile targets are located further apart compared to those targets
+and mobile targets were located further apart compared to those targets
 in the fixed-targets training.
-The further distance between these two groups of targets also explains
-why the graph converges at 12 timesteps and not 5 as in the
+The further distance between these two groups of targets also explained
+why the graph converged at 12 time steps and not 5 as in the
 fixed-targets training.
 
 \begin{figure}[!t]
@@ -401,21 +401,21 @@ fixed-targets training.
 \subsubsection{\textsc{rl} model performance}
 
 In order to verify the advantages of an \gls{rl}-trained drone
-in the target visitation mission, we have compared it with
+in the target visitation mission, we compared it with
 two other baseline agents.
 
-The first agent is a drone that completes the same mission 
+The first agent was a drone that completes the same mission 
 while moving completely randomly. 
 In other words, the probability of taking each of the 
 nine available actions is the same.
-The second agent moves in a zig-zag manner, as shown
+The second agent moved in a zig-zag manner, as shown
 in \cref{fig:zigzag}.
 If this zig-zag agent does not visit all the targets the first time
-round, it continues from the final cell and follows the same
+round, it will continue from the final cell and will follow the same
 path as it came but in reverse.
 This overall pattern may start from the beginning (cell 1) or 
 the end (cell 25).
-We have included both variants, named Zigzag1 and Zigzag2
+We included both variants, named Zigzag1 and Zigzag2
 respectively, to make the comparison comprehensive.
 
 \begin{figure}[!t]
@@ -435,7 +435,7 @@ distance travelled and speed during
 the simulation.
 In other words, the distance travelled does not depend
 on the technique used but only 
-the type of action taken. 
+on the type of action taken. 
 The distances are listed in \cref{tab:distances}.
 
 \begin{table}[tbp]
@@ -458,17 +458,17 @@ Starting cell to edge cell e.g. 13\textrightarrow 1 (for zigzag) & 18.868 \\
 \end{tabular}
 \end{table}
 
-On the other hand, the speed is constant for all actions. 
+On the other hand, the speed was constant for all actions. 
 The constant values of speed along with processing time,
 and power consumed during movements and hovering
 are presented
 in \cref{tab:assumptions}
 and they are used in the calculations.
 Furthermore, since the performance of the agent,
-especially the random one, can vary widely and
+especially the random one, could vary widely and
 the positions of the targets are different in each episode, 
-10 trials are carried out for each technique and
-the average time is taken.
+10 trials were carried out for each technique and
+the average time was taken.
 
 \begin{table}[tbp]
 \caption{The values assumed to be constant throughout the
@@ -653,7 +653,7 @@ such as \gls{gps} signal, free space, dimensions,
 and flying drones regulations. After multiple investigations
 at different locations, as shown in \cref{fig:testing-location}
 we found that the \textsc{qu} football court was an optimal location
-for testing, since there was good \gls{gps} coverage and the
+for testing, since there was adequate \gls{gps} coverage and the
 dimensions were enough for our testing. 
 In addition, the fence was high enough so that
 the drone would not exceed the local property flying limit.
@@ -671,14 +671,14 @@ section below.
 \subsubsection{Movement and detection}
 
 In this experiment, we wanted to verify that drone movement, and
-\textsc{qr} codes detection works perfectly. This experiment was 
+\textsc{qr} codes detection work perfectly. This experiment was 
 essential since it was the building block for coming experiments
 that needed the two primary functions tested in this particular
 experiment to be fully functional.
 
-We have started the mission from the command and control system, 
+We started the mission from the command and control system, 
 the on-board computer responded and sent the control commands 
-to the drone shown in \cref{fig:experiment-drone}.
+to the drone as shown in \cref{fig:experiment-drone}.
 The drone moved to the cells without any issue,
 and the detection tool started to analyze 
 the video feed to detect the \textsc{qr} codes.
@@ -688,7 +688,7 @@ and the detection tool detected all the targets correctly
 without any missing targets. Also, some challenges 
 in the movement have been resolved and listed in 
 the \cref{tab:integration-challenges}. 
-By now, we were ready to do the main tests.
+We were then ready to do the main tests.
 
 \begin{figure}[H]
 	\centering
@@ -706,8 +706,8 @@ By now, we were ready to do the main tests.
 
 \subsubsection{Fixed targets}
 
-In this experiment, we have tested the drone fixed targets
-visitation task. We have tried to keep the environment similar
+In this experiment, we tested the drone fixed targets
+visitation task. We tried to keep the environment similar
 to the simulation environment to verify the digital twin technology.
 Firstly, as shown in \cref{fig:targets-location},
 we have distributed the \textsc{qr} codes at south-east cells 
@@ -743,21 +743,21 @@ which is a good number compared to other techniques such as zigzag.
 \subsubsection{Moving \& fixed targets}
 
 The last experiment had both fixed and mobile targets.
-Again, we tried to make the environment similar to the 
+Once again, we tried to make the environment similar to the 
 simulation, so for moving targets as shown in 
 \cref{fig:mobile-targets-real-experiment}, we would have 
-three programmed Lego EV3 that would start 
-from the south and will go 70\% of the time to the north-west 
+three programmed Lego EV3 that started
+from the south and went 70\% of the time to the north-west 
 and the 30\% of the time to random remaining directions. For fixed
-targets they would be distributed according to the generated distribution
+targets they were distributed according to the generated distribution
 as shown before in \cref{fig:fixed-position-distribution}.
 
-Firstly, the drone will go to cover all the fixed targets, and one of the 
+Firstly, the drone covered all the fixed targets, and one of the 
 results is shown in \cref{fig:fixed-mobile-experiment}. After the 
 drone finished all fixed targets, it went to the mobile targets cells and
 started to detect them. The result in \cref{fig:fixed-mobile-experiment} 
 shows that it detected all the mobile \& fixed targets, 
-then it went to landing since it covered all the fixed and mobile targets.
+then it went to landing state, since it covered all the fixed and mobile targets.
 There were some challenges in the movement of the robots, which are 
 discussed in \cref{tab:integration-challenges}.
 
