@@ -9,61 +9,75 @@
     \theimpactcounter\stepcounter{impactcounter}%
 }
 
-Our project has a huge impact on many different contexts, mainly the global, 
-economical, environmental and societal context. The impact level and the 
-project contribution are mentioned in \cref{tab:impact}.
+Our project has a many impacts and implications on different contexts, mainly 
+the global, public, economical, environmental and social context. Further 
+explanations about the different constraints are mentioned in 
+\cref{tab:impact}.
 
 \begin{table}[H]
     \centering
     \caption{Impact of the engineered solution on 
     different contexts.}
     \label{tab:impact}
-    \begin{tabularx}{\textwidth}{ c l X l }
-        \toprule
-        \textit{No} 
-            & \textit{Evaluation context} 
-        & \textit{Specific contribution from the project} 
-            & \textit{Impact level} \\
-
-        \midrule
-        
-        \showimpactcounter
-            & Global 
-        & The idea of this project could revolutionize the target visitation 
-        issue. Many existing techniques could be replaced by \gls{rl} due to 
-        its high efficiency. Also, the idea of using \glspl{uav} for target 
-        tracking can revolutionize personal security and enhance the 
-        well-being of humans. Moreover, our project contributes to the 
-        research in the autonomous drone field, which is a revolutionary field 
-        by itself and further studies could be built upon our ideas.
-            & High \\
-        
-        \showimpactcounter
-            & Economical 
-        & The use of \glspl{uav} in different fields could replace many 
-        existing jobs, and create numerous new ones. Also, the job of target 
-        visitation and area tracking using drones could enhance homeland 
-        security with minimal costs.
-            & High\\
-
-        \showimpactcounter
-            & Environmental 
-        & The targets could be animals that are in danger of extinction. 
-        Tracking and studying the migration habits of these animals could save 
-        them and help keep the environmental equilibrium. 
-            & Medium\\
-
-        \showimpactcounter
-            & Societal 
-        & Object detection is a sub-part of our project, and deploying 
-        drone-based object detection models in populated areas could increase 
-        security levels as burglars or criminals would think twice before 
-        committing any felonies, specially when the drones are incorporated 
-        with tracking systems. 
-            & Low\\ 
-
-        \bottomrule		
-    \end{tabularx}
+ \begin{tabularx}{\textwidth}{ c p{2.5cm} X X }
+	\toprule
+	\textit{No} 
+	& \textit{Constraint} 
+	& \textit{Relevance to the design} 
+	& \textit{Justification of the design’s impact} \\
+	
+	\midrule
+	
+	\showimpactcounter
+	& Public Health, Safety, and Welfare
+	& The idea of using \gls{rl} for target monitoring based on a mobility 
+	pattern can further enhance home security. Also, \gls{rl} could be used to 
+	monitor the security of large areas such as country borders.
+	& People who live in vulnerable countries and unsafe neighborhoods could
+	benefit a lot from our ideas and work as it can increase their safety 
+	levels. \\
+	
+	\showimpactcounter
+	& Global Implications
+	& Many existing techniques for target visitation in numerous different 
+	fields could be replaced by \gls{rl} due to its proven high efficiency. 
+	& The idea of this project could revolutionize the target 
+	visitation issue. Moreover, our project contributes to the 
+	research in the autonomous drone field, which is a revolutionary field 
+	by itself and further studies could be built upon our ideas. \\
+	
+	
+	\showimpactcounter
+	& Cultural Implications 
+	& N/A
+	& N/A \\
+	
+	\showimpactcounter
+	& Social Implications
+	& Object detection is a sub-part of our project, and such object detction 
+	models can be deployed within local neighborhoods which can result in 
+	behavioral improvements.
+	& A person's actions can change severely when they know they are being 
+	watched, these behavioral changes are more likely to be positive. \\ 
+	
+	\showimpactcounter
+	& Environmental Factors
+	& The object detection model could be retrained to detect some 
+	type of endangered animals. Also, their movement can be studied and 
+	learned by an \gls{rl} model. 
+	& Tracking and studying the migration habits of these animals could save 
+	them and help keep the environmental equilibrium.  \\
+	
+	\showimpactcounter
+	& Economic Factors  
+	& Autonomous \glspl{uav} can increase security in large areas and replace 
+	human beings who work long hours just to be present in a few locations. 
+	& Increased security can have a huge economic benefit. The autonomous 
+	drones field might end some jobs but it will surely create numerous new 
+	ones.\\     
+	
+	\bottomrule		
+\end{tabularx}
 \end{table}
 
 %\lipsum[1]

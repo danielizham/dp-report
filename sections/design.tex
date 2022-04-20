@@ -165,16 +165,16 @@ and apply the \gls{drl} model.
 		
 				\\ 
 				\addlinespace				
-		%Nginx
-		%& 
-		%\raisebox{-0.9\height}
-		%{\includegraphics[width=2.8cm]{nginx-logo}}
-		%& A web server that can be utilized in many different ways. Mainly, a 
-		%reverse proxy, mail proxy, \textsc{http} cache, and a load balancer. 
-		%It is very wildly used as it has outperformed Apache due to its 
-		%scalability and lightweight.
-	%	\\ 
-	%	\addlinespace
+		Nginx
+		& 
+		\raisebox{-0.9\height}
+		{\includegraphics[width=2.8cm]{nginx-logo}}
+		& A web server that can be utilized in many different ways. Mainly, a 
+		reverse proxy, mail proxy, \textsc{http} cache, and a load balancer. 
+		It is very wildly used as it has outperformed Apache due to its 
+		scalability and lightweight.
+		\\ 
+		\addlinespace
 		
         \bottomrule
     \end{tabular}
@@ -699,8 +699,12 @@ fast debugger provided.
 We relied on a web server gateway interface (\textsc{wsgi}) \textsc{http} 
 server called Gunicorn which can forward requests to other web applications 
 and frameworks that are written in Python.
-Furthermore, Nginx is used as a reverse proxy server to ensure the smooth flow 
-of traffic in the network. 
+Nginx is used as a reverse proxy server to ensure the smooth flow 
+of traffic in the network. ZeroMQ was used to stream live videos from the 
+Parrot Olympe framework to the flask web application using tcp/ip protocol. 
+We used ZeroMQ because it is fast and lightweight. Also it is cross platform
+and supports cross languages.
+
 \begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=0.9\textwidth]{gui-environments} 

@@ -5,47 +5,23 @@
 
 \subsection{Functional requirements}
 
-In order to achieve the objectives listed
-in \cref{sec:objectives}, the following activities 
-and operations should be expected by the user 
-and the \gls{uav} system:
+This project mainly focuses on two main settings: a simulated
+environment and a real world experiment. 
+Based on these, the different use cases are illustrated in
+\cref{fig:use-case-diagram} and the following list:
 
-% These use cases will be updated according to the new use-case-diagram
 \begin{enumerate}
-    \item The users of the system are authorized
-        individuals and organizations to track, monitor or survey
-        some moving objects.
-    \item The user should supply the 
-        profile of the targets 
-        and their movement details/patterns
-        to us for the \gls{rl}.
-    \item The user should receive 
-        a \uav integrated system consisting of 
-        an \anafi drone, a \textsc{r}aspberry \textsc{p}i,
-        and a \gls{drl} model after the \gls{ml} training
-        is complete.
-    \item The system should take pictures, capture videos
-        or record other physical properties using
-        suitable sensors of the intended
-        targets according to the needs
-        of the user.
-    \item The user should receive some 
-        guidance and support 
-        to handle the system.
-    \item The user should agree on 
-        the terms and conditions 
-        which limit the type of usages and 
-        ensure that it aligns with the legislations
-        related to the use of drones in that area.
-    \item The system should only allow 
-        authorized users 
-        to view the collected pictures and 
-        data from the \anafi system.
+    \item The users of the system must be authorized individuals and
+        organizations to track, monitor or survey some moving objects.
+    \item The user should train a new model.
+    \item The user should test the model.
+    \item The user must verify that the model is operating as expected.
+    \item Model migration must occur from the simulated environment to the 
+    real world.
+    \item The user can start each mission, and start the moving targets.
 \end{enumerate}
 
-\Cref{fig:use-case-diagram} shows the use cases that can
-happen between the system and the user. The details of their
-interactions are summarized in \cref{tab:use-case-summaries}.
+\noindent The details are summarized in \cref{tab:use-case-summaries}.
 
 \begin{figure}[tbp] 
     \centering
@@ -77,39 +53,33 @@ interactions are summarized in \cref{tab:use-case-summaries}.
         \midrule
         \endhead
 
-        Provide information about the targets
-            & The main types of information required are
-            the targets' mobility pattern and their 
-            appearances. 
-            The former will be used in the \gls{rl} training
-            for the autonomous navigation while the latter
-            will be used in the \gls{ml} object detection 
-            and identification for
-            the reward and state functions in the \gls{rl} 
-            training and the actual mission.
+        Train a new model
+          & A simulation environment with the correct targets
+          appearance and behaviour (e.g. mobility pattern), and
+          surroundings has to be set up. 
+          Using this environment, an \gls{rl} and a \gls{ml} models
+          have to be trained. 
+          The former is to teach the drone what actions to take to
+          accomplish the target visitation mission, and the latter is
+          for the drone to uniquely identify the targets. 
         \\
-        Provide information about the area
-            & The types of obstacles in the area are 
-            important to be known so that they can be
-            simulated. The \uav will learn to ignore them
-            during the training making them visit only
-            the targeted objects.
+        Test and verify the model
+            & The trained model has to be tested on previously unseen
+            movements of the targets generated from the same
+            distribution as in the training.
         \\
-        Connect to the drone
-            & Only the authorized user is allowed to connect
-            to the drone using the command and control system.
-            If this is the case, the connection request is
-            granted. Otherwise, an error will be returned.
+        Migrate the model
+            & After successful testing in the simulation, the drone
+            must be tested in the real environment, and targets with
+            similar outlook features and behaviour have to be created
+            for this test.
         \\
-        Initiate startup commands
-            & The \uav by this point is already autonomous.
-            It uses the \gls{rl} and object detection models
-            trained earlier to visit the intended targets 
-            in the fastest time possible. 
-            The authorized user only needs to send
-            a start command to the \uav, and it will begin
-            executing the mission.
+        Start the drone
+            & In the real mission, the drone should be started when
+            the mobile targets are in a state similar to their initial
+            states in the prior training and testing.
         \\
+
         \bottomrule
     \end{xltabular}
 \end{center}
