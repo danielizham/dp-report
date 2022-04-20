@@ -418,12 +418,15 @@ we have tried to address them.
 	\label{fig:gui-use-cases} 
 \end{figure}
 
-Below are the list of use cases that a user can do using the AirEye website as seen in \cref{fig:gui-use-cases} : 
+Below are the list of use cases that a user can do using the AirEye website as 
+seen in \cref{fig:gui-use-cases} : 
 \begin{itemize}	
-	\item The user is able to choose a certain model that is available, choosing this model will run a specific script in the drone. 
+	\item The user is able to choose a certain model that is available, 
+	choosing this model will run a specific script in the drone. 
 	\item The user can start the mission.
-	\item The user can watch the live stream from the drone camera and refresh the stream in case of any error.
-	\item The user can see the outputs of the terminal to keep track of different variables.
+	\item The user can watch the live stream from the drone camera and refresh 
+	the stream in case of any error.
+
 	\item The user can save the stream recording. 
 	\item The user can end the mission.
 \end{itemize}
@@ -445,6 +448,7 @@ Many software components were put together to produce what we have in \cref{fig:
 	\item Python Flask, backend framework.
 	\item Gunicorn, \textsc{wsgi} \textsc{http} server
 	\item Nginx, reverse proxy and web server. 
+	\item ZeroMQ, live video streaming through TCP/IP protocol.
 \end{itemize}
 
 Many novel aspects were implemented in this website, different models could be 
