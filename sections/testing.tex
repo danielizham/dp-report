@@ -6,13 +6,16 @@
 
 \subsection{Unit testing}
 In this section, we will discuss all the conducted tests 
-and challenges with regards the design constraints. 
+and challenges with regards to the design constraints. 
+The summary of the unit testing for the hardware part of the project
+is provided in~\cref{tab:unit-testing-summary} while for the
+simulation and \gls{rl} in~\cref{tab:rl-testing-summary}.
 
-\begin{table}[H]
+\begin{table}[btp]
 	\centering
-	\caption{Summary of the unit testing}
+	\caption{Summary of the hardware unit testing}
 	\label{tab:unit-testing-summary}
-	\begin{tabularx}{\textwidth}{ X X l X l }
+        \begin{tabularx}{\textwidth}{ L{2cm} X c L{4cm} L{2.5cm} }
 		\toprule
 		\textit{Constraint} 
 		& \textit{Testing procedure} 
@@ -21,43 +24,45 @@ and challenges with regards the design constraints.
 		& \textit{Error (\%)} \\
 		
 		\midrule
-		
-		
-		\raggedright Power supply    
+
+		Power supply    
 		& Test the capacity and the health of the batteries
 		& Met
-		& RPI battery : \SI{1.9}{hours}, \anafi battery :\SI{2.8}{hours}
-		& RPI,52.5\%
-		,ANAFI,3.7\% \\
+                & \textsc{rpi} battery: \SI{1.9}{\hour}, \anafi
+                battery: \SI{2.8}{\hour}
+                & \textsc{rpi}, 52.5\%, \anafi, 3.7\% \\
 		\addlinespace
-		
-		\raggedright Flying duration
-		& batteries are full measure the drone flying duration at different actions
+
+		Flying duration
+                & Charge the batteries fully and then measure the
+                drone flying duration for different actions
 		& Met
-		& hovering: \SI{14.78}{minutes},		moving: \SI{13.58}{minutes} 
-		& 9.477\%\\
+                & Hovering: \SI{14.78}{\minute}, Moving:
+                \SI{13.58}{\minute} 
+		& 9.477\% \\
 		\addlinespace
-		
-		\raggedright Response    
+
+		Response    
 		& Send the command to the drone and measure response time
 		& Met
-		& \SI{0.1511}{second}
+		& \SI{0.1511}{\second}
 		& N/A \\
 		\addlinespace
 
-		\raggedright Payload     
-		& Test the maximum payload by increasing the load gradually
+		Payload     
+                & Test the maximum payload by increasing the load
+                gradually
 		& Met
-		& \SI{180}{gram}
+		& \SI{180}{\gram}
 		& N/A \\
 		\addlinespace
 		
-		\raggedright Economic     
-		& the costs didn't exceed the expected value 
+		Economic     
+		& The costs didn't exceed the expected value 
 		& Met
 		& \qar{3800}
 		& N/A \\
-		\addlinespace		
+
 		\bottomrule		
 	\end{tabularx}
 \end{table}
@@ -80,15 +85,15 @@ at www.aireye.com:8000. We executed the takeoff
 and move forward scripts and it worked successfully.
 This way, we confirmed that we can connect to the drone and can control it effectively.
 
-\subsubsection{Command-Control system maximum communication distance}
+\subsubsection{Maximum communication distance}
 
 In this test we wanted to validate the maximum communication range that
-the command and control system and the raspberry pi can communicate
+the command and control system and the Raspberry Pi can communicate
 and share live video feed. We fixed the command and control system and moved
 the drone away from it, then for every 3 meters, we have 
-measured the Signal-to-noise ratio (SNR).
+measured the Signal-to-noise ratio (\textsc{snr}).
 We have repeated this experiment three times to get the average maximum range.
-From the results shown in ~\ref{fig:snr-vs-distance}, after 117 meters 
+From the results shown in~\cref{fig:snr-vs-distance}, after 117 meters 
 the command and control system disconnects from the Raspberry Pi
 and the video stream stops. Disconnecting is not a major issue
 since once the Raspberry Pi receives the start mission commands, its 
@@ -96,18 +101,18 @@ and it will autonomously finish the mission and record the video needed
 and once the connection is back users can continue control or interrupt the mission
 at anytime.
  
-\begin{figure}[!t]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=5in]{snr}
-	\caption{Average SNR vs Distance}
+        \caption{Average \textsc{snr} vs Distance}
 	\label{fig:snr-vs-distance}
 \end{figure}
 
 \subsubsection{Flying duration \& Batteries}
 
-As shown in Fig.~\ref{fig:time-comparison} we have 
+As shown in~\cref{fig:time-comparison} we have 
 conducted time comparison experiments for both drone's
-battery (2700mAh) and the Raspberry Pi battery (4000mAh) 
+battery (2700\,mAh) and the Raspberry Pi battery (4000\,mAh) 
 using different actions such as idle, hovering, 
 moving forward, and moving backward. We repeated 
 the same actions without video streaming so that 
@@ -120,7 +125,7 @@ the maximum time reached is when both the drone and
 the Raspberry Pi are in an idle state, in which both case both will 
 be on the ground without moving any motors.
 This action still consumes energy but with 
-its stability, over time ~\cite{Abey18}. 
+its stability, over time~\cite{Abey18}. 
 The next action is when the drone is hovering, and 
 the Raspberry Pi is sending navigation control 
 signals to the drone and receiving video frames 
@@ -129,7 +134,7 @@ When the drone hovers without streaming, it worked
 for \SI{14.78}{minutes}, and when the camera is used for 
 the stream which will add more power consumption to 
 the drone battery; it worked for \SI{14.2}{minutes} which 
-is less than the hovering without stream. The final 
+is less than the hovering without streaming. The final 
 action is when the drone takes off and keep moving 
 forward, backward, left, and right, and in this action 
 more energy consumption is seen and that made the 
@@ -142,10 +147,10 @@ action energy. This is because the raspberry pi battery
 is not being highly affected by the actions. 
 The next step is to derive the energy model for every 
 action by using the distance and time. For the drone battery, 
-we have 2700mAh which is 20.52Wh ~\cite{Par19}, 
-we can get the drone energy by multiplying Wh by 3600 
+we have 2700\,mAh which is 20.52\,Wh~\cite{Par19}, 
+we can get the drone energy by multiplying We by 3600 
 so we will have a total of 73,872 Joules. When taking
-hovering without stream as an example, the battery 
+hovering without streaming as an example, the battery 
 went from 100 percent to 0 in \SI{14.78}{minutes} which is 
 886.8 seconds. We can say that the hovering action takes 
 approximately 73,872/886.8 = 83.30 Joules/sec. 
@@ -153,14 +158,14 @@ For moving action,
 we also considered the distance, so we kept 
 moving the drone one meter in each direction 
 {forward, backward, left, right} and then calculate 
-the total distance traveled. The drone repeated 
+the total distance travelled. The drone repeated 
 the moving action 11 times, so the total distance 
 is 44 meters and the energy per second consumed 
-is 73,872/814.8 = 90.66 Joules/sec but this energy 
+is 73,872/814.8 = 90.66 Joules/sec, but this energy 
 per second is for the 44 meters, so we can get the 
 energy per second for 1 meter by calculating 
-90.66/44 = 2.06 Joules/s. 
-In (\ref{eq:Energy-moving}) we can generalize an energy 
+90.66/44 = 2.06 Joules/sec. 
+In \cref{eq:Energy-moving} we can generalize an energy 
 equation for moving action, which can be used in the simulation 
 environment to train the RL model. Now the model will not 
 just consider the time, but also the energy consumption.
@@ -180,7 +185,7 @@ when both actions have the same probability.
 	\label{eq:Energy-moving}
 \end{align}
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=5in]{battries-time}
 	\caption{Battery's lifetime comparison.}
@@ -204,7 +209,7 @@ the response time of the real world is less than
 the simulation, and this is predictable since the simulation
 depends on the \textsc{gpu} power and processing time. 
 
-\begin{table}[H]
+\begin{table}[tbp]
 	\centering
 	\caption{The average response time of the drone after sending a control command.}
 	\label{tab:respone-time}
@@ -241,16 +246,14 @@ The drone movement was bad, so we removed the 3D printed
 parts to reduce the weight to \SI{172}{grams}, 
 which makes the movement now smooth and stable.
 
-
-
-\begin{figure}[H]
+\begin{figure}[btp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{payload.png}
 	\caption{The total weight of test payload}
 	\label{fig:payload}
 \end{figure} 
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.4\textwidth]{totalweight.jpg}
 	\caption{The total weight of actual payload}
@@ -259,7 +262,7 @@ which makes the movement now smooth and stable.
 
 \subsubsection{\textsc{rl} training}
 
-\begin{table}[H]
+\begin{table}[tbp]
     \centering
     \caption{Summary of the \gls{rl} and simulation testing}
     \label{tab:rl-testing-summary}
@@ -333,7 +336,7 @@ the agent unable to collect the reward it has received.
 % be as low as 30\% when the QR code is damaged due to
 % an error in photo capturing and processing~\cite{dynamsoft}.
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{episode-rewards-fixed}
         \caption{\gls{rl} episode reward convergence during the
@@ -349,7 +352,7 @@ fewer and fewer timesteps as the training was progressing.
 It started at the maximum allowable timestep of 15 and converged at
 around 5.
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{episode-lengths-fixed}
         \caption{\gls{rl} episode length convergence during the
@@ -368,7 +371,7 @@ mission.
 This is because the three moving targets added much more complexity in the
 learning.
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{episode-rewards-mobile}
         \caption{\gls{rl} episode reward convergence during the
@@ -390,7 +393,7 @@ The further distance between these two groups of targets also explained
 why the graph converged at 12 timesteps and not 5 as in the
 fixed-targets training.
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{episode-lengths-mobile}
         \caption{\gls{rl} episode length convergence during the
@@ -418,7 +421,7 @@ the end (cell 25).
 We included both variants, named Zigzag1 and Zigzag2
 respectively, to make the comparison comprehensive.
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{zigzag}
 	\caption{The directions of the drone moving zig-zag
@@ -464,6 +467,9 @@ and power consumed during movements and hovering
 are presented
 in \cref{tab:assumptions}
 and they are used in the calculations.
+The values are different from those found in the energy testing above,
+but the relative energy usage will remain unchanged had the same
+values been used.
 Furthermore, since the performance of the agent,
 especially the random one, could vary widely and
 the positions of the targets are different in each episode, 
@@ -525,7 +531,7 @@ distribution of the targets is the highest.
 In fact, the \gls{rl} agent is about twice as fast and twice
 as energy-saving as Zigzag2.
 
-\begin{figure}[tbp]
+\begin{figure}[btp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{time-plot-fixed}
 	\caption{The time taken by each technique
@@ -674,9 +680,9 @@ all requirements were met and the website worked in a user-friendly way.
 
 \subsection{Integration testing}
 
-This section will discuss the results of the 
-real-world experiments, the challenges we have faced,
-and how we resolved them.
+This section will discuss the results of the real-world experiments,
+the challenges we faced (\cref{tab:integration-challenges}), and
+how we resolved them.
 
 \subsubsection{Environment}
 
@@ -922,5 +928,4 @@ discussed in \cref{tab:integration-challenges}.
     \end{xltabular}
 \end{center}
  
-% SOFTWARE
 \end{document}

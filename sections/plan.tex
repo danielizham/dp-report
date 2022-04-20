@@ -3,7 +3,12 @@
 
 \begin{document}
 
-\subsection{Project milestones}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\renewcommand\thefigure{\thesection\arabic{figure}}
+\renewcommand\thetable{\thesection.\arabic{table}}
+
+\section{Project milestones}
 
 \newcounter{milestonecounter}
 \newcounter{subcounter}[milestonecounter]
@@ -21,14 +26,14 @@
 
 \input{../tables/milestone.tex}
 
-\subsection{Project timeline}
+\section{Project timeline}
 
 % uncomment below before submission
 \input{../tables/timeline-senior-1.tex}
 
 \input{../tables/timeline.tex}
 
-\subsection{Anticipated risks}
+\section{Anticipated risks}
 
 \begin{center}
     \begin{xltabular}{\textwidth}{ X X X }

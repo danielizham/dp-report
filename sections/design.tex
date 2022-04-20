@@ -139,9 +139,9 @@ and apply the \gls{drl} model.
             \raisebox{-0.9\height}
             {\includegraphics[width=1.8cm]{zbar.png}}
                 & A software suite capable of reading widely-used
-                symbologies including QR code. Its Python binding
+                symbologies including \qr code. Its Python binding
                 Pyzbar is used as a library in this project to
-                detect the QR codes of the targets. \\ 
+                detect the \qr codes of the targets. \\ 
                 \addlinespace
 		Python Flask
 		& 
@@ -201,9 +201,9 @@ program looks like.
 \end{figure}
 
 For the object detection model, the Pyzbar library was used to detect
-the QR codes of the targets.
+the \qr codes of the targets.
 It has an accuracy of up to 90\% in good conditions but can be as
-low as 30\% when the QR code is damaged due to an error in photo
+low as 30\% when the \qr code is damaged due to an error in photo
 capturing and processing~\cite{dynamsoft}.
 
 For the application software, Parrot Olympe 
@@ -230,40 +230,48 @@ which will be the Parrot \anafi.
 \Cref{tab:hardware-used} lists the hardware components
 used in this project and their justifications. This quad-copter
 drone is powerful because it combines many technologies 
-and sensors in a small foldable size. It also it has 4K HDR Camera supported 
-with 180 degree gimbal. 
+and sensors in a small foldable size. It also it has 4\textsc{k}
+\textsc{hdr} Camera supported with 180 degree gimbal. 
 There are seven sensors in total inside the drone which are shown in 
 \cref{tab:sensors-table} 
 
 
-\begin{table}[H]
+\begin{table}[tbp]
 	\centering
 	\caption{Processor and sensors inside the drone}
 	\label{tab:sensors-table}  
 	\begin{tabular}{ p{4cm} p{8cm} }
 		\toprule
-		\textit{Part Name} 
-		& \textit{used for}  \\ 
+		\textit{Part name} 
+		& \textit{Used for}  \\ 
 		
 		\midrule
-		Ambarella H22 
+		\raggedright Ambarella H22 
 		processor
-		& powerful Quad-core ARM® Cortex™ - capable of dealing with sensors and video I/O , 
-		image processing , video encoding , interfacing \\ 
+		& powerful Quad-core ARM® Cortex™ - capable of dealing with sensors and video I/O, 
+		image processing, video encoding, interfacing \\ 
+                \addlinespace
 		3-axis gyroscope
 		& measure the orientation and angular velocity  \\ 
+                \addlinespace
 		3-axis accelerometer
 		& measure the acceleration in 3 dimensions  \\ 
-		magnetometer 
+                \addlinespace
+		Magnetometer 
 		& measure the Earth's magnetic field to know the orientation and the heading   \\ 
-				barometer 
+                \addlinespace
+				Barometer 
 		& measure atmospheric pressure change to control flight height   \\ 
+                \addlinespace
 				GPS 
 		& determine the location of the drone and navigation  \\ 
+                \addlinespace
 				Ultrasonar 
 		&  height measurement for small height less than 5 meters  \\ 
+                \addlinespace
 				Vertical camera 
 		&  measuring horizontal speed and height using optical flow \\ 
+                \addlinespace
         \bottomrule
     \end{tabular}
 \end{table}   
@@ -344,7 +352,7 @@ a design that will help the airflow go through and keep
 the ventilation process, and this is why we have 
 the holes in the case design.   
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.9\textwidth]{3d-model-design.png}
 	\caption{3D design of the onboard computer case.}
@@ -419,7 +427,8 @@ the holes in the case design.
 \subsection{Hardware design}
 
 \subsubsection{UAV options}
-\begin{table}[H]
+
+\begin{table}[tbp]
 	\centering
 	\caption{A comparison of the \gls{uav} options.}
 	\label{tab:alt-solutions}
@@ -474,7 +483,7 @@ to be the best option since it has advantages
 in specifications, connection interfaces, 
 and availability.
 
-\begin{table}[H]
+\begin{table}[tbp]
 	\centering
 	\caption{A comparison of the onboard computers.}
 	\label{tab:onboard-computers}  
@@ -507,38 +516,61 @@ and availability.
 \end{table}
 
 \subsubsection{Power Supply options}
+
 As shown in \cref{tab:power-sources}, there are different options for
 the raspberry pi power sources, we have chosen the second option
 RPI pack because it is a complete package and lightweight compared 
 to other options; availability was also another primary concern. 
-\begin{table}[H]
+
+\begin{table}[tbp]
 	\centering
-	\caption{A comparison of the Power-supply sources for RPI4.}
+	\caption{A comparison of the power-supply sources for the
+        Raspberry Pi.}
 	\label{tab:power-sources}  
-	\begin{tabular}{ p{3cm} p{4cm} p{4cm} p{4cm} }
-		\toprule
-		\textit{} & \textit{UPS HAT Stable \& Lithium ion battery} & 
-		\textit{RPI-ups-pack Lithium polymer battery} & \textit{Power bank}\\ \midrule
-				Weight & 80g & 70g & 1.2kg \\ \addlinespace
-				Voltage,current & 5V 3.5A  & 5V 3.5A &  5V 3.5A\\ \addlinespace
+	\begin{tabular}{ L{3cm} L{4cm} L{4cm} L{4cm} }
+            \toprule
+
+            \textit{} & \textit{\textsc{ups hat} Stable \& Lithium
+            ion battery} & 
+            \textit{\textsc{rpi-ups}-pack Lithium polymer battery}
+            & \textit{Power bank}\\ 
+
+            \midrule
+
+            Weight & 80\,g & 70\,g & 1.2\,kg 
+            \\ \addlinespace
+
+            Voltage,current & 5\,V 3.5\,A  & 5\,V 3.5\,A &  5\,V 3.5\,A
+            \\ \addlinespace
 				
-				Price \& Availability & \qar{100}.board available online without batteries & 
-				\qar{80}. Available online with battery included & \qar{60}. available 
-				locally\\ \addlinespace
-				Charging duration  & longer & fast & longer \\ \addlinespace	
-				Picture & \begin{minipage}{.2\textwidth}
-					\includegraphics[width=40mm, height=30mm]{ion-battery-ups-haT.png}
-				\end{minipage}  & \begin{minipage}{.2\textwidth}
-					\includegraphics[width=40mm, height=30mm]{rpi-ups-pack.png}
-				\end{minipage} & \begin{minipage}{.2\textwidth}
-					\includegraphics[width=40mm, height=30mm]{power-banks.png}
-				\end{minipage} \\
-				\bottomrule
-			\end{tabular}
-		\end{table}
+            Price \& Availability 
+            & \textsc{qar}\,100. Board available online without
+            batteries 
+            & \textsc{qar}\,80. Available online with battery included 
+            & \textsc{qar}\,60. Available locally 
+            \\ \addlinespace
 
+            Charging duration & Long & Short & Long 
+            \\ \addlinespace	
 
-	
+            Picture & 
+            \begin{minipage}{.2\textwidth}
+                \includegraphics[width=40mm,
+                height=30mm]{ion-battery-ups-haT.png}
+            \end{minipage}  & 
+            \begin{minipage}{.2\textwidth}
+                \includegraphics[width=40mm,
+                height=30mm]{rpi-ups-pack.png}
+            \end{minipage} & 
+            \begin{minipage}{.2\textwidth}
+                \includegraphics[width=40mm,
+                height=30mm]{power-banks.png}
+            \end{minipage} 
+            \\
+
+            \bottomrule
+        \end{tabular}
+\end{table}
 
 \subsection{Software design}
 
@@ -606,7 +638,7 @@ the environment resulting in the environment
 rewarding the agent for taking the action in that state
 and then replying to it with a next state.
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{rl-flowchart}
 	\caption{The interaction between the agent and environment
@@ -644,11 +676,12 @@ the detected targets,
 of which only the previously not encountered ones during 
 the episode are counted towards the reward.
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{target-3}
-	\caption{Example of a target with ID 3 in the environment. The QR code
-		embedding the ID information covers the top side of the target.}
+        \caption{An example of a target with \id 3 in the environment.
+        The \qr code embedding the \id information covers the top side
+        of the target.}
 	\label{fig:target}
 \end{figure}
 
@@ -677,7 +710,7 @@ episode,
 then the vector will have elements of one for $I_3$ and $I_7$ while
 the other elements are zeros.
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{grid}
 	\caption{The environment of the agent with its ground
@@ -708,8 +741,9 @@ and supports cross languages.
 \begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=0.9\textwidth]{gui-environments} 
-	\caption{shows the interactions between software components that were included to 
-		build the web-based \textsc{gui}.}
+        \caption{A flowchart showing the interactions between software
+        components that were included to build the web-based
+        \textsc{gui}.}
 	\label{fig:gui-environments}  
 \end{figure}
 
