@@ -14,9 +14,10 @@ dongle. The built-in camera of the drone is used to
 take pictures of the targets and the Wi-Fi dongle
 is used to communicate with the command and control
 system, which sends high-level commands whenever the
-connection is present. An object detection model trained
-using RoboFlow detects and identifies the targets in the
-pictures. In addition, a \gls{drl} agent is trained 
+connection is present. 
+An object detection model called Pyzbar detects and identifies the
+targets in the pictures. 
+In addition, a \gls{drl} agent is trained 
 in a cyber-physical simulator called Sphinx to
 visit virtual targets having the same mobility pattern as the
 real ones.
@@ -53,9 +54,8 @@ to adjust settings, execute scripts, and get
 live updates and results. 
 Finally, there are multiple moving targets 
 in the target section. For example, 
-\gls{rc} cars are controlled manually and move in 
-a specific mobility pattern with varying directions 
-and destinations. 
+in this project, \textsc{ev}3 robots are programmed with specific
+mobility pattern to represent the moving targets.
 In the next section, hardware and software components 
 will be presented in a more detailed manner.
 
@@ -75,7 +75,7 @@ depending on the usage: simulation, training,
 and application, and they are listed in \cref{tab:software-used}. The first part will focus on 
 simulating the environment, testing the models, 
 and flight control. Before discussing the software 
-to be used, we have selected Ubuntu 18.04 (Bionic Beaver) 
+to be used, we have selected Ubuntu 20.04 (Focal Fossa) 
 as an operating system for several reasons. 
 One key reason is that in addition to
 still being supported, it is compatible with the 
