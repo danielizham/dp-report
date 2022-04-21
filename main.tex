@@ -96,6 +96,11 @@ hmargin=2.54cm]{geometry}
 \usepackage{cancel} % to use diagonal strikethrough to zero
 \usepackage{physics} % to use absolute and norm (for vectors) symbols
 \usepackage{array}
+\newcolumntype{L}[1]{%
+    >{%
+    \raggedright\let\newline\\\arraybackslash\hspace{0pt}%
+    }p{#1}%
+}
 \usepackage{tabularx}
 \usepackage{calc}
 \usepackage{microtype}
@@ -186,6 +191,7 @@ hmargin=2.54cm]{geometry}
 \newcommand{\gym}{the \textsc{o}pen\textsc{ai} 
     \textsc{g}ym\xspace} 
 \newcommand{\id}{\textsc{id}\xspace} 
+\newcommand{\qr}{\textsc{qr}\xspace} 
 \newcommand{\uav}{\gls{uav}\xspace}
 \newcommand{\Uav}{\Gls{uav}\xspace}
 \newcommand{\uavs}{\glspl{uav}\xspace}
@@ -303,6 +309,13 @@ hmargin=2.54cm]{geometry}
 \patchcmd{\@xsect}{\ignorespaces}{\linenumbers\ignorespaces}{}{}
 \makeatother
 
+\section{Project Outcomes}
+
+Part of this report has been published as an article in the
+\textsc{qu} Research Magazine and as an accepted manuscript for the
+International Wireless Communications \& Mobile Computing Conference
+(\textsc{iwcmc} 2022) with \id 1570797868.
+
 \section{Introduction and Motivation} \label{sec:intro}
 \subfile{sections/introduction}
 
@@ -342,7 +355,7 @@ hmargin=2.54cm]{geometry}
 \newpage
 
 \begin{appendices}
-    \section{Project Plan} \label{sec:plan}
+    % \section{Project Plan} \label{sec:plan}
     \subfile{sections/plan}
 \end{appendices}
 
