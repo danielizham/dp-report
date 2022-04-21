@@ -26,16 +26,16 @@ as an onboard computer to the \anafi drone and instructs
 it where to move to cover the targets in a minimum amount
 of time.
 
-The following subsections will
-explain in more detail why this solution is chosen
-and what the integral components are.
-
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.9\textwidth]{solution-diagram}
 	\caption{A general overview of the solution.}
 	\label{fig:solution-overview}
 \end{figure}
+
+The following subsections will
+explain in more detail why this solution is chosen
+and what the integral components are.
 
 \subsection{High level architecture}
 
@@ -59,7 +59,7 @@ mobility pattern to represent the moving targets.
 In the next section, hardware and software components 
 will be presented in a more detailed manner.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
     \centering
     \includegraphics[width=0.9\textwidth]{high-level-arch.pdf}
     \caption{The high-level architecture of the overall system.}
@@ -230,10 +230,10 @@ which will be the Parrot \anafi.
 \Cref{tab:hardware-used} lists the hardware components
 used in this project and their justifications. This quad-copter
 drone is powerful because it combines many technologies 
-and sensors in a small foldable size. It also it has 4\textsc{k}
-\textsc{hdr} Camera supported with 180 degree gimbal. 
-There are seven sensors in total inside the drone which are shown in 
-\cref{tab:sensors-table} 
+and sensors in a small foldable size. It also has 4\textsc{k}
+\textsc{hdr} camera supported with 180 degree gimbal. 
+There are seven sensors in total inside the drone which are listed in 
+\cref{tab:sensors-table}. 
 
 
 \begin{table}[tbp]
@@ -426,7 +426,7 @@ the holes in the case design.
 
 \subsection{Hardware design}
 
-\subsubsection{UAV options}
+\subsubsection{\textsc{Uav} options}
 
 \begin{table}[tbp]
 	\centering
@@ -642,7 +642,7 @@ and then replying to it with a next state.
 	\centering
 	\includegraphics[width=0.8\textwidth]{rl-flowchart}
 	\caption{The interaction between the agent and environment
-        in \gls{rl} \cite{Sut20}.}
+        in \gls{rl} (reproduced for ease of reference) \cite{Sut20}.}
 	\label{fig:rl}
 \end{figure}
 
@@ -733,9 +733,9 @@ We relied on a web server gateway interface (\textsc{wsgi}) \textsc{http}
 server called Gunicorn which can forward requests to other web applications 
 and frameworks that are written in Python.
 Nginx is used as a reverse proxy server to ensure the smooth flow 
-of traffic in the network. ZeroMQ was used to stream live videos from the 
+of traffic in the network. Zero\textsc{mq} was used to stream live videos from the 
 Parrot Olympe framework to the flask web application using tcp/ip protocol. 
-We used ZeroMQ because it is fast and lightweight. Also it is cross platform
+We used Zero\textsc{mq} because it is fast and lightweight. Also it is cross platform
 and supports cross languages.
 
 \begin{figure}[tbp] 

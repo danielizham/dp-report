@@ -93,6 +93,7 @@ and share live video feed. We fixed the command and control system and moved
 the drone away from it, then for every 3 meters, we have 
 measured the Signal-to-noise ratio (\textsc{snr}).
 We have repeated this experiment three times to get the average maximum range.
+
 From the results shown in~\cref{fig:snr-vs-distance}, after 117 meters 
 the command and control system disconnects from the Raspberry Pi
 and the video stream stops. Disconnecting is not a major issue
@@ -103,7 +104,7 @@ at anytime.
  
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=5in]{snr}
+	\includegraphics[width=0.7\textwidth]{snr}
         \caption{Average \textsc{snr} vs Distance}
 	\label{fig:snr-vs-distance}
 \end{figure}
@@ -119,6 +120,13 @@ the same actions without video streaming so that
 we can see its effect on power consumption. 
 All the batteries were charged fully, and the timer 
 script stops when the battery percent reaches zero. 
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{battries-time}
+	\caption{Battery's lifetime comparison.}
+	\label{fig:time-comparison}
+\end{figure}
 
 First, as we predicted 
 the maximum time reached is when both the drone and 
@@ -185,13 +193,6 @@ when both actions have the same probability.
 	\label{eq:Energy-moving}
 \end{align}
 
-\begin{figure}[tbp]
-	\centering
-	\includegraphics[width=5in]{battries-time}
-	\caption{Battery's lifetime comparison.}
-	\label{fig:time-comparison}
-\end{figure}
-
 \subsubsection{Response time}
 
 We have done another experiment regarding the response time 
@@ -201,7 +202,7 @@ sending the command and stopping it when the
 state of the drone changes. 
 The experiment was done on simulation using Sphinx,
 then we moved to the real world using the \anafi drone.
-From \cref{tab:respone-time}, 
+From \cref{tab:response-time}, 
 we can see that all the results are less than \SI{1}{second}
 which satisfied our response time constraint.
 Another point we can conclude from the table is that 
@@ -212,7 +213,7 @@ depends on the \textsc{gpu} power and processing time.
 \begin{table}[tbp]
 	\centering
 	\caption{The average response time of the drone after sending a control command.}
-	\label{tab:respone-time}
+	\label{tab:response-time}
 	\begin{tabularx}{0.7\textwidth}{ X c c }
 		\toprule
 		\textit{} & \textit{Simulation} & \textit{Real-world}\\ \midrule
@@ -235,7 +236,15 @@ battery drain that went from
 \SI{1.5}{minutes}. This is because the propeller motors will try to push 
 their limits to take off the drone, which will consume more energy.
 After adding payload to the drone at \SI{200}{grams}, the drone could not
-takeoff, and we now know the payload limit for the takeoff. 
+take off, and we now know the payload limit for the take off. 
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{payload.png}
+	\caption{The total weight of test payload}
+	\label{fig:payload}
+\end{figure} 
+
 We noticed that the drone movement
 is not normal when the payload exceeds \SI{180}{grams} 
 so we considered that and changed
@@ -246,21 +255,17 @@ The drone movement was bad, so we removed the 3D printed
 parts to reduce the weight to \SI{172}{grams}, 
 which makes the movement now smooth and stable.
 
-\begin{figure}[btp]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{payload.png}
-	\caption{The total weight of test payload}
-	\label{fig:payload}
-\end{figure} 
-
-\begin{figure}[tbp]
-	\centering
-	\includegraphics[width=0.4\textwidth]{totalweight.jpg}
+	\includegraphics[width=0.3\textwidth]{totalweight.jpg}
 	\caption{The total weight of actual payload}
 	\label{fig:actual-total-weight}
 \end{figure} 
 
-\subsubsection{\textsc{rl} training}
+\subsubsection{\textsc{Rl} training}
+
+\Cref{tab:rl-testing-summary} provides information about the results
+of the unit testing for the simulation and \gls{rl}.
 
 \begin{table}[tbp]
     \centering
@@ -326,8 +331,8 @@ due to several reasons. Firstly, the
 targets kept changing positions from episode to episode.
 Secondly, the softmax output layer of the PPO still produced 
 a healthy amount
-of exploration away from the targets in some episodes,
-and finally, the imperfection in the object detection model made
+of exploration away from the targets in some episodes.
+Finally, the imperfection in the object detection model made
 the agent unable to collect the reward it has received. 
 % thinks it moved to a wrong cell when it actually
 % did not.
@@ -401,7 +406,7 @@ fixed-targets training.
         \label{fig:episode-lengths-mobile}
 \end{figure}
 
-\subsubsection{\textsc{rl} model performance}
+\subsubsection{\textsc{Rl} model performance}
 
 In order to verify the advantages of an \gls{rl}-trained drone
 in the target visitation mission, we compared it with
@@ -523,15 +528,13 @@ E_{\text{hover,tot}} &=
 
 The results for the fixed-targets mission are presented as bar charts in 
 \cref{fig:time-plot-fixed} and \cref{fig:energy-plot-fixed}.
-Both of the plots indicate that the \gls{rl} agent completed
-the mission in the shortest time and least energy, followed
-by the Zigzag2 since it started in an area 
-where the probability
-distribution of the targets is the highest.
-In fact, the \gls{rl} agent is about twice as fast and twice
+Both indicate that the \gls{rl} agent completed
+the mission in the least time and energy, followed by the
+Zigzag2 which started where the targets were most concentrated.
+In fact, the \gls{rl} agent was about twice as fast and twice
 as energy-saving as Zigzag2.
 
-\begin{figure}[btp]
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=0.8\textwidth]{time-plot-fixed}
 	\caption{The time taken by each technique
@@ -540,7 +543,7 @@ as energy-saving as Zigzag2.
         \label{fig:time-plot-fixed}
 \end{figure}
 
-\begin{figure}[tbp]
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=0.8\textwidth]{energy-plot-fixed}
 	\caption{The energy consumed by each technique
@@ -573,16 +576,7 @@ Zigzag2 started from cell 25, and by the time it took it to reach
 cell 1, the moving targets had already got to their north-west
 destination corner and moved within the cell 1 only.
 
-In contrast, Zigzag1 started from cell 1 and in the first round it
-missed the moving targets as they moved to the cells already covered
-by the Zigzag1 agent.
-Therefore, it had to restart scanning in reverse before it
-covered all the targets making it much slower than Zigzag2.
-As expected, the random agent performed the worst as it did not follow
-any particular strategy to visit the targets. It only relied on
-chances.
-
-\begin{figure}[tbp]
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=0.8\textwidth]{time-plot-mobile}
 	\caption{The time taken by each technique
@@ -591,7 +585,7 @@ chances.
         \label{fig:time-plot-mobile}
 \end{figure}
 
-\begin{figure}[tbp]
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=0.8\textwidth]{energy-plot-mobile}
 	\caption{The energy consumed by each technique
@@ -599,6 +593,15 @@ chances.
     median.}
         \label{fig:energy-plot-mobile}
 \end{figure}
+
+In contrast, Zigzag1 started from cell 1 and in the first round it
+missed the moving targets as they moved to the cells already covered
+by the Zigzag1 agent.
+Therefore, it had to restart scanning in reverse before it
+covered all the targets making it much slower than Zigzag2.
+As expected, the random agent performed the worst as it did not follow
+any particular strategy to visit the targets. It only relied on
+chances.
 
 \subsubsection{Drone's height}
 
@@ -681,7 +684,8 @@ all requirements were met and the website worked in a user-friendly way.
 \subsection{Integration testing}
 
 This section will discuss the results of the real-world experiments,
-the challenges we faced (\cref{tab:integration-challenges}), and
+the challenges we faced (\cref{tab:integration-challenges} at the end
+of this section), and
 how we resolved them.
 
 \subsubsection{Environment}
@@ -722,7 +726,7 @@ The drone moved to the cells without any issue,
 and the detection tool started to analyze 
 the video feed to detect the \textsc{qr} codes.
 
-The results is shown in \cref{fig:detection-camera}, 
+The results are shown in \cref{fig:detection-camera}, 
 and the detection tool detected all the targets correctly 
 without any missing targets. Also, some challenges 
 in the movement have been resolved and listed in 
@@ -802,21 +806,21 @@ discussed in \cref{tab:integration-challenges}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{mobile-targets-real-experiment.png}
+	\includegraphics[width=0.75\textwidth]{mobile-targets-real-experiment.png}
 	\caption{The setup for the mobile targets}
 	\label{fig:mobile-targets-real-experiment}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{fixed-mobile-expriment.png}
+	\includegraphics[width=0.75\textwidth]{fixed-mobile-expriment.png}
 	\caption{The results of the fixed-targets}
 	\label{fig:fixed-mobile-experiment}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{mobile-targets-detection.png}
+	\includegraphics[width=0.75\textwidth]{mobile-targets-detection.png}
 	\caption{The results of the mobile-targets}
 	\label{fig:mobile-expriment-detection}
 \end{figure}

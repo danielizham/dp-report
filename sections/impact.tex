@@ -9,17 +9,16 @@
     \theimpactcounter\stepcounter{impactcounter}%
 }
 
-Our project has a many impacts and implications on different contexts, mainly 
+Our project has many impacts and implications on different contexts, mainly 
 the global, public, economical, environmental and social context. Further 
-explanations about the different constraints are mentioned in 
-\cref{tab:impact}.
+explanations about these are mentioned in~\cref{tab:impact}.
 
-\begin{table}[H]
-    \centering
-    \caption{Impact of the engineered solution on 
-    different contexts.}
-    \label{tab:impact}
- \begin{tabularx}{\textwidth}{ c p{2.5cm} X X }
+\begin{center}
+    \begin{xltabular}{\textwidth}{ c L{2.5cm} X X }
+        \caption{Impact of the engineered solution on 
+        different contexts.}
+        \label{tab:impact} \\
+
 	\toprule
 	\textit{No} 
 	& \textit{Constraint} 
@@ -27,57 +26,99 @@ explanations about the different constraints are mentioned in
 	& \textit{Justification of the design’s impact} \\
 	
 	\midrule
+        \endfirsthead
+
+        \caption[]{Impact of the engineered solution on 
+        different contexts (continued)} \\
+
+	\toprule
+	\textit{No} 
+	& \textit{Constraint} 
+	& \textit{Relevance to the design} 
+	& \textit{Justification of the design’s impact} \\
+	
+	\midrule
+        \endhead
 	
 	\showimpactcounter
 	& Public Health, Safety, and Welfare
-	& The idea of using \gls{rl} for target monitoring based on a mobility 
-	pattern can further enhance home security. Also, \gls{rl} could be used to 
-	monitor the security of large areas such as country borders.
-	& People who live in vulnerable countries and unsafe neighborhoods could
-	benefit a lot from our ideas and work as it can increase their safety 
-	levels. \\
+        & Our solution can help track criminals' locations and
+        identify illegal immigration across the border thus enhancing
+        home security. 
+        & We can use the \gls{ml} part of our framework to detect
+        human movements and even identify the suspect based on his
+        facial composite. 
+        The \gls{rl} will then be trained based on the common
+        movements of criminals or illegal immigrants and thus will
+        tell the drone where to fly the most effectively.
+        Through monitoring the camera feed, the person in-charge can
+        take the necessary actions.
+        \\ \addlinespace
 	
 	\showimpactcounter
 	& Global Implications
-	& Many existing techniques for target visitation in numerous different 
-	fields could be replaced by \gls{rl} due to its proven high efficiency. 
-	& The idea of this project could revolutionize the target 
-	visitation issue. Moreover, our project contributes to the 
-	research in the autonomous drone field, which is a revolutionary field 
-	by itself and further studies could be built upon our ideas. \\
-	
+        & Much of the current research for target visitation can be
+        revolutionized based on our project, and so can the applications
+        that they the studies are concerned with.
+	& The techniques used in the different fields could be
+        replaced by \gls{rl} the way shown in this project due to its
+        proven high efficiency compared to a scanning technique such
+        as the zig-zag. 
+        \\ \addlinespace
 	
 	\showimpactcounter
 	& Cultural Implications 
-	& N/A
-	& N/A \\
+        & The solution provided may be used to raise awareness in
+        fields such as traffic safety through detecting and penalizing
+        bad drivers' behaviors by monitoring and tracking mobile
+        vehicles on the highway.
+        & Using AI technologies may help detect, track and discover
+        reckless drivers' behavior through smart navigation. 
+        Also, visual simulation may potentially reduce cost and time
+        required for such monitoring.
+        \\ \addlinespace
 	
 	\showimpactcounter
 	& Social Implications
-	& Object detection is a sub-part of our project, and such object detction 
-	models can be deployed within local neighborhoods which can result in 
-	behavioral improvements.
-	& A person's actions can change severely when they know they are being 
-	watched, these behavioral changes are more likely to be positive. \\ 
+	& A part of this project can help regulate behavior in public
+        places or high-risk areas, for example, around a football
+        stadium during or after a match.
+        A person's actions can change positively when they know they are
+        being watched, which can be done using our drone.
+        & Object detection is a sub-part of our project, and such
+        object detection model can be trained to detect inappropriate
+        types of behavior.
+        The \gls{rl} model can be trained to fly to strategic
+        locations that will capture each and every portion of the area
+        of interest with a minimal delay between two subsequent
+        visitations of the same area.
+        \\ \addlinespace
 	
 	\showimpactcounter
 	& Environmental Factors
-	& The object detection model could be retrained to detect some 
-	type of endangered animals. Also, their movement can be studied and 
-	learned by an \gls{rl} model. 
-	& Tracking and studying the migration habits of these animals could save 
-	them and help keep the environmental equilibrium.  \\
+        & The solution of this project can aid in tracking and
+        studying the migration habits of animals which could save them
+        and maintain the ecological equilibrium.
+        & The object detection model could be retrained to detect some
+        type of endangered animals. 
+        Also, their movement can be studied and learned by an \gls{rl}
+        model.
+        \\ \addlinespace
 	
 	\showimpactcounter
 	& Economic Factors  
-	& Autonomous \glspl{uav} can increase security in large areas and replace 
-	human beings who work long hours just to be present in a few locations. 
-	& Increased security can have a huge economic benefit. The autonomous 
-	drones field might end some jobs but it will surely create numerous new 
-	ones.\\     
+        & Increased security can have a huge economic benefit by
+        avoiding the high cost of a security breach. 
+        Moreover, the autonomous drones field might end some jobs but
+        it will surely create numerous new ones.
+	& Our framework for an autonomous \glspl{uav} for target
+        visitation can enable companies to extend their capabilities
+        and thus increase their workforce.
+        This will directly lead to more job openings.
+        \\ \addlinespace
 	
 	\bottomrule		
-\end{tabularx}
-\end{table}
+    \end{xltabular}
+\end{center}
 
 \end{document}

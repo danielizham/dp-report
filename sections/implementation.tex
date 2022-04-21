@@ -43,7 +43,7 @@ and make sure it's one solid piece.
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=0.8\textwidth]{connection.png}
+	\includegraphics[width=0.7\textwidth]{connection.png}
 	\caption{The Raspberry Pi and power board connection.}
 	\label{fig:connection}
 \end{figure}  
@@ -52,38 +52,42 @@ Since all the components are available as shown
 in \cref{fig:components}, we could assemble 
 all the parts in one piece and started testing the whole system.
 We have used the zip tie to hold the components and to
-make sure everything sticks together. Then we put them in the 3d
+make sure everything sticks together. Then we put them in the 3D
 printed case. As shown in 
 \cref{fig:full-hardware}, all the parts are in one system. 
-While testing it, the drone struggled to take off and balance itself
-because the total weight exceeded the limit. So we
-only used the ones that are marked with a green dot in
-\cref{fig:printed-parts} leaving only the parts shown in
-\cref{fig:components} and the weight reduced to
-\SI{193}{grams}. 
-Now the drone take-off is normal, but the drone faces difficulty moving normally, so we removed all 3D parts, and now the drone moves normally.
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=0.8\textwidth]{parts.jpg}
-	\caption{3D printed parts \& on-board computer}
-	\label{fig:printed-parts}
-\end{figure} 
-
-\begin{figure}[tbp]
-	\centering
-	\includegraphics[width=0.8\textwidth]{components.jpg}
+	\includegraphics[width=0.7\textwidth]{components.jpg}
 	\caption{All components needed.}
 	\label{fig:components}
 \end{figure}
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=0.8\textwidth]{fulldronehardware.png}
+	\includegraphics[width=0.7\textwidth]{fulldronehardware.png}
 	\caption{Full hardware system.}
 	\label{fig:full-hardware}
 \end{figure}  
 
+While testing it, the drone struggled to take off and balance itself
+because the total weight exceeded the limit. So, we
+only used the ones that are marked with a green dot in
+\cref{fig:printed-parts}. 
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{parts.jpg}
+	\caption{3D printed parts \& on-board computer}
+	\label{fig:printed-parts}
+\end{figure} 
+
+As a result, the weight reduced to \SI{193}{grams}. 
+At this point the drone took off normally, but still the drone faced
+difficulty moving horizontally. 
+So, we removed all 3D parts leaving only the parts shown in
+\cref{fig:components}, and finally the drone moved correctly.
+ 
 \subsection{Reinforcement learning}
 
 \subsubsection{Algorithm}
@@ -106,7 +110,7 @@ which adds advantage normalization and value function clipping%
 Both of these additional features contribute further to the stability
 of the training.
 
-\begin{table}[tbp]
+\begin{table}[tb]
     \centering
     \caption{The main features of \gls{ppo} and their brief
     descriptions~\cite{ppo}.}
@@ -264,7 +268,7 @@ After every episode, new positions are generated.
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=0.6\textwidth]{target-distribution}
+	\includegraphics[width=0.8\textwidth]{target-distribution}
 	\caption{The distribution of the initial positions of the
             targets in the fixed targets mission. The x-y plane
             corresponds to the ground, and the drone faces the positive
@@ -297,7 +301,7 @@ while mobile targets from the distribution shown in
 
 \begin{figure}[tbp]
 	\centering
-        \includegraphics[width=0.6\textwidth]{fixed-target-distribution}
+        \includegraphics[width=0.8\textwidth]{fixed-target-distribution}
 	\caption{The distribution of the initial positions of the
         fixed targets in the mobile-targets mission.}
 	\label{fig:fixed-position-distribution}
@@ -305,7 +309,7 @@ while mobile targets from the distribution shown in
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=0.6\textwidth]{mobile-target-distribution}
+	\includegraphics[width=0.7\textwidth]{mobile-target-distribution}
 	\caption{The distribution of the initial positions of the
             mobile targets in the mobile-targets mission.}
 	\label{fig:mobile-position-distribution}

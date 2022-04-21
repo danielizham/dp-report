@@ -78,6 +78,9 @@ Based on these, the different use cases are illustrated in
             & In the real mission, the drone should be started when
             the mobile targets are in a state similar to their initial
             states in the prior training and testing.
+            In an experiment on the other hand, the mobile targets can
+            be started manually the same way they do in the
+            simulation.
         \\ \addlinespace
 
         \bottomrule
@@ -123,15 +126,15 @@ the environment within which the drone will fly.
             (\SI{2700}{\milli\ampere\hour} 
             for the \anafi drone and 
             \SI{4000}{\milli\ampere\hour} 
-            for the Raspberry Pi)~\cite{Par19}.  \\
+            for the Raspberry Pi)~\cite{Par19}.  
+            \\ \addlinespace
 
         \raggedright Altitude-cell size relationship 
-            & There is a relationship between the size of the cells
-            used to divide the grid on the ground and the height at
-            which the drone needs to fly at.  In particular, the
-            drone's height determines its \gls{fov} which needs to
-            cover the cell underneath in its entirety but not too much
-            of the surrounding cells. \\
+            & The \gls{fov} of the drone's camera is constrained by
+            the flying altitude. 
+            This relationship affects the design of the cells used for
+            target visitation. 
+            \\ \addlinespace
 
         Flying duration
             & The maximum flying duration is 
@@ -147,7 +150,8 @@ the environment within which the drone will fly.
             this time 
             (the Raspberry Pi can last for 
             \SI{4}{hours} 
-            under normal operations). \\ 
+            under normal operations). 
+            \\ \addlinespace
 
         Response time
             & The time between a command sent by 
@@ -158,14 +162,16 @@ the environment within which the drone will fly.
             below 
             \SI{1}{second}. 
             This is to facilitate real-time monitoring
-            on the command and control station. \\
+            on the command and control station. 
+            \\ \addlinespace
 
         Payload  
             & The Raspberry Pi with its peripherals 
             must not exceed 
             \SI{180}{grams}, 
             which is the maximum payload mass 
-            of the \anafi drone. \\
+            of the \anafi drone.
+            \\ \addlinespace
 
         \gls{drl} model \newline accuracy
             & The most powerful computer at our disposal
@@ -179,7 +185,8 @@ the environment within which the drone will fly.
             at a suboptimal level.
             Moreover, the sampling nature of \gls{rl}
             means that an optimal solution can never be
-            guaranteed. \\
+            guaranteed. 
+            \\ \addlinespace
 
         \bottomrule
     \end{xltabular}
@@ -279,7 +286,10 @@ the environment within which the drone will fly.
 
         3 
             & Cultural Implications 
-                & N/A \\
+                & The solution provided may be used to raise awareness
+                in fields such as traffic safety through detecting and
+                penalizing bad drivers' behaviors by monitoring and
+                tracking mobile vehicles on the highway. \\
                 \addlinespace
         
         4 
