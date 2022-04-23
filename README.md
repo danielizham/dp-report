@@ -34,10 +34,10 @@
    - [x] Hardware (Abdulrahman)
    - [x] RL (Daniel)
    - [x] UI (Bahri)
-- [ ] Testing
+- [x] Testing
    - [x] Hardware (Abdulrahman)
    - [x] RL (Daniel)
-   - [ ] UI (Bahri)
+   - [x] UI (Bahri)
 - [x] Impact (Bahri)
 - [x] Conclusion (Daniel)
 - [x] Future Work
@@ -47,7 +47,7 @@
    - [x] Abdulrahman
    - [x] Bahri
    - [x] Daniel
-- [ ] Appendix - Project Plan
+- [x] Appendix - Project Plan
    - [x] Hardware (Abdulrahman)
    - [x] RL (Daniel)
-   - [ ] UI (Bahri)
+   - [x] UI (Bahri)
