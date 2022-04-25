@@ -1,0 +1,140 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+\begin{table}[H]
+    \centering
+    \caption{Metrics of Pyzbar object detection model in conditions
+    relevant to this project.}
+    \begin{tabularx}{0.73\textwidth}{ X c c c }
+        \toprule
+        \textit{Condition} 
+            & \textit{F1-score} 
+                & \textit{Reading rate (\%)} 
+                    & \textit{Average runtime (ms)} \\
+
+        \midrule
+        
+        Blurred 
+            & 0.56
+            & 38.46
+                & 177.58
+                \\
+        
+        Brightness
+            & 0.72
+            & 51.76
+                & 349.79
+                \\
+        
+        Glare
+            & 0.55
+            & 35.85
+                & 157.30
+                \\
+        
+        Lots
+            & 0.74
+            & 18.10
+                & 1477.57
+                \\
+        
+        Rotations
+            & 0.65
+            & 49.62
+                & 178.45
+                \\
+        
+        \bottomrule		
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Comparison between Pyzbar and Dynamsoft object detection
+    models.}
+    \begin{tabularx}{0.65\textwidth}{ X c c c c }
+        \toprule
+        \multirow{2}{*}{\textit{Condition}}
+            & \multicolumn{2}{c}{\textit{Reading rate (\%)}}
+                & \multicolumn{2}{c}{\textit{Average runtime (ms)}} \\
+                \addlinespace
+
+        
+            & Pyzbar
+            & Dynamsoft
+                & Pyzbar
+                & Dynamsoft \\
+
+        \midrule
+        
+        Blurred 
+            & 38.46
+            & 69.23
+                & 177.58
+                & 298.00
+                \\
+        
+        Brightness
+            & 51.76
+            & 81.18
+                & 349.79
+                & 192.75
+                \\
+        
+        Glare
+            & 35.85
+            & 86.79
+                & 157.30
+                & 104.66
+                \\
+        
+        Lots
+            & 18.10
+            & 60.48
+                & 1477.57
+                & 275.43
+                \\
+        
+        Rotations
+            & 49.62
+            & 99.25
+                & 178.45
+                & 72.11
+                \\
+        
+        \bottomrule		
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Hardware unit testing and its outcome.}
+    \begin{tabularx}{0.57\textwidth}{ X c }
+        \toprule
+        \textit{Test} 
+            & \textit{Met/Not met} \\
+
+        \midrule
+        
+        Connecting to the drone
+            & Met \\
+
+        Maximum communication distance
+            & Met \\
+
+        Flying duration \& batteries
+            & Met \\
+
+        Response time
+            & Met \\
+
+        Payload
+            & Met \\
+        
+        \bottomrule		
+    \end{tabularx}
+\end{table}
+
+\end{document}
