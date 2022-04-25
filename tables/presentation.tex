@@ -6,7 +6,7 @@
 \begin{table}[H]
     \centering
     \caption{Metrics of Pyzbar object detection model in conditions
-    relevant to this project.}
+    relevant to this project~\cite{boofcv}.}
     \begin{tabularx}{0.73\textwidth}{ X c c c }
         \toprule
         \textit{Condition} 
@@ -53,7 +53,7 @@
 \begin{table}[H]
     \centering
     \caption{Comparison between Pyzbar and Dynamsoft object detection
-    models.}
+    models~\cite{dynamsoft,boofcv}.}
     \begin{tabularx}{0.65\textwidth}{ X c c c c }
         \toprule
         \multirow{2}{*}{\textit{Condition}}
@@ -136,5 +136,14 @@
         \bottomrule		
     \end{tabularx}
 \end{table}
+
+\begin{align}
+    F_1 = \frac{2}{ \frac{1}{\text{Recall}} + \frac{1}{\text{Precision}} }
+    = 2 \times \frac{\text{precision} \times
+    \text{recall}}{\text{precision} + \text{recall}}
+    \label{eq:f1} \\
+    \text{Reading rate} = \frac{\text{Detected QR codes}}{\text{Total QR codes}}
+    \label{eq:reading-rate}
+\end{align}
 
 \end{document}
