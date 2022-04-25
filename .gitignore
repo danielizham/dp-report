@@ -1,5 +1,7 @@
 ### Custom ###
 /sections/refs.bib
+/tables/build
+/tables/refs.bib
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
