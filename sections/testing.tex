@@ -43,7 +43,12 @@ simulation and \gls{rl} in~\cref{tab:rl-testing-summary}.
 		\addlinespace
 
 		Response    
-		& Send the command to the drone and measure response time
+                & Send a command to the drone and start a timer.  
+                Wait for a notification from the drone on the
+                successful initialization of the command and stop the
+                timer to obtain the round-trip response time. 
+                No clock synchronization is required since only one
+                timer is used.
 		& Met
 		& \SI{0.1511}{\second}
 		& N/A \\
@@ -197,10 +202,12 @@ when both actions have the same probability.
 
 We have done another experiment regarding the response time 
 of the drone after sending a command to it from the Raspberry Pi. 
-Calculating the response time was by starting a timer when 
-sending the command and stopping it when the 
-state of the drone changes. 
-The experiment was done on simulation using Sphinx,
+Calculating the round-trip response time was by starting a timer when
+sending the command and stopping it when the drone sends back a
+response that the command has started to be executed. 
+Because only one timer is being used which is in the code executed by
+the Raspberry Pi, no time synchronization was required.
+The experiment was done in the simulation using Sphinx,
 then we moved to the real world using the \anafi drone.
 From \cref{tab:response-time}, 
 we can see that all the results are less than \SI{1}{second}

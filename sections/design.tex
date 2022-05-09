@@ -221,8 +221,6 @@ the progress of the drone
 when it is autonomously executing the task visitation
 mission.
 
-
-
 \subsubsection{Hardware}
 
 The main core of the hardware part is the drone, 
@@ -234,7 +232,6 @@ and sensors in a small foldable size. It also has 4\textsc{k}
 \textsc{hdr} camera supported with 180 degree gimbal. 
 There are seven sensors in total inside the drone which are listed in 
 \cref{tab:sensors-table}. 
-
 
 \begin{table}[tbp]
 	\centering
@@ -322,7 +319,6 @@ which is simply a web-based application
 that will allow the user to send the
 control commands and receive the video frames. 
 
-
 Regarding the power source for the Raspberry Pi, 
 we considered taking power directly from the 
 drone's battery, but after some research, we found 
@@ -376,19 +372,20 @@ the holes in the case design.
 		& \begin{minipage}{.1\textwidth}
 			\includegraphics[width=30mm, height=20mm]{anafi.png}
 		\end{minipage} 
-		& Available in the university, can be 
-		controlled easily 
-		with simple Python script, 
-		4K-high resolution camera.  \\ 
+                & It fulfils the design constraints since it uses a
+                battery and hence can be mobile, it has a reasonable
+                flying duration, it can carry a payload equivalent
+                to a Raspberry Pi, and it is within our targeted
+                selling price. \\ 
 		\addlinespace
 		
 		Raspberry Pi 4  
 		& \begin{minipage}{.0\textwidth}
 			\includegraphics[width=30mm, height=20mm]{raspberry.jpg}
 		\end{minipage} 
-		& Specifications are enough for our 
-		application, support Wi-Fi and its 
-		small size and weight is an advantage.\\ 
+                & It meets the design constraints since it supports
+                Wi-Fi and hence can be mobile, and it has small size
+                and weight within the payload of the drone. \\ 
 		\addlinespace
 		
 		\textsc{rpi} \textsc{upsp}ack \textsc{v}3 with 
@@ -397,26 +394,31 @@ the holes in the case design.
 		& \begin{minipage}{.1\textwidth}
 			\includegraphics[width=30mm, height=35mm]{RPI.jpg}
 		\end{minipage}  
-		& Support up to 4 hours which is more 
-		than enough , the board got an \textsc{led} 
-		indicator for charging level also the 
-		weight and shape is an advantage.  \\ 
+                & It fulfils the design constraints because it acts as
+                the power supply for the Raspberry Pi making it
+                mobile, it lasts up to 4 hours which is more than the
+                maximum flying duration of the drone, and its weight
+                and shape are within the payload of the drone.  \\ 
 		\addlinespace
 		
 		Wireless N Nano \textsc{usb} Adapter  
 		& \begin{minipage}{.1\textwidth}
 			\includegraphics[width=28mm, height=28mm]{dongle.jpg}
 		\end{minipage} 
-		& Cheap and do its job, good coverage 
-		range.  \\ 
+                & It meets the design constraints because it is cheap
+                and so it does not affect our targeted selling price,
+                and its speed is fast enough to fulfil the response time
+                between itself and the command-and-control station.  \\ 
 		\addlinespace
 		
 		Laptop 
 		& \begin{minipage}{.1\textwidth}
 			\includegraphics[width=30mm, height=30mm]{laptop.png}
 		\end{minipage} 
-		& Any laptop with good WiFi interface 
-		card will be enough for our case. \\ 
+                & It fulfils the design constraints as a modern laptop
+                has a good Wi-Fi interface card that will meet the
+                response time in communicating with the Raspberry Pi.
+                \\ 
 		\addlinespace
 		
 		\bottomrule
@@ -629,22 +631,15 @@ required methods.
 One of the methods is step() which is contained in
 \cref{fig:sim-flowchart}.
 
-To train a drone using RL requires the
+To train a drone using \gls{rl} requires the
 design of the environment, the agent itself and
-the interaction between them as shown in~\cref{fig:rl}. 
+the interaction between them as shown in~\cref{fig:rl-flowchart}
+in~\cref{sec:background}. 
 The agent, due to being in a certain state, chooses and 
 performs an action on
 the environment resulting in the environment 
 rewarding the agent for taking the action in that state
 and then replying to it with a next state.
-
-\begin{figure}[tbp]
-	\centering
-	\includegraphics[width=0.8\textwidth]{rl-flowchart}
-	\caption{The interaction between the agent and environment
-        in \gls{rl} (reproduced for ease of reference) \cite{Sut20}.}
-	\label{fig:rl}
-\end{figure}
 
 The action space of the agent is defined as a class, and its
 elements call the necessary Olympe functions. 
