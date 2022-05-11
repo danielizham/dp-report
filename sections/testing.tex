@@ -711,9 +711,9 @@ We set up the \textsc{qr} codes, drone, on-board computer, and the
 command-and-control laptop to start testing three experiments in the
 section below.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 	\centering
-	\includegraphics[width=0.9\textwidth]{location.jpg}
+	\includegraphics[width=0.75\textwidth]{location.jpg}
 	\caption{Environment location \& the setup}
 	\label{fig:testing-location}
 \end{figure} 
@@ -733,6 +733,13 @@ The drone moved to the cells without any issue,
 and the detection tool started to analyze 
 the video feed to detect the \textsc{qr} codes.
 
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.75\textwidth]{drone.png}
+	\caption{Drone setup used}
+	\label{fig:experiment-drone}
+\end{figure} 
+
 The results are shown in \cref{fig:detection-camera}, 
 and the detection tool detected all the targets correctly 
 without any missing targets. Also, some challenges 
@@ -740,16 +747,9 @@ in the movement have been resolved and listed in
 the \cref{tab:integration-challenges}. 
 We were then ready to do the main tests.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 	\centering
-	\includegraphics[width=0.7\textwidth]{drone.png}
-	\caption{Drone setup used}
-	\label{fig:experiment-drone}
-\end{figure} 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{detection-camera.png}
+	\includegraphics[width=0.75\textwidth]{detection-camera.png}
 	\caption{Detection results}
 	\label{fig:detection-camera}
 \end{figure}
@@ -775,7 +775,7 @@ went to land at the original take-off cell.
 The whole mission took \SI{35}{seconds} to cover all the targets,
 which is a good number compared to other techniques such as zigzag.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{drone-fixed.png}
 	\caption{The setup for the fixed targets}
@@ -783,7 +783,7 @@ which is a good number compared to other techniques such as zigzag.
 \end{figure}
 
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=1\textwidth]{fixed-targets-detection.png}
 	\caption{Fixed targets visitation results}
@@ -805,8 +805,9 @@ as shown before in \cref{fig:fixed-position-distribution}.
 Firstly, the drone covered all the fixed targets, and one of the 
 results is shown in \cref{fig:fixed-mobile-experiment}. After the 
 drone finished all fixed targets, it went to the mobile targets cells and
-started to detect them. The result in \cref{fig:fixed-mobile-experiment} 
-shows that it detected all the mobile \& fixed targets, 
+started to detect them. The results in
+\cref{fig:fixed-mobile-experiment,fig:mobile-expriment-detection} 
+show that it detected all the mobile and fixed targets, 
 then it went to landing state, since it covered all the fixed and mobile targets.
 There were some challenges in the movement of the robots, which are 
 discussed in \cref{tab:integration-challenges}.
