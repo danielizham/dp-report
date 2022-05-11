@@ -38,7 +38,7 @@ in~\cref{tab:objective-conclusion}.
             targets in the minimum amount of flight time.
             &
             We have used an \anafi drone controlled by the Olympe
-            library as a controller that runs on our laptop that acts
+            library as a controller that runs on our laptop and acts
             as the command and control system.
             The Olympe controls the \anafi drone to track fixed and
             mobile targets in the shortest time according to a trained
@@ -52,7 +52,7 @@ in~\cref{tab:objective-conclusion}.
             &
             We have attached and linked a Raspberry Pi to the \anafi
             drone to act as an onboard computer. 
-            The Olympe library and \gls{rl} model will mainly run in
+            The Olympe library and \gls{rl} model mainly run in
             the Raspberry Pi instead of the laptop to allow the \anafi
             drone to be fully autonomous whenever the connection with
             the laptop is lost.
@@ -123,7 +123,7 @@ in~\cref{tab:objective-conclusion}.
     \end{xltabular}
 \end{center}
 
-The strengths of our solution are due to our use of \gls{rl} in training
+The strengths of our solution are attributable to our use of \gls{rl} in training
 the agent.
 The \gls{rl} allows us to execute a target-visitation mission without
 knowing the targets' locations beforehand as long as the targets'
@@ -133,7 +133,7 @@ It is versatile in a way that any mobility pattern of the targets can
 be theoretically learned by the agent after the agent has been retrained.
 
 On the other hand, our main shortcomings stem from the use of
-simulator and programs that are not fully open-source.
+a simulator and programs that are not fully open-source.
 As a result, many processes such as creating the 3D environment,
 controlling the drone and applying the \gls{rl} algorithm were limited
 because we could not modify the underlying code.
@@ -145,7 +145,7 @@ There are other shortcomings which we have outlined as challenges in
 \cref{sec:future}.
 
 The key contributions of our solution lie in the fact that the framework
-is flexible to cater for target visitation applications beyond what
+is flexible to cater to target visitation applications beyond what
 this project entails.
 The steps remain the same, but things such as the targets' mobility
 pattern, reward function and \gls{rl} algorithm may need to be
