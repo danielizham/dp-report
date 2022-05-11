@@ -20,12 +20,12 @@ of satellites and \csns such as \cctvs.
 While a fixed \textsc{cctv} is good at taking 
 high resolution images and a far away satellite can monitor
 large areas, a \uav can do both equally well without 
-being restricted in location nor image quality. 
+being restricted in location or image quality. 
 In marine biology for instance,  
 the study of interactions between members of a migrating 
 pod of whales can be done using a \uav but not 
-\textsc{cctv}s nor satellites.
-However, micro-drones, which is the most common type of \uavs,
+\textsc{cctv}s or satellites.
+However, micro-drones, which are the most common type of \uavs,
 suffer from limited flight time~\cite{Sha19}. 
 This is especially disadvantageous in
 the mentioned tasks because they require visitation of targets
@@ -43,7 +43,7 @@ a number of reactors and plants within his or her shift.
 The need to do so in the shortest time can be due to restrictions on
 cost, energy or other limited resources of concern.
 This problem is commonly known as the travelling salesman problem
-where historically, a salesman had to make a decision in which order
+where historically, a salesman had to make a decision in order
 to visit a set of cities exactly once to conduct his trade
 in the most time-saving manner.
 Depending on the metric of interest, 
@@ -53,8 +53,7 @@ to find the shortest path between the cities.
 However, in applications where the \uav with a limited
 flight time is used to 
 visit targets which are mobile, the problem is intensified.
-As illustrated in \cref{fig:problem}, this
-is what the project at hand intends to solve.
+As illustrated in \cref{fig:problem}, in order to propose a solution for this problem, this study asks the following question: 
 Given the mobile targets' mobility pattern,
 how do we make a \uav able to visit them
 in the fastest possible time and, in turn, 
@@ -82,7 +81,7 @@ have not been known beforehand.
 Not only that the targets must be detected, 
 but they also need to be uniquely
 identified so that the already visited targets
-can be distinguished from those that are not.
+can be distinguished from those that have not been visited.
 This is a common scenario in various applications. 
 Moreover, this needs to be done in the minimum
 amount of flight time because \uavs use batteries
@@ -101,7 +100,7 @@ with the command and control station in the open
 over a long range makes them susceptible
 to malicious hackers.
 Based on the goal of the project, the main challenge 
-that we will focus on is the autonomous navigation
+that we focused on is the autonomous navigation
 of the drone to visit identifiable and mobile targets in the shortest
 time and energy-saving way.
 % }}}
@@ -127,7 +126,7 @@ The significance of the project is enormous.
 Making a \uav able to intelligently 
 visit mobile targets in the shortest time
 and minimal mechanical energy 
-opens up doors to many existing and new applications
+opens doors to many existing and new applications
 due to the \uav's unique features.
 First of all, the \gls{uav} combines the best features
 from \textsc{cctv}s and satellites.
@@ -148,7 +147,7 @@ flying at a higher altitude
 allows it to avoid 
 many of the surrounding obstacles.
 This makes it more suited for traffic monitoring and last mile delivery
-among others. In the long term, we may see \uavs helping the
+among others. In the long term, we hope to see \uavs helping the
 blind to visit particular destinations or acting as first
 responders to crash sites and crime scenes.
 % }}}
@@ -162,10 +161,9 @@ its stakeholders to be
 those companies, institutions and organizations which
 have certain fixed or mobile subjects of interest 
 that they want to monitor, capture or track.
-By using our solution,
+By using our proposed solution,
 they will be able to make the aforementioned applications
-faster or,
-better yet, possible.
+a reality.
 On the other hand, the absence of this project will mean that
 they will remain
 time-consuming, tedious and expensive
@@ -208,7 +206,7 @@ thus contributing to a healthy economy.
 % {{{ Why do you want to do this project? 
 % # What got you interested in it? 
 % # And how this project will help you further your career goals?
-The project significance even extends to the students
+The project significance even extends to the present students
 on a personal and individual level.
 The prime evidence that has attracted the students to invest
 their energy and time in this project is
@@ -218,7 +216,7 @@ to improve their operations~\cite{Jun17}.
 Target visitation is an important subtask of these, among others.
 Therefore, we believe there is a huge value
 in this project and upon the successful completion of it,
-there will be many doors opening up to us in terms of
+there will be many doors opening to us in terms of
 career opportunities because 
 this technology is in high demand yet, 
 people with the right competency
@@ -240,32 +238,32 @@ by which a cyber-physical simulator is used to train
 a \gls{drl} model. This model will then be used
 to make a \gls{uav} accurately accomplish a
 mobile target visitation task.
-The project's detailed objectives are as follows:
+The specific objectives of the project are as follows:
 
 \begin{enumerate}
     \item \label{obj:overview}
-        Develop a solution composed of a drone and
+        To Develop a solution composed of a drone and
         a command and control system which can be used
         to track fixed and mobile targets in the
-        minimum amount of flight time.
-    \item \label{obj:hardware} Design and integrate 
+        minimum amount of flight time
+    \item \label{obj:hardware} To Design and integrate 
         hardware to enable 
-        intelligence on the drone.
-    \item Develop a command and control system that
+        intelligence on the drone
+    \item To Develop a command and control system that
         is able to provide high-level commands 
-        to the drone.
+        to the drone
     \item \label{obj:machine-learning} 
-        Detect and identify
+        To Detect and identify
         targets when they are visited by the drone
-        using \gls{ml}.
+        using a pre-trained \gls{ml} model
     \item \label{obj:drl} 
-        Minimize the mechanical energy through efficiently
-        navigating the drone by leveraging \gls{rl}.
+        To Minimize the mechanical energy through efficiently
+        navigating the drone by leveraging \gls{rl}
     \item \label{obj:simulation} 
-        Use cyber-physical simulation in the \gls{rl} training
+        To Use cyber-physical simulation in the \gls{rl} training
         to teach the drone how to navigate the targets
         intelligently, and test the navigation in a realistic
-        3D environment before the actual deployment.
+        3D environment before the actual deployment
 \end{enumerate}
 % }}}
 

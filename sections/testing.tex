@@ -43,7 +43,12 @@ simulation and \gls{rl} in~\cref{tab:rl-testing-summary}.
 		\addlinespace
 
 		Response    
-		& Send the command to the drone and measure response time
+                & Send a command to the drone and start a timer.  
+                Wait for a notification from the drone on the
+                successful initialization of the command and stop the
+                timer to obtain the round-trip response time. 
+                No clock synchronization is required since only one
+                timer is used.
 		& Met
 		& \SI{0.1511}{\second}
 		& N/A \\
@@ -189,7 +194,7 @@ when both actions have the same probability.
 \end{align}
 
 \begin{align}
-	E = 2.06t*d
+	E = 2.06t \times d
 	\label{eq:Energy-moving}
 \end{align}
 
@@ -197,10 +202,12 @@ when both actions have the same probability.
 
 We have done another experiment regarding the response time 
 of the drone after sending a command to it from the Raspberry Pi. 
-Calculating the response time was by starting a timer when 
-sending the command and stopping it when the 
-state of the drone changes. 
-The experiment was done on simulation using Sphinx,
+Calculating the round-trip response time was by starting a timer when
+sending the command and stopping it when the drone sends back a
+response that the command has started to be executed. 
+Because only one timer is being used which is in the code executed by
+the Raspberry Pi, no time synchronization was required.
+The experiment was done in the simulation using Sphinx,
 then we moved to the real world using the \anafi drone.
 From \cref{tab:response-time}, 
 we can see that all the results are less than \SI{1}{second}
@@ -238,7 +245,7 @@ their limits to take off the drone, which will consume more energy.
 After adding payload to the drone at \SI{200}{grams}, the drone could not
 take off, and we now know the payload limit for the take off. 
 
-\begin{figure}[tbp]
+\begin{figure}[bp]
 	\centering
 	\includegraphics[width=0.7\textwidth]{payload.png}
 	\caption{The total weight of test payload}
@@ -251,7 +258,7 @@ so we considered that and changed
 the payload constraint. In the actual design, as shown in 
 \cref{fig:actual-total-weight} the total payload 
 is \SI{193}{grams} which is more than the payload constraint. 
-The drone movement was bad, so we removed the 3D printed
+The drone movement was bad, so we removed the 3D-printed
 parts to reduce the weight to \SI{172}{grams}, 
 which makes the movement now smooth and stable.
 
@@ -446,7 +453,7 @@ on the technique used but only
 on the type of action taken. 
 The distances are listed in \cref{tab:distances}.
 
-\begin{table}[tbp]
+\begin{table}[bp]
 \caption{The distances travelled by each action based on
     the grid 25x40m\textsuperscript{2} shown in 
     Fig.~\ref{fig:grid}.}
@@ -704,9 +711,9 @@ We set up the \textsc{qr} codes, drone, on-board computer, and the
 command-and-control laptop to start testing three experiments in the
 section below.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 	\centering
-	\includegraphics[width=0.9\textwidth]{location.jpg}
+	\includegraphics[width=0.75\textwidth]{location.jpg}
 	\caption{Environment location \& the setup}
 	\label{fig:testing-location}
 \end{figure} 
@@ -726,6 +733,13 @@ The drone moved to the cells without any issue,
 and the detection tool started to analyze 
 the video feed to detect the \textsc{qr} codes.
 
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.75\textwidth]{drone.png}
+	\caption{Drone setup used}
+	\label{fig:experiment-drone}
+\end{figure} 
+
 The results are shown in \cref{fig:detection-camera}, 
 and the detection tool detected all the targets correctly 
 without any missing targets. Also, some challenges 
@@ -733,16 +747,9 @@ in the movement have been resolved and listed in
 the \cref{tab:integration-challenges}. 
 We were then ready to do the main tests.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 	\centering
-	\includegraphics[width=0.7\textwidth]{drone.png}
-	\caption{Drone setup used}
-	\label{fig:experiment-drone}
-\end{figure} 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{detection-camera.png}
+	\includegraphics[width=0.75\textwidth]{detection-camera.png}
 	\caption{Detection results}
 	\label{fig:detection-camera}
 \end{figure}
@@ -768,7 +775,7 @@ went to land at the original take-off cell.
 The whole mission took \SI{35}{seconds} to cover all the targets,
 which is a good number compared to other techniques such as zigzag.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{drone-fixed.png}
 	\caption{The setup for the fixed targets}
@@ -776,7 +783,7 @@ which is a good number compared to other techniques such as zigzag.
 \end{figure}
 
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=1\textwidth]{fixed-targets-detection.png}
 	\caption{Fixed targets visitation results}
@@ -798,8 +805,9 @@ as shown before in \cref{fig:fixed-position-distribution}.
 Firstly, the drone covered all the fixed targets, and one of the 
 results is shown in \cref{fig:fixed-mobile-experiment}. After the 
 drone finished all fixed targets, it went to the mobile targets cells and
-started to detect them. The result in \cref{fig:fixed-mobile-experiment} 
-shows that it detected all the mobile \& fixed targets, 
+started to detect them. The results in
+\cref{fig:fixed-mobile-experiment,fig:mobile-expriment-detection} 
+show that it detected all the mobile and fixed targets, 
 then it went to landing state, since it covered all the fixed and mobile targets.
 There were some challenges in the movement of the robots, which are 
 discussed in \cref{tab:integration-challenges}.

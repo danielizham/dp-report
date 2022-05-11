@@ -15,7 +15,7 @@ in a \textsc{usb}~2.0 port in the Raspberry Pi,
 and the \textsc{os} discovered it automatically. 
 There were some challenges in setting up the connection automatically 
 once the Raspberry Pi boots up. We discovered that some packages were not installed properly,
-so we reinstalled the whole system again, and the problems has been addressed. 
+so we reinstalled the whole system again, and the problems have been addressed. 
 
 Regarding the power supply, we were thinking 
 of modifying the drone's battery by removing the 
@@ -35,13 +35,14 @@ followed the instruction of the manufacturer by choosing
 the thickest and shortest possible \textsc{usb} cable to reduce 
 the power loss and voltage drops~\cite{makerfocus}.
 
-As shown in \cref{fig:connection} We have printed the 3d 
-parts, and because we need lightweight and strong parts, 
-we have used \textsc{petg} material with a 45\% fill rate, 
-then we used superglue to stick all the parts together 
-and make sure it's one solid piece.
+As shown in \cref{fig:printed-parts}, we had 3D printed some parts
+that we would make into an enclosure case for the Raspberry Pi. 
+Because we needed lightweight and strong parts, we used
+\textsc{petg} material with a 45\% fill rate. 
+Then, we used superglue to stick all the parts together to make one
+solid case.
 
-\begin{figure}[tbp]
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=0.7\textwidth]{connection.png}
 	\caption{The Raspberry Pi and power board connection.}
@@ -51,19 +52,19 @@ and make sure it's one solid piece.
 Since all the components are available as shown 
 in \cref{fig:components}, we could assemble 
 all the parts in one piece and started testing the whole system.
-We have used the zip tie to hold the components and to
-make sure everything sticks together. Then we put them in the 3D
-printed case. As shown in 
-\cref{fig:full-hardware}, all the parts are in one system. 
+We have used zip ties to secure the components together. 
+Then we put them in the 3D-printed case. 
+As shown in \cref{fig:full-hardware}, all the parts
+are in one system. 
 
-\begin{figure}[tbp]
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=0.7\textwidth]{components.jpg}
 	\caption{All components needed.}
 	\label{fig:components}
 \end{figure}
 
-\begin{figure}[tbp]
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=0.7\textwidth]{fulldronehardware.png}
 	\caption{Full hardware system.}
@@ -78,14 +79,14 @@ only used the ones that are marked with a green dot in
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.7\textwidth]{parts.jpg}
-	\caption{3D printed parts \& on-board computer}
+	\caption{3D-printed parts \& on-board computer}
 	\label{fig:printed-parts}
 \end{figure} 
 
 As a result, the weight reduced to \SI{193}{grams}. 
 At this point the drone took off normally, but still the drone faced
 difficulty moving horizontally. 
-So, we removed all 3D parts leaving only the parts shown in
+So, we removed all 3D-printed enclosure parts leaving only the parts shown in
 \cref{fig:components}, and finally the drone moved correctly.
  
 \subsection{Reinforcement learning}
@@ -196,9 +197,9 @@ compared to if we had used algorithms that are not stable such as
 \gls{dqn} and its variants.
 
 Since there is no tried and true methods to decide on the values of
-the hyperparameters,  we have consulted similar missions such as the frozen
-lake and lunar lander and observe what have worked after thousands of
-trials by the community.
+the hyperparameters,  we have consulted similar missions such as the Frozen
+Lake and Lunar Lander and observe what have worked after thousands of
+trials by the community~\cite{rl-zoo3}.
 The reason the fixed-targets and mobile-targets have different
 hyperparameters is due to the fact that
 most hyperparameters are a trade off between faster learning and a
@@ -265,6 +266,9 @@ The initial positions of the targets are generated from a skewed
 multivariate normal distribution using the Scipy library in Python
 shown in \cref{fig:position-distribution}.
 After every episode, new positions are generated.
+The choice of distribution is arbitrary and can represent any actual
+targets in the real life such as a formation of stationary artillery
+units or a herd of cows grazing a patch of grass in an enclosure.
 
 \begin{figure}[tbp]
 	\centering
@@ -288,11 +292,12 @@ mixed of fixed and mobile targets.
 Finally, we anticipated that the higher the number of mobile targets, the 
 longer the training time. 
 Therefore, training for a mission where all of the targets are mobile
-might not be feasible given our weak computer and the \textsc{sdp}
-timespan.
+might not be feasible given our relatively weak computer and the
+short \textsc{sdp} timespan.
 
-Similar to the fixed-targets mission,
-new positions are generated after every episode.
+Similar to the fixed-targets mission, new positions are generated
+after every episode, and the selection of distributions for the fixed
+and mobile targets is arbitrary.
 The initial positions of the fixed targets are generated from 
 the distribution shown in
 \cref{fig:fixed-position-distribution}
@@ -416,7 +421,9 @@ we have tried to address them.
 \begin{figure}[tbp] 
 	\centering
 	\includegraphics[width=0.8\textwidth]{gui-use-cases} 
-	\caption{This use case diagram depicts the different use cases that any authorized users can have using the website.}
+        \caption{The \textsc{ui}'s use case diagram. It depicts the
+        different use cases that any authorized users can have using
+        the website.}
 	\label{fig:gui-use-cases} 
 \end{figure}
 
